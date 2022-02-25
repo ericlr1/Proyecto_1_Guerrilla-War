@@ -39,3 +39,4 @@ Having trouble with Pages? Check out our [documentation](https://docs.github.com
 **Foto Unicornio Raro**
 
 ![Unicornio raro](https://avatars.githubusercontent.com/u/6541847?v=4)
+[Prueba link](https://ericlr1.github.io/Proyecto_1_Guerrilla-War/page-1-Eric)
