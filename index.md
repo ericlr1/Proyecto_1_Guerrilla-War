@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to
 
 You can use the [editor on GitHub](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
