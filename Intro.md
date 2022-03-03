@@ -18,7 +18,7 @@
 
 1. [Genral analysis]()
 2. [History of the game]()
-3. [Design]()
+3. [Design](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Design.md)
 4. [UI](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/UI.md)
 5. [Audio](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Audio.md)
 6. [Art](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Art.md#art)
