@@ -22,7 +22,7 @@
 4. [UI](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/UI.md)
 5. [Audio](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Audio.md)
 6. [Art](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Art.md#art)
-7. [External links]()
+7. [External links](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/External_Links.md)
 
 
 Go [Up](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/general_analysis.md#general-analysis).
