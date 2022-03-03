@@ -1,6 +1,6 @@
 # **General analysis**
 ## **Page Content**
-1. [Genre]()
+1. [Genre](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/general_analysis.md#genre)
 2. [Symilar Games]()
 3. [Thecnical Profile]()
 4. [History of the game]()
