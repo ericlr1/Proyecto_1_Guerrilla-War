@@ -1,10 +1,10 @@
 # **General analysis**
 ## **Page Content**
-1. [Genre](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/general_analysis.md#genre)
-2. [Symilar Games](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/general_analysis.md#symilar-games)
-3. [Thecnical Profile](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/general_analysis.md#thecnical-profile)
-4. [History of the game](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/general_analysis.md#history-of-the-game)
-5. [Index Content](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/general_analysis.md#index-content)
+1. [Genre](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Intro.md#genre)
+2. [Symilar Games](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Intro.md#symilar-games)
+3. [Thecnical Profile](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Intro.md#thecnical-profile)
+4. [History of the game](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Intro.md#history-of-the-game)
+5. [Index Content](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Intro.md#index-content)
 
 ## **Genre**
 
