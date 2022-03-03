@@ -24,4 +24,5 @@
 
 
 Return [Home](https://ericlr1.github.io/Proyecto_1_Guerrilla-War/) or go[Up](page-content)
+
 We don't own any of the information or images of this wiki. Last Resort and all of the content used for the wiki is a property of SNK. Every piece of content is used and can be used by anyone for non-commercial projects.
