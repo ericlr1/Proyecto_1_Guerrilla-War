@@ -1,8 +1,17 @@
 # **General analysis**
 ## **Page Content**
 1. [Genre]()
-2. [Technical profile]()
-3. [History of the game]()
+2. [Symilar Games]()
+3. [Thecnical Profile]()
+4. [History of the game]()
+
+## **Genre**
+
+## **Symilar Games**
+
+## **Thecnical Profile**
+
+## **History of the game**
 
 ## **Index Content**
 
