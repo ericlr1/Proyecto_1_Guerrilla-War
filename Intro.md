@@ -16,8 +16,8 @@
 
 ## **Index Content**
 
-1. [Genral analysis]()
-2. [History of the game]()
+1. [Genral analysis](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Intro.md)
+2. [History of the game](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/History_of_the_game.md)
 3. [Design](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Design.md)
 4. [UI](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/UI.md)
 5. [Audio](https://github.com/ericlr1/Proyecto_1_Guerrilla-War/blob/gh-pages/Audio.md)
