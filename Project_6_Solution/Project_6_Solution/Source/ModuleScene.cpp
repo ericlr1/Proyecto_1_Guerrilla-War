@@ -27,7 +27,7 @@ bool ModuleScene::Start()
 	App->audio->PlayMusic("Assets/stage1.ogg", 1.0f);
 
 	// Colliders ---
-	App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
+	//App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
 
 	// TODO 2: Add colliders for the first columns of the level
 	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::WALL);
