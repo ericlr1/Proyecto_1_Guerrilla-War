@@ -60,7 +60,8 @@ public:
 	Particle explosion;
 
 	//Template particle for a laser
-	Particle laser;
+	Particle laser;	//Laser a la derecha
+	Particle laserL, laserU, laserD, laserUL, laserUR, laserDL, laserDR;
 };
 
 #endif // !__MODULEPARTICLES_H__

@@ -34,12 +34,66 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
+	//Laser right
 	laser.anim.PushBack({ 232, 103, 16, 12 });
 	laser.anim.PushBack({ 249, 103, 16, 12 });
 	laser.speed.x = 5;
 	laser.lifetime = 180;
 	laser.anim.speed = 0.2f;
 
+	//Laser left
+	laserL.anim.PushBack({ 232, 103, 16, 12 });
+	laserL.anim.PushBack({ 249, 103, 16, 12 });
+	laserL.speed.x = -5;
+	laserL.lifetime = 180;
+	laserL.anim.speed = 0.2f;
+
+	//Laser up
+	laserU.anim.PushBack({ 232, 103, 16, 12 });
+	laserU.anim.PushBack({ 249, 103, 16, 12 });
+	laserU.speed.y = -5;
+	laserU.lifetime = 180;
+	laserU.anim.speed = 0.2f;
+
+	//Laser down
+	laserD.anim.PushBack({ 232, 103, 16, 12 });
+	laserD.anim.PushBack({ 249, 103, 16, 12 });
+	laserD.speed.y = 5;
+	laserD.lifetime = 180;
+	laserD.anim.speed = 0.2f;
+
+	//Laser down-left
+	laserDL.anim.PushBack({ 232, 103, 16, 12 });
+	laserDL.anim.PushBack({ 249, 103, 16, 12 });
+	laserDL.speed.x = -3.5;
+	laserDL.speed.y = 3.5;
+	laserDL.lifetime = 180;
+	laserDL.anim.speed = 0.2f;
+
+	//Laser down-right
+	laserDR.anim.PushBack({ 232, 103, 16, 12 });
+	laserDR.anim.PushBack({ 249, 103, 16, 12 });
+	laserDR.speed.x = 3.5;
+	laserDR.speed.y = 3.5;
+	laserDR.lifetime = 180;
+	laserDR.anim.speed = 0.2f;
+
+	//Laser up-left
+	laserUL.anim.PushBack({ 232, 103, 16, 12 });
+	laserUL.anim.PushBack({ 249, 103, 16, 12 });
+	laserUL.speed.x = -3.5;
+	laserUL.speed.y = -3.5;
+	laserUL.lifetime = 180;
+	laserUL.anim.speed = 0.2f;
+	 
+	//Laser up-right
+	laserUR.anim.PushBack({ 232, 103, 16, 12 });
+	laserUR.anim.PushBack({ 249, 103, 16, 12 });
+	laserUR.speed.x = 3.5;
+	laserUR.speed.y = -3.5;
+	laserUR.lifetime = 180;
+	laserUR.anim.speed = 0.2f;
+	
 	return true;
 }
 
