@@ -47,9 +47,16 @@ public:
 	Animation* currentAnimation = nullptr;
 
 	// A set of animations
-	Animation idleAnim;
-	Animation upAnim;
-	Animation downAnim;
+	//Body
+	Animation idleAnim, idlefootAnim;									//Quieto
+	Animation upAnim, upfoot1Anim, upfoot2Anim;									//Arriba
+	Animation downAnim, downfootAnim;									//Abajo
+	Animation leftAnim, leftupAnim, leftdownAnim;		//Izquierda,Izquierda-Arriba ,Izquierda-Abajo
+	Animation rightAnim, rightupAnim, rightdownAnim;	//Derecha, Derecha-Arriba, Derecha-Abajo
+	
+	//Foot
+	Animation rightupfootAnim, leftupfootAnim;	//Derecha, Derecha-Arriba, Derecha-Abajo
+
 
 	// TODO 3: Add a collider to the player
 

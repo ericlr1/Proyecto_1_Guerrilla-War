@@ -13,20 +13,53 @@
 
 ModulePlayer::ModulePlayer()
 {
-	// idle animation - just one sprite
-	idleAnim.PushBack({ 66, 1, 32, 14 });
+	// idle 
+	idleAnim.PushBack({ 64, 0, 32, 32 });
+	idlefootAnim.PushBack({ 224, 0, 32, 32 });
 
-	// move upwards
-	upAnim.PushBack({ 100, 1, 32, 14 });
-	upAnim.PushBack({ 132, 0, 32, 14 });
-	upAnim.loop = false;
+	// move up
+	//Body
+	upAnim.PushBack({ 64, 0, 32, 32 });
+	upAnim.PushBack({ 96, 0, 32, 32 });
+	upAnim.PushBack({ 128, 0, 32, 32 });
+	upAnim.PushBack({ 96, 0, 32, 32 });
+	upAnim.PushBack({ 64, 0, 32, 32 });
+	upAnim.PushBack({ 32, 0, 32, 32 });
+	upAnim.PushBack({ 0, 0, 32, 32 });
+	upAnim.PushBack({ 32, 0, 32, 32 });
+	upAnim.loop = true;
 	upAnim.speed = 0.1f;
+	//Foot arriba
+	upfoot1Anim.PushBack({ 224, 0, 32, 32 });
+	upfoot1Anim.PushBack({ 192, 0, 32, 32 });
+	upfoot1Anim.PushBack({ 160, 0, 32, 32 });
+	upfoot1Anim.PushBack({ 192, 0, 32, 32 });
+	upfoot1Anim.loop = true;
+	upfoot1Anim.speed = 2.0f;
+	//Foot abajo
+	upfoot2Anim.PushBack({ 224, 0, 32, 32 });
+	upfoot2Anim.PushBack({ 160, 0, 32, 32 });
+	upfoot2Anim.PushBack({ 160, 0, 32, 32 });
+	upfoot2Anim.loop = true;
+	upfoot2Anim.speed = 2.0f;
 
-	// Move down
-	downAnim.PushBack({ 33, 1, 32, 14 });
-	downAnim.PushBack({ 0, 1, 32, 14 });
-	downAnim.loop = false;
+	// move down
+	//Body
+	downAnim.PushBack({ 64, 128, 32, 32 });
+	downAnim.PushBack({ 96, 128, 32, 32 });
+	downAnim.PushBack({ 128, 128, 32, 32 });
+	downAnim.PushBack({ 96, 128, 32, 32 });
+	downAnim.PushBack({ 64, 128, 32, 32 });
+	downAnim.PushBack({ 32, 128, 32, 32 });
+	downAnim.PushBack({ 0, 128, 32, 32 });
+	downAnim.PushBack({ 32, 128, 32, 32 });
+	downAnim.loop = true;
 	downAnim.speed = 0.1f;
+	//Foot
+	downfootAnim.PushBack({ 192, 0, 32, 32 });
+	downfootAnim.PushBack({ 160, 0, 32, 32 });
+	downfootAnim.loop = true;
+	downfootAnim.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -40,7 +73,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/ship.png"); // arcade version
+	texture = App->textures->Load("Assets/Characters_Clean.png"); // arcade version
 	currentAnimation = &idleAnim;
 
 	laserFx = App->audio->LoadFx("Assets/laser.wav");
@@ -63,11 +96,21 @@ update_status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
 		position.x -= speed;
+		if (currentAnimation != &downAnim)
+		{
+			downAnim.Reset();
+			currentAnimation = &downAnim;
+		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
 		position.x += speed;
+		if (currentAnimation != &downAnim)
+		{
+			downAnim.Reset();
+			currentAnimation = &downAnim;
+		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
