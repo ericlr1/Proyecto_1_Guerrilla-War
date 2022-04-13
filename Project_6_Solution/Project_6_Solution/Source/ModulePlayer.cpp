@@ -93,6 +93,15 @@ update_status ModulePlayer::Update()
 	// Moving the player with the camera scroll
 	//App->player->position.x += 1;
 
+	//Temporal para setear facing a 0
+	if(App->input->keys[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN)
+	{
+		facing = 0;
+	
+	}
+	
+	
+	
 	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
 		position.x -= speed;
@@ -132,28 +141,83 @@ update_status ModulePlayer::Update()
 			currentAnimation = &upAnim;
 		}
 	}
-	
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+
+	//Rotación del personaje Q y E
+	if (App->input->keys[SDL_SCANCODE_E] == KEY_STATE::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-
-		App->particles->AddParticle(App->particles->laserD, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-
-		App->particles->AddParticle(App->particles->laserU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-
-		App->particles->AddParticle(App->particles->laserL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-
-		App->particles->AddParticle(App->particles->laserUL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-
-		App->particles->AddParticle(App->particles->laserDL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-
-		App->particles->AddParticle(App->particles->laserUR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-
-		App->particles->AddParticle(App->particles->laserDR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-
-		App->audio->PlayFx(laserFx);
+		if (facing >= 0 && facing < 7)
+		{
+			facing = facing + 1;
+			exit;
+		}
+		else
+		{
+			facing = 0;
+		}
+	}
+	if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN)
+	{
+		if (facing > 0 && facing <= 7)
+		{
+			facing = facing - 1;
+			exit;
+		}
+		else
+		{
+			facing = 7;
+		}
 	}
 
+
+	// Comprobaciones de la orientación para realizar los disparos 
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	{
+
+		//La variable facing aumenta al rotar hacia la derecha (Como las agujas del reloj)
+		
+		if (facing == 0)
+		{
+			App->particles->AddParticle(App->particles->laserU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(laserFx);
+		}
+		if (facing == 1)
+		{
+			App->particles->AddParticle(App->particles->laserUR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(laserFx);
+		}
+		if (facing == 2)
+		{
+			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(laserFx);
+		}
+		if (facing == 3)
+		{
+			App->particles->AddParticle(App->particles->laserDR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(laserFx);
+		}
+		if (facing == 4)
+		{
+			App->particles->AddParticle(App->particles->laserD, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(laserFx);
+		}
+		if (facing == 5)
+		{
+			App->particles->AddParticle(App->particles->laserDL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(laserFx);
+		}
+		if (facing == 6)
+		{
+			App->particles->AddParticle(App->particles->laserL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(laserFx);
+		}
+		if (facing == 7)
+		{
+			App->particles->AddParticle(App->particles->laserUL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(laserFx);
+		}
+	}
+
+	//Disparos con el KeyPad (Provisional)
 	if (App->input->keys[SDL_SCANCODE_KP_1] == KEY_STATE::KEY_DOWN)
 	{
 		App->particles->AddParticle(App->particles->laserDL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);

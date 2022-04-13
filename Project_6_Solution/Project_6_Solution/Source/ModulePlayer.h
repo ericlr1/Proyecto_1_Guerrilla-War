@@ -39,6 +39,9 @@ public:
 	// The speed in which we move the player (pixels per frame)
 	int speed = 1;
 
+	// The number related to the orientation of the player
+	int facing;
+
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 	
