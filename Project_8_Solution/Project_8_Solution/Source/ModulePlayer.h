@@ -55,11 +55,8 @@ public:
 	Animation idleAnim, idlefootAnim;				//Quieto
 	Animation upAnim, upfootAnim;					//Arriba
 	Animation downAnim, downfootAnim;				//Abajo
-	Animation leftAnim, leftfootAnim;					//Izquierda,Izquierda-Arriba ,Izquierda-Abajo
-	Animation rightAnim, rightfootAnim;					//Derecha, Derecha-Arriba, Derecha-Abajo
-
-	//Foot
-	Animation rightupfootAnim, leftupfootAnim;	//Derecha, Derecha-Arriba, Derecha-Abajo
+	Animation leftAnim, leftfootAnim;				//Izquierda,Izquierda-Arriba ,Izquierda-Abajo
+	Animation rightAnim, rightfootAnim;				//Derecha, Derecha-Arriba, Derecha-Abajo
 
 	// The player's collider
 	Collider* collider = nullptr;

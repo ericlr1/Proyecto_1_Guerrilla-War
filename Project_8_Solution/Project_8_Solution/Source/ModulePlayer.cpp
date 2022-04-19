@@ -32,9 +32,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	//Foot
 	upfootAnim.PushBack({ 192, 0, 32, 32 });
 	upfootAnim.PushBack({ 160, 0, 32, 32 });
-	upfootAnim.PushBack({ 192, 0, 32, 32 });
+	upfootAnim.PushBack({ 224, 0, 32, 32 });
 	upfootAnim.loop = true;
-	upfootAnim.speed = 2.0f;
+	upfootAnim.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -78,30 +78,36 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		position.x -= speed;
-		if (currentAnimation != &upAnim)
+		if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
 		{
 			upAnim.Reset();
+			upfootAnim.Reset();
 			currentAnimation = &upAnim;
+			currentAnimation2 = &upfootAnim;
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 		position.x += speed;
-		if (currentAnimation != &upAnim)
+		if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
 		{
 			upAnim.Reset();
+			upfootAnim.Reset();
 			currentAnimation = &upAnim;
+			currentAnimation2 = &upfootAnim;
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
 	{
 		position.y += speed;
-		if (currentAnimation != &upAnim)
+		if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
 		{
 			upAnim.Reset();
+			upfootAnim.Reset();
 			currentAnimation = &upAnim;
+			currentAnimation2 = &upfootAnim;
 		}
 	}
 
@@ -267,7 +273,7 @@ Update_Status ModulePlayer::PostUpdate()
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
-		App->render->Blit(texture, position.x, position.y + 20, &rect2);
+		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
 
