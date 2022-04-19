@@ -1,9 +1,9 @@
 # Guerrilla War
 ## Presentation
-This project is a tribute to the game **_Gunbird_**, released by Psikyo in 1994. The team is composed by four students of CITM Terrassa (Catalonia, Spain).
+This project is a tribute to the game **_Guerrilla War_**, released by SNK in 1987. The team is composed by four students of CITM Terrassa (Catalonia, Spain).
 
 ## Description
-Gunbird is a shoot'em up game released in Japanese arcades in 1994 by Psikyo. Later, it was included in the videogame consoles Sega Saturn, Play Station and the PC platform Steam. It was included in the Gunbird Special Edition which collects first and second Gunbird editions. Out of Japan, the game was re-named to Mobile Light Force.
+Guerrilla War is a shoot'em up game released in Japanese arcades in 1987 by SNK. Later, it was included in the videogame consoles Sega Saturn, Play Station and the PC platform Steam. It was included in the Gunbird Special Edition which collects first and second Gunbird editions. Out of Japan, the game was re-named to Mobile Light Force.
 
 The game consists of getting the four parts of a magic mirror that gives a single desire to whom obtains it. The game is divided in seven vertical scrolling stages. Four of them are focused on collecting mirror parts and the last three on arriving to the temple. It has two levels of diffculty. This way, when you finish the story, it restarts to the first stage with a higher level of difficulty.
 
