@@ -1,4 +1,4 @@
-# Gunbird
+# Guerrilla War
 ## Presentation
 This project is a tribute to the game **_Gunbird_**, released by Psikyo in 1994. The team is composed by four students of CITM Terrassa (Catalonia, Spain).
 
