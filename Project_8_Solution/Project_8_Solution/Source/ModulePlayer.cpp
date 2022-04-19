@@ -273,7 +273,7 @@ bool ModulePlayer::Start()
 	// TODO 4: Retrieve the player when playing a second time
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ 0,4, 15,30 }, Collider::Type::PLAYER, this);
 
 	return ret;
 }
@@ -623,7 +623,7 @@ Update_Status ModulePlayer::Update()
 		currentAnimation2 = &idleleftupfootAnim;
 		currentAnimation3 = &idleleftupfootAnim;
 	}
-	collider->SetPos(position.x, position.y);
+	collider->SetPos(position.x+8, position.y+17);
 
 	currentAnimation->Update();
 	currentAnimation2->Update();
