@@ -61,12 +61,23 @@ bool SceneLevel1::Start()
 	//Collider camara
 
 
-
-	//Colliders muro
+	//Colliders pared izquierda
 	App->collisions->AddCollider({ 54, 3495, -57, -85 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 88 , 3412, -88, -26 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 109 , 3385, -109, -28 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 144 , 3357, -1146, -81 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 179 , 3277, -181, -28}, Collider::Type::WALL);
+	App->collisions->AddCollider({ 201 , 3248, -201, -135 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 174 , 3111, -176, -49 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 156 , 3063, -158, -24 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 139 , 3041, -141, -14 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 110 , 3028, -119, -139 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 142 , 2889, -145, -44 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 174 , 2845, -176, -32 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 200 , 2814, -203, -136 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 175 , 2680, -176, -53 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 142 , 2628, -143, -30 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 111 , 2598, -113, -133 }, Collider::Type::WALL);
 
 
 	return ret;
