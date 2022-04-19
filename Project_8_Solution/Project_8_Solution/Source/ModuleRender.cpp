@@ -5,6 +5,7 @@
 #include "ModuleWindow.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
+#include "ModuleFadeToBlack.h"
 
 #include "SDL/include/SDL_render.h"
 
@@ -37,6 +38,7 @@ bool ModuleRender::Init()
 		ret = false;
 	}
 
+	App->render->cameraSpeed = 20;
 	return ret;
 }
 

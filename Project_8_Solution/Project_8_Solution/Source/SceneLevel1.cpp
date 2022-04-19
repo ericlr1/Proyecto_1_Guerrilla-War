@@ -53,8 +53,8 @@ bool SceneLevel1::Start()
 
 	App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
+	App->render->camera.x = 300;
+	App->render->camera.y = 9300;
 
 	// TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
