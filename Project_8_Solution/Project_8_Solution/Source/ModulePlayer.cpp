@@ -29,37 +29,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upAnim.PushBack({ 32, 0, 32, 32 });
 	upAnim.loop = true;
 	upAnim.speed = 0.1f;
-	//Foot arriba
-	upfoot1Anim.PushBack({ 224, 0, 32, 32 });
-	upfoot1Anim.PushBack({ 192, 0, 32, 32 });
-	upfoot1Anim.PushBack({ 160, 0, 32, 32 });
-	upfoot1Anim.PushBack({ 192, 0, 32, 32 });
-	upfoot1Anim.loop = true;
-	upfoot1Anim.speed = 2.0f;
-	//Foot abajo
-	upfoot2Anim.PushBack({ 224, 0, 32, 32 });
-	upfoot2Anim.PushBack({ 160, 0, 32, 32 });
-	upfoot2Anim.PushBack({ 160, 0, 32, 32 });
-	upfoot2Anim.loop = true;
-	upfoot2Anim.speed = 2.0f;
-
-	// move down
-	//Body
-	downAnim.PushBack({ 64, 128, 32, 32 });
-	downAnim.PushBack({ 96, 128, 32, 32 });
-	downAnim.PushBack({ 128, 128, 32, 32 });
-	downAnim.PushBack({ 96, 128, 32, 32 });
-	downAnim.PushBack({ 64, 128, 32, 32 });
-	downAnim.PushBack({ 32, 128, 32, 32 });
-	downAnim.PushBack({ 0, 128, 32, 32 });
-	downAnim.PushBack({ 32, 128, 32, 32 });
-	downAnim.loop = true;
-	downAnim.speed = 0.1f;
 	//Foot
-	downfootAnim.PushBack({ 192, 0, 32, 32 });
-	downfootAnim.PushBack({ 160, 0, 32, 32 });
-	downfootAnim.loop = true;
-	downfootAnim.speed = 0.1f;
+	upfootAnim.PushBack({ 192, 0, 32, 32 });
+	upfootAnim.PushBack({ 160, 0, 32, 32 });
+	upfootAnim.PushBack({ 192, 0, 32, 32 });
+	upfootAnim.loop = true;
+	upfootAnim.speed = 2.0f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -75,9 +50,10 @@ bool ModulePlayer::Start()
 
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	currentAnimation = &idleAnim;
+	currentAnimation2 = &idlefootAnim;
 
-	laserFx = App->audio->LoadFx("Assets/Music/laser.wav");
-	explosionFx = App->audio->LoadFx("Assets/Music/explosion.wav");
+	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
+	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	position.x = 150;
 	position.y = 120;
@@ -97,48 +73,47 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
 	{
 		facing = 0;
-
 	}
-
-
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		position.x -= speed;
-		if (currentAnimation != &downAnim)
+		if (currentAnimation != &upAnim)
 		{
-			downAnim.Reset();
-			currentAnimation = &downAnim;
+			upAnim.Reset();
+			currentAnimation = &upAnim;
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 		position.x += speed;
-		if (currentAnimation != &downAnim)
+		if (currentAnimation != &upAnim)
 		{
-			downAnim.Reset();
-			currentAnimation = &downAnim;
+			upAnim.Reset();
+			currentAnimation = &upAnim;
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
 	{
 		position.y += speed;
-		if (currentAnimation != &downAnim)
+		if (currentAnimation != &upAnim)
 		{
-			downAnim.Reset();
-			currentAnimation = &downAnim;
+			upAnim.Reset();
+			currentAnimation = &upAnim;
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 	{
 		position.y -= speed;
-		if (currentAnimation != &upAnim)
+		if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
 		{
 			upAnim.Reset();
+			upfootAnim.Reset();
 			currentAnimation = &upAnim;
+			currentAnimation2 = &upfootAnim;
 		}
 	}
 
@@ -266,11 +241,15 @@ Update_Status ModulePlayer::Update()
 
 	// If no up/down movement detected, set the current animation back to idle
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE)
+		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE 
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 		currentAnimation = &idleAnim;
+		currentAnimation2 = &idlefootAnim;
 	collider->SetPos(position.x, position.y);
 
 	currentAnimation->Update();
+	currentAnimation2->Update();
 
 	if (destroyed)
 	{
@@ -287,6 +266,8 @@ Update_Status ModulePlayer::PostUpdate()
 	if (!destroyed)
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
+		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
+		App->render->Blit(texture, position.x, position.y + 20, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
 

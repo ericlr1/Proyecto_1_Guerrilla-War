@@ -48,14 +48,15 @@ public:
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;
+	Animation* currentAnimation2 = nullptr;
 
 	// A set of animations
 	//Body
-	Animation idleAnim, idlefootAnim;									//Quieto
-	Animation upAnim, upfoot1Anim, upfoot2Anim;									//Arriba
-	Animation downAnim, downfootAnim;									//Abajo
-	Animation leftAnim, leftupAnim, leftdownAnim;		//Izquierda,Izquierda-Arriba ,Izquierda-Abajo
-	Animation rightAnim, rightupAnim, rightdownAnim;	//Derecha, Derecha-Arriba, Derecha-Abajo
+	Animation idleAnim, idlefootAnim;				//Quieto
+	Animation upAnim, upfootAnim;					//Arriba
+	Animation downAnim, downfootAnim;				//Abajo
+	Animation leftAnim, leftfootAnim;					//Izquierda,Izquierda-Arriba ,Izquierda-Abajo
+	Animation rightAnim, rightfootAnim;					//Derecha, Derecha-Arriba, Derecha-Abajo
 
 	//Foot
 	Animation rightupfootAnim, leftupfootAnim;	//Derecha, Derecha-Arriba, Derecha-Abajo
