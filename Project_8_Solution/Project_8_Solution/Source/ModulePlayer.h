@@ -49,14 +49,28 @@ public:
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;
 	Animation* currentAnimation2 = nullptr;
+	Animation* currentAnimation3 = nullptr;
 
 	// A set of animations
 	//Body
-	Animation idleAnim, idlefootAnim;				//Quieto
+	Animation idleupAnim, idleupfootAnim;			//Quieto-Arriba
+	Animation idledownAnim, idledownfootAnim;		//Quieto-Abajo
+	Animation idlerightAnim, idlerightfootAnim;		//Quieto-Derecha
+	Animation idleleftAnim, idleleftfootAnim;		//Quieto-Izquierda
+
+	Animation idlerightupAnim, idlerightupfootAnim;			//Quieto-Derecha-Arriba
+	Animation idlerightdownAnim, idlerightdownfootAnim;		//Quieto-Derecha-Abajo
+	Animation idleleftupAnim, idleleftupfootAnim;		//Quieto-Izquierda-Arriba
+	Animation idleleftdownAnim, idleleftdownfootAnim;		//Quieto-Izquierda-Abajo
+
 	Animation upAnim, upfootAnim;					//Arriba
 	Animation downAnim, downfootAnim;				//Abajo
-	Animation leftAnim, leftfootAnim;				//Izquierda,Izquierda-Arriba ,Izquierda-Abajo
-	Animation rightAnim, rightfootAnim;				//Derecha, Derecha-Arriba, Derecha-Abajo
+	Animation leftAnim, leftfootAnim;				//Izquierda
+	Animation rightAnim, rightfootAnim;				//Derecha
+	Animation rightupAnim, rightupfootAnim;			//Derecha-Arriba
+	Animation rightdownAnim, rightdownfootAnim;		//Derecha-Abajo
+	Animation leftupAnim, leftupfootAnim;			//Izquierda-Arriba
+	Animation leftdownAnim, leftdownfootAnim;		//Izquierda-Abajo
 
 	// The player's collider
 	Collider* collider = nullptr;

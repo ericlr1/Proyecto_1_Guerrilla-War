@@ -13,12 +13,28 @@
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
-	// idle 
-	idleAnim.PushBack({ 64, 0, 32, 32 });
-	idlefootAnim.PushBack({ 224, 0, 32, 32 });
+	// -IDLE-		[x]
+	//_Body
+	idleupAnim.PushBack({ 64, 0, 32, 32 });
+	idlerightupAnim.PushBack({ 64, 32, 32, 32 });
+	idlerightAnim.PushBack({ 64, 64, 32, 32 });
+	idlerightdownAnim.PushBack({ 64, 96, 32, 32 });
+	idledownAnim.PushBack({ 64, 128, 32, 32 });
+	idleleftdownAnim.PushBack({ 64, 160, 32, 32 });
+	idleleftAnim.PushBack({ 64, 192, 32, 32 });
+	idleleftupAnim.PushBack({ 64, 224, 32, 32 });
+	//_Foot
+	idleupfootAnim.PushBack({ 224, 0, 32, 32 });
+	idlerightupfootAnim.PushBack({ 224, 32, 32, 32 });
+	idlerightfootAnim.PushBack({ 224, 64, 32, 32 });
+	idlerightdownfootAnim.PushBack({ 224, 96, 32, 32 });
+	idledownfootAnim.PushBack({ 224, 128, 32, 32 });
+	idleleftdownfootAnim.PushBack({ 224, 160, 32, 32 });
+	idleleftfootAnim.PushBack({ 224, 192, 32, 32 });
+	idleleftupfootAnim.PushBack({ 224, 224, 32, 32 });
 
-	// move up
-	//Body
+	// -UP-			[x]
+	//_Body
 	upAnim.PushBack({ 64, 0, 32, 32 });
 	upAnim.PushBack({ 96, 0, 32, 32 });
 	upAnim.PushBack({ 128, 0, 32, 32 });
@@ -29,12 +45,161 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upAnim.PushBack({ 32, 0, 32, 32 });
 	upAnim.loop = true;
 	upAnim.speed = 0.1f;
-	//Foot
+	//_Foot
+	upfootAnim.PushBack({ 224, 0, 32, 32 });
+	upfootAnim.PushBack({ 256, 0, 32, 32 });
+	upfootAnim.PushBack({ 288, 0, 32, 32 });
 	upfootAnim.PushBack({ 192, 0, 32, 32 });
 	upfootAnim.PushBack({ 160, 0, 32, 32 });
-	upfootAnim.PushBack({ 224, 0, 32, 32 });
 	upfootAnim.loop = true;
 	upfootAnim.speed = 0.1f;
+	
+	// -DOWN-		[x]
+	//_Body
+	downAnim.PushBack({ 64, 128, 32, 32 });
+	downAnim.PushBack({ 96, 128, 32, 32 });
+	downAnim.PushBack({ 128, 128, 32, 32 });
+	downAnim.PushBack({ 96, 128, 32, 32 });
+	downAnim.PushBack({ 64, 128, 32, 32 });
+	downAnim.PushBack({ 32, 128, 32, 32 });
+	downAnim.PushBack({ 0, 128, 32, 32 });
+	downAnim.PushBack({ 32, 128, 32, 32 });
+	downAnim.loop = true;
+	downAnim.speed = 0.1f;
+	//_Foot
+	downfootAnim.PushBack({ 224, 128, 32, 32 });
+	downfootAnim.PushBack({ 256, 128, 32, 32 });
+	downfootAnim.PushBack({ 288, 128, 32, 32 });
+	downfootAnim.PushBack({ 192, 128, 32, 32 });
+	downfootAnim.PushBack({ 160, 128, 32, 32 });
+	downfootAnim.loop = true;
+	downfootAnim.speed = 0.1f;
+	
+	// -LEFT-		[x]
+	//_Body
+	leftAnim.PushBack({ 64, 192, 32, 32 });
+	leftAnim.PushBack({ 96, 192, 32, 32 });
+	leftAnim.PushBack({ 128, 192, 32, 32 });
+	leftAnim.PushBack({ 96, 192, 32, 32 });
+	leftAnim.PushBack({ 64, 192, 32, 32 });
+	leftAnim.PushBack({ 32, 192, 32, 32 });
+	leftAnim.PushBack({ 0, 192, 32, 32 });
+	leftAnim.PushBack({ 32, 192, 32, 32 });
+	leftAnim.loop = true;
+	leftAnim.speed = 0.1f;
+	//_Foot
+	leftfootAnim.PushBack({ 224, 192, 32, 32 });
+	leftfootAnim.PushBack({ 256, 192, 32, 32 });
+	leftfootAnim.PushBack({ 288, 192, 32, 32 });
+	leftfootAnim.PushBack({ 192, 192, 32, 32 });
+	leftfootAnim.PushBack({ 160, 192, 32, 32 });
+	leftfootAnim.loop = true;
+	leftfootAnim.speed = 0.1f;
+	
+	// -RIGHT-		[x]
+	//_Body
+	rightAnim.PushBack({ 64, 64, 32, 32 });
+	rightAnim.PushBack({ 96, 64, 32, 32 });
+	rightAnim.PushBack({ 128, 64, 32, 32 });
+	rightAnim.PushBack({ 96, 64, 32, 32 });
+	rightAnim.PushBack({ 64, 64, 32, 32 });
+	rightAnim.PushBack({ 32, 64, 32, 32 });
+	rightAnim.PushBack({ 0, 64, 32, 32 });
+	rightAnim.PushBack({ 32, 64, 32, 32 });
+	rightAnim.loop = true;
+	rightAnim.speed = 0.1f;
+	//_Foot
+	rightfootAnim.PushBack({ 224, 64, 32, 32 });
+	rightfootAnim.PushBack({ 256, 64, 32, 32 });
+	rightfootAnim.PushBack({ 288, 64, 32, 32 });
+	rightfootAnim.PushBack({ 192, 64, 32, 32 });
+	rightfootAnim.PushBack({ 160, 64, 32, 32 });
+	rightfootAnim.loop = true;
+	rightfootAnim.speed = 0.1f;
+
+	// -RIGHT/UP-	[x]
+	//_Body
+	rightAnim.PushBack({ 64, 32, 32, 32 });
+	rightAnim.PushBack({ 96, 32, 32, 32 });
+	rightAnim.PushBack({ 128, 32, 32, 32 });
+	rightAnim.PushBack({ 96, 32, 32, 32 });
+	rightAnim.PushBack({ 64, 32, 32, 32 });
+	rightAnim.PushBack({ 32, 32, 32, 32 });
+	rightAnim.PushBack({ 0, 32, 32, 32 });
+	rightAnim.PushBack({ 32, 32, 32, 32 });
+	rightAnim.loop = true;
+	rightAnim.speed = 0.1f;
+	//_Foot
+	rightfootAnim.PushBack({ 224, 32, 32, 32 });
+	rightfootAnim.PushBack({ 256, 32, 32, 32 });
+	rightfootAnim.PushBack({ 288, 32, 32, 32 });
+	rightfootAnim.PushBack({ 192, 32, 32, 32 });
+	rightfootAnim.PushBack({ 160, 32, 32, 32 });
+	rightfootAnim.loop = true;
+	rightfootAnim.speed = 0.1f;
+
+	// -RIGHT/DOWN-	[x]
+	//_Body
+	rightAnim.PushBack({ 64, 96, 32, 32 });
+	rightAnim.PushBack({ 96, 96, 32, 32 });
+	rightAnim.PushBack({ 128, 96, 32, 32 });
+	rightAnim.PushBack({ 96, 96, 32, 32 });
+	rightAnim.PushBack({ 64, 96, 32, 32 });
+	rightAnim.PushBack({ 32, 96, 32, 32 });
+	rightAnim.PushBack({ 0, 96, 32, 32 });
+	rightAnim.PushBack({ 32, 96, 32, 32 });
+	rightAnim.loop = true;
+	rightAnim.speed = 0.1f;
+	//_Foot
+	rightfootAnim.PushBack({ 224, 96, 32, 32 });
+	rightfootAnim.PushBack({ 256, 96, 32, 32 });
+	rightfootAnim.PushBack({ 288, 96, 32, 32 });
+	rightfootAnim.PushBack({ 192, 96, 32, 32 });
+	rightfootAnim.PushBack({ 160, 96, 32, 32 });
+	rightfootAnim.loop = true;
+	rightfootAnim.speed = 0.1f;
+
+	// -LEFT/UP-	[x]
+	//_Body
+	rightAnim.PushBack({ 64, 224, 32, 32 });
+	rightAnim.PushBack({ 96, 224, 32, 32 });
+	rightAnim.PushBack({ 128, 224, 32, 32 });
+	rightAnim.PushBack({ 96, 224, 32, 32 });
+	rightAnim.PushBack({ 64, 224, 32, 32 });
+	rightAnim.PushBack({ 32, 224, 32, 32 });
+	rightAnim.PushBack({ 0, 224, 32, 32 });
+	rightAnim.PushBack({ 32, 224, 32, 32 });
+	rightAnim.loop = true;
+	rightAnim.speed = 0.1f;
+	//_Foot
+	rightfootAnim.PushBack({ 224, 224, 32, 32 });
+	rightfootAnim.PushBack({ 256, 224, 32, 32 });
+	rightfootAnim.PushBack({ 288, 224, 32, 32 });
+	rightfootAnim.PushBack({ 192, 224, 32, 32 });
+	rightfootAnim.PushBack({ 160, 224, 32, 32 });
+	rightfootAnim.loop = true;
+	rightfootAnim.speed = 0.1f;
+
+	// -LEFT/DOWN-	[x]
+	//_Body
+	rightAnim.PushBack({ 64, 160, 32, 32 });
+	rightAnim.PushBack({ 96, 160, 32, 32 });
+	rightAnim.PushBack({ 128, 160, 32, 32 });
+	rightAnim.PushBack({ 96, 160, 32, 32 });
+	rightAnim.PushBack({ 64, 160, 32, 32 });
+	rightAnim.PushBack({ 32, 160, 32, 32 });
+	rightAnim.PushBack({ 0, 160, 32, 32 });
+	rightAnim.PushBack({ 32, 160, 32, 32 });
+	rightAnim.loop = true;
+	rightAnim.speed = 0.1f;
+	//_Foot
+	rightfootAnim.PushBack({ 224, 160, 32, 32 });
+	rightfootAnim.PushBack({ 256, 160, 32, 32 });
+	rightfootAnim.PushBack({ 288, 160, 32, 32 });
+	rightfootAnim.PushBack({ 192, 160, 32, 32 });
+	rightfootAnim.PushBack({ 160, 160, 32, 32 });
+	rightfootAnim.loop = true;
+	rightfootAnim.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -49,8 +214,55 @@ bool ModulePlayer::Start()
 	bool ret = true;
 
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
-	currentAnimation = &idleAnim;
-	currentAnimation2 = &idlefootAnim;
+	if (facing == 0) // [x]
+	{
+		currentAnimation = &idleupAnim;
+		currentAnimation2 = &idleupfootAnim;
+		currentAnimation3 = &idleupfootAnim;
+	}
+	if (facing == 1) // [x]
+	{
+		currentAnimation = &idlerightupAnim;
+		currentAnimation2 = &idlerightupfootAnim;
+		currentAnimation3 = &idlerightupfootAnim;
+	}
+	if (facing == 2) // [x]
+	{
+		currentAnimation = &idlerightAnim;
+		currentAnimation2 = &idlerightfootAnim;
+		currentAnimation3 = &idlerightfootAnim;
+	}
+	if (facing == 3) // [x]
+	{
+		currentAnimation = &idlerightdownAnim;
+		currentAnimation2 = &idlerightdownfootAnim;
+		currentAnimation3 = &idlerightdownfootAnim;
+	}
+	if (facing == 4) // [x]
+	{
+		currentAnimation = &idledownAnim;
+		currentAnimation2 = &idledownfootAnim;
+		currentAnimation3 = &idledownfootAnim;
+	}
+	if (facing == 5) // [x]
+	{
+		currentAnimation = &idleleftdownAnim;
+		currentAnimation2 = &idleleftdownfootAnim;
+		currentAnimation3 = &idleleftdownfootAnim;
+	}
+	if (facing == 6) // []
+	{
+		currentAnimation = &idleleftAnim;
+		currentAnimation2 = &idleleftfootAnim;
+		currentAnimation3 = &idleleftfootAnim;
+	}
+	if (facing == 7) // []
+	{
+		currentAnimation = &idleleftupAnim;
+		currentAnimation2 = &idleleftupfootAnim;
+		currentAnimation3 = &idleleftfootAnim;
+	}
+
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -78,48 +290,161 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		position.x -= speed;
-		if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+		if (facing == 0)
 		{
-			upAnim.Reset();
-			upfootAnim.Reset();
-			currentAnimation = &upAnim;
-			currentAnimation2 = &upfootAnim;
+			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			{
+				upAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &upAnim;
+				currentAnimation2 = &upfootAnim;
+			}
 		}
+		if (facing == 1)
+		{
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
+			{
+				rightupAnim.Reset();
+				rightupfootAnim.Reset();
+				currentAnimation = &rightupAnim;
+				currentAnimation2 = &rightupfootAnim;
+			}
+		}
+		/*if (facing == 2)
+		{
+			if (currentAnimation != &rightAnim && currentAnimation2 != &rightfootAnim)
+			{
+				rightAnim.Reset();
+				rightfootAnim.Reset();
+				currentAnimation = &rightAnim;
+				currentAnimation2 = &rightfootAnim;
+			}
+		}
+		if (facing == 3)
+		{
+			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
+			{
+				rightdownAnim.Reset();
+				rightdownfootAnim.Reset();
+				currentAnimation = &rightdownAnim;
+				currentAnimation2 = &rightdownfootAnim;
+			}
+		}
+		if (facing == 4)
+		{
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			{
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
+			}
+		}
+		if (facing == 5)
+		{
+			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
+			{
+				leftdownAnim.Reset();
+				leftdownfootAnim.Reset();
+				currentAnimation = &leftdownAnim;
+				currentAnimation2 = &leftdownfootAnim;
+			}
+		}
+		if (facing == 6)
+		{
+			if (currentAnimation != &leftAnim && currentAnimation2 != &leftfootAnim)
+			{
+				leftAnim.Reset();
+				leftfootAnim.Reset();
+				currentAnimation = &leftAnim;
+				currentAnimation2 = &leftfootAnim;
+			}
+		}
+		if (facing == 7)
+		{
+			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftupfootAnim)
+			{
+				leftupAnim.Reset();
+				leftupfootAnim.Reset();
+				currentAnimation = &leftupAnim;
+				currentAnimation2 = &leftupfootAnim;
+			}
+		}*/
 	}
+	
 
 	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 		position.x += speed;
-		if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+		if (facing == 0)
 		{
-			upAnim.Reset();
-			upfootAnim.Reset();
-			currentAnimation = &upAnim;
-			currentAnimation2 = &upfootAnim;
+			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			{
+				upAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &upAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+		}
+		if (facing == 1)
+		{
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
+			{
+				rightupAnim.Reset();
+				rightupfootAnim.Reset();
+				currentAnimation = &rightupAnim;
+				currentAnimation2 = &rightupfootAnim;
+			}
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
 	{
 		position.y += speed;
-		if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+		if (facing == 0)
 		{
-			upAnim.Reset();
-			upfootAnim.Reset();
-			currentAnimation = &upAnim;
-			currentAnimation2 = &upfootAnim;
+			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			{
+				upAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &upAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+		}
+		if (facing == 1)
+		{
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
+			{
+				rightupAnim.Reset();
+				rightupfootAnim.Reset();
+				currentAnimation = &rightupAnim;
+				currentAnimation2 = &rightupfootAnim;
+			}
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 	{
 		position.y -= speed;
-		if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+		if (facing == 0)
 		{
-			upAnim.Reset();
-			upfootAnim.Reset();
-			currentAnimation = &upAnim;
-			currentAnimation2 = &upfootAnim;
+			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			{
+				upAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &upAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+		}
+		if (facing == 1)
+		{
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
+			{
+				rightupAnim.Reset();
+				rightupfootAnim.Reset();
+				currentAnimation = &rightupAnim;
+				currentAnimation2 = &rightupfootAnim;
+			}
 		}
 	}
 
@@ -250,12 +575,59 @@ Update_Status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE 
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
-		currentAnimation = &idleAnim;
-		currentAnimation2 = &idlefootAnim;
+	if (facing == 0)
+	{
+		currentAnimation = &idleupAnim,
+		currentAnimation2 = &idleupfootAnim,
+		currentAnimation3 = &idleupfootAnim;
+	}
+	if (facing == 1)
+	{
+		currentAnimation = &idlerightupAnim,
+		currentAnimation2 = &idlerightupfootAnim,
+		currentAnimation3 = &idlerightupfootAnim;
+	}
+	if (facing == 2)
+	{
+		currentAnimation = &idlerightAnim,
+		currentAnimation2 = &idlerightfootAnim,
+		currentAnimation3 = &idlerightfootAnim;
+	}
+	if (facing == 3)
+	{
+		currentAnimation = &idlerightdownAnim;
+		currentAnimation2 = &idlerightdownfootAnim;
+		currentAnimation3 = &idlerightdownfootAnim;
+	}
+	if (facing == 4)
+	{
+		currentAnimation = &idledownAnim,
+		currentAnimation2 = &idledownfootAnim,
+		currentAnimation3 = &idledownfootAnim;
+	}
+	if (facing == 5)
+	{
+		currentAnimation = &idleleftdownAnim;
+		currentAnimation2 = &idleleftdownfootAnim;
+		currentAnimation3 = &idleleftdownfootAnim;
+	}
+	if (facing == 6)
+	{
+		currentAnimation = &idleleftAnim,
+		currentAnimation2 = &idleleftfootAnim,
+		currentAnimation3 = &idleleftfootAnim;
+	}
+	if (facing == 7)
+	{
+		currentAnimation = &idleleftupAnim;
+		currentAnimation2 = &idleleftupfootAnim;
+		currentAnimation3 = &idleleftupfootAnim;
+	}
 	collider->SetPos(position.x, position.y);
 
 	currentAnimation->Update();
 	currentAnimation2->Update();
+	currentAnimation3->Update();
 
 	if (destroyed)
 	{
@@ -273,6 +645,9 @@ Update_Status ModulePlayer::PostUpdate()
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
+		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
+
+		App->render->Blit(texture, position.x, position.y + 30, &rect3);
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
