@@ -35,16 +35,16 @@ bool ModuleParticles::Start()
 	explosion.anim.speed = 0.3f;
 
 	//bullet right
-	bullet.anim.PushBack({ 7, 179, 7, 11 });
-	bullet.anim.PushBack({ 23, 179, 7, 11 });
+	bullet.anim.PushBack({ 66, 183, 10, 9 });
+	bullet.anim.PushBack({ 83, 183, 10, 9 });
 	bullet.speed.x = 5;
 	bullet.lifetime = 180;
 	bullet.anim.speed = 0.2f;
 
 
 	//bullet left
-	bulletL.anim.PushBack({ 232, 103, 16, 12 });
-	bulletL.anim.PushBack({ 249, 103, 16, 12 });
+	bulletL.anim.PushBack({ 196, 182, 9, 9 });
+	bulletL.anim.PushBack({ 211, 182, 9, 9 });
 	bulletL.speed.x = -5;
 	bulletL.lifetime = 180;
 	bulletL.anim.speed = 0.2f;
@@ -57,39 +57,39 @@ bool ModuleParticles::Start()
 	bulletU.anim.speed = 0.2f;
 
 	//bullet down
-	bulletD.anim.PushBack({ 232, 103, 16, 12 });
-	bulletD.anim.PushBack({ 249, 103, 16, 12 });
+	bulletD.anim.PushBack({ 133, 178, 8, 13 });
+	bulletD.anim.PushBack({ 149, 178, 8, 13 });
 	bulletD.speed.y = 5;
 	bulletD.lifetime = 180;
 	bulletD.anim.speed = 0.2f;
 
 	//bullet down-left
-	bulletDL.anim.PushBack({ 232, 103, 16, 12 });
-	bulletDL.anim.PushBack({ 249, 103, 16, 12 });
+	bulletDL.anim.PushBack({ 165, 180, 8, 12 });
+	bulletDL.anim.PushBack({ 181, 180, 8, 12 });
 	bulletDL.speed.x = -3.5;
 	bulletDL.speed.y = 3.5;
 	bulletDL.lifetime = 180;
 	bulletDL.anim.speed = 0.2f;
 
 	//bullet down-right
-	bulletDR.anim.PushBack({ 232, 103, 16, 12 });
-	bulletDR.anim.PushBack({ 249, 103, 16, 12 });
+	bulletDR.anim.PushBack({ 98, 180, 9, 12 });
+	bulletDR.anim.PushBack({ 114, 180, 9, 12 });
 	bulletDR.speed.x = 3.5;
 	bulletDR.speed.y = 3.5;
 	bulletDR.lifetime = 180;
 	bulletDR.anim.speed = 0.2f;
 
 	//bullet up-left
-	bulletUL.anim.PushBack({ 232, 103, 16, 12 });
-	bulletUL.anim.PushBack({ 249, 103, 16, 12 });
+	bulletUL.anim.PushBack({ 228, 181, 8, 11 });
+	bulletUL.anim.PushBack({ 244, 181, 8, 11 });
 	bulletUL.speed.x = -3.5;
 	bulletUL.speed.y = -3.5;
 	bulletUL.lifetime = 180;
 	bulletUL.anim.speed = 0.2f;
 
 	//bullet up-right
-	bulletUR.anim.PushBack({ 232, 103, 16, 12 });
-	bulletUR.anim.PushBack({ 249, 103, 16, 12 });
+	bulletUR.anim.PushBack({ 35, 181, 9, 11 });
+	bulletUR.anim.PushBack({ 51, 181, 9, 11 });
 	bulletUR.speed.x = 3.5;
 	bulletUR.speed.y = -3.5;
 	bulletUR.lifetime = 180;
