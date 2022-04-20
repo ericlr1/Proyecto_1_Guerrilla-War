@@ -264,7 +264,7 @@ bool ModulePlayer::Start()
 	}
 
 
-	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
+	bulletFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	position.x = 200;
@@ -483,91 +483,91 @@ Update_Status ModulePlayer::Update()
 
 		if (facing == 0)
 		{
-			App->particles->AddParticle(App->particles->laserU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			App->particles->AddParticle(App->particles->bulletU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 1)
 		{
-			App->particles->AddParticle(App->particles->laserUR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			App->particles->AddParticle(App->particles->bulletUR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 2)
 		{
-			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			App->particles->AddParticle(App->particles->bullet, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 3)
 		{
-			App->particles->AddParticle(App->particles->laserDR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			App->particles->AddParticle(App->particles->bulletDR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 4)
 		{
-			App->particles->AddParticle(App->particles->laserD, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			App->particles->AddParticle(App->particles->bulletD, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 5)
 		{
-			App->particles->AddParticle(App->particles->laserDL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			App->particles->AddParticle(App->particles->bulletDL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 6)
 		{
-			App->particles->AddParticle(App->particles->laserL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			App->particles->AddParticle(App->particles->bulletL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 7)
 		{
-			App->particles->AddParticle(App->particles->laserUL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			App->particles->AddParticle(App->particles->bulletUL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(bulletFx);
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_KP_1] == Key_State::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laserDL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(laserFx);
+		App->particles->AddParticle(App->particles->bulletDL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		App->audio->PlayFx(bulletFx);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_KP_2] == Key_State::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laserD, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(laserFx);
+		App->particles->AddParticle(App->particles->bulletD, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		App->audio->PlayFx(bulletFx);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_KP_3] == Key_State::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laserDR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(laserFx);
+		App->particles->AddParticle(App->particles->bulletDR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		App->audio->PlayFx(bulletFx);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_KP_4] == Key_State::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laserL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(laserFx);
+		App->particles->AddParticle(App->particles->bulletL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		App->audio->PlayFx(bulletFx);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_KP_6] == Key_State::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(laserFx);
+		App->particles->AddParticle(App->particles->bullet, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		App->audio->PlayFx(bulletFx);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_KP_7] == Key_State::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laserUL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(laserFx);
+		App->particles->AddParticle(App->particles->bulletUL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		App->audio->PlayFx(bulletFx);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_KP_8] == Key_State::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laserU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(laserFx);
+		App->particles->AddParticle(App->particles->bulletU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		App->audio->PlayFx(bulletFx);
 	}
 	if (App->input->keys[SDL_SCANCODE_KP_9] == Key_State::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laserUR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(laserFx);
+		App->particles->AddParticle(App->particles->bulletUR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		App->audio->PlayFx(bulletFx);
 	}
 
 	// If no up/down movement detected, set the current animation back to idle

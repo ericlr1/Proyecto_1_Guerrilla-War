@@ -85,7 +85,7 @@
     <ClInclude Include="Enemy_BrownShip.h">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Mech.h">
+    <ClInclude Include="Enemy_GreenSoilder.h">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_RedBird.h">
@@ -156,7 +156,7 @@
     <ClCompile Include="Enemy_BrownShip.cpp">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_Mech.cpp">
+    <ClCompile Include="Enemy_GreenSoilder.cpp">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_RedBird.cpp">

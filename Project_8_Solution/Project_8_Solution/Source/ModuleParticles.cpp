@@ -34,66 +34,66 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
-	//Laser right
-	laser.anim.PushBack({ 232, 103, 16, 12 });
-	laser.anim.PushBack({ 249, 103, 16, 12 });
-	laser.speed.x = 5;
-	laser.lifetime = 180;
-	laser.anim.speed = 0.2f;
+	//bullet right
+	bullet.anim.PushBack({ 7, 179, 7, 11 });
+	bullet.anim.PushBack({ 23, 179, 7, 11 });
+	bullet.speed.x = 5;
+	bullet.lifetime = 180;
+	bullet.anim.speed = 0.2f;
 
 
-	//Laser left
-	laserL.anim.PushBack({ 232, 103, 16, 12 });
-	laserL.anim.PushBack({ 249, 103, 16, 12 });
-	laserL.speed.x = -5;
-	laserL.lifetime = 180;
-	laserL.anim.speed = 0.2f;
+	//bullet left
+	bulletL.anim.PushBack({ 232, 103, 16, 12 });
+	bulletL.anim.PushBack({ 249, 103, 16, 12 });
+	bulletL.speed.x = -5;
+	bulletL.lifetime = 180;
+	bulletL.anim.speed = 0.2f;
 
-	//Laser up
-	laserU.anim.PushBack({ 232, 103, 16, 12 });
-	laserU.anim.PushBack({ 249, 103, 16, 12 });
-	laserU.speed.y = -5;
-	laserU.lifetime = 180;
-	laserU.anim.speed = 0.2f;
+	//bullet up
+	bulletU.anim.PushBack({ 7, 179, 7, 11 });
+	bulletU.anim.PushBack({23, 179, 7, 11});
+	bulletU.speed.y = -5;
+	bulletU.lifetime = 180;
+	bulletU.anim.speed = 0.2f;
 
-	//Laser down
-	laserD.anim.PushBack({ 232, 103, 16, 12 });
-	laserD.anim.PushBack({ 249, 103, 16, 12 });
-	laserD.speed.y = 5;
-	laserD.lifetime = 180;
-	laserD.anim.speed = 0.2f;
+	//bullet down
+	bulletD.anim.PushBack({ 232, 103, 16, 12 });
+	bulletD.anim.PushBack({ 249, 103, 16, 12 });
+	bulletD.speed.y = 5;
+	bulletD.lifetime = 180;
+	bulletD.anim.speed = 0.2f;
 
-	//Laser down-left
-	laserDL.anim.PushBack({ 232, 103, 16, 12 });
-	laserDL.anim.PushBack({ 249, 103, 16, 12 });
-	laserDL.speed.x = -3.5;
-	laserDL.speed.y = 3.5;
-	laserDL.lifetime = 180;
-	laserDL.anim.speed = 0.2f;
+	//bullet down-left
+	bulletDL.anim.PushBack({ 232, 103, 16, 12 });
+	bulletDL.anim.PushBack({ 249, 103, 16, 12 });
+	bulletDL.speed.x = -3.5;
+	bulletDL.speed.y = 3.5;
+	bulletDL.lifetime = 180;
+	bulletDL.anim.speed = 0.2f;
 
-	//Laser down-right
-	laserDR.anim.PushBack({ 232, 103, 16, 12 });
-	laserDR.anim.PushBack({ 249, 103, 16, 12 });
-	laserDR.speed.x = 3.5;
-	laserDR.speed.y = 3.5;
-	laserDR.lifetime = 180;
-	laserDR.anim.speed = 0.2f;
+	//bullet down-right
+	bulletDR.anim.PushBack({ 232, 103, 16, 12 });
+	bulletDR.anim.PushBack({ 249, 103, 16, 12 });
+	bulletDR.speed.x = 3.5;
+	bulletDR.speed.y = 3.5;
+	bulletDR.lifetime = 180;
+	bulletDR.anim.speed = 0.2f;
 
-	//Laser up-left
-	laserUL.anim.PushBack({ 232, 103, 16, 12 });
-	laserUL.anim.PushBack({ 249, 103, 16, 12 });
-	laserUL.speed.x = -3.5;
-	laserUL.speed.y = -3.5;
-	laserUL.lifetime = 180;
-	laserUL.anim.speed = 0.2f;
+	//bullet up-left
+	bulletUL.anim.PushBack({ 232, 103, 16, 12 });
+	bulletUL.anim.PushBack({ 249, 103, 16, 12 });
+	bulletUL.speed.x = -3.5;
+	bulletUL.speed.y = -3.5;
+	bulletUL.lifetime = 180;
+	bulletUL.anim.speed = 0.2f;
 
-	//Laser up-right
-	laserUR.anim.PushBack({ 232, 103, 16, 12 });
-	laserUR.anim.PushBack({ 249, 103, 16, 12 });
-	laserUR.speed.x = 3.5;
-	laserUR.speed.y = -3.5;
-	laserUR.lifetime = 180;
-	laserUR.anim.speed = 0.2f;
+	//bullet up-right
+	bulletUR.anim.PushBack({ 232, 103, 16, 12 });
+	bulletUR.anim.PushBack({ 249, 103, 16, 12 });
+	bulletUR.speed.x = 3.5;
+	bulletUR.speed.y = -3.5;
+	bulletUR.lifetime = 180;
+	bulletUR.anim.speed = 0.2f;
 
 	return true;
 }

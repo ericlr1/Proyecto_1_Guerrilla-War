@@ -1,15 +1,15 @@
-#ifndef __ENEMY_MECH_H__
-#define __ENEMY_MECH_H__
+#ifndef __ENEMY_GREENSOILDER_H__
+#define __ENEMY_GREENSOILDER_H__
 
 #include "Enemy.h"
 #include "Path.h"
 
-class Enemy_Mech : public Enemy
+class Enemy_GreenSoilder : public Enemy
 {
 public:
 	// Constructor (x y coordinates in the world)
 	// Creates animation and movement data and the collider
-	Enemy_Mech(int x, int y);
+	Enemy_GreenSoilder(int x, int y);
 
 	// The enemy is going to follow the different steps in the path
 	// Position will be updated depending on the speed defined at each step
@@ -23,4 +23,4 @@ private:
 	Animation front, back;
 };
 
-#endif // __ENEMY_MECH_H__
+#endif // __ENEMY_GREENSOILDER_H__
