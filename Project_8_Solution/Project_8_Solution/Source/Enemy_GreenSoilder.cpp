@@ -17,10 +17,13 @@ Enemy_GreenSoilder::Enemy_GreenSoilder(int x, int y) : Enemy(x, y)
 	back.speed = 0.1f;
 	//back.pingpong = true;
 
-	path.PushBack({ 0.0f, 0.5f}, 150, &front);
-	path.PushBack({ 0.0f, -0.5f}, 150, &back);
+	path.PushBack({ 0.0f, 0.0f}, 150, &front);
+	
+	//De momento está quieto para que sea mas facil trabajar
+	//path.PushBack({ 0.0f, 0.5f}, 150, &front);
+	//path.PushBack({ 0.0f, -0.5f}, 150, &back);
 
-	collider = App->collisions->AddCollider({0, 0, 24, 24}, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({100, 0, 24, 24}, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_GreenSoilder::Update()
