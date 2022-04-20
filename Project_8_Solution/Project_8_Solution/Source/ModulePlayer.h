@@ -49,7 +49,6 @@ public:
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;
 	Animation* currentAnimation2 = nullptr;
-	Animation* currentAnimation3 = nullptr;
 
 	// A set of animations
 	//Body
