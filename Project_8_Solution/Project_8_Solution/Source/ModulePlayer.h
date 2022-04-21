@@ -44,6 +44,8 @@ public:
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
+
+	SDL_Texture* weaponTexture = nullptr;
 	
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
@@ -70,6 +72,8 @@ public:
 	Animation rightdownAnim, rightdownfootAnim;		//Derecha-Abajo
 	Animation leftupAnim, leftupfootAnim;			//Izquierda-Arriba
 	Animation leftdownAnim, leftdownfootAnim;		//Izquierda-Abajo
+
+	Animation weapon;								//Arma
 
 	// The player's collider
 	Collider* collider = nullptr;

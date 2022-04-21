@@ -200,6 +200,16 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftdownfootAnim.PushBack({ 160, 160, 32, 32 });
 	leftdownfootAnim.loop = true;
 	leftdownfootAnim.speed = 0.1f;
+
+
+	//Weapon animation
+
+	weapon.PushBack({ 236, 39, 20, 22 });
+	weapon.PushBack({ 236, 7, 20, 22 });
+	weapon.loop = true;
+	weapon.speed = 0.2f;
+
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -214,6 +224,7 @@ bool ModulePlayer::Start()
 	bool ret = true;
 
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
+	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
 	if (facing == 0) // [x]
 	{
 		currentAnimation = &idleupAnim;
@@ -660,87 +671,43 @@ Update_Status ModulePlayer::Update()
 		}
 		if (facing == 1)
 		{
-			App->particles->AddParticle(App->particles->bulletUR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletUR, position.x + 20, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 2)
 		{
-			App->particles->AddParticle(App->particles->bullet, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bullet, position.x + 20, position.y + 25, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 3)
 		{
-			App->particles->AddParticle(App->particles->bulletDR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletDR, position.x + 12, position.y + 30, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 4)
 		{
-			App->particles->AddParticle(App->particles->bulletD, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletD, position.x + 10, position.y + 25, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 5)
 		{
-			App->particles->AddParticle(App->particles->bulletDL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletDL, position.x + 10, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 6)
 		{
-			App->particles->AddParticle(App->particles->bulletL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletL, position.x + 5, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 		}
 		if (facing == 7)
 		{
-			App->particles->AddParticle(App->particles->bulletUL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletUL, position.x + 5, position.y + 15, Collider::Type::PLAYER_SHOT);
+			currentAnimation->Reset();
+			currentAnimation = &weapon;
 			App->audio->PlayFx(bulletFx);
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_KP_1] == Key_State::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->bulletDL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(bulletFx);
-	}
-
-	if (App->input->keys[SDL_SCANCODE_KP_2] == Key_State::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->bulletD, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(bulletFx);
-	}
-
-	if (App->input->keys[SDL_SCANCODE_KP_3] == Key_State::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->bulletDR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(bulletFx);
-	}
-
-	if (App->input->keys[SDL_SCANCODE_KP_4] == Key_State::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->bulletL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(bulletFx);
-	}
-
-	if (App->input->keys[SDL_SCANCODE_KP_6] == Key_State::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->bullet, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(bulletFx);
-	}
-
-	if (App->input->keys[SDL_SCANCODE_KP_7] == Key_State::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->bulletUL, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(bulletFx);
-	}
-
-	if (App->input->keys[SDL_SCANCODE_KP_8] == Key_State::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->bulletU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(bulletFx);
-	}
-	if (App->input->keys[SDL_SCANCODE_KP_9] == Key_State::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->bulletUR, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(bulletFx);
-	}
 
 	// If no up/down movement detected, set the current animation back to idle
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
