@@ -206,8 +206,11 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	weapon.PushBack({ 236, 39, 20, 22 });
 	weapon.PushBack({ 236, 7, 20, 22 });
-	weapon.loop = true;
+	
+
+	weapon.loop = false;
 	weapon.speed = 0.2f;
+	weapon.pingpong = false;
 
 
 }
@@ -222,9 +225,9 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 
 	bool ret = true;
-
-	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
+	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
+	
 	if (facing == 0) // [x]
 	{
 		currentAnimation = &idleupAnim;
@@ -265,6 +268,8 @@ bool ModulePlayer::Start()
 		currentAnimation = &idleleftupAnim;
 		currentAnimation2 = &idleleftupfootAnim;
 	}
+
+	currentAnimation3 = &weapon;
 
 
 	bulletFx = App->audio->LoadFx("Assets/Fx/laser.wav");
@@ -702,8 +707,8 @@ Update_Status ModulePlayer::Update()
 		if (facing == 7)
 		{
 			App->particles->AddParticle(App->particles->bulletUL, position.x + 5, position.y + 15, Collider::Type::PLAYER_SHOT);
-			currentAnimation->Reset();
-			currentAnimation = &weapon;
+			
+			currentAnimation3 = &weapon;
 			App->audio->PlayFx(bulletFx);
 		}
 	}
@@ -761,6 +766,7 @@ Update_Status ModulePlayer::Update()
 
 	currentAnimation->Update();
 	currentAnimation2->Update();
+	currentAnimation3->Update();
 
 	if (destroyed)
 	{
@@ -778,9 +784,11 @@ Update_Status ModulePlayer::PostUpdate()
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
+		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
 
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
+		App->render->Blit(weaponTexture, position.x, position.y + 10, &rect3);
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
