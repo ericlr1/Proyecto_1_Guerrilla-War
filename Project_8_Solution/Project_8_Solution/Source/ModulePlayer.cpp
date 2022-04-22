@@ -228,6 +228,23 @@ bool ModulePlayer::Start()
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	
+																		  
+	//Colider que funciona (Arreglar posicion colliders)
+	collider_wall = App->collisions->AddCollider({ 88 , 3412, 88, 26 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 88 , 3400, 88, 26 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 88 , 3500, 88, 26 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 200 , 3248, 20, 13 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 174 , 3111, 176, 49 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 156 , 3063, 158, 24 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 139 , 3041, 141, 14 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 110 , 3028, 119, 139 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 142 , 2889, 145, 44 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 174 , 2845, 176, 32 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 200 , 2814, 203, 136 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 175 , 2680, 176, 53 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 142 , 2628, 143, 30 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 111 , 2598, 113, 133 }, Collider::Type::WALL);
+
 	if (facing == 0) // [x]
 	{
 		currentAnimation = &idleupAnim;
@@ -282,6 +299,8 @@ bool ModulePlayer::Start()
 	destroyed = false;
 
 	collider = App->collisions->AddCollider({ 0,4, 15,30 }, Collider::Type::PLAYER, this);
+	
+	
 
 	return ret;
 }
@@ -811,4 +830,5 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		destroyed = true;
 	}
+	
 }
