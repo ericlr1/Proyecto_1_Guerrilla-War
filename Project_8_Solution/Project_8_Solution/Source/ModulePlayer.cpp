@@ -230,20 +230,20 @@ bool ModulePlayer::Start()
 	
 																		  
 	//Colider que funciona (Arreglar posicion colliders)
-	collider_wall = App->collisions->AddCollider({ 88 , 3412, 88, 26 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 88 , 3400, 88, 26 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 88 , 3500, 88, 26 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 200 , 3248, 20, 13 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 174 , 3111, 176, 49 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 156 , 3063, 158, 24 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 139 , 3041, 141, 14 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 110 , 3028, 119, 139 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 142 , 2889, 145, 44 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 174 , 2845, 176, 32 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 200 , 2814, 203, 136 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 175 , 2680, 176, 53 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 142 , 2628, 143, 30 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 111 , 2598, 113, 133 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0 , 3372, 80, 40 }, Collider::Type::WALL_UP);
+	collider_wall = App->collisions->AddCollider({ 41 , 3381, 44, 33 }, Collider::Type::WALL_STRAIGHT);
+	//collider_wall = App->collisions->AddCollider({ 88 , 3500, 88, 26 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 200 , 3248, 20, 13 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 174 , 3111, 176, 49 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 156 , 3063, 158, 24 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 139 , 3041, 141, 14 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 110 , 3028, 119, 139 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 142 , 2889, 145, 44 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 174 , 2845, 176, 32 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 200 , 2814, 203, 136 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 175 , 2680, 176, 53 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 142 , 2628, 143, 30 }, Collider::Type::WALL);
+	//collider_wall = App->collisions->AddCollider({ 111 , 2598, 113, 133 }, Collider::Type::WALL);
 
 	if (facing == 0) // [x]
 	{
@@ -815,13 +815,22 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	 c2= collider_wall;
+	
 	if (c1 == collider && destroyed == false)
 	{
-		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL)
+		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL_UP)
 		{
-			destroyed = true;
-
+			if (App->input->keys[SDL_SCANCODE_W] == KEY_REPEAT)
+			{
+				App->player->position.y = position.y + 1;
+			}
+		}
+		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL_STRAIGHT)
+		{
+			if (App->input->keys[SDL_SCANCODE_A] == KEY_REPEAT)
+			{
+				App->player->position.x = position.x + 1;
+			}
 		}
 		
 		
