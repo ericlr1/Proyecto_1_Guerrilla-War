@@ -10,7 +10,7 @@ struct Collider
 	enum Type
 	{
 		NONE = -1,
-		WALL_UP,
+		WALL,
 		WALL_STRAIGHT,
 		PLAYER,
 		ENEMY,
@@ -20,10 +20,20 @@ struct Collider
 		MAX
 	};
 
+	enum class ColliderSide
+	{
+		UP,
+		DOWN,
+		RIGHT,	
+		LEFT,
+	};
+
 	//Methods
 	Collider(SDL_Rect rectangle, Type type, Module* listener = nullptr);
 
 	void SetPos(int x, int y);
+	
+	ColliderSide GetSideToPush(const SDL_Rect& r, int& x, int& y);
 
 	bool Intersects(const SDL_Rect& r) const;
 

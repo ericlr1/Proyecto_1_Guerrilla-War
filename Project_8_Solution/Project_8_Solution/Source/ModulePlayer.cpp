@@ -230,9 +230,8 @@ bool ModulePlayer::Start()
 	
 																		  
 	//Colider que funciona (Arreglar posicion colliders)
-	collider_wall = App->collisions->AddCollider({ 0 , 3372, 80, 40 }, Collider::Type::WALL_UP);
-	collider_wall = App->collisions->AddCollider({ 41 , 3381, 44, 33 }, Collider::Type::WALL_STRAIGHT);
-	collider_wall = App->collisions->AddCollider({ 0 , 3495, 300,300 }, Collider::Type::WALL_STRAIGHT);
+	collider_wall = App->collisions->AddCollider({ 0 , 3372, 80, 40 }, Collider::Type::WALL);
+	
 	//collider_wall = App->collisions->AddCollider({ 88 , 3500, 88, 26 }, Collider::Type::WALL);
 	//collider_wall = App->collisions->AddCollider({ 200 , 3248, 20, 13 }, Collider::Type::WALL);
 	//collider_wall = App->collisions->AddCollider({ 174 , 3111, 176, 49 }, Collider::Type::WALL);
@@ -816,24 +815,34 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	
 	if (c1 == collider && destroyed == false)
 	{
-		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL_UP)
+		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL)
 		{
-			if (App->input->keys[SDL_SCANCODE_W] == KEY_REPEAT)
+			int to_push_x;
+			int to_push_y;
+			Collider::ColliderSide side = c1->GetSideToPush(c2->rect, to_push_x, to_push_y);
+
+			LOG("%d", side);
+
+			switch (side)
 			{
-				App->player->position.y = position.y + 1;
+			case Collider::ColliderSide::UP:
+				App->player->position.y += to_push_y;
+				break;
+			case Collider::ColliderSide::DOWN:
+				App->player->position.y += to_push_y;
+				break;
+			case Collider::ColliderSide::RIGHT:
+				App->player->position.x += to_push_x;
+				break;
+			case Collider::ColliderSide::LEFT:
+				App->player->position.x += to_push_x;
+				break;
+			default:
+				break;
 			}
-		}
-		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL_STRAIGHT)
-		{
-			if ( App->input->keys[SDL_SCANCODE_A] == KEY_REPEAT)
-			{
-				App->player->position.y = position.y -1;
-			}
-		}
-		
+		}		
 		
 		//TODO 3: Go back to the intro scene when the player gets killed
 		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
