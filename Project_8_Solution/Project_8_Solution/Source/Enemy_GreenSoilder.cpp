@@ -5,20 +5,26 @@
 
 Enemy_GreenSoilder::Enemy_GreenSoilder(int x, int y) : Enemy(x, y)
 {
-	front.PushBack({5, 108, 31, 29});
-	front.PushBack({4, 141, 31, 29});
-	front.PushBack({38, 108, 31, 29});
-	front.speed = 0.1f;
-	//front.pingpong = true;
-
-	back.PushBack({170, 108, 31, 29});
-	back.PushBack({170, 141, 31, 29});
-	back.PushBack({137, 108, 31, 29});
-	back.speed = 0.1f;
+	leftdownAnim.PushBack({ 64, 194, 32, 32 });
+	leftdownAnim.PushBack({ 96, 194, 32, 32 });
+	leftdownAnim.PushBack({ 64, 194, 32, 32 });
+	leftdownAnim.PushBack({ 32, 194, 32, 32 });
+	leftdownAnim.PushBack({ 0, 194, 32, 32 });
+	leftdownAnim.PushBack({ 32, 194, 32, 32 });
+	leftdownAnim.loop = true;
+	leftdownAnim.speed = 0.1f;
+	//_Foot
+	leftdownfootAnim.PushBack({ 165, 194, 32, 32 });
+	leftdownfootAnim.PushBack({ 198, 194, 32, 32 });
+	leftdownfootAnim.PushBack({ 228, 194, 32, 32 });
+	leftdownfootAnim.PushBack({ 132, 194, 32, 32 });
+	leftdownfootAnim.PushBack({ 98, 194, 32, 32 });
+	leftdownfootAnim.loop = true;
+	leftdownfootAnim.speed = 0.1f;
 	//back.pingpong = true;
 
-	path.PushBack({ 0.0f, 0.0f}, 150, &front);
-	
+	path.PushBack({ 0.0f, 0.0f}, 150, &leftdownAnim);
+	path.PushBack({ 0.0f, 0.0f }, 100, &leftdownfootAnim);
 	//De momento está quieto para que sea mas facil trabajar
 	//path.PushBack({ 0.0f, 0.5f}, 150, &front);
 	//path.PushBack({ 0.0f, -0.5f}, 150, &back);
