@@ -16,6 +16,10 @@ struct Collider
 		ENEMY,
 		PLAYER_SHOT,
 		ENEMY_SHOT,
+		CAMERA_UP,
+		CAMERA_DOWN,
+		CAMERA_RIGHT,
+		CAMERA_LEFT,
 
 		MAX
 	};
@@ -27,6 +31,7 @@ struct Collider
 		RIGHT,	
 		LEFT,
 	};
+	
 
 	//Methods
 	Collider(SDL_Rect rectangle, Type type, Module* listener = nullptr);

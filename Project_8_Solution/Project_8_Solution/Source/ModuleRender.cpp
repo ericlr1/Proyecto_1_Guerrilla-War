@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModulePlayer.h"
 
 #include "SDL/include/SDL_render.h"
 
@@ -38,7 +39,9 @@ bool ModuleRender::Init()
 		ret = false;
 	}
 
-	App->render->cameraSpeed = 20;
+	
+	
+
 	return ret;
 }
 
@@ -51,27 +54,16 @@ Update_Status ModuleRender::PreUpdate()
 	//Clear rendering target
 	SDL_RenderClear(renderer);
 
+	
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
 Update_Status ModuleRender::Update()
 {
 	//Handle positive vertical movement
-	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT)
-		camera.y -= cameraSpeed;
-
-	//Handle negative vertical movement
-	if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT)
-		camera.y += cameraSpeed;
-
-	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)
-		camera.x -= cameraSpeed;
-	if (camera.x < 0) camera.x = 0;
-
-	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
-		camera.x += cameraSpeed;
-
-
+	
+	
 	return Update_Status::UPDATE_CONTINUE;
 }
 

@@ -8,6 +8,7 @@
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
 
+#define SPAWN_MARGIN 60
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
@@ -31,7 +32,8 @@ bool SceneLevel1::Start()
 
 	//Bottomside collider
 	//App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
-
+	
+	
 	
 
 	// Enemies ---
@@ -54,7 +56,7 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::GREENSOILDER, 280, 3200);
 
 	App->render->camera.x = 300;
-	App->render->camera.y = 9300;
+	App->render->camera.y = 9200;
 
 	// TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
@@ -65,8 +67,6 @@ bool SceneLevel1::Start()
 
 	//Colliders pared izquierda
 	
-	
-
 
 	return ret;
 }
@@ -74,6 +74,7 @@ bool SceneLevel1::Start()
 Update_Status SceneLevel1::Update()
 {
 	//App->render->camera.y += 3;
+
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -97,3 +98,5 @@ bool SceneLevel1::CleanUp()
 
 	return true;
 }
+
+
