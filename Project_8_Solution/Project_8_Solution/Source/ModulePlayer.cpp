@@ -829,27 +829,23 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 		}		
-		
-		
-			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_UP)
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_UP)
 			{
 				App->render->camera.y -= 1;
 			}
-			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_DOWN)
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_DOWN)
 			{
 				App->render->camera.y += 1;
 			}
-			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_RIGHT)
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_RIGHT)
 			{
 				App->render->camera.x += 1;
 			}
-			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_LEFT)
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_LEFT)
 			{
 				App->render->camera.x -= 1;
 			}
 			
-		
-		
 		//TODO 3: Go back to the intro scene when the player gets killed
 		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 

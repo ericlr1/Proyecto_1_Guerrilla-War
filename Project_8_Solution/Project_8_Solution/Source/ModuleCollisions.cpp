@@ -37,6 +37,17 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::FOOT][Collider::Type::CAMERA_RIGHT] = true;
 	matrix[Collider::Type::FOOT][Collider::Type::CAMERA_LEFT] = true;
 	
+	matrix[Collider::Type::WATER][Collider::Type::WALL] = false;
+	matrix[Collider::Type::WATER][Collider::Type::BODY] = false;
+	matrix[Collider::Type::WATER][Collider::Type::FOOT] = true;
+	matrix[Collider::Type::WATER][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::WATER][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::WATER][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::WATER][Collider::Type::CAMERA_DOWN] = false;
+	matrix[Collider::Type::WATER][Collider::Type::CAMERA_UP] = false;
+	matrix[Collider::Type::WATER][Collider::Type::CAMERA_RIGHT] = false;
+	matrix[Collider::Type::WATER][Collider::Type::CAMERA_LEFT] = false;
+	
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::BODY] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::ENEMY] = false;
@@ -149,33 +160,51 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::NONE: // white
 			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 			break;
+			
 			case Collider::Type::WALL: // blue
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
+			
 			case Collider::Type::BODY: // green
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
 			break;
+			
 			case Collider::Type::FOOT: // Dark yellow
 			App->render->DrawQuad(colliders[i]->rect, 256, 150, 0, alpha);
 			break;
+			
+			case Collider::Type::WATER: //Blue
+			App->render->DrawQuad(colliders[i]->rect, 51, 0, 255, alpha);
+			break;
+			
+			case Collider::Type::TRENCH: //Blue
+			App->render->DrawQuad(colliders[i]->rect, 123, 0, 255, alpha);
+			break;
+			
 			case Collider::Type::ENEMY: // red
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
 			break;
+			
 			case Collider::Type::PLAYER_SHOT: // yellow
 			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha);
 			break;
+			
 			case Collider::Type::ENEMY_SHOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
+			
 			case Collider::Type::CAMERA_DOWN: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
+			
 			case Collider::Type::CAMERA_UP: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
+			
 			case Collider::Type::CAMERA_RIGHT: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
+			
 			case Collider::Type::CAMERA_LEFT: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;

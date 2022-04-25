@@ -90,6 +90,7 @@ bool SceneLevel1::Start()
 	collider_wall = App->collisions->AddCollider({ 241, 2153, 152, 25 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 241, 2089, 144, 64 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 241, 1976, 166, 113 }, Collider::Type::WALL);
+	
 	//Colliders pared izquierda
 	collider_wall = App->collisions->AddCollider({ 427, 3463, 56, 33 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 399, 3413, 84, 50 }, Collider::Type::WALL);
@@ -107,7 +108,33 @@ bool SceneLevel1::Start()
 	collider_wall = App->collisions->AddCollider({ 547, 2143, 177, 63 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 525, 1973, 199, 170 }, Collider::Type::WALL);
 	
-	
+	//Colliders trinchera
+	collider_trinch = App->collisions->AddCollider({ 126, 2564, 20, 11 }, Collider::Type::TRENCH);
+	collider_trinch = App->collisions->AddCollider({ 133, 2502, 127, 23 }, Collider::Type::TRENCH);
+	collider_trinch = App->collisions->AddCollider({ 241, 1748, 164, 18 }, Collider::Type::TRENCH);
+	collider_trinch = App->collisions->AddCollider({ 527, 1748, 197, 18 }, Collider::Type::TRENCH);
+	collider_trinch = App->collisions->AddCollider({ 404, 1242, 95, 17 }, Collider::Type::TRENCH);
+	collider_trinch = App->collisions->AddCollider({ 497, 1161, 154, 21 }, Collider::Type::TRENCH);
+	collider_trinch = App->collisions->AddCollider({ 678,975, 91, 14 }, Collider::Type::TRENCH);
+
+	// Colliders agua
+	collider_water = App->collisions->AddCollider({ 78, 3472, 315, 37 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 82, 3456, 290, 16 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 102, 3439, 248, 17 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 116, 3429, 233, 10 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 129, 3413, 216, 16 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 146, 3406, 195, 7 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 155, 3398, 174, 8 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 164, 3386, 157, 12 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 175, 3376, 139, 10 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 189, 3359, 125, 17 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 197, 3349, 111, 10 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 199, 3339, 95, 10 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 199, 3325, 89, 14 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 241, 1926, 131, 19 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 565, 1928, 160, 19 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 453, 526, 490, 346 }, Collider::Type::WATER);
+
 	//Colliders camara
 	collider_camera_up = App->collisions->AddCollider({ 0,0, 100,1 }, Collider::Type::CAMERA_UP);
 	collider_camera_down = App->collisions->AddCollider({ 0,0, 100,1 }, Collider::Type::CAMERA_DOWN);
@@ -120,10 +147,10 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-	collider_camera_up->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
+	/*collider_camera_up->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
 	collider_camera_down->SetPos(App->render->camera.x - 150, App->render->camera.y - 5900);
 	collider_camera_right->SetPos(App->render->camera.x - 50, App->render->camera.y - 6000);
-	collider_camera_left->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
+	collider_camera_left->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);*/
 
 	return Update_Status::UPDATE_CONTINUE;
 }

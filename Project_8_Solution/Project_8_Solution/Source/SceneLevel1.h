@@ -36,6 +36,8 @@ public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
 	Collider* collider_wall = nullptr;
+	Collider* collider_trinch = nullptr;
+	Collider* collider_water = nullptr;
 	Collider* collider_camera_right = nullptr;
 	Collider* collider_camera_left = nullptr;
 	Collider* collider_camera_up = nullptr;
