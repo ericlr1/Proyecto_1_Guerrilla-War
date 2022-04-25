@@ -57,7 +57,6 @@ bool SceneLevel1::Start()
 
 	App->render->camera.x = 300;
 	App->render->camera.y = 9200;
-	App->render->cameraSpeed = 6;
 	// TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
 	App->enemies->Enable();
@@ -91,6 +90,22 @@ bool SceneLevel1::Start()
 	collider_wall = App->collisions->AddCollider({ 241, 2153, 152, 25 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 241, 2089, 144, 64 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 241, 1976, 166, 113 }, Collider::Type::WALL);
+	//Colliders pared izquierda
+	collider_wall = App->collisions->AddCollider({ 427, 3463, 56, 33 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 399, 3413, 84, 50 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 369, 3376, 114, 37 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 340, 3330, 143, 46 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 314, 3302, 169, 28 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 284, 3063, 199, 239 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 298, 3039, 185, 24 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 312, 2901, 170, 138 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 285, 2621, 197, 280 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 386, 2597, 209, 25 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 410, 2569, 193, 27 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 495, 2443, 108, 126 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 525, 2206, 199, 237 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 547, 2143, 177, 63 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 525, 1973, 199, 170 }, Collider::Type::WALL);
 	
 	
 	//Colliders camara

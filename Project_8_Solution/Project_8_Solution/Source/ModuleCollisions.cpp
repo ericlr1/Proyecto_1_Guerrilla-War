@@ -27,6 +27,16 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::BODY][Collider::Type::CAMERA_RIGHT] = true;
 	matrix[Collider::Type::BODY][Collider::Type::CAMERA_LEFT] = true;
 	
+	matrix[Collider::Type::FOOT][Collider::Type::WALL] = true;
+	matrix[Collider::Type::FOOT][Collider::Type::BODY] = false;
+	matrix[Collider::Type::FOOT][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::FOOT][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::FOOT][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::FOOT][Collider::Type::CAMERA_DOWN] = true;
+	matrix[Collider::Type::FOOT][Collider::Type::CAMERA_UP] = true;
+	matrix[Collider::Type::FOOT][Collider::Type::CAMERA_RIGHT] = true;
+	matrix[Collider::Type::FOOT][Collider::Type::CAMERA_LEFT] = true;
+	
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::BODY] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::ENEMY] = false;
@@ -142,11 +152,11 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::WALL: // blue
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
-			case Collider::Type::WALL_STRAIGHT: // blue
-			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
-			break;
 			case Collider::Type::BODY: // green
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
+			break;
+			case Collider::Type::FOOT: // Dark yellow
+			App->render->DrawQuad(colliders[i]->rect, 256, 150, 0, alpha);
 			break;
 			case Collider::Type::ENEMY: // red
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
@@ -157,17 +167,17 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::ENEMY_SHOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
-			case Collider::Type::CAMERA_DOWN: // blue
-			App->render->DrawQuad(colliders[i]->rect, 166, 0, 255, alpha);
+			case Collider::Type::CAMERA_DOWN: // Gray
+			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
-			case Collider::Type::CAMERA_UP: // blue
-			App->render->DrawQuad(colliders[i]->rect, 166, 0, 255, alpha);
+			case Collider::Type::CAMERA_UP: // Gray
+			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
-			case Collider::Type::CAMERA_RIGHT: // blue
-			App->render->DrawQuad(colliders[i]->rect, 166, 0, 255, alpha);
+			case Collider::Type::CAMERA_RIGHT: // Gray
+			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
-			case Collider::Type::CAMERA_LEFT: // blue
-			App->render->DrawQuad(colliders[i]->rect, 166, 0, 255, alpha);
+			case Collider::Type::CAMERA_LEFT: // Gray
+			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
 		}
 	}

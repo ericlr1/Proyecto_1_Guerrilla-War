@@ -284,7 +284,7 @@ bool ModulePlayer::Start()
 	position.y = 3250;
 	destroyed = false;
 	collider = App->collisions->AddCollider({ 0,4, 15,30 }, Collider::Type::BODY, this);
-	
+	collider_foot = App->collisions->AddCollider({ 0,0,12,11 }, Collider::Type::FOOT, this);
 	return ret;
 }
 
@@ -766,6 +766,7 @@ Update_Status ModulePlayer::Update()
 	}
 	
 	collider->SetPos(position.x+8, position.y+17);
+	collider_foot->SetPos(position.x + 10, position.y + 45);
 	
 	//Posicion de los colliders conforme se mueve la camara
 	currentAnimation->Update();
@@ -800,9 +801,9 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false)
+	if (c1 == collider_foot || c1 == collider && destroyed == false)
 	{
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WALL)
+		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WALL)
 		{
 			int to_push_x;
 			int to_push_y;
@@ -828,8 +829,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 		}		
-		if (true)
-		{
+		
+		
 			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_UP)
 			{
 				App->render->camera.y -= 1;
@@ -846,8 +847,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			{
 				App->render->camera.x -= 1;
 			}
-			App->render->cameraSpeed;
-		}
+			
+		
 		
 		//TODO 3: Go back to the intro scene when the player gets killed
 		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
