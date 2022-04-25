@@ -57,24 +57,58 @@ bool SceneLevel1::Start()
 
 	App->render->camera.x = 300;
 	App->render->camera.y = 9200;
-
+	App->render->cameraSpeed = 6;
 	// TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
 	App->enemies->Enable();
 
-	//Collider camara
-
-
 	//Colliders pared izquierda
+	collider_wall = App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3386, 80, 25 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3357, 113, 29 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3273, 140, 84 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3248, 174, 25 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3106, 194, 142 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3065, 176, 41 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3048, 152, 17 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3035, 137, 13 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3023, 125, 12 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2900, 106, 123 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2847, 138, 53 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2819, 172, 28 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2687, 197, 132 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2638, 180, 49 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2623, 161, 15 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2606, 141, 17 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2589, 121, 17 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2468, 111, 122 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2438, 142, 29 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 31, 2411, 350, 27 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 31, 2389, 387, 22 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 31, 2261, 408, 128 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 31, 2232, 392, 29 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 121, 2178, 292, 54 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 241, 2153, 152, 25 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 241, 2089, 144, 64 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 241, 1976, 166, 113 }, Collider::Type::WALL);
 	
-
+	
+	//Colliders camara
+	collider_camera_up = App->collisions->AddCollider({ 0,0, 100,1 }, Collider::Type::CAMERA_UP);
+	collider_camera_down = App->collisions->AddCollider({ 0,0, 100,1 }, Collider::Type::CAMERA_DOWN);
+	collider_camera_right = App->collisions->AddCollider({ 0,0, 1,100 }, Collider::Type::CAMERA_RIGHT);
+	collider_camera_left = App->collisions->AddCollider({ 0,0, 1,100 }, Collider::Type::CAMERA_LEFT);
+	
+	
 	return ret;
 }
 
 Update_Status SceneLevel1::Update()
 {
-	//App->render->camera.y += 3;
-
+	collider_camera_up->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
+	collider_camera_down->SetPos(App->render->camera.x - 150, App->render->camera.y - 5900);
+	collider_camera_right->SetPos(App->render->camera.x - 50, App->render->camera.y - 6000);
+	collider_camera_left->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -98,5 +132,7 @@ bool SceneLevel1::CleanUp()
 
 	return true;
 }
+
+
 
 

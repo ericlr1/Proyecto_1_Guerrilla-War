@@ -230,34 +230,7 @@ bool ModulePlayer::Start()
 	
 																		  
 	//Colider que funciona (Arreglar posicion colliders)
-	collider_wall = App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 3386, 80, 25 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 3357, 113, 29 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 3273, 140, 84 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 3248, 174, 25 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 3106, 194, 142 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 3065, 176, 41 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 3048, 152, 17 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 3035, 137, 13 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 3023, 125, 12 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2900, 106, 123 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2847, 138, 53 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2819, 172, 28 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2687, 197, 132 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2638, 180, 49 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2623, 161, 15 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2606, 141, 17 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2589, 121, 17 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2468, 111, 122 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 0, 2438, 142, 29 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 31, 2411, 350, 27 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 31, 2389, 387, 22 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 31, 2261, 408, 128 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 31, 2232, 392, 29 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 121, 2178, 292, 54 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 241, 2153, 152, 25 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 241, 2089, 144, 64 }, Collider::Type::WALL);
-	collider_wall = App->collisions->AddCollider({ 241, 1976, 166, 113 }, Collider::Type::WALL);
+	
 
 	if (facing == 0) // [x]
 	{
@@ -306,20 +279,12 @@ bool ModulePlayer::Start()
 	bulletFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
+	//Player position
 	position.x = 200;
 	position.y = 3250;
-
-	// TODO 4: Retrieve the player when playing a second time
 	destroyed = false;
-
-	collider = App->collisions->AddCollider({ 0,4, 15,30 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ 0,4, 15,30 }, Collider::Type::BODY, this);
 	
-	collider_camera_up = App->collisions->AddCollider({ 0,0, 100,1}, Collider::Type::CAMERA_UP);
-	collider_camera_down= App->collisions->AddCollider({ 0,0, 100,1 }, Collider::Type::CAMERA_DOWN);
-	collider_camera_right = App->collisions->AddCollider({ 0,0, 1,100 }, Collider::Type::CAMERA_RIGHT);
-	collider_camera_left = App->collisions->AddCollider({ 0,0, 1,100 }, Collider::Type::CAMERA_LEFT);
-	
-
 	return ret;
 }
 
@@ -803,12 +768,6 @@ Update_Status ModulePlayer::Update()
 	collider->SetPos(position.x+8, position.y+17);
 	
 	//Posicion de los colliders conforme se mueve la camara
-	collider_camera_up->SetPos(App->render->camera.x - 150, App->render->camera.y-6000);
-	collider_camera_down->SetPos(App->render->camera.x - 150, App->render->camera.y - 5900);
-	collider_camera_right->SetPos(App->render->camera.x - 50, App->render->camera.y - 6000);
-	collider_camera_left->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
-
-
 	currentAnimation->Update();
 	currentAnimation2->Update();
 	currentAnimation3->Update();
@@ -843,7 +802,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == collider && destroyed == false)
 	{
-		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL)
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WALL)
 		{
 			int to_push_x;
 			int to_push_y;
@@ -871,23 +830,23 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}		
 		if (true)
 		{
-			if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_UP)
+			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_UP)
 			{
 				App->render->camera.y -= 1;
 			}
-			if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_DOWN)
+			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_DOWN)
 			{
 				App->render->camera.y += 1;
 			}
-			if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_RIGHT)
+			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_RIGHT)
 			{
 				App->render->camera.x += 1;
 			}
-			if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_LEFT)
+			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_LEFT)
 			{
 				App->render->camera.x -= 1;
 			}
-			App->render->cameraSpeed
+			App->render->cameraSpeed;
 		}
 		
 		//TODO 3: Go back to the intro scene when the player gets killed
