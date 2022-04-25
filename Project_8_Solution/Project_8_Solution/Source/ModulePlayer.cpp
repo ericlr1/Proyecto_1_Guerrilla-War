@@ -230,8 +230,34 @@ bool ModulePlayer::Start()
 	
 																		  
 	//Colider que funciona (Arreglar posicion colliders)
-	collider_wall = App->collisions->AddCollider({ 0 , 3230, 390, 390 }, Collider::Type::WALL);
-	
+	collider_wall = App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3386, 80, 25 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3357, 113, 29 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3273, 140, 84 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3248, 174, 25 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3106, 194, 142 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3065, 176, 41 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3048, 152, 17 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3035, 137, 13 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 3023, 125, 12 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2900, 106, 123 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2847, 138, 53 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2819, 172, 28 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2687, 197, 132 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2638, 180, 49 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2623, 161, 15 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2606, 141, 17 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2589, 121, 17 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2468, 111, 122 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 0, 2438, 142, 29 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 31, 2411, 350, 27 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 31, 2389, 387, 22 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 31, 2261, 408, 128 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 31, 2232, 392, 29 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 121, 2178, 292, 54 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 241, 2153, 152, 25 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 241, 2089, 144, 64 }, Collider::Type::WALL);
+	collider_wall = App->collisions->AddCollider({ 241, 1976, 166, 113 }, Collider::Type::WALL);
 
 	if (facing == 0) // [x]
 	{
@@ -843,21 +869,25 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 		}		
-		if (c1->type == Collider::Type::PLAYER && c2->type==Collider::Type::CAMERA_UP)
+		if (true)
 		{
-			App->render->camera.y -= 1;
-		}
-		if (c1->type == Collider::Type::PLAYER && c2->type==Collider::Type::CAMERA_DOWN)
-		{
-			App->render->camera.y += 1;
-		}
-		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_RIGHT)
-		{
-			App->render->camera.x += 1;
-		}
-		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_LEFT)
-		{
-			App->render->camera.x -= 1;
+			if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_UP)
+			{
+				App->render->camera.y -= 1;
+			}
+			if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_DOWN)
+			{
+				App->render->camera.y += 1;
+			}
+			if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_RIGHT)
+			{
+				App->render->camera.x += 1;
+			}
+			if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::CAMERA_LEFT)
+			{
+				App->render->camera.x -= 1;
+			}
+			App->render->cameraSpeed
 		}
 		
 		//TODO 3: Go back to the intro scene when the player gets killed
