@@ -30,6 +30,7 @@ public:
 
 	//The window's surface
 	SDL_Surface* screenSurface = nullptr;
+
 };
 
 #endif // !__MODULE_WINDOW_H__

@@ -1,6 +1,7 @@
 #include "ModuleWindow.h"
 
 #include "Application.h"
+#include "ModuleTextures.h"
 #include "Globals.h"
 
 #include "SDL/include/SDL.h"
@@ -40,6 +41,8 @@ bool ModuleWindow::Init()
 			flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 
 		window = SDL_CreateWindow("Project 8 - Scene switching", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH * SCREEN_SIZE, SCREEN_HEIGHT * SCREEN_SIZE, flags);
+
+		
 
 		if (window == nullptr)
 		{
