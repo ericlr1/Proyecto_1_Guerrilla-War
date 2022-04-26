@@ -55,6 +55,8 @@ public:
 
 	// A set of animations
 	//Body
+	Animation pdeathAnim, pdeathfootAnim;			//Animaciones de 
+
 	Animation idleupAnim, idleupfootAnim;			//Quieto-Arriba
 	Animation idledownAnim, idledownfootAnim;		//Quieto-Abajo
 	Animation idlerightAnim, idlerightfootAnim;		//Quieto-Derecha

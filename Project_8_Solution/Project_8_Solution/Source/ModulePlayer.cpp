@@ -13,6 +13,42 @@
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
+	//DEATH
+	pdeathAnim.PushBack({ 0, 320, 32, 32 });
+	pdeathAnim.PushBack({ 32, 320, 32, 32 });
+	pdeathAnim.PushBack({ 64, 320, 32, 32 });
+	pdeathAnim.PushBack({ 96, 320, 32, 32 });
+	pdeathAnim.PushBack({ 128, 320, 32, 32 });
+	pdeathAnim.PushBack({ 160, 320, 32, 32 });
+	pdeathAnim.PushBack({ 192, 320, 32, 32 });
+	pdeathAnim.PushBack({ 224, 320, 32, 32 });
+	pdeathAnim.PushBack({ 256, 320, 32, 32 });
+	pdeathAnim.PushBack({ 288, 320, 32, 32 });
+
+	pdeathAnim.speed = 1;
+	pdeathAnim.loop = false;
+
+
+	pdeathfootAnim.PushBack({ 0, 352, 32, 32 });
+	pdeathfootAnim.PushBack({ 32, 352, 32, 32 });
+	pdeathfootAnim.PushBack({ 64, 352, 32, 32 });
+	pdeathfootAnim.PushBack({ 96, 352, 32, 32 });
+	pdeathfootAnim.PushBack({ 128, 352, 32, 32 });
+	pdeathfootAnim.PushBack({ 160, 352, 32, 32 });
+	pdeathfootAnim.PushBack({ 192, 352, 32, 32 });
+	pdeathfootAnim.PushBack({ 224, 352, 32, 32 });
+	pdeathfootAnim.PushBack({ 256, 352, 32, 32 });
+	pdeathfootAnim.PushBack({ 288, 352, 32, 32 });
+	
+	pdeathfootAnim.speed = 1;
+	pdeathfootAnim.loop = false;
+	
+
+	
+	
+	
+	
+	
 	// -IDLE-		[x]
 	//_Body
 	idleupAnim.PushBack({ 64, 0, 32, 32 });
@@ -298,10 +334,448 @@ Update_Status ModulePlayer::Update()
 		facing = 0;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+	//Movimiento diagonales
+
+	//Arriba-derecha
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT
+		&& destroyed == false)
+	{
+		position.y -= speed;
+		position.x += speed;
+		switch (facing)
+		{
+		case 0:
+			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			{
+				upAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &upAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 1:
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 2:
+			if (currentAnimation != &rightAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 3:
+			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
+			{
+				rightdownAnim.Reset();
+				rightdownfootAnim.Reset();
+				currentAnimation = &rightdownAnim;
+				currentAnimation2 = &rightdownfootAnim;
+			}
+			break;
+		case 4:
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			{
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
+			}
+			break;
+		case 5:
+			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
+			{
+				leftdownAnim.Reset();
+				leftdownfootAnim.Reset();
+				currentAnimation = &leftdownAnim;
+				currentAnimation2 = &leftdownfootAnim;
+			}
+			break;
+		case 6:
+			if (currentAnimation != &leftAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 7:
+			if (currentAnimation != &leftupAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		}
+	}
+
+	//Arriba-izquierda
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
+		&& destroyed == false)
+	{
+		position.y -= speed;
+		position.x -= speed;
+		switch (facing)
+		{
+		case 0:
+			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			{
+				upAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &upAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 1:
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 2:
+			if (currentAnimation != &rightAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 3:
+			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
+			{
+				rightdownAnim.Reset();
+				rightdownfootAnim.Reset();
+				currentAnimation = &rightdownAnim;
+				currentAnimation2 = &rightdownfootAnim;
+			}
+			break;
+		case 4:
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			{
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
+			}
+			break;
+		case 5:
+			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
+			{
+				leftdownAnim.Reset();
+				leftdownfootAnim.Reset();
+				currentAnimation = &leftdownAnim;
+				currentAnimation2 = &leftdownfootAnim;
+			}
+			break;
+		case 6:
+			if (currentAnimation != &leftAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 7:
+			if (currentAnimation != &leftupAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		}
+	}
+
+	//Abajo-derecha
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT
+		&& destroyed == false)
+	{
+		position.y += speed;
+		position.x += speed;
+
+		switch (facing)
+		{
+		case 0:
+			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			{
+				upAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &upAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 1:
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 2:
+			if (currentAnimation != &rightAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 3:
+			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
+			{
+				rightdownAnim.Reset();
+				rightdownfootAnim.Reset();
+				currentAnimation = &rightdownAnim;
+				currentAnimation2 = &rightdownfootAnim;
+			}
+			break;
+		case 4:
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			{
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
+			}
+			break;
+		case 5:
+			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
+			{
+				leftdownAnim.Reset();
+				leftdownfootAnim.Reset();
+				currentAnimation = &leftdownAnim;
+				currentAnimation2 = &leftdownfootAnim;
+			}
+			break;
+		case 6:
+			if (currentAnimation != &leftAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 7:
+			if (currentAnimation != &leftupAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		}
+	}
+
+	//Abajo-izquierda
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
+		&& destroyed == false)
+	{
+		position.y += speed;
+		position.x -= speed;
+		switch (facing)
+		{
+		case 0:
+			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			{
+				upAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &upAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 1:
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 2:
+			if (currentAnimation != &rightAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 3:
+			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
+			{
+				rightdownAnim.Reset();
+				rightdownfootAnim.Reset();
+				currentAnimation = &rightdownAnim;
+				currentAnimation2 = &rightdownfootAnim;
+			}
+			break;
+		case 4:
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			{
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
+			}
+			break;
+		case 5:
+			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
+			{
+				leftdownAnim.Reset();
+				leftdownfootAnim.Reset();
+				currentAnimation = &leftdownAnim;
+				currentAnimation2 = &leftdownfootAnim;
+			}
+			break;
+		case 6:
+			if (currentAnimation != &leftAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 7:
+			if (currentAnimation != &leftupAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		}
+	}
+	
+	
+	
+	//Movimiento recto
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
+		&& destroyed == false)
+	{
+		position.y -= speed;
+		switch (facing)
+		{
+		case 0:
+			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			{
+				upAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &upAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 1:
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 2:
+			if (currentAnimation != &rightAnim && currentAnimation2 != &upfootAnim)
+			{
+				rightAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &rightAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 3:
+			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
+			{
+				rightdownAnim.Reset();
+				rightdownfootAnim.Reset();
+				currentAnimation = &rightdownAnim;
+				currentAnimation2 = &rightdownfootAnim;
+			}
+			break;
+		case 4:
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			{
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
+			}
+			break;
+		case 5:
+			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
+			{
+				leftdownAnim.Reset();
+				leftdownfootAnim.Reset();
+				currentAnimation = &leftdownAnim;
+				currentAnimation2 = &leftdownfootAnim;
+			}
+			break;
+		case 6:
+			if (currentAnimation != &leftAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		case 7:
+			if (currentAnimation != &leftupAnim && currentAnimation2 != &upfootAnim)
+			{
+				leftupAnim.Reset();
+				upfootAnim.Reset();
+				currentAnimation = &leftupAnim;
+				currentAnimation2 = &upfootAnim;
+			}
+			break;
+		}
+	}
+
+
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
+		&& destroyed == false)
 	{
 		position.x -= speed;
-		//Incluir un switch
 		switch (facing)
 		{
 		case 0:
@@ -381,50 +855,34 @@ Update_Status ModulePlayer::Update()
 	}
 	
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+		&& destroyed == false)
 	{
 		position.x += speed;
-		/*switch (facing)
+		switch (facing)
 		{
 		case 0:
-
-		case 1:
-
-		case 2:
-
-		case 3:
-
-		case 4:
-
-		case 5:
-
-		case 6:
-
-		case 7:
-
-		}*/
-		if (facing == 0)
-		{
-			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+			if (currentAnimation != &upAnim && currentAnimation2 != &rightfootAnim)
 			{
 				upAnim.Reset();
-				upfootAnim.Reset();
+				rightfootAnim.Reset();
 				currentAnimation = &upAnim;
-				currentAnimation2 = &upfootAnim;
+				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 1)
-		{
-			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
+			break;
+		case 1:
+			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightfootAnim)
 			{
 				rightupAnim.Reset();
-				rightupfootAnim.Reset();
+				rightfootAnim.Reset();
 				currentAnimation = &rightupAnim;
-				currentAnimation2 = &rightupfootAnim;
+				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 2)
-		{
+			break;
+		case 2:
 			if (currentAnimation != &rightAnim && currentAnimation2 != &rightfootAnim)
 			{
 				rightAnim.Reset();
@@ -432,29 +890,26 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 3)
-		{
-			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
+			break;
+		case 3:
+			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightfootAnim)
 			{
 				rightdownAnim.Reset();
-				rightdownfootAnim.Reset();
+				rightfootAnim.Reset();
 				currentAnimation = &rightdownAnim;
-				currentAnimation2 = &rightdownfootAnim;
+				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 4)
-		{
-			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			break;
+		case 4:
+			if (currentAnimation != &downAnim && currentAnimation2 != &rightfootAnim)
 			{
 				downAnim.Reset();
-				downfootAnim.Reset();
+				rightfootAnim.Reset();
 				currentAnimation = &downAnim;
-				currentAnimation2 = &downfootAnim;
+				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 5)
-		{
+			break;
+		case 5:
 			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
 			{
 				leftdownAnim.Reset();
@@ -462,9 +917,8 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftdownAnim;
 				currentAnimation2 = &leftdownfootAnim;
 			}
-		}
-		if (facing == 6)
-		{
+			break;
+		case 6:
 			if (currentAnimation != &leftAnim && currentAnimation2 != &leftfootAnim)
 			{
 				leftAnim.Reset();
@@ -472,9 +926,8 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
 			}
-		}
-		if (facing == 7)
-		{
+			break;
+		case 7:
 			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftupfootAnim)
 			{
 				leftupAnim.Reset();
@@ -482,33 +935,21 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
 			}
+			break;
 		}
+		
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT
+		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
+		&& destroyed == false)
 	{
 		position.y += speed;
-		/*switch (facing)
+		switch (facing)
 		{
 		case 0:
-
-		case 1:
-
-		case 2:
-
-		case 3:
-
-		case 4:
-
-		case 5:
-
-		case 6:
-
-		case 7:
-
-		}*/
-		if (facing == 0)
-		{
 			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
 			{
 				upAnim.Reset();
@@ -516,113 +957,8 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &upAnim;
 				currentAnimation2 = &upfootAnim;
 			}
-		}
-		if (facing == 1)
-		{
-			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
-			{
-				rightupAnim.Reset();
-				rightupfootAnim.Reset();
-				currentAnimation = &rightupAnim;
-				currentAnimation2 = &rightupfootAnim;
-			}
-		}
-		if (facing == 2)
-		{
-			if (currentAnimation != &rightAnim && currentAnimation2 != &rightfootAnim)
-			{
-				rightAnim.Reset();
-				rightfootAnim.Reset();
-				currentAnimation = &rightAnim;
-				currentAnimation2 = &rightfootAnim;
-			}
-		}
-		if (facing == 3)
-		{
-			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
-			{
-				rightdownAnim.Reset();
-				rightdownfootAnim.Reset();
-				currentAnimation = &rightdownAnim;
-				currentAnimation2 = &rightdownfootAnim;
-			}
-		}
-		if (facing == 4)
-		{
-			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
-			{
-				downAnim.Reset();
-				downfootAnim.Reset();
-				currentAnimation = &downAnim;
-				currentAnimation2 = &downfootAnim;
-			}
-		}
-		if (facing == 5)
-		{
-			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
-			{
-				leftdownAnim.Reset();
-				leftdownfootAnim.Reset();
-				currentAnimation = &leftdownAnim;
-				currentAnimation2 = &leftdownfootAnim;
-			}
-		}
-		if (facing == 6)
-		{
-			if (currentAnimation != &leftAnim && currentAnimation2 != &leftfootAnim)
-			{
-				leftAnim.Reset();
-				leftfootAnim.Reset();
-				currentAnimation = &leftAnim;
-				currentAnimation2 = &leftfootAnim;
-			}
-		}
-		if (facing == 7)
-		{
-			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftupfootAnim)
-			{
-				leftupAnim.Reset();
-				leftupfootAnim.Reset();
-				currentAnimation = &leftupAnim;
-				currentAnimation2 = &leftupfootAnim;
-			}
-		}
-	}
-
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
-	{
-		position.y -= speed;
-		/*switch (facing)
-		{
-		case 0:
-
+			break;
 		case 1:
-
-		case 2:
-
-		case 3:
-
-		case 4:
-
-		case 5:
-
-		case 6:
-
-		case 7:
-
-		}*/
-		if (facing == 0)
-		{
-			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
-			{
-				upAnim.Reset();
-				upfootAnim.Reset();
-				currentAnimation = &upAnim;
-				currentAnimation2 = &upfootAnim;
-			}
-		}
-		if (facing == 1)
-		{
 			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
 			{
 				rightupAnim.Reset();
@@ -630,29 +966,8 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
 			}
-		}
-		if (facing == 2)
-		{
-			if (currentAnimation != &rightAnim && currentAnimation2 != &rightfootAnim)
-			{
-				rightAnim.Reset();
-				rightfootAnim.Reset();
-				currentAnimation = &rightAnim;
-				currentAnimation2 = &rightfootAnim;
-			}
-		}
-		if (facing == 3)
-		{
-			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
-			{
-				rightdownAnim.Reset();
-				rightdownfootAnim.Reset();
-				currentAnimation = &rightdownAnim;
-				currentAnimation2 = &rightdownfootAnim;
-			}
-		}
-		if (facing == 4)
-		{
+			break;
+		case 2:
 			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
 			{
 				downAnim.Reset();
@@ -660,29 +975,44 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &downAnim;
 				currentAnimation2 = &downfootAnim;
 			}
-		}
-		if (facing == 5)
-		{
-			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
+			break;
+		case 3:
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
 			{
-				leftdownAnim.Reset();
-				leftdownfootAnim.Reset();
-				currentAnimation = &leftdownAnim;
-				currentAnimation2 = &leftdownfootAnim;
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
 			}
-		}
-		if (facing == 6)
-		{
-			if (currentAnimation != &leftAnim && currentAnimation2 != &leftfootAnim)
+			break;
+		case 4:
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
 			{
-				leftAnim.Reset();
-				leftfootAnim.Reset();
-				currentAnimation = &leftAnim;
-				currentAnimation2 = &leftfootAnim;
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
 			}
-		}
-		if (facing == 7)
-		{
+			break;
+		case 5:
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			{
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
+			}
+			break;
+		case 6:
+			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			{
+				downAnim.Reset();
+				downfootAnim.Reset();
+				currentAnimation = &downAnim;
+				currentAnimation2 = &downfootAnim;
+			}
+			break;
+		case 7:
 			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftupfootAnim)
 			{
 				leftupAnim.Reset();
@@ -690,6 +1020,7 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
 			}
+			break;
 		}
 	}
 
@@ -899,10 +1230,20 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				App->render->camera.x -= 1;
 			}
 			
-		//TODO 3: Go back to the intro scene when the player gets killed
-		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+		
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::TRENCH)
+		{
+			//Go back to the intro scene when the player gets killed
+			
+			currentAnimation = &pdeathAnim;
+			currentAnimation2 = &pdeathfootAnim;
 
-		destroyed = true;*/
+			//App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+
+			//destroyed = true;
+		}
+		
+		
 	}
 	
 }

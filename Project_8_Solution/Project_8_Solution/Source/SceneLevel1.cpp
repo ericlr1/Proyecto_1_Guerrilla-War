@@ -60,6 +60,7 @@ bool SceneLevel1::Start()
 	// TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
 	App->enemies->Enable();
+	
 
 	//Colliders pared izquierda
 	collider_wall = App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
