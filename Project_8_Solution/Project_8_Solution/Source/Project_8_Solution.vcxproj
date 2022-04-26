@@ -79,7 +79,12 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_BrownShip.h" />
+<<<<<<< Updated upstream
     <ClInclude Include="Enemy_GreenSoilder.h" />
+=======
+    <ClInclude Include="Enemy_Green_Soldier.h" />
+    <ClInclude Include="Enemy_Mech.h" />
+>>>>>>> Stashed changes
     <ClInclude Include="Enemy_RedBird.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleCollisions.h" />
@@ -105,7 +110,12 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_BrownShip.cpp" />
+<<<<<<< Updated upstream
     <ClCompile Include="Enemy_GreenSoilder.cpp" />
+=======
+    <ClCompile Include="Enemy_Green_Soldier.cpp" />
+    <ClCompile Include="Enemy_Mech.cpp" />
+>>>>>>> Stashed changes
     <ClCompile Include="Enemy_RedBird.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />

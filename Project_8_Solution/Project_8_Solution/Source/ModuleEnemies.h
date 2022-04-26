@@ -10,8 +10,14 @@ enum class Enemy_Type
 	NO_TYPE,
 	REDBIRD,
 	BROWNSHIP,
+<<<<<<< Updated upstream
 	GREENSOILDER,
 
+=======
+	MECH,
+	GREEN_SOLDIER,
+	RED_SOLDIER,
+>>>>>>> Stashed changes
 };
 
 struct EnemySpawnpoint
