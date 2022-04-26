@@ -204,13 +204,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	//Weapon animation
 
-	weapon.PushBack({ 236, 39, 20, 22 });
-	weapon.PushBack({ 236, 7, 20, 22 });
+	weapon.anim.PushBack({ 236, 39, 20, 22 });
+	weapon.anim.PushBack({ 236, 7, 20, 22 });
 	
-
-	weapon.loop = false;
-	weapon.speed = 0.2f;
-	weapon.pingpong = false;
+	weapon.anim.loop = false;
+	weapon.anim.speed = 0.2f;
+	weapon.anim.pingpong = false;
 
 
 }
@@ -228,7 +227,8 @@ bool ModulePlayer::Start()
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	
-																		  
+	
+
 	//Colider que funciona (Arreglar posicion colliders)
 	
 
@@ -273,12 +273,12 @@ bool ModulePlayer::Start()
 		currentAnimation2 = &idleleftupfootAnim;
 	}
 
-	currentAnimation3 = &weapon;
+	
 
 
 	bulletFx = App->audio->LoadFx("Assets/Fx/laser.wav");
-	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
-
+	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");	
+	
 	//Player position
 	position.x = 200;
 	position.y = 3250;
@@ -301,18 +301,19 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		position.x -= speed;
-		if (facing == 0)
+		//Incluir un switch
+		switch (facing)
 		{
-			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
+		case 0:
+			if (currentAnimation != &upAnim && currentAnimation2 != &leftfootAnim)
 			{
 				upAnim.Reset();
-				upfootAnim.Reset();
+				leftfootAnim.Reset();
 				currentAnimation = &upAnim;
-				currentAnimation2 = &upfootAnim;
+				currentAnimation2 = &leftfootAnim;
 			}
-		}
-		if (facing == 1)
-		{
+			break;
+		case 1:
 			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
 			{
 				rightupAnim.Reset();
@@ -320,9 +321,8 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
 			}
-		}
-		if (facing == 2)
-		{
+			break;
+		case 2:
 			if (currentAnimation != &rightAnim && currentAnimation2 != &rightfootAnim)
 			{
 				rightAnim.Reset();
@@ -330,9 +330,8 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 3)
-		{
+			break;
+		case 3:
 			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
 			{
 				rightdownAnim.Reset();
@@ -340,29 +339,26 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightdownAnim;
 				currentAnimation2 = &rightdownfootAnim;
 			}
-		}
-		if (facing == 4)
-		{
-			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
+			break;
+		case 4:
+			if (currentAnimation != &downAnim && currentAnimation2 != &leftfootAnim)
 			{
 				downAnim.Reset();
-				downfootAnim.Reset();
+				leftfootAnim.Reset();
 				currentAnimation = &downAnim;
-				currentAnimation2 = &downfootAnim;
+				currentAnimation2 = &leftfootAnim;
 			}
-		}
-		if (facing == 5)
-		{
-			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
+			break;
+		case 5:
+			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftfootAnim)
 			{
 				leftdownAnim.Reset();
-				leftdownfootAnim.Reset();
+				leftfootAnim.Reset();
 				currentAnimation = &leftdownAnim;
-				currentAnimation2 = &leftdownfootAnim;
+				currentAnimation2 = &leftfootAnim;
 			}
-		}
-		if (facing == 6)
-		{
+			break;
+		case 6:
 			if (currentAnimation != &leftAnim && currentAnimation2 != &leftfootAnim)
 			{
 				leftAnim.Reset();
@@ -370,23 +366,43 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
 			}
-		}
-		if (facing == 7)
-		{
-			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftupfootAnim)
+			break;
+		case 7:
+			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftfootAnim)
 			{
 				leftupAnim.Reset();
-				leftupfootAnim.Reset();
+				leftfootAnim.Reset();
 				currentAnimation = &leftupAnim;
-				currentAnimation2 = &leftupfootAnim;
+				currentAnimation2 = &leftfootAnim;
 			}
+			break;
 		}
+		
 	}
 	
 
 	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 		position.x += speed;
+		/*switch (facing)
+		{
+		case 0:
+
+		case 1:
+
+		case 2:
+
+		case 3:
+
+		case 4:
+
+		case 5:
+
+		case 6:
+
+		case 7:
+
+		}*/
 		if (facing == 0)
 		{
 			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
@@ -472,6 +488,25 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
 	{
 		position.y += speed;
+		/*switch (facing)
+		{
+		case 0:
+
+		case 1:
+
+		case 2:
+
+		case 3:
+
+		case 4:
+
+		case 5:
+
+		case 6:
+
+		case 7:
+
+		}*/
 		if (facing == 0)
 		{
 			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
@@ -557,6 +592,25 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 	{
 		position.y -= speed;
+		/*switch (facing)
+		{
+		case 0:
+
+		case 1:
+
+		case 2:
+
+		case 3:
+
+		case 4:
+
+		case 5:
+
+		case 6:
+
+		case 7:
+
+		}*/
 		if (facing == 0)
 		{
 			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
@@ -710,8 +764,9 @@ Update_Status ModulePlayer::Update()
 		if (facing == 7)
 		{
 			App->particles->AddParticle(App->particles->bulletUL, position.x + 5, position.y + 15, Collider::Type::PLAYER_SHOT);
+			//App->particles->AddParticle(App->particles.w);
 			
-			currentAnimation3 = &weapon;
+			
 			App->audio->PlayFx(bulletFx);
 		}
 	}
@@ -771,7 +826,7 @@ Update_Status ModulePlayer::Update()
 	//Posicion de los colliders conforme se mueve la camara
 	currentAnimation->Update();
 	currentAnimation2->Update();
-	currentAnimation3->Update();
+	
 
 	if (destroyed)
 	{
@@ -789,11 +844,9 @@ Update_Status ModulePlayer::PostUpdate()
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
-		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
 
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
-		App->render->Blit(weaponTexture, position.x, position.y + 10, &rect3);
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
