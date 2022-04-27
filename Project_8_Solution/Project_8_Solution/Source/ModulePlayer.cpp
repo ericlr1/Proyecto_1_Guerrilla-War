@@ -10,8 +10,11 @@
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleFonts.h"
 
 #include "SDL/include/SDL_scancode.h"
+
+#include <stdio.h>
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
@@ -325,7 +328,12 @@ bool ModulePlayer::Start()
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	
-																		  
+	
+	// TODO 4: Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
+	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV"};
+	scoreFont = App->fonts->Load("Assets/Sprites/fonts.png", lookupTable, 2);
+
+
 	//Colider que funciona (Arreglar posicion colliders)
 	
 
@@ -948,6 +956,15 @@ Update_Status ModulePlayer::PostUpdate()
 		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
 	}
 
+	// Draw UI (score) --------------------------------------
+	sprintf_s(scoreText, 10, "%7d", score);
+
+	// TODO 3: Blit the text of the score in at the bottom of the screen
+	App->fonts->BlitText(20, 30, scoreFont, scoreText);
+
+	App->fonts->BlitText(70, 20, scoreFont, "HI");
+	App->fonts->BlitText(125, 20, scoreFont, "30000");
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -1000,6 +1017,14 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
 			currentAnimation2 = &water;
+			
+			
+		}
+
+		//Score
+		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
+		{
+			score += 50;		//Valor placeholder
 		}
 
 		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);

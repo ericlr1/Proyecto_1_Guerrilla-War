@@ -100,6 +100,11 @@ public:
 	uint bulletFx = 0;
 	uint explosionFx = 0;
 
+	// Font score index
+	uint score = 000;
+	int scoreFont = -1;
+	char scoreText[10] = { "\0" };
+
 };
 
 #endif //!__MODULE_PLAYER_H_
