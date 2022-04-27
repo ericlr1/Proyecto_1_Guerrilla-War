@@ -37,7 +37,7 @@ bool ModuleParticles::Start()
 	dead.anim.PushBack({285, 322, 34, 60});
 	
 	dead.anim.loop = false;
-	dead.anim.speed = 0.3f;
+	dead.anim.speed = 0.1f;
 
 	//bullet right
 	bullet.anim.PushBack({ 66, 183, 10, 9 });
