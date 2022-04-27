@@ -158,9 +158,8 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					enemies[i] = new Enemy_GreenSoldier2(info.x, info.y);
 					break;
 			}
-			enemies[i]->destroyedFx = enemyDestroyedFx;
 			enemies[i]->texture = texture;
-			
+				enemies[i]->destroyedFx = enemyDestroyedFx;
 			break;
 		}
 	}
