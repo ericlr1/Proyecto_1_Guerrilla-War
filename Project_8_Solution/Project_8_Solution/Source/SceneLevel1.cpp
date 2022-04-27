@@ -55,6 +55,7 @@ bool SceneLevel1::Start()
 	// TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
 	App->enemies->Enable();
+	App->collisions->Enable();
 
 	//Colliders pared izquierda
 	collider_wall = App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
@@ -165,6 +166,7 @@ bool SceneLevel1::CleanUp()
 	// TODO 2: Enable (and properly disable) the player module
 	App->player->Disable();
 	App->enemies->Disable();
+	App->collisions->Disable();
 
 	// TODO 5: Remove All Memory Leaks - no solution here guys ;)
 

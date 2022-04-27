@@ -1,6 +1,8 @@
 #include "ModulePlayer.h"
 
 #include "Application.h"
+#include "Animation.h"
+
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
@@ -201,6 +203,15 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftdownfootAnim.loop = true;
 	leftdownfootAnim.speed = 0.1f;
 
+	//Water
+	
+	water.PushBack({192,256,32,32 });
+	water.PushBack({224,256,32,32 });
+	water.PushBack({256,256,32,32 });
+	
+	water.loop = false;
+	water.speed = 0.1f;
+	water.pingpong = true;
 
 	//Weapon animation
 
@@ -296,6 +307,10 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
 	{
 		facing = 0;
+	}
+	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
+	{
+		destroyed = true;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -845,7 +860,16 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			{
 				App->render->camera.x -= 1;
 			}
-		
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WATER)
+		{
+			
+		}
+
+
+
+
+
+
 			
 		//TODO 3: Go back to the intro scene when the player gets killed
 		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);

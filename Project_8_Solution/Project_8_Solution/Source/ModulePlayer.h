@@ -74,6 +74,7 @@ public:
 	Animation leftupAnim, leftupfootAnim;			//Izquierda-Arriba
 	Animation leftdownAnim, leftdownfootAnim;		//Izquierda-Abajo
 
+	Animation water;								//Agua
 	Animation weapon;								//Arma
 
 	// The player's collider
