@@ -25,20 +25,14 @@ bool ModuleParticles::Start()
 	texture = App->textures->Load("Assets/Sprites/particles.png");
 
 	// Explosion particle
-	dead.anim.PushBack({0, 323, 31, 58});
-	dead.anim.PushBack({31, 323, 30, 58});
-	dead.anim.PushBack({63, 323, 27, 58});
-	dead.anim.PushBack({93, 323, 27, 58 });
-	dead.anim.PushBack({125, 323, 27, 58 });
-	dead.anim.PushBack({156, 323, 30, 58 });
-	dead.anim.PushBack({189, 323, 28, 58 });
-	dead.anim.PushBack({218, 323, 28, 58 });
-	dead.anim.PushBack({253, 323, 29, 58 });
-	dead.anim.PushBack({285, 323, 33, 58 });
-
-
-	dead.anim.loop = false;
-	dead.anim.speed = 0.2f;
+	explosion.anim.PushBack({274, 296, 33, 30});
+	explosion.anim.PushBack({313, 296, 33, 30});
+	explosion.anim.PushBack({346, 296, 33, 30});
+	explosion.anim.PushBack({382, 296, 33, 30});
+	explosion.anim.PushBack({419, 296, 33, 30});
+	explosion.anim.PushBack({457, 296, 33, 30});
+	explosion.anim.loop = false;
+	explosion.anim.speed = 0.3f;
 
 	//bullet right
 	bullet.anim.PushBack({ 66, 183, 10, 9 });
