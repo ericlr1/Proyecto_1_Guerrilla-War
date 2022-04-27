@@ -229,84 +229,84 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	// -RIGHT/UP-	[x]
 	//Idle
-	widlerightup.PushBack({ 0, 0, 32, 32 });
+	widlerightup.PushBack({ 32, 0, 32, 32 });
 	widlerightup.loop = false;
 	widlerightup.speed = 0.2f;
 	widlerightup.pingpong = false;
 	//Fire
-	wfirerightup.PushBack({ 0, 32, 32, 32 });
+	wfirerightup.PushBack({ 32, 32, 32, 32 });
 	wfirerightup.loop = false;
 	wfirerightup.speed = 0.2f;
 	wfirerightup.pingpong = false;
 	
 	// -RIGHT-	[x]
 	//Idle
-	widleright.PushBack({ 0, 0, 32, 32 });
+	widleright.PushBack({ 64, 0, 32, 32 });
 	widleright.loop = false;
 	widleright.speed = 0.2f;
 	widleright.pingpong = false;
 	//Fire
-	wfireright.PushBack({ 0, 32, 32, 32 });
+	wfireright.PushBack({ 64, 32, 32, 32 });
 	wfireright.loop = false;
 	wfireright.speed = 0.2f;
 	wfireright.pingpong = false;
 	
 	// -RIGHT/DOWN-	[x]
 	//Idle
-	widlerightdown.PushBack({ 0, 0, 32, 32 });
+	widlerightdown.PushBack({ 96, 0, 32, 32 });
 	widlerightdown.loop = false;
 	widlerightdown.speed = 0.2f;
 	widlerightdown.pingpong = false;
 	//Fire
-	wfirerightdown.PushBack({ 0, 32, 32, 32 });
+	wfirerightdown.PushBack({ 96, 32, 32, 32 });
 	wfirerightdown.loop = false;
 	wfirerightdown.speed = 0.2f;
 	wfirerightdown.pingpong = false;
 	
 	// -DOWN-	[x]
 	//Idle
-	widledown.PushBack({ 0, 0, 32, 32 });
+	widledown.PushBack({ 128, 0, 32, 32 });
 	widledown.loop = false;
 	widledown.speed = 0.2f;
 	widledown.pingpong = false;
 	//Fire
-	wfiredown.PushBack({ 0, 32, 32, 32 });
+	wfiredown.PushBack({ 128, 32, 32, 32 });
 	wfiredown.loop = false;
 	wfiredown.speed = 0.2f;
 	wfiredown.pingpong = false;
 	
 	// -LEFT/DOWN-	[x]
 	//Idle
-	widleleftdown.PushBack({ 0, 0, 32, 32 });
+	widleleftdown.PushBack({ 160, 0, 32, 32 });
 	widleleftdown.loop = false;
 	widleleftdown.speed = 0.2f;
 	widleleftdown.pingpong = false;
 	//Fire
-	wfireleftdown.PushBack({ 0, 32, 32, 32 });
+	wfireleftdown.PushBack({ 160, 32, 32, 32 });
 	wfireleftdown.loop = false;
 	wfireleftdown.speed = 0.2f;
 	wfireleftdown.pingpong = false;
 	
 	// -LEFT-	[x]
 	//Idle
-	widleleft.PushBack({ 0, 0, 32, 32 });
+	widleleft.PushBack({ 192, 0, 32, 32 });
 	widleleft.loop = false;
 	widleleft.speed = 0.2f;
 	widleleft.pingpong = false;
 	//Fire
-	wfireleft.PushBack({ 0, 32, 32, 32 });
+	wfireleft.PushBack({ 192, 32, 32, 32 });
 	wfireleft.loop = false;
 	wfireleft.speed = 0.2f;
 	wfireleft.pingpong = false;
 	
 	// -LEFT/UP-	[X]
 	//Idle
-	widleleftup.PushBack({ 0, 0, 32, 32 });
+	widleleftup.PushBack({ 224, 0, 32, 32 });
 	widleleftup.loop = false;
 	widleleftup.speed = 0.2f;
 	widleleftup.pingpong = false;
 	//Fire
-	wfireleftup.PushBack({ 0, 32, 32, 32 });
+	wfireleftup.PushBack({ 224, 32, 32, 32 });
 	wfireleftup.loop = false;
 	wfireleftup.speed = 0.2f;
 	wfireleftup.pingpong = false;
@@ -945,7 +945,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
-		App->render->Blit(weaponTexture, position.x, position.y + 10, &rect3);
+		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
