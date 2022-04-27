@@ -29,7 +29,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	texture = App->textures->Load("Assets/Sprites/Guerrilla War Enemy Spritesheet.png");
-	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
+	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/sounds_gwar-195 (1).wav");
 
 	return true;
 }
@@ -122,6 +122,7 @@ void ModuleEnemies::HandleEnemiesDespawn()
 	{
 		if (enemies[i] != nullptr)
 		{
+			
 			// Delete the enemy when it has reached the end of the screen
 			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
 			{
@@ -129,6 +130,7 @@ void ModuleEnemies::HandleEnemiesDespawn()
 
 				delete enemies[i];
 				enemies[i] = nullptr;
+				
 			}
 		}
 	}
@@ -156,8 +158,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					enemies[i] = new Enemy_GreenSoldier2(info.x, info.y);
 					break;
 			}
-			enemies[i]->texture = texture;
 			enemies[i]->destroyedFx = enemyDestroyedFx;
+			enemies[i]->texture = texture;
+			
 			break;
 		}
 	}

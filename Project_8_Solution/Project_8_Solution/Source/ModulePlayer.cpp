@@ -386,8 +386,8 @@ bool ModulePlayer::Start()
 		currentAnimation3 = &widleleftup;
 	}
 
-	bulletFx = App->audio->LoadFx("Assets/Fx/laser.wav");
-	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
+	bulletFx = App->audio->LoadFx("Assets/Fx/sounds_gwar-153 (1).wav");
+	explosionFx = App->audio->LoadFx("Assets/Fx/sounds_gwar-195 (1).wav");
 
 	//Player position
 	position.x = 200;
