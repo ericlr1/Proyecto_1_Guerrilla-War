@@ -50,12 +50,7 @@ bool SceneLevel1::Start()
 	//App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 290, 3400);
 
 
-<<<<<<< Updated upstream
 	App->enemies->AddEnemy(Enemy_Type::GREENSOILDER, 280, 2920);
-=======
-	App->enemies->AddEnemy(Enemy_Type::GREENSOILDER, 270, 2925);
->>>>>>> Stashed changes
-
 	App->render->camera.x = 300;
 	App->render->camera.y = 9200;
 	// TODO 2: Enable (and properly disable) the player module

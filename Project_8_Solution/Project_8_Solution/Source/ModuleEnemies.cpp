@@ -10,7 +10,6 @@
 #include "Enemy_RedBird.h"
 #include "Enemy_BrownShip.h"
 #include "Enemy_GreenSoilder.h"
-#include "Enemy_GreenSoilder2.h"
 
 #define SPAWN_MARGIN 50
 
