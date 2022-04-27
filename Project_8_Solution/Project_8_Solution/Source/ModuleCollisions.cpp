@@ -22,6 +22,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::BODY][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::BODY][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::BODY][Collider::Type::ENEMY_SHOT] = true;
+	matrix[Collider::Type::BODY][Collider::Type::WATER] = true;
 	matrix[Collider::Type::BODY][Collider::Type::CAMERA_DOWN] = true;
 	matrix[Collider::Type::BODY][Collider::Type::CAMERA_UP] = true;
 	matrix[Collider::Type::BODY][Collider::Type::CAMERA_RIGHT] = true;
@@ -174,7 +175,7 @@ void ModuleCollisions::DebugDraw()
 			break;
 			
 			case Collider::Type::WATER: //Blue
-			App->render->DrawQuad(colliders[i]->rect, 51, 0, 255, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 111, 232, 231, alpha);
 			break;
 			
 			case Collider::Type::TRENCH: //Blue

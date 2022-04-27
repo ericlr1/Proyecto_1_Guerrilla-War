@@ -1,5 +1,6 @@
 #include "SceneLevel1.h"
 
+#include "Collider.h"
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
@@ -29,12 +30,6 @@ bool SceneLevel1::Start()
 
 	bgTexture = App->textures->Load("Assets/Sprites/background.png");
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
-
-	//Bottomside collider
-	//App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
-	
-	
-	
 
 	// Enemies ---
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
@@ -118,7 +113,7 @@ bool SceneLevel1::Start()
 	collider_trinch = App->collisions->AddCollider({ 678,975, 91, 14 }, Collider::Type::TRENCH);
 
 	// Colliders agua
-	collider_water = App->collisions->AddCollider({ 78, 3472, 315, 37 }, Collider::Type::WATER);
+	collider_wall = App->collisions->AddCollider({ 78, 3472, 315, 37 }, Collider::Type::WATER);
 	collider_water = App->collisions->AddCollider({ 82, 3456, 290, 16 }, Collider::Type::WATER);
 	collider_water = App->collisions->AddCollider({ 102, 3439, 248, 17 }, Collider::Type::WATER);
 	collider_water = App->collisions->AddCollider({ 116, 3429, 233, 10 }, Collider::Type::WATER);
@@ -147,10 +142,11 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-	/*collider_camera_up->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
+	collider_camera_up->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
 	collider_camera_down->SetPos(App->render->camera.x - 150, App->render->camera.y - 5900);
 	collider_camera_right->SetPos(App->render->camera.x - 50, App->render->camera.y - 6000);
-	collider_camera_left->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);*/
+	collider_camera_left->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
+	
 
 	return Update_Status::UPDATE_CONTINUE;
 }
