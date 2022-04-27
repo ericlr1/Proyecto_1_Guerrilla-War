@@ -8,6 +8,8 @@
 #include "ModuleCollisions.h"
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
+#include <SDL/include/SDL_scancode.h>
+#include "ModuleInput.h"
 
 #define SPAWN_MARGIN 60
 
@@ -114,7 +116,7 @@ bool SceneLevel1::Start()
 	collider_trinch = App->collisions->AddCollider({ 678,975, 91, 14 }, Collider::Type::TRENCH);
 
 	// Colliders agua
-	collider_wall = App->collisions->AddCollider({ 78, 3472, 315, 37 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 78, 3472, 315, 37 }, Collider::Type::WATER);
 	collider_water = App->collisions->AddCollider({ 82, 3456, 290, 16 }, Collider::Type::WATER);
 	collider_water = App->collisions->AddCollider({ 102, 3439, 248, 17 }, Collider::Type::WATER);
 	collider_water = App->collisions->AddCollider({ 116, 3429, 233, 10 }, Collider::Type::WATER);
@@ -136,6 +138,7 @@ bool SceneLevel1::Start()
 	collider_camera_down = App->collisions->AddCollider({ 0,0, 100,1 }, Collider::Type::CAMERA_DOWN);
 	collider_camera_right = App->collisions->AddCollider({ 0,0, 1,100 }, Collider::Type::CAMERA_RIGHT);
 	collider_camera_left = App->collisions->AddCollider({ 0,0, 1,100 }, Collider::Type::CAMERA_LEFT);
+	collider_limit = App->collisions->AddCollider({ 0,0,10,10 }, Collider::Type::WALL);
 	
 	
 	return ret;
@@ -147,7 +150,12 @@ Update_Status SceneLevel1::Update()
 	collider_camera_down->SetPos(App->render->camera.x - 150, App->render->camera.y - 5900);
 	collider_camera_right->SetPos(App->render->camera.x - 50, App->render->camera.y - 6000);
 	collider_camera_left->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
+	collider_limit->SetPos(App->render->camera.x - 300, App->render->camera.y - 5800);
 	
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE)
+	{
+		coins += 1;
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
