@@ -1027,6 +1027,17 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			score += 50;		//Valor placeholder
 		}
 		
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
+		{
+			
+
+			App->audio->PlayFx(explosionFx);
+
+			//TODO 3: Go back to the intro scene when the player gets killed
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+
+			destroyed = true;
+		}
 
 		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 
