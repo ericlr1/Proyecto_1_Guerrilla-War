@@ -1,9 +1,9 @@
-#include "Enemy_GreenSoilder.h"
+#include "Enemy_GreenSoldier.h"
 
 #include "Application.h"
 #include "ModuleCollisions.h"
 
-Enemy_GreenSoilder::Enemy_GreenSoilder(int x, int y) : Enemy(x, y)
+Enemy_GreenSoldier::Enemy_GreenSoldier(int x, int y) : Enemy(x, y)
 {
 	idleAnim.PushBack({ 448, 0, 32, 64 });
 	idleAnim.PushBack({ 448, 0, 32, 64 });
@@ -16,18 +16,14 @@ Enemy_GreenSoilder::Enemy_GreenSoilder(int x, int y) : Enemy(x, y)
 	idleAnim.speed = 0.15f;
 	idleAnim.pingpong = false;
 
-	path.PushBack({ 0.0f, 0.0f}, 150, &idleAnim);
-
 	collider = App->collisions->AddCollider({100, 0, 30, 55}, Collider::Type::ENEMY, (Module*)App->enemies);
-	idleAnim.speed = 0.1f;
-	idleAnim.pingpong = false;
 
 	path.PushBack({ 0.0f, 0.0f }, 150, &idleAnim);
 
 	collider = App->collisions->AddCollider({100, 0, 30, 60}, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
-void Enemy_GreenSoilder::Update()
+void Enemy_GreenSoldier::Update()
 {
 	path.Update();
 	position = spawnPos + path.GetRelativePosition();

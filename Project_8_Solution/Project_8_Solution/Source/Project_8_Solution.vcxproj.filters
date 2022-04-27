@@ -85,7 +85,7 @@
     <ClInclude Include="Enemy_BrownShip.h">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_GreenSoilder.h">
+    <ClInclude Include="Enemy_GreenSoldier.h">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_RedBird.h">
@@ -105,6 +105,9 @@
     </ClInclude>
     <ClInclude Include="ModuleFonts.h">
       <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_GreenSoldier2.h">
+      <Filter>Source Files\Entities\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -159,7 +162,7 @@
     <ClCompile Include="Enemy_BrownShip.cpp">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_GreenSoilder.cpp">
+    <ClCompile Include="Enemy_GreenSoldier.cpp">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_RedBird.cpp">
@@ -179,6 +182,9 @@
     </ClCompile>
     <ClCompile Include="ModuleFonts.cpp">
       <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_GreenSoldier2.cpp">
+      <Filter>Source Files\Entities\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
