@@ -34,23 +34,23 @@ bool SceneLevel1::Start()
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
 
 	// Enemies ---
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 625, 80);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 640, 80);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 665, 80);
+	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
+	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 625, 80);
+	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 640, 80);
+	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 665, 80);
 
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 735, 120);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 750, 120);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 775, 120);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 790, 120);
+	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 735, 120);
+	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 750, 120);
+	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 775, 120);
+	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 790, 120);
 
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 830, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 850, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 870, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 290, 3400);
+	//App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 830, 100);
+	//App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 850, 100);
+	//App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 870, 100);
+	//App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 290, 3400);
 
 
-	App->enemies->AddEnemy(Enemy_Type::GREENSOILDER, 280, 3200);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOILDER, 280, 2920);
 
 	App->render->camera.x = 300;
 	App->render->camera.y = 9200;

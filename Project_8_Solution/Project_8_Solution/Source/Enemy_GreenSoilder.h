@@ -20,7 +20,7 @@ private:
 	Path path;
 
 	// Enemy animations
-	Animation front, back, leftdownfootAnim, leftdownAnim;
+	Animation idleAnim;
 };
 
 #endif // __ENEMY_GREENSOILDER_H__

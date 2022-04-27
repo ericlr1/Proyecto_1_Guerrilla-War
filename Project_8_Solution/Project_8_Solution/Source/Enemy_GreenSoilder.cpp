@@ -5,31 +5,20 @@
 
 Enemy_GreenSoilder::Enemy_GreenSoilder(int x, int y) : Enemy(x, y)
 {
-	leftdownAnim.PushBack({ 64, 194, 32, 32 });
-	leftdownAnim.PushBack({ 96, 194, 32, 32 });
-	leftdownAnim.PushBack({ 64, 194, 32, 32 });
-	leftdownAnim.PushBack({ 32, 194, 32, 32 });
-	leftdownAnim.PushBack({ 0, 194, 32, 32 });
-	leftdownAnim.PushBack({ 32, 194, 32, 32 });
-	leftdownAnim.loop = true;
-	leftdownAnim.speed = 0.1f;
-	//_Foot
-	leftdownfootAnim.PushBack({ 165, 194, 32, 32 });
-	leftdownfootAnim.PushBack({ 198, 194, 32, 32 });
-	leftdownfootAnim.PushBack({ 228, 194, 32, 32 });
-	leftdownfootAnim.PushBack({ 132, 194, 32, 32 });
-	leftdownfootAnim.PushBack({ 98, 194, 32, 32 });
-	leftdownfootAnim.loop = true;
-	leftdownfootAnim.speed = 0.1f;
-	//back.pingpong = true;
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 416, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 416, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.loop = true;
+	idleAnim.speed = 0.15f;
+	idleAnim.pingpong = false;
 
-	path.PushBack({ 0.0f, 0.0f}, 150, &leftdownAnim);
-	path.PushBack({ 0.0f, 0.0f }, 100, &leftdownfootAnim);
-	//De momento está quieto para que sea mas facil trabajar
-	//path.PushBack({ 0.0f, 0.5f}, 150, &front);
-	//path.PushBack({ 0.0f, -0.5f}, 150, &back);
+	path.PushBack({ 0.0f, 0.0f}, 150, &idleAnim);
 
-	collider = App->collisions->AddCollider({100, 0, 24, 24}, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({100, 0, 30, 55}, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_GreenSoilder::Update()
