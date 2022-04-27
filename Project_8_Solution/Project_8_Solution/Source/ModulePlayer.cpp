@@ -308,8 +308,11 @@ Update_Status ModulePlayer::Update()
 	{
 		facing = 0;
 	}
+	
 	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
 	{
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+		
 		destroyed = true;
 	}
 
@@ -792,8 +795,11 @@ Update_Status ModulePlayer::Update()
 	{
 		destroyedCountdown--;
 		if (destroyedCountdown <= 0)
+		
 		return Update_Status::UPDATE_STOP;
+		
 	}
+
 
 	return Update_Status::UPDATE_CONTINUE;
 	
@@ -862,16 +868,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			}
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WATER)
 		{
-			
+			currentAnimation2 = &water;
 		}
 
-
-
-
-
-
-			
-		//TODO 3: Go back to the intro scene when the player gets killed
 		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 
 		destroyed = true;*/
