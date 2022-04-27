@@ -61,8 +61,10 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WALL] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::BODY] = false;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::FOOT] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WATER] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::CAMERA_DOWN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::CAMERA_UP] = false;
