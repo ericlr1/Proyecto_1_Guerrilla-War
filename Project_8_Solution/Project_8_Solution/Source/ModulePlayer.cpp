@@ -862,7 +862,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			}
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WATER)
 		{
-			
+			currentAnimation2 = &water;
 		}
 
 
