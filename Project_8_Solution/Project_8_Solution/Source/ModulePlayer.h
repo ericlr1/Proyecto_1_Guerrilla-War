@@ -4,7 +4,6 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
-#include "Particle.h"
 
 struct SDL_Texture;
 struct Collider;
@@ -52,6 +51,7 @@ public:
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;
 	Animation* currentAnimation2 = nullptr;
+	Animation* currentAnimation3 = nullptr;
 
 	// A set of animations
 	//Body
@@ -74,7 +74,7 @@ public:
 	Animation leftupAnim, leftupfootAnim;			//Izquierda-Arriba
 	Animation leftdownAnim, leftdownfootAnim;		//Izquierda-Abajo
 
-	Particle weapon;								//Arma
+	Animation weapon;								//Arma
 
 	// The player's collider
 	Collider* collider = nullptr;
