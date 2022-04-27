@@ -1004,7 +1004,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			}
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_DOWN)
 			{
-				App->render->camera.y += 1;
+				App->render->camera.y += 2;
 			}
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_RIGHT)
 			{
@@ -1012,7 +1012,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			}
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_LEFT)
 			{
-				App->render->camera.x -= 1;
+				App->render->camera.x -= 2;
 			}
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
@@ -1027,10 +1027,15 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			score += 50;		//Valor placeholder
 		}
 		
-
-		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
-
-		destroyed = true;*/
+		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
+		{
+			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
+			
+			destroyed = true;
+		}
+			
+		
+		
 	}
 	
 }

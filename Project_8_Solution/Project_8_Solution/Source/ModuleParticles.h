@@ -57,7 +57,7 @@ private:
 
 public:
 	//Template particle for an explosion
-	Particle explosion;
+	Particle dead;
 
 	//Template particle for a bullet
 	Particle bullet;	//a la derecha
