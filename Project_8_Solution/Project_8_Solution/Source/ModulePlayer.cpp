@@ -997,7 +997,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			{
 				App->render->camera.x -= 1;
 			}
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WATER)
+		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
 			currentAnimation2 = &water;
 		}
