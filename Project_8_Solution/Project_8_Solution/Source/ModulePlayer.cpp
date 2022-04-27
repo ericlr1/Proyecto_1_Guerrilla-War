@@ -1026,6 +1026,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		{
 			score += 50;		//Valor placeholder
 		}
+		
 
 		/*App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 
