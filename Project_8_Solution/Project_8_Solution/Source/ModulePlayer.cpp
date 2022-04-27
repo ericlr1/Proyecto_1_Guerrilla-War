@@ -970,7 +970,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider_foot || c1 == collider && destroyed == false)
+	if (c1 == collider_foot || c1 == collider && destroyed == false&& destroyed==false)
 	{
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WALL)
 		{
@@ -1028,10 +1028,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 		
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
-		{
-			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
+		{	
 			
-			destroyed = true;
+			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE, 1);
+			
+
 		}
 			
 		
