@@ -214,16 +214,102 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	water.pingpong = true;
 
 	//Weapon animation
-
-	weapon.PushBack({ 236, 39, 20, 22 });
-	weapon.PushBack({ 236, 7, 20, 22 });
 	
+	// -UP-	[x]
+	//Idle
+	widleup.PushBack({ 0, 0, 32, 32 });
+	widleup.loop = false;
+	widleup.speed = 0.2f;
+	widleup.pingpong = false;
+	//Fire
+	wfireup.PushBack({ 0, 32, 32, 32 });
+	wfireup.loop = false;
+	wfireup.speed = 0.2f;
+	wfireup.pingpong = false;
 
-	weapon.loop = false;
-	weapon.speed = 0.2f;
-	weapon.pingpong = false;
-
-
+	// -RIGHT/UP-	[x]
+	//Idle
+	widlerightup.PushBack({ 0, 0, 32, 32 });
+	widlerightup.loop = false;
+	widlerightup.speed = 0.2f;
+	widlerightup.pingpong = false;
+	//Fire
+	wfirerightup.PushBack({ 0, 32, 32, 32 });
+	wfirerightup.loop = false;
+	wfirerightup.speed = 0.2f;
+	wfirerightup.pingpong = false;
+	
+	// -RIGHT-	[x]
+	//Idle
+	widleright.PushBack({ 0, 0, 32, 32 });
+	widleright.loop = false;
+	widleright.speed = 0.2f;
+	widleright.pingpong = false;
+	//Fire
+	wfireright.PushBack({ 0, 32, 32, 32 });
+	wfireright.loop = false;
+	wfireright.speed = 0.2f;
+	wfireright.pingpong = false;
+	
+	// -RIGHT/DOWN-	[x]
+	//Idle
+	widlerightdown.PushBack({ 0, 0, 32, 32 });
+	widlerightdown.loop = false;
+	widlerightdown.speed = 0.2f;
+	widlerightdown.pingpong = false;
+	//Fire
+	wfirerightdown.PushBack({ 0, 32, 32, 32 });
+	wfirerightdown.loop = false;
+	wfirerightdown.speed = 0.2f;
+	wfirerightdown.pingpong = false;
+	
+	// -DOWN-	[x]
+	//Idle
+	widledown.PushBack({ 0, 0, 32, 32 });
+	widledown.loop = false;
+	widledown.speed = 0.2f;
+	widledown.pingpong = false;
+	//Fire
+	wfiredown.PushBack({ 0, 32, 32, 32 });
+	wfiredown.loop = false;
+	wfiredown.speed = 0.2f;
+	wfiredown.pingpong = false;
+	
+	// -LEFT/DOWN-	[x]
+	//Idle
+	widleleftdown.PushBack({ 0, 0, 32, 32 });
+	widleleftdown.loop = false;
+	widleleftdown.speed = 0.2f;
+	widleleftdown.pingpong = false;
+	//Fire
+	wfireleftdown.PushBack({ 0, 32, 32, 32 });
+	wfireleftdown.loop = false;
+	wfireleftdown.speed = 0.2f;
+	wfireleftdown.pingpong = false;
+	
+	// -LEFT-	[x]
+	//Idle
+	widleleft.PushBack({ 0, 0, 32, 32 });
+	widleleft.loop = false;
+	widleleft.speed = 0.2f;
+	widleleft.pingpong = false;
+	//Fire
+	wfireleft.PushBack({ 0, 32, 32, 32 });
+	wfireleft.loop = false;
+	wfireleft.speed = 0.2f;
+	wfireleft.pingpong = false;
+	
+	// -LEFT/UP-	[X]
+	//Idle
+	widleleftup.PushBack({ 0, 0, 32, 32 });
+	widleleftup.loop = false;
+	widleleftup.speed = 0.2f;
+	widleleftup.pingpong = false;
+	//Fire
+	wfireleftup.PushBack({ 0, 32, 32, 32 });
+	wfireleftup.loop = false;
+	wfireleftup.speed = 0.2f;
+	wfireleftup.pingpong = false;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -247,45 +333,50 @@ bool ModulePlayer::Start()
 	{
 		currentAnimation = &idleupAnim;
 		currentAnimation2 = &idleupfootAnim;
+		currentAnimation3 = &widleup;
 	}
 	if (facing == 1) // [x]
 	{
 		currentAnimation = &idlerightupAnim;
 		currentAnimation2 = &idlerightupfootAnim;
+		currentAnimation3 = &widlerightup;
 	}
 	if (facing == 2) // [x]
 	{
 		currentAnimation = &idlerightAnim;
 		currentAnimation2 = &idlerightfootAnim;
+		currentAnimation3 = &widleright;
 	}
 	if (facing == 3) // [x]
 	{
 		currentAnimation = &idlerightdownAnim;
 		currentAnimation2 = &idlerightdownfootAnim;
+		currentAnimation3 = &widlerightdown;
 	}
 	if (facing == 4) // [x]
 	{
 		currentAnimation = &idledownAnim;
 		currentAnimation2 = &idledownfootAnim;
+		currentAnimation3 = &widledown;
 	}
 	if (facing == 5) // [x]
 	{
 		currentAnimation = &idleleftdownAnim;
 		currentAnimation2 = &idleleftdownfootAnim;
+		currentAnimation3 = &widleleftdown;
 	}
 	if (facing == 6) // []
 	{
 		currentAnimation = &idleleftAnim;
 		currentAnimation2 = &idleleftfootAnim;
+		currentAnimation3 = &widleleft;
 	}
 	if (facing == 7) // []
 	{
 		currentAnimation = &idleleftupAnim;
 		currentAnimation2 = &idleleftupfootAnim;
+		currentAnimation3 = &widleleftup;
 	}
-
-	currentAnimation3 = &weapon;
-
 
 	bulletFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -687,50 +778,55 @@ Update_Status ModulePlayer::Update()
 	// Comprobaciones de la orientación para realizar los disparos 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-
 		//La variable facing aumenta al rotar hacia la derecha (Como las agujas del reloj)
 
 		if (facing == 0)
 		{
 			App->particles->AddParticle(App->particles->bulletU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
+			currentAnimation3 = &wfireup;
 		}
 		if (facing == 1)
 		{
 			App->particles->AddParticle(App->particles->bulletUR, position.x + 20, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
+			currentAnimation3 = &wfirerightup;
 		}
 		if (facing == 2)
 		{
 			App->particles->AddParticle(App->particles->bullet, position.x + 20, position.y + 25, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
+			currentAnimation3 = &wfireright;
 		}
 		if (facing == 3)
 		{
 			App->particles->AddParticle(App->particles->bulletDR, position.x + 12, position.y + 30, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
+			currentAnimation3 = &wfirerightdown;
 		}
 		if (facing == 4)
 		{
 			App->particles->AddParticle(App->particles->bulletD, position.x + 10, position.y + 25, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
+			currentAnimation3 = &wfiredown;
 		}
 		if (facing == 5)
 		{
 			App->particles->AddParticle(App->particles->bulletDL, position.x + 10, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
+			currentAnimation3 = &wfireleftdown;
 		}
 		if (facing == 6)
 		{
 			App->particles->AddParticle(App->particles->bulletL, position.x + 5, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
+			currentAnimation3 = &wfireleft;
 		}
 		if (facing == 7)
 		{
 			App->particles->AddParticle(App->particles->bulletUL, position.x + 5, position.y + 15, Collider::Type::PLAYER_SHOT);
-			
-			currentAnimation3 = &weapon;
 			App->audio->PlayFx(bulletFx);
+			currentAnimation3 = &wfireleftup;
 		}
 	}
 
@@ -780,6 +876,41 @@ Update_Status ModulePlayer::Update()
 		{
 			currentAnimation = &idleleftupAnim;
 			currentAnimation2 = &idleleftupfootAnim;
+		}
+	}
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE)
+	{
+		if (facing == 0)
+		{
+			currentAnimation3 = &widleup;
+		}
+		if (facing == 1)
+		{
+			currentAnimation3 = &widlerightup;
+		}
+		if (facing == 2)
+		{
+			currentAnimation3 = &widleright;
+		}
+		if (facing == 3)
+		{
+			currentAnimation3 = &widlerightdown;
+		}
+		if (facing == 4)
+		{
+			currentAnimation3 = &widledown;
+		}
+		if (facing == 5)
+		{
+			currentAnimation3 = &widleleftdown;
+		}
+		if (facing == 6)
+		{
+			currentAnimation3 = &widleleft;
+		}
+		if (facing == 7)
+		{
+			currentAnimation3 = &widleleftup;
 		}
 	}
 	

@@ -55,27 +55,36 @@ public:
 
 	// A set of animations
 	//Body
-	Animation idleupAnim, idleupfootAnim;			//Quieto-Arriba
-	Animation idledownAnim, idledownfootAnim;		//Quieto-Abajo
-	Animation idlerightAnim, idlerightfootAnim;		//Quieto-Derecha
-	Animation idleleftAnim, idleleftfootAnim;		//Quieto-Izquierda
+	Animation deadAnim, deadfootAnim;											//Muerte Player
 
-	Animation idlerightupAnim, idlerightupfootAnim;			//Quieto-Derecha-Arriba
-	Animation idlerightdownAnim, idlerightdownfootAnim;		//Quieto-Derecha-Abajo
-	Animation idleleftupAnim, idleleftupfootAnim;		//Quieto-Izquierda-Arriba
-	Animation idleleftdownAnim, idleleftdownfootAnim;		//Quieto-Izquierda-Abajo
+	Animation idleupAnim, idleupfootAnim;										//Quieto-Arriba
+	Animation idledownAnim, idledownfootAnim;									//Quieto-Abajo
+	Animation idlerightAnim, idlerightfootAnim;									//Quieto-Derecha
+	Animation idleleftAnim, idleleftfootAnim;									//Quieto-Izquierda
 
-	Animation upAnim, upfootAnim;					//Arriba
-	Animation downAnim, downfootAnim;				//Abajo
-	Animation leftAnim, leftfootAnim;				//Izquierda
-	Animation rightAnim, rightfootAnim;				//Derecha
-	Animation rightupAnim, rightupfootAnim;			//Derecha-Arriba
-	Animation rightdownAnim, rightdownfootAnim;		//Derecha-Abajo
-	Animation leftupAnim, leftupfootAnim;			//Izquierda-Arriba
-	Animation leftdownAnim, leftdownfootAnim;		//Izquierda-Abajo
+	Animation idlerightupAnim, idlerightupfootAnim;								//Quieto-Derecha-Arriba
+	Animation idlerightdownAnim, idlerightdownfootAnim;							//Quieto-Derecha-Abajo
+	Animation idleleftupAnim, idleleftupfootAnim;								//Quieto-Izquierda-Arriba
+	Animation idleleftdownAnim, idleleftdownfootAnim;							//Quieto-Izquierda-Abajo
 
-	Animation water;								//Agua
-	Animation weapon;								//Arma
+	Animation upAnim, upfootAnim;												//Arriba
+	Animation downAnim, downfootAnim;											//Abajo
+	Animation leftAnim, leftfootAnim;											//Izquierda
+	Animation rightAnim, rightfootAnim;											//Derecha
+	Animation rightupAnim, rightupfootAnim;										//Derecha-Arriba
+	Animation rightdownAnim, rightdownfootAnim;									//Derecha-Abajo
+	Animation leftupAnim, leftupfootAnim;										//Izquierda-Arriba
+	Animation leftdownAnim, leftdownfootAnim;									//Izquierda-Abajo
+	
+	//Entorno
+	Animation water;															//Agua
+
+	//Arma
+	Animation widleup, widledown, widleleft, widleright;						//Arma-Idle
+	Animation widleleftup, widleleftdown, widlerightup, widlerightdown;			//Arma-Idle
+
+	Animation wfireup, wfiredown, wfireleft, wfireright;						//Arma-Fire
+	Animation wfireleftup, wfireleftdown, wfirerightup, wfirerightdown;			//Arma-Fire
 
 	// The player's collider
 	Collider* collider = nullptr;
