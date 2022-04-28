@@ -12,7 +12,7 @@ enum class Enemy_Type
 	BROWNSHIP,
 	GREENSOLDIER,
 	GREENSOLDIER2,
-
+	HOSTAGE,
 };
 
 struct EnemySpawnpoint
