@@ -412,7 +412,7 @@ Update_Status ModulePlayer::Update()
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 		
-		destroyed = true;
+		//destroyed = true;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -930,15 +930,6 @@ Update_Status ModulePlayer::Update()
 	currentAnimation2->Update();
 	currentAnimation3->Update();
 
-	if (destroyed)
-	{
-		destroyedCountdown--;
-		if (destroyedCountdown <= 0)
-		
-		return Update_Status::UPDATE_STOP;
-		
-	}
-
 
 	return Update_Status::UPDATE_CONTINUE;
 	
@@ -1035,6 +1026,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		}
 			
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
+		{
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+			destroyed = true;
+		}
 		
 		
 	}
