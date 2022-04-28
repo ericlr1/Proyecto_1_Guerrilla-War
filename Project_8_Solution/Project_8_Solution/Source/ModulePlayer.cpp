@@ -1039,7 +1039,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			{
 				App->render->camera.x -= 2;
 			}*/
-<<<<<<< Updated upstream
+		//Updated upstream
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
 			currentAnimation2 = &water;
@@ -1047,9 +1047,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			
 		}
 
-=======
+
 		
->>>>>>> Stashed changes
+		//Stashed changes
 		//Score
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 		{
