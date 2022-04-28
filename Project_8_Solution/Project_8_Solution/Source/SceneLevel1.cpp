@@ -8,8 +8,11 @@
 #include "ModuleCollisions.h"
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
+#include "ModuleParticles.h"
 #include <SDL/include/SDL_scancode.h>
 #include "ModuleInput.h"
+#include "Enemy_GreenSoldier.h"
+#include "Enemy_GreenSoldier2.h"
 
 #define SPAWN_MARGIN 60
 
@@ -59,6 +62,7 @@ bool SceneLevel1::Start()
 	App->player->Enable();
 	App->enemies->Enable();
 	App->collisions->Enable();
+	App->particles->Enable();
 
 	//Colliders pared izquierda
 	collider_wall = App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
@@ -107,9 +111,6 @@ bool SceneLevel1::Start()
 	collider_wall = App->collisions->AddCollider({ 547, 2143, 177, 63 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 525, 1973, 199, 170 }, Collider::Type::WALL);
 	
-
-	collider_wall = App->collisions->AddCollider({ 0, 3382, 500, 3 }, Collider::Type::WALL);
-
 	//Colliders trinchera
 	collider_trinch = App->collisions->AddCollider({ 126, 2564, 20, 11 }, Collider::Type::TRENCH);
 	collider_trinch = App->collisions->AddCollider({ 133, 2502, 127, 23 }, Collider::Type::TRENCH);
@@ -120,11 +121,19 @@ bool SceneLevel1::Start()
 	collider_trinch = App->collisions->AddCollider({ 678,975, 91, 14 }, Collider::Type::TRENCH);
 
 	// Colliders agua
-	
-	collider_water = App->collisions->AddCollider({ 205, 3335, 76, 24 }, Collider::Type::WATER);
-	collider_water = App->collisions->AddCollider({ 187, 3378, 121, 11 }, Collider::Type::WATER);
-	collider_water = App->collisions->AddCollider({ 203, 3364, 103, 13 }, Collider::Type::WATER);
-	collider_water = App->collisions->AddCollider({ 285, 3354, 16, 9 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 78, 3472, 315, 37 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 82, 3456, 290, 16 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 102, 3439, 248, 17 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 116, 3429, 233, 10 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 129, 3413, 216, 16 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 146, 3406, 195, 7 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 155, 3398, 174, 8 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 164, 3386, 157, 12 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 175, 3376, 139, 10 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 189, 3359, 125, 17 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 197, 3349, 111, 10 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 199, 3339, 95, 10 }, Collider::Type::WATER);
+	collider_water = App->collisions->AddCollider({ 199, 3325, 89, 14 }, Collider::Type::WATER);
 	collider_water = App->collisions->AddCollider({ 241, 1926, 131, 19 }, Collider::Type::WATER);
 	collider_water = App->collisions->AddCollider({ 565, 1928, 160, 19 }, Collider::Type::WATER);
 	collider_water = App->collisions->AddCollider({ 453, 526, 490, 346 }, Collider::Type::WATER);

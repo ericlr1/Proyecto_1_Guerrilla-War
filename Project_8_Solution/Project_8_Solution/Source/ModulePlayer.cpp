@@ -1012,17 +1012,22 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
 			currentAnimation2 = &water;
+			
+			
 		}
+
 		//Score
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 		{
 			score += 50;		//Valor placeholder
-		}	
-
+		}
+		
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{	
 			
 			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE, 1);
+			
+
 		}
 			
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
@@ -1031,12 +1036,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			destroyed = true;
 		}
 
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::BODY)
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::HOSTAGE)
 		{
 			score += 500;
 		}
 
-		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::BODY)
+		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::HOSTAGE)
 		{
 			score -= 500;
 		}
