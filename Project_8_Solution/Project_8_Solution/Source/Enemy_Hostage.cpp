@@ -36,15 +36,19 @@ Enemy_Hostage::Enemy_Hostage(int x, int y) : Enemy(x, y)
 	collider = App->collisions->AddCollider({ 100, 0, 30, 55 }, Collider::Type::HOSTAGE, (Module*)App->enemies);
 
 	path.PushBack({ 0.0f, 0.0f }, 160, &idleAnim);
-	//if ("Un enemigo dispara al rehe")
-	//{
-	//	path.PushBack({ 0.0f, 0.0f }, 160, &deadAnim);
-	//}
-	//else if ("Player toca al rehen")
-	//{
-	//	path.PushBack({ 0.0f, 0.0f }, 160, &saveAnim);
 
-	//}
+	/*if ("Un enemigo dispara al rehe")
+	{
+		path.PushBack({ 0.0f, 0.0f }, 160, &deadAnim);
+
+	}
+	else if ("Player toca al rehen")
+	{
+		path.PushBack({ 0.0f, 0.0f }, 160, &saveAnim);
+
+	}
+	*/
+
 }
 
 void Enemy_Hostage::Update()

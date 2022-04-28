@@ -80,7 +80,7 @@ public:
 	
 	//Entorno
 	Animation water;															//Agua
-
+	Animation trench;															//Barro
 	//Arma
 	Animation widleup, widledown, widleleft, widleright;						//Arma-Idle
 	Animation widleleftup, widleleftdown, widlerightup, widlerightdown;			//Arma-Idle

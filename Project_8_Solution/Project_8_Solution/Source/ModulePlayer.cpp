@@ -214,9 +214,19 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	water.PushBack({224,256,32,32 });
 	water.PushBack({256,256,32,32 });
 	
-	water.loop = false;
+	water.loop = true;
 	water.speed = 0.1f;
 	water.pingpong = true;
+
+	//trench
+
+	trench.PushBack({ 160,256,32,32 });
+	trench.PushBack({ 160,288,32,32 });
+	trench.PushBack({ 160,288,32,32 });
+
+	trench.loop = true;
+	trench.speed = 0.1f;
+	trench.pingpong = false;
 
 	//Weapon animation
 	
@@ -1002,7 +1012,17 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			default:
 				break;
 			}
-		}		
+		}	
+
+		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
+		{
+			currentAnimation2 = &trench;
+		}
+
+		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::TRENCH)
+		{
+			currentAnimation2 = &trench;
+		}
 		/*if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_UP)
 			{
 				App->render->camera.y -= 1;
@@ -1019,6 +1039,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			{
 				App->render->camera.x -= 2;
 			}*/
+<<<<<<< Updated upstream
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
 			currentAnimation2 = &water;
@@ -1026,6 +1047,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			
 		}
 
+=======
+		
+>>>>>>> Stashed changes
 		//Score
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 		{
@@ -1072,6 +1096,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 	
 }
+
+
+
 void ModulePlayer::CameraFollowPlayer()
 {
 	int camerax = App->render->GetCameraCenterX();
