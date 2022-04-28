@@ -26,6 +26,7 @@ If you want more information about the game, check the following link: https://g
      * S + A ➲ ↙
      * Space ➲ Shoot
      * K ➲ Kill the player
+     * L ➲ Auto win
      * F1 ➲ Show colliders
      
 ### Player 1 (Gamepad)

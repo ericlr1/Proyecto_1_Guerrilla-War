@@ -410,11 +410,19 @@ Update_Status ModulePlayer::Update()
 		facing = 0;
 	}
 	
+	//Auto kill
 	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 		
 		//destroyed = true;
+	}
+
+	//Auto win
+	if (App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_DOWN)
+	{
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
+		destroyed = true;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -1057,6 +1065,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
 			destroyed = true;
 		}
+
+
 		
 		
 	}
