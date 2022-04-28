@@ -93,6 +93,8 @@ bool SceneLevel1::Start()
 	collider_wall = App->collisions->AddCollider({ 241, 2153, 152, 25 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 241, 2089, 144, 64 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 241, 1976, 166, 113 }, Collider::Type::WALL);
+
+	collider_wall = App->collisions->AddCollider({ 56, 3380, 400, 100 }, Collider::Type::WALL);			//Collider provisional para que no te vayas muy para abajo
 	
 	//Colliders pared izquierda
 	collider_wall = App->collisions->AddCollider({ 427, 3463, 56, 33 }, Collider::Type::WALL);
