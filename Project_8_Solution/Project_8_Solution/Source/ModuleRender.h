@@ -46,6 +46,11 @@ public:
 
 	bool DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed = 1.0f);
 
+	int GetCameraCenterX();
+	int GetCameraCenterY();
+	
+	void SetCameraCenter(int x, int y);
+
 public:
 	// Rendering context used for any rendering action
 	SDL_Renderer* renderer = nullptr;

@@ -393,7 +393,7 @@ bool ModulePlayer::Start()
 	position.x = 200;
 	position.y = 3250;
 	destroyed = false;
-	collider = App->collisions->AddCollider({ 0,4, 15,30 }, Collider::Type::BODY, this);
+	collider = App->collisions->AddCollider({ 0,0, 15,30 }, Collider::Type::BODY, this);
 	collider_foot = App->collisions->AddCollider({ 0,0,12,11 }, Collider::Type::FOOT, this);
 	return ret;
 }
@@ -930,6 +930,8 @@ Update_Status ModulePlayer::Update()
 	currentAnimation2->Update();
 	currentAnimation3->Update();
 
+	
+	CameraFollowPlayer();
 
 	return Update_Status::UPDATE_CONTINUE;
 	
@@ -989,7 +991,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 		}		
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_UP)
+		/*if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_UP)
 			{
 				App->render->camera.y -= 1;
 			}
@@ -1004,7 +1006,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_LEFT)
 			{
 				App->render->camera.x -= 2;
-			}
+			}*/
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
 			currentAnimation2 = &water;
@@ -1035,4 +1037,23 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		
 	}
 	
+}
+void ModulePlayer::CameraFollowPlayer()
+{
+	int camerax = App->render->GetCameraCenterX();
+	int cameray = App->render->GetCameraCenterY();
+	
+	//Arreglar
+
+	/*int moveCameraUp=cameray-cameraStartFollow;*/
+	/*int moveCamera = cameray + cameraStartFollow;
+	
+	if (position.y <= moveCamera)
+	{
+		cameray = position.y + cameraStartFollow;
+		
+	}*/
+	
+	App->render->SetCameraCenter(position.x-50, position.y-100);
+
 }

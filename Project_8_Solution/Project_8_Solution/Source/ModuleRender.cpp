@@ -75,7 +75,8 @@ Update_Status ModuleRender::Update()
 
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
-	cameraSpeed=10;
+	
+
 	
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -151,4 +152,21 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	}
 
 	return ret;
+}
+
+int ModuleRender::GetCameraCenterX()
+{
+	return (camera.x + (camera.w * 0.5)) / SCREEN_SIZE;
+}
+
+int ModuleRender::GetCameraCenterY()
+{
+	return (camera.y + (camera.h * 0.5)) / SCREEN_SIZE;
+}
+
+void ModuleRender::SetCameraCenter(int x, int y)
+{
+	camera.x = (x * SCREEN_SIZE) - floor(camera.w * 0.5);
+	camera.y = (y * SCREEN_SIZE) - floor(camera.h * 0.5);
+
 }

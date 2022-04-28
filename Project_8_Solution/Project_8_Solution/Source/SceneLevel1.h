@@ -44,6 +44,7 @@ public:
 	Collider* collider_camera_down = nullptr;
 	Collider* collider_limit = nullptr;
 	
+	
 	//Coins para jugar
 	int coins = 0;
 

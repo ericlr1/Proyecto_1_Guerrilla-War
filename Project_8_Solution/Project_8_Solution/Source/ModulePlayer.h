@@ -32,6 +32,8 @@ public:
 	// Collision callback, called when the player intersects with another collider
 	void OnCollision(Collider* c1, Collider* c2) override;
 
+	void CameraFollowPlayer();
+
 public:
 	// Position of the player in the map
 	iPoint position;
@@ -89,7 +91,7 @@ public:
 	// The player's collider
 	Collider* collider = nullptr;
 	Collider* collider_foot = nullptr;
-	
+	Collider* collider_camara = nullptr;
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
 
@@ -104,6 +106,9 @@ public:
 	uint score = 000;
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
+
+	int cameraStartFollow = 0;
+	
 
 };
 
