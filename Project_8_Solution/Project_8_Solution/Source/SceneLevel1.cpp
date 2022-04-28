@@ -152,7 +152,7 @@ Update_Status SceneLevel1::Update()
 	collider_camera_left->SetPos(App->render->camera.x - 150, App->render->camera.y - 6000);
 	collider_limit->SetPos(App->render->camera.x - 300, App->render->camera.y - 5800);
 	
-	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE)
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
 	{
 		coins += 1;
 	}
