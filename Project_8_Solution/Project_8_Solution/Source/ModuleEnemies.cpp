@@ -161,6 +161,8 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 				case Enemy_Type::HOSTAGE:
 					enemies[i] = new Enemy_Hostage(info.x, info.y);
 					break;
+					//	idleAnim.PushBack({ 416, 64, 32, 64 });
+
 			}
 			enemies[i]->texture = texture;
 				enemies[i]->destroyedFx = enemyDestroyedFx;

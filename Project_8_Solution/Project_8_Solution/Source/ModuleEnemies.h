@@ -12,7 +12,12 @@ enum class Enemy_Type
 	BROWNSHIP,
 	GREENSOLDIER,
 	GREENSOLDIER2,
+<<<<<<< Updated upstream
 	HOSTAGE,
+=======
+	HOSTAGE
+
+>>>>>>> Stashed changes
 };
 
 struct EnemySpawnpoint
