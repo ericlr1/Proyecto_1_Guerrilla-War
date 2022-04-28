@@ -22,10 +22,9 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png");
-
+	texture = App->textures->Load("Assets/Sprites/particles.png");
 	// Explosion particle
-	dead.anim.PushBack({0, 322, 31, 60});
+	/*dead.anim.PushBack({0, 322, 31, 60});
 	dead.anim.PushBack({31, 322, 31, 60});
 	dead.anim.PushBack({63, 322, 27, 60});
 	dead.anim.PushBack({93, 322, 27, 60});
@@ -37,7 +36,7 @@ bool ModuleParticles::Start()
 	dead.anim.PushBack({285, 322, 34, 60});
 	
 	dead.anim.loop = false;
-	dead.anim.speed = 0.1f;
+	dead.anim.speed = 0.1f;*/
 
 	//bullet right
 	bullet.anim.PushBack({ 66, 183, 10, 9 });
@@ -162,6 +161,7 @@ Update_Status ModuleParticles::PostUpdate()
 
 		if (particle != nullptr && particle->isAlive)
 		{
+			//App->render->Blit(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
 			App->render->Blit(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
 		}
 	}
