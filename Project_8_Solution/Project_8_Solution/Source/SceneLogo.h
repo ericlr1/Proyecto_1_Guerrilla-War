@@ -1,0 +1,8 @@
+
+class SceneLogo
+{
+};
+
+class SceneLogo
+{
+};
