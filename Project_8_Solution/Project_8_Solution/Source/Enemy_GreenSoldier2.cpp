@@ -5,8 +5,25 @@
 
 Enemy_GreenSoldier2::Enemy_GreenSoldier2(int x, int y) : Enemy(x, y)
 {
-	runUpAnim.PushBack({ 416, 64, 32, 64 });
-	runDownAnim.PushBack({ 384, 192, 32, 64 });
+	runUpAnim.PushBack({ 384, 64, 32, 64 });
+	runUpAnim.PushBack({ 384, 0, 32, 64 });
+	runUpAnim.PushBack({ 384, 128, 32, 64 });
+	runUpAnim.PushBack({ 448, 64, 32, 64 });
+	runUpAnim.PushBack({ 416, 64, 32, 64 }); //
+	runUpAnim.PushBack({ 448, 64, 32, 64 });
+	runUpAnim.PushBack({ 384, 128, 32, 64 });
+	runUpAnim.PushBack({ 384, 0, 32, 64 });
+	runUpAnim.PushBack({ 384, 64, 32, 64 });
+
+	runDownAnim.PushBack({ 448, 128, 32, 64 });
+	runDownAnim.PushBack({ 416, 128, 32, 64 });
+	runDownAnim.PushBack({ 448, 192, 32, 64 });
+	runDownAnim.PushBack({ 416, 192, 32, 64 });
+	runDownAnim.PushBack({ 384, 192, 32, 64 }); //
+	runDownAnim.PushBack({ 416, 192, 32, 64 });
+	runDownAnim.PushBack({ 448, 192, 32, 64 });
+	runDownAnim.PushBack({ 416, 128, 32, 64 });
+	runDownAnim.PushBack({ 448, 128, 32, 64 });
 	
 	runUpAnim.loop = true, runDownAnim.loop = true;
 	runUpAnim.speed = 0.15f, runDownAnim.speed = 0.15f;
