@@ -933,6 +933,8 @@ Update_Status ModulePlayer::Update()
 	
 	CameraFollowPlayer();
 
+	
+
 	return Update_Status::UPDATE_CONTINUE;
 	
 }
@@ -1032,6 +1034,16 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		{
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 			destroyed = true;
+		}
+
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::HOSTAGE)
+		{
+			score += 500;
+		}
+
+		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::HOSTAGE)
+		{
+			score -= 500;
 		}
 		
 		

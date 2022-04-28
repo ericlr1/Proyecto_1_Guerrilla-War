@@ -16,6 +16,10 @@ public:
 	void Update() override;
 
 private:
+
+	//Tiempo entre disparos
+	int attackTimer = 0;
+
 	// The path that will define the position in the world
 	Path path;
 

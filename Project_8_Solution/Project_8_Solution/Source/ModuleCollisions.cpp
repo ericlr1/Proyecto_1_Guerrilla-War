@@ -81,6 +81,16 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::CAMERA_UP] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::CAMERA_RIGHT] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::CAMERA_LEFT] = false;
+
+	matrix[Collider::Type::HOSTAGE][Collider::Type::WALL] = false;
+	matrix[Collider::Type::HOSTAGE][Collider::Type::BODY] = true;
+	matrix[Collider::Type::HOSTAGE][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::HOSTAGE][Collider::Type::PLAYER_SHOT] = true;
+	matrix[Collider::Type::HOSTAGE][Collider::Type::ENEMY_SHOT] = true;
+	matrix[Collider::Type::HOSTAGE][Collider::Type::CAMERA_DOWN] = false;
+	matrix[Collider::Type::HOSTAGE][Collider::Type::CAMERA_UP] = false;
+	matrix[Collider::Type::HOSTAGE][Collider::Type::CAMERA_RIGHT] = false;
+	matrix[Collider::Type::HOSTAGE][Collider::Type::CAMERA_LEFT] = false;
 }
 
 // Destructor
@@ -212,6 +222,10 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::CAMERA_LEFT: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
+
+			case Collider::Type::HOSTAGE: // Green
+				App->render->DrawQuad(colliders[i]->rect, 0, 255, 20, alpha);
+				break;
 		}
 	}
 }

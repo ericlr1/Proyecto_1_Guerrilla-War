@@ -8,8 +8,11 @@
 #include "ModuleCollisions.h"
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
+#include "ModuleParticles.h"
 #include <SDL/include/SDL_scancode.h>
 #include "ModuleInput.h"
+#include "Enemy_GreenSoldier.h"
+#include "Enemy_GreenSoldier2.h"
 
 #define SPAWN_MARGIN 60
 
@@ -59,6 +62,7 @@ bool SceneLevel1::Start()
 	App->player->Enable();
 	App->enemies->Enable();
 	App->collisions->Enable();
+	App->particles->Enable();
 
 	//Colliders pared izquierda
 	collider_wall = App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);

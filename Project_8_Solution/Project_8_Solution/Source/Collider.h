@@ -22,6 +22,7 @@ struct Collider
 		CAMERA_DOWN,
 		CAMERA_RIGHT,
 		CAMERA_LEFT,
+		HOSTAGE,
 
 		MAX
 	};

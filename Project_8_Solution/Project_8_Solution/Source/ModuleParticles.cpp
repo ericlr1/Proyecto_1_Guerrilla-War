@@ -99,6 +99,14 @@ bool ModuleParticles::Start()
 	bulletUR.lifetime = 180;
 	bulletUR.anim.speed = 0.2f;
 
+
+	//Enemy bullet
+	enemyBullet.anim.PushBack({ 133, 178, 8, 13 });
+	enemyBullet.anim.PushBack({ 149, 178, 8, 13 });
+	enemyBullet.speed.y = 5;
+	enemyBullet.lifetime = 180;
+	enemyBullet.anim.speed = 0.2f;
+
 	return true;
 }
 
