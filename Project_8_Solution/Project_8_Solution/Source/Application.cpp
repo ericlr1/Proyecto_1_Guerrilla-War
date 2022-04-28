@@ -15,6 +15,7 @@
 #include "ModuleRender.h"
 #include "ModuleFonts.h"
 #include "SceneLose.h"
+#include "SceneLogo.h"
 
 Application::Application()
 {
@@ -27,18 +28,19 @@ Application::Application()
 	modules[2] =	textures =		new ModuleTextures(true);
 	modules[3] =	audio =			new ModuleAudio(true);
 
-	modules[4] =	sceneIntro =	new SceneIntro(true);
+	modules[4] =	sceneIntro =	new SceneIntro(false);
 	modules[5] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
 	modules[6] =	sceneLose =		new SceneLose(false);
-	modules[7] =	player =		new ModulePlayer(false);	//Player starts disabled
-	modules[8] =	particles =		new ModuleParticles(true);
-	modules[9] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[7] =	sceneLogo =		new SceneLogo(true);
+	modules[8] =	player =		new ModulePlayer(false);	//Player starts disabled
+	modules[9] =	particles =		new ModuleParticles(true);
+	modules[10] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
 
-	modules[10] =	collisions =	new ModuleCollisions(true);
-	modules[11] =	fade =			new ModuleFadeToBlack(true);
-	modules[12] =	fonts =			new ModuleFonts(true);
+	modules[11] =	collisions =	new ModuleCollisions(true);
+	modules[12] =	fade =			new ModuleFadeToBlack(true);
+	modules[13] =	fonts =			new ModuleFonts(true);
 
-	modules[13] =	render =		new ModuleRender(true);
+	modules[14] =	render =		new ModuleRender(true);
 }
 
 Application::~Application()

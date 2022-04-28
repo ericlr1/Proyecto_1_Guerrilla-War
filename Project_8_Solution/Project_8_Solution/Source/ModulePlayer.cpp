@@ -12,6 +12,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
 #include "SceneLose.h"
+#include "SceneLogo.h"
 
 #include "SDL/include/SDL_scancode.h"
 
