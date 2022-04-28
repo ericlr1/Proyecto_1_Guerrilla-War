@@ -146,6 +146,8 @@ bool SceneLevel1::Start()
 	collider_camera_left = App->collisions->AddCollider({ 0,0, 50,100 }, Collider::Type::CAMERA_LEFT);
 	collider_limit = App->collisions->AddCollider({ 0,0,10,10 }, Collider::Type::WALL);
 	
+	//Collider de victoria (provisional)
+	win = App->collisions->AddCollider({ 423, 2358, 110, 50 }, Collider::Type::WIN);
 	
 	return ret;
 }

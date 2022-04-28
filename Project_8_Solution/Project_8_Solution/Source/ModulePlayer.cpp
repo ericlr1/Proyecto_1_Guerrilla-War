@@ -11,6 +11,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
+#include "SceneLose.h"
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -1032,10 +1033,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
 		{
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 150);
+
 			destroyed = true;
 		}
 
+		//Rehén
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::HOSTAGE)
 		{
 			score += 500;
@@ -1044,6 +1047,13 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::HOSTAGE)
 		{
 			score -= 500;
+		}
+
+		//Collider victoria
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WIN)
+		{
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
+			destroyed = true;
 		}
 		
 		

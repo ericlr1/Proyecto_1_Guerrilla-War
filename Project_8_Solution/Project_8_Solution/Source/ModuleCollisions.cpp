@@ -91,6 +91,16 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::HOSTAGE][Collider::Type::CAMERA_UP] = false;
 	matrix[Collider::Type::HOSTAGE][Collider::Type::CAMERA_RIGHT] = false;
 	matrix[Collider::Type::HOSTAGE][Collider::Type::CAMERA_LEFT] = false;
+
+	matrix[Collider::Type::WIN][Collider::Type::WALL] = false;
+	matrix[Collider::Type::WIN][Collider::Type::BODY] = true;
+	matrix[Collider::Type::WIN][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::WIN][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::WIN][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::WIN][Collider::Type::CAMERA_DOWN] = false;
+	matrix[Collider::Type::WIN][Collider::Type::CAMERA_UP] = false;
+	matrix[Collider::Type::WIN][Collider::Type::CAMERA_RIGHT] = false;
+	matrix[Collider::Type::WIN][Collider::Type::CAMERA_LEFT] = false;
 }
 
 // Destructor
@@ -223,8 +233,12 @@ void ModuleCollisions::DebugDraw()
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
 
-			case Collider::Type::HOSTAGE: // Green
+			case Collider::Type::HOSTAGE: // Lime
 				App->render->DrawQuad(colliders[i]->rect, 0, 255, 20, alpha);
+				break;
+
+			case Collider::Type::WIN: // Lime
+				App->render->DrawQuad(colliders[i]->rect, 0, 255, 100, alpha);
 				break;
 		}
 	}

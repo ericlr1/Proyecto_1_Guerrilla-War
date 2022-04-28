@@ -1,24 +1,24 @@
-#ifndef __SCENE_LEVEL1_H__
-#define __SCENE_LEVEL1_H__
+#ifndef __SCENE_LOSE_H__
+#define __SCENE_LOSE_H__
 
 #include "Module.h"
 #include "Animation.h"
-
+#include "SDL_mixer/include/SDL_mixer.h"
+#pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 struct SDL_Texture;
 
-class SceneLevel1 : public Module
+class SceneLose : public Module
 {
 public:
 	//Constructor
-	SceneLevel1(bool startEnabled);
+	SceneLose(bool startEnabled);
 
 	//Destructor
-	~SceneLevel1();
+	~SceneLose();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the map background
 	bool Start() override;
-
 
 	// Called at the middle of the application loop
 	// Updates the scene's background animations
@@ -28,27 +28,13 @@ public:
 	// Performs the render call of all the parts of the scene's background
 	Update_Status PostUpdate() override;
 
-	// Disables the player and the enemies
-	bool CleanUp();
-
 public:
-	
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
-	Collider* collider_wall = nullptr;
-	Collider* collider_trinch = nullptr;
-	Collider* collider_water = nullptr;
-	Collider* collider_camera_right = nullptr;
-	Collider* collider_camera_left = nullptr;
-	Collider* collider_camera_up = nullptr;
-	Collider* collider_camera_down = nullptr;
-	Collider* collider_limit = nullptr;
-	Collider* win = nullptr;
-	
-	
-	//Coins para jugar
-	int coins = 0;
 
+	//Fonts
+	int LoseFont = -1;
+	char scoreText[10] = { "\0" };
 };
 
 #endif
