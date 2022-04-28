@@ -114,8 +114,8 @@ bool SceneLevel1::Start()
 	collider_wall = App->collisions->AddCollider({ 525, 1973, 199, 170 }, Collider::Type::WALL);
 	
 	//Colliders trinchera
-	collider_trinch = App->collisions->AddCollider({ 126, 2564, 20, 11 }, Collider::Type::TRENCH);
-	collider_trinch = App->collisions->AddCollider({ 133, 2502, 127, 23 }, Collider::Type::TRENCH);
+	collider_trinch = App->collisions->AddCollider({ 130, 2574, 10, 5 }, Collider::Type::TRENCH);
+	collider_trinch = App->collisions->AddCollider({ 133, 2502, 150, 25 }, Collider::Type::TRENCH);
 	collider_trinch = App->collisions->AddCollider({ 241, 1748, 164, 18 }, Collider::Type::TRENCH);
 	collider_trinch = App->collisions->AddCollider({ 527, 1748, 197, 18 }, Collider::Type::TRENCH);
 	collider_trinch = App->collisions->AddCollider({ 404, 1242, 95, 17 }, Collider::Type::TRENCH);
