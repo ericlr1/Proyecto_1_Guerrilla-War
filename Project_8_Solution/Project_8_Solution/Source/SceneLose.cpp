@@ -31,8 +31,6 @@ bool SceneLose::Start()
 	LoseFont = App->fonts->Load("Assets/Sprites/fonts.png", lookupTable, 2);
 
 	bgTexture = App->textures->Load("Assets/Sprites/loseScreen.png");
-	App->fonts->BlitText(100, 100, LoseFont, "GAME");
-	App->fonts->BlitText(100, 110, LoseFont, "OVER");
 
 
 	return ret;

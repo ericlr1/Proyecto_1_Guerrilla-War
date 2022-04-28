@@ -1033,7 +1033,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
 		{
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 150);
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 50);
 
 			destroyed = true;
 		}
