@@ -34,8 +34,6 @@ bool SceneLose::Start()
 	App->fonts->BlitText(100, 100, LoseFont, "GAME");
 	App->fonts->BlitText(100, 110, LoseFont, "OVER");
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
 
 	return ret;
 }
