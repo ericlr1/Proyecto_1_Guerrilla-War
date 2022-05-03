@@ -15,10 +15,13 @@ public:
 	// Position will be updated depending on the speed defined at each step
 	void Update() override;
 
+	void Shoot() override;
+
 private:
 
 	//Tiempo entre disparos
-	int attackTimer = 0;
+	int attackTimer;
+
 
 	// The path that will define the position in the world
 	Path path;

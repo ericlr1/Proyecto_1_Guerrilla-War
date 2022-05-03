@@ -2,6 +2,7 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "Enemy.h"
 
 Enemy_GreenSoldier2::Enemy_GreenSoldier2(int x, int y) : Enemy(x, y)
 {
@@ -48,4 +49,9 @@ void Enemy_GreenSoldier2::Update()
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();
+}
+
+void Enemy_GreenSoldier2::Shoot()
+{
+
 }

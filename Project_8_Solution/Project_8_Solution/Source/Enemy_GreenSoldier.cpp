@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
+#include "Enemy.h"
 
 Enemy_GreenSoldier::Enemy_GreenSoldier(int x, int y) : Enemy(x, y)
 {
@@ -30,13 +31,20 @@ void Enemy_GreenSoldier::Update()
 	position = spawnPos + path.GetRelativePosition();
 	currentAnim = path.GetCurrentAnimation();
 
-	if (attackTimer >= 840)
-	{
-		App->particles->AddParticle(App->particles->enemyBullet, position.x + 5, position.y - 5, Collider::ENEMY_SHOT);
-		attackTimer = 0;
-	}
+	Shoot();
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();
+}
+
+void Enemy_GreenSoldier::Shoot()
+{
+	if (attackTimer >= 50)
+	{
+		App->particles->AddParticle(App->particles->bulletD, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
+		attackTimer = 0;
+	}
+
+	attackTimer++;
 }

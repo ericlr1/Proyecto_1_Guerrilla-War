@@ -31,6 +31,9 @@ public:
 	// Triggers an animation and a sound fx
 	virtual void OnCollision(Collider* collider);
 
+	//The way each enemy shoots, defined by the specific classes
+	virtual void Shoot() = 0;
+
 public:
 	// The current position in the world
 	iPoint position;
