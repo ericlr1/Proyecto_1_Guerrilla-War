@@ -42,7 +42,7 @@ bool ModuleParticles::Start()
 	bullet.anim.PushBack({ 66, 183, 10, 9 });
 	bullet.anim.PushBack({ 83, 183, 10, 9 });
 	bullet.speed.x = 5;
-	bullet.lifetime = 180;
+	bullet.lifetime = 30;
 	bullet.anim.speed = 0.2f;
 
 
@@ -50,21 +50,21 @@ bool ModuleParticles::Start()
 	bulletL.anim.PushBack({ 196, 182, 9, 9 });
 	bulletL.anim.PushBack({ 211, 182, 9, 9 });
 	bulletL.speed.x = -5;
-	bulletL.lifetime = 180;
+	bulletL.lifetime = 30;
 	bulletL.anim.speed = 0.2f;
 
 	//bullet up
 	bulletU.anim.PushBack({ 7, 179, 7, 11 });
 	bulletU.anim.PushBack({23, 179, 7, 11});
 	bulletU.speed.y = -5;
-	bulletU.lifetime = 180;
+	bulletU.lifetime = 30;
 	bulletU.anim.speed = 0.2f;
 
 	//bullet down
 	bulletD.anim.PushBack({ 133, 178, 8, 13 });
 	bulletD.anim.PushBack({ 149, 178, 8, 13 });
 	bulletD.speed.y = 5;
-	bulletD.lifetime = 180;
+	bulletD.lifetime = 30;
 	bulletD.anim.speed = 0.2f;
 
 	//bullet down-left
@@ -72,7 +72,7 @@ bool ModuleParticles::Start()
 	bulletDL.anim.PushBack({ 181, 180, 8, 12 });
 	bulletDL.speed.x = -3.5;
 	bulletDL.speed.y = 3.5;
-	bulletDL.lifetime = 180;
+	bulletDL.lifetime = 30;
 	bulletDL.anim.speed = 0.2f;
 
 	//bullet down-right
@@ -80,7 +80,7 @@ bool ModuleParticles::Start()
 	bulletDR.anim.PushBack({ 114, 180, 9, 12 });
 	bulletDR.speed.x = 3.5;
 	bulletDR.speed.y = 3.5;
-	bulletDR.lifetime = 180;
+	bulletDR.lifetime = 30;
 	bulletDR.anim.speed = 0.2f;
 
 	//bullet up-left
@@ -88,7 +88,7 @@ bool ModuleParticles::Start()
 	bulletUL.anim.PushBack({ 244, 181, 8, 11 });
 	bulletUL.speed.x = -3.5;
 	bulletUL.speed.y = -3.5;
-	bulletUL.lifetime = 180;
+	bulletUL.lifetime = 30;
 	bulletUL.anim.speed = 0.2f;
 
 	//bullet up-right
@@ -96,7 +96,7 @@ bool ModuleParticles::Start()
 	bulletUR.anim.PushBack({ 51, 181, 9, 11 });
 	bulletUR.speed.x = 3.5;
 	bulletUR.speed.y = -3.5;
-	bulletUR.lifetime = 180;
+	bulletUR.lifetime = 30;
 	bulletUR.anim.speed = 0.2f;
 
 
@@ -104,7 +104,7 @@ bool ModuleParticles::Start()
 	enemyBullet.anim.PushBack({ 133, 178, 8, 13 });
 	enemyBullet.anim.PushBack({ 149, 178, 8, 13 });
 	enemyBullet.speed.y = 5;
-	enemyBullet.lifetime = 180;
+	enemyBullet.lifetime = 10;
 	enemyBullet.anim.speed = 0.2f;
 
 	return true;
