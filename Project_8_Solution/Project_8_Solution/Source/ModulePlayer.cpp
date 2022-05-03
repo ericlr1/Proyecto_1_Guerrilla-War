@@ -351,54 +351,58 @@ bool ModulePlayer::Start()
 	//Colider que funciona (Arreglar posicion colliders)
 	
 
-	if (facing == 0) // [x]
+	switch (facing)
 	{
+	case 0:
 		currentAnimation = &idleupAnim;
 		currentAnimation2 = &idleupfootAnim;
 		currentAnimation3 = &widleup;
-	}
-	if (facing == 1) // [x]
-	{
+		break;
+
+	case 1:
 		currentAnimation = &idlerightupAnim;
 		currentAnimation2 = &idlerightupfootAnim;
 		currentAnimation3 = &widlerightup;
-	}
-	if (facing == 2) // [x]
-	{
+		break;
+
+	case 2:
 		currentAnimation = &idlerightAnim;
 		currentAnimation2 = &idlerightfootAnim;
 		currentAnimation3 = &widleright;
-	}
-	if (facing == 3) // [x]
-	{
+		break;
+
+	case 3:
 		currentAnimation = &idlerightdownAnim;
 		currentAnimation2 = &idlerightdownfootAnim;
 		currentAnimation3 = &widlerightdown;
-	}
-	if (facing == 4) // [x]
-	{
+		break;
+
+	case 4:
 		currentAnimation = &idledownAnim;
 		currentAnimation2 = &idledownfootAnim;
 		currentAnimation3 = &widledown;
-	}
-	if (facing == 5) // [x]
-	{
+		break;
+
+	case 5:
 		currentAnimation = &idleleftdownAnim;
 		currentAnimation2 = &idleleftdownfootAnim;
 		currentAnimation3 = &widleleftdown;
-	}
-	if (facing == 6) // []
-	{
+		break;
+
+	case 6:
 		currentAnimation = &idleleftAnim;
 		currentAnimation2 = &idleleftfootAnim;
 		currentAnimation3 = &widleleft;
-	}
-	if (facing == 7) // []
-	{
+		break;
+
+	case 7:
 		currentAnimation = &idleleftupAnim;
 		currentAnimation2 = &idleleftupfootAnim;
 		currentAnimation3 = &widleleftup;
+		break;
 	}
+
+
 
 	bulletFx = App->audio->LoadFx("Assets/Fx/sounds_gwar-153 (1).wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/sounds_gwar-195 (1).wav");
@@ -440,8 +444,10 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		position.x -= speed;
-		if (facing == 0)
+		
+		switch (facing)
 		{
+		case 0:
 			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
 			{
 				upAnim.Reset();
@@ -449,9 +455,8 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &upAnim;
 				currentAnimation2 = &upfootAnim;
 			}
-		}
-		if (facing == 1)
-		{
+			break;
+		case 1:
 			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
 			{
 				rightupAnim.Reset();
@@ -459,9 +464,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
 			}
-		}
-		if (facing == 2)
-		{
+			break;
+
+		case 2:
 			if (currentAnimation != &rightAnim && currentAnimation2 != &rightfootAnim)
 			{
 				rightAnim.Reset();
@@ -469,9 +474,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 3)
-		{
+			break;
+
+		case 3:
 			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
 			{
 				rightdownAnim.Reset();
@@ -479,9 +484,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightdownAnim;
 				currentAnimation2 = &rightdownfootAnim;
 			}
-		}
-		if (facing == 4)
-		{
+			break;
+
+		case 4:
 			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
 			{
 				downAnim.Reset();
@@ -489,9 +494,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &downAnim;
 				currentAnimation2 = &downfootAnim;
 			}
-		}
-		if (facing == 5)
-		{
+			break;
+
+		case 5:
 			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
 			{
 				leftdownAnim.Reset();
@@ -499,9 +504,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftdownAnim;
 				currentAnimation2 = &leftdownfootAnim;
 			}
-		}
-		if (facing == 6)
-		{
+			break;
+
+		case 6:
 			if (currentAnimation != &leftAnim && currentAnimation2 != &leftfootAnim)
 			{
 				leftAnim.Reset();
@@ -509,9 +514,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
 			}
-		}
-		if (facing == 7)
-		{
+			break;
+
+		case 7:
 			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftupfootAnim)
 			{
 				leftupAnim.Reset();
@@ -519,6 +524,7 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
 			}
+			break;
 		}
 	}
 	
@@ -526,8 +532,10 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 		position.x += speed;
-		if (facing == 0)
+		
+		switch (facing)
 		{
+		case 0:
 			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
 			{
 				upAnim.Reset();
@@ -535,9 +543,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &upAnim;
 				currentAnimation2 = &upfootAnim;
 			}
-		}
-		if (facing == 1)
-		{
+			break;
+
+		case 1:
 			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
 			{
 				rightupAnim.Reset();
@@ -545,9 +553,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
 			}
-		}
-		if (facing == 2)
-		{
+			break;
+
+		case 2:
 			if (currentAnimation != &rightAnim && currentAnimation2 != &rightfootAnim)
 			{
 				rightAnim.Reset();
@@ -555,9 +563,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 3)
-		{
+			break;
+
+		case 3:
 			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
 			{
 				rightdownAnim.Reset();
@@ -565,9 +573,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightdownAnim;
 				currentAnimation2 = &rightdownfootAnim;
 			}
-		}
-		if (facing == 4)
-		{
+			break;
+
+		case 4:
 			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
 			{
 				downAnim.Reset();
@@ -575,9 +583,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &downAnim;
 				currentAnimation2 = &downfootAnim;
 			}
-		}
-		if (facing == 5)
-		{
+			break;
+
+		case 5:
 			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
 			{
 				leftdownAnim.Reset();
@@ -585,9 +593,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftdownAnim;
 				currentAnimation2 = &leftdownfootAnim;
 			}
-		}
-		if (facing == 6)
-		{
+			break;
+
+		case 6:
 			if (currentAnimation != &leftAnim && currentAnimation2 != &leftfootAnim)
 			{
 				leftAnim.Reset();
@@ -595,9 +603,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
 			}
-		}
-		if (facing == 7)
-		{
+			break;
+
+		case 7:
 			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftupfootAnim)
 			{
 				leftupAnim.Reset();
@@ -605,14 +613,17 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
 			}
+			break;
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
 	{
 		position.y += speed;
-		if (facing == 0)
+	
+		switch (facing)
 		{
+		case 0:
 			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
 			{
 				upAnim.Reset();
@@ -620,9 +631,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &upAnim;
 				currentAnimation2 = &upfootAnim;
 			}
-		}
-		if (facing == 1)
-		{
+			break;
+
+		case 1:
 			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
 			{
 				rightupAnim.Reset();
@@ -630,9 +641,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
 			}
-		}
-		if (facing == 2)
-		{
+			break;
+
+		case 2:
 			if (currentAnimation != &rightAnim && currentAnimation2 != &rightfootAnim)
 			{
 				rightAnim.Reset();
@@ -640,9 +651,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 3)
-		{
+			break;
+
+		case 3:
 			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
 			{
 				rightdownAnim.Reset();
@@ -650,9 +661,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightdownAnim;
 				currentAnimation2 = &rightdownfootAnim;
 			}
-		}
-		if (facing == 4)
-		{
+			break;
+
+		case 4:
 			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
 			{
 				downAnim.Reset();
@@ -660,9 +671,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &downAnim;
 				currentAnimation2 = &downfootAnim;
 			}
-		}
-		if (facing == 5)
-		{
+			break;
+
+		case 5:
 			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
 			{
 				leftdownAnim.Reset();
@@ -670,9 +681,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftdownAnim;
 				currentAnimation2 = &leftdownfootAnim;
 			}
-		}
-		if (facing == 6)
-		{
+			break;
+
+		case 6:
 			if (currentAnimation != &leftAnim && currentAnimation2 != &leftfootAnim)
 			{
 				leftAnim.Reset();
@@ -680,9 +691,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
 			}
-		}
-		if (facing == 7)
-		{
+			break;
+
+		case 7:
 			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftupfootAnim)
 			{
 				leftupAnim.Reset();
@@ -690,14 +701,17 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
 			}
+			break;
 		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 	{
 		position.y -= speed;
-		if (facing == 0)
+
+		switch (facing)
 		{
+		case 0:
 			if (currentAnimation != &upAnim && currentAnimation2 != &upfootAnim)
 			{
 				upAnim.Reset();
@@ -705,9 +719,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &upAnim;
 				currentAnimation2 = &upfootAnim;
 			}
-		}
-		if (facing == 1)
-		{
+			break;
+
+		case 1:
 			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
 			{
 				rightupAnim.Reset();
@@ -715,9 +729,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
 			}
-		}
-		if (facing == 2)
-		{
+			break;
+
+		case 2:
 			if (currentAnimation != &rightAnim && currentAnimation2 != &rightfootAnim)
 			{
 				rightAnim.Reset();
@@ -725,9 +739,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
 			}
-		}
-		if (facing == 3)
-		{
+			break;
+
+		case 3:
 			if (currentAnimation != &rightdownAnim && currentAnimation2 != &rightdownfootAnim)
 			{
 				rightdownAnim.Reset();
@@ -735,9 +749,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &rightdownAnim;
 				currentAnimation2 = &rightdownfootAnim;
 			}
-		}
-		if (facing == 4)
-		{
+			break;
+
+		case 4:
 			if (currentAnimation != &downAnim && currentAnimation2 != &downfootAnim)
 			{
 				downAnim.Reset();
@@ -745,9 +759,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &downAnim;
 				currentAnimation2 = &downfootAnim;
 			}
-		}
-		if (facing == 5)
-		{
+			break;
+
+		case 5:
 			if (currentAnimation != &leftdownAnim && currentAnimation2 != &leftdownfootAnim)
 			{
 				leftdownAnim.Reset();
@@ -755,9 +769,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftdownAnim;
 				currentAnimation2 = &leftdownfootAnim;
 			}
-		}
-		if (facing == 6)
-		{
+			break;
+
+		case 6:
 			if (currentAnimation != &leftAnim && currentAnimation2 != &leftfootAnim)
 			{
 				leftAnim.Reset();
@@ -765,9 +779,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
 			}
-		}
-		if (facing == 7)
-		{
+			break;
+
+		case 7:
 			if (currentAnimation != &leftupAnim && currentAnimation2 != &leftupfootAnim)
 			{
 				leftupAnim.Reset();
@@ -775,7 +789,9 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
 			}
+			break;
 		}
+
 	}
 
 	//Rotación del personaje Q y E
@@ -810,53 +826,55 @@ Update_Status ModulePlayer::Update()
 	{
 		//La variable facing aumenta al rotar hacia la derecha (Como las agujas del reloj)
 
-		if (facing == 0)
+		switch (facing)
 		{
+		case 0:
 			App->particles->AddParticle(App->particles->bulletU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfireup;
-		}
-		if (facing == 1)
-		{
+			break;
+
+		case 1:
 			App->particles->AddParticle(App->particles->bulletUR, position.x + 20, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfirerightup;
-		}
-		if (facing == 2)
-		{
+			break;
+
+		case 2:
 			App->particles->AddParticle(App->particles->bullet, position.x + 20, position.y + 25, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfireright;
-		}
-		if (facing == 3)
-		{
+			break;
+
+		case 3:
 			App->particles->AddParticle(App->particles->bulletDR, position.x + 12, position.y + 30, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfirerightdown;
-		}
-		if (facing == 4)
-		{
+			break;
+
+		case 4:
 			App->particles->AddParticle(App->particles->bulletD, position.x + 10, position.y + 25, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfiredown;
-		}
-		if (facing == 5)
-		{
+			break;
+
+		case 5:
 			App->particles->AddParticle(App->particles->bulletDL, position.x + 10, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfireleftdown;
-		}
-		if (facing == 6)
-		{
+			break;
+
+		case 6:
 			App->particles->AddParticle(App->particles->bulletL, position.x + 5, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfireleft;
-		}
-		if (facing == 7)
-		{
+			break;
+
+		case 7:
 			App->particles->AddParticle(App->particles->bulletUL, position.x + 5, position.y + 15, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfireleftup;
+			break;
 		}
 	}
 
@@ -865,82 +883,89 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE) 
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 	{
-		if (facing == 0)
+		
+		switch (facing)
 		{
+		case 0:
 			currentAnimation = &idleupAnim;
 			currentAnimation2 = &idleupfootAnim;
-		}
-		if (facing == 1)
-		{
+			break;
+
+		case 1:
 			currentAnimation = &idlerightupAnim;
 			currentAnimation2 = &idlerightupfootAnim;
-		}
-		if (facing == 2)
-		{
+			break;
+
+		case 2:
 			currentAnimation = &idlerightAnim;
 			currentAnimation2 = &idlerightfootAnim;
-		}
-		if (facing == 3)
-		{
+			break;
+
+		case 3:
 			currentAnimation = &idlerightdownAnim;
 			currentAnimation2 = &idlerightdownfootAnim;
-		}
-		if (facing == 4)
-		{
+			break;
+
+		case 4:
 			currentAnimation = &idledownAnim;
 			currentAnimation2 = &idledownfootAnim;
-		}
-		if (facing == 5)
-		{
+			break;
+
+		case 5:
 			currentAnimation = &idleleftdownAnim;
 			currentAnimation2 = &idleleftdownfootAnim;
-		}
-		if (facing == 6)
-		{
+			break;
+
+		case 6:
 			currentAnimation = &idleleftAnim;
 			currentAnimation2 = &idleleftfootAnim;
-		}
-		if (facing == 7)
-		{
+			break;
+
+		case 7:
 			currentAnimation = &idleleftupAnim;
 			currentAnimation2 = &idleleftupfootAnim;
+			break;
 		}
-	}
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE)
-	{
-		if (facing == 0)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE)
 		{
-			currentAnimation3 = &widleup;
-		}
-		if (facing == 1)
-		{
-			currentAnimation3 = &widlerightup;
-		}
-		if (facing == 2)
-		{
-			currentAnimation3 = &widleright;
-		}
-		if (facing == 3)
-		{
-			currentAnimation3 = &widlerightdown;
-		}
-		if (facing == 4)
-		{
-			currentAnimation3 = &widledown;
-		}
-		if (facing == 5)
-		{
-			currentAnimation3 = &widleleftdown;
-		}
-		if (facing == 6)
-		{
-			currentAnimation3 = &widleleft;
-		}
-		if (facing == 7)
-		{
-			currentAnimation3 = &widleleftup;
+			
+			switch (facing)
+			{
+			case 0:
+				currentAnimation3 = &widleup;
+				break;
+
+			case 1:
+				currentAnimation3 = &widlerightup;
+				break;
+
+			case 2:
+				currentAnimation3 = &widleright;
+				break;
+
+			case 3:
+				currentAnimation3 = &widlerightdown;
+				break;
+
+			case 4:
+				currentAnimation3 = &widledown;
+				break;
+
+			case 5:
+				currentAnimation3 = &widleleftdown;
+				break;
+
+			case 6:
+				currentAnimation3 = &widleleft;
+				break;
+
+			case 7:
+				currentAnimation3 = &widleleftup;
+				break;
+			}
+
 		}
 	}
 	
