@@ -339,11 +339,14 @@ bool ModulePlayer::Start()
 	bool ret = true;
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
+	ui = App->textures->Load("Assets/Sprites/UI_Sprites.png"); //UI
 	
+	//UI 
+
 	//Reset de la score
 	score = 0;
 
-	// TODO 4: Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
+	//Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
 	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV"};
 	scoreFont = App->fonts->Load("Assets/Sprites/fonts.png", lookupTable, 2);
 
