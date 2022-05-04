@@ -111,6 +111,11 @@ public:
 	char scoreText[10] = { "\0" };
 
 	int cameraStartFollow = 0;
+
+	SDL_Texture* uiTexture = nullptr;
+
+	char grenadeNum[10] = { "\0" };
+	uint totalGrenades = 50;
 	
 
 };

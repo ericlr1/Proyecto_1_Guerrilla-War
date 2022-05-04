@@ -339,7 +339,7 @@ bool ModulePlayer::Start()
 	bool ret = true;
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
-	ui = App->textures->Load("Assets/Sprites/UI_Sprites.png"); //UI
+	uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
 	
 	//UI 
 
@@ -435,6 +435,23 @@ Update_Status ModulePlayer::Update()
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 		
 		//destroyed = true;
+	}
+
+	//Granada
+	if (App->input->keys[SDL_SCANCODE_LALT] == Key_State::KEY_DOWN)
+	{
+		if (totalGrenades == 0)
+		{
+
+		}
+		else
+		{
+			totalGrenades--;
+			App->particles->AddParticle(App->particles->grenade, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(bulletFx);
+			currentAnimation3 = &wfireup;
+		}
+		
 	}
 
 	//Auto win
@@ -999,16 +1016,22 @@ Update_Status ModulePlayer::PostUpdate()
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
 		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
+		App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
 	}
 
 	// Draw UI (score) --------------------------------------
 	sprintf_s(scoreText, 10, "%7d", score);
+	sprintf_s(grenadeNum, 10, "%d", totalGrenades);
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
 	App->fonts->BlitText(20, 30, scoreFont, scoreText);
 
 	App->fonts->BlitText(70, 20, scoreFont, "HI");
 	App->fonts->BlitText(125, 20, scoreFont, "30000");
+
+	App->fonts->BlitText(13, 70, scoreFont, grenadeNum);
+
+	//App->fonts->BlitText(70, 50, scoreFont, totalGrenades);
 
 	return Update_Status::UPDATE_CONTINUE;
 }

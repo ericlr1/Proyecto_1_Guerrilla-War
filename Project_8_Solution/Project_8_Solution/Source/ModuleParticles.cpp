@@ -107,6 +107,25 @@ bool ModuleParticles::Start()
 	enemyBullet.lifetime = 30;
 	enemyBullet.anim.speed = 0.2f;
 
+	//Grenade animation
+	grenade.anim.PushBack({ 0, 160, 16, 16});
+	grenade.anim.PushBack({ 16, 160, 16, 16});
+	grenade.anim.PushBack({ 32, 160, 16, 16});
+	grenade.anim.PushBack({ 64, 160, 16, 16});
+	grenade.anim.PushBack({ 80, 160, 16, 16});
+	grenade.anim.PushBack({ 96, 160, 16, 16});
+	grenade.anim.PushBack({ 112, 160, 16, 16});
+	grenade.anim.PushBack({ 128, 160, 16, 16});
+	grenade.anim.PushBack({ 144, 160, 16, 16});
+	grenade.anim.PushBack({ 160, 160, 16, 16});
+	grenade.anim.PushBack({ 176, 160, 16, 16});
+	//grenade.anim.PushBack({ 192, 160, 16, 16});
+	grenade.speed.y = -1;
+	
+	grenade.anim.speed = 0.2f;
+	grenade.lifetime = 75;
+
+
 	return true;
 }
 
