@@ -101,10 +101,10 @@ bool ModuleParticles::Start()
 
 
 	//Enemy bullet
-	enemyBullet.anim.PushBack({ 133, 178, 8, 13 });
-	enemyBullet.anim.PushBack({ 149, 178, 8, 13 });
+	enemyBullet.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBullet.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBullet.speed.y = 5;
-	enemyBullet.lifetime = 10;
+	enemyBullet.lifetime = 30;
 	enemyBullet.anim.speed = 0.2f;
 
 	return true;

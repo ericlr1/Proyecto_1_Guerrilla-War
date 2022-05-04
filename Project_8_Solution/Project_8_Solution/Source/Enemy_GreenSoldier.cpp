@@ -42,7 +42,7 @@ void Enemy_GreenSoldier::Shoot()
 {
 	if (attackTimer >= 50)
 	{
-		App->particles->AddParticle(App->particles->bulletD, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->enemyBullet, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
 		attackTimer = 0;
 	}
 
