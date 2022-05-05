@@ -448,6 +448,8 @@ Update_Status ModulePlayer::Update()
 		{
 			totalGrenades--;
 			App->particles->AddParticle(App->particles->grenade, position.x + 20, position.y, Collider::Type::NONE);
+			//Añadir particula explosion con collider
+			App->particles->AddParticle(App->particles->grenadeExplosion, position.x-7, position.y-110, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfireup;
 			

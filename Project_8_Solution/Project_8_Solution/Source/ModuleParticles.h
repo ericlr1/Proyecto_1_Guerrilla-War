@@ -64,7 +64,7 @@ public:
 	Particle bullet;	//a la derecha
 	Particle bulletL, bulletU, bulletD, bulletUL, bulletUR, bulletDL, bulletDR;
 	Particle enemyBullet;
-	Particle grenade;		
+	Particle grenade, grenadeExplosion;		
 
 };
 

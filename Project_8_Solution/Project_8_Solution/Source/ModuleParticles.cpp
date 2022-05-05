@@ -126,6 +126,18 @@ bool ModuleParticles::Start()
 	grenade.lifetime = 75;
 
 
+	grenadeExplosion.anim.PushBack({ 0, 300, 64, 64 });
+	grenadeExplosion.anim.PushBack({ 64, 300, 64, 64 });
+	grenadeExplosion.anim.PushBack({ 128, 300, 64, 64 });
+	grenadeExplosion.anim.PushBack({ 192, 300, 64, 64 });
+	grenadeExplosion.anim.PushBack({ 256, 300, 64, 64 });
+	grenadeExplosion.anim.PushBack({ 320, 300, 64, 64 });
+
+	grenadeExplosion.anim.speed = 0.2f;
+	grenadeExplosion.anim.loop = false;
+	//grenadeExplosion.lifetime = 25;
+	
+
 	return true;
 }
 
