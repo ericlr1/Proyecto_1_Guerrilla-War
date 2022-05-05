@@ -338,6 +338,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
+	raligunTexture = App->textures->Load("Assets/Sprites/raligun.png");
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
 	
@@ -1015,11 +1016,14 @@ Update_Status ModulePlayer::PostUpdate()
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
 		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
-
+		
+		App->render->Blit(raligunTexture, 171, 2971, NULL, 1.0, false);
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
 		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
 		App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
+		
+		
 	}
 
 	// Draw UI (score) --------------------------------------

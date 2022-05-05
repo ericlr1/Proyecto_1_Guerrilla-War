@@ -48,6 +48,8 @@ public:
 	SDL_Texture* texture = nullptr;
 
 	SDL_Texture* weaponTexture = nullptr;
+	SDL_Texture* raligunTexture = nullptr;
+
 
 	//UI
 	SDL_Texture* ui = nullptr;
@@ -113,6 +115,7 @@ public:
 	int cameraStartFollow = 0;
 
 	SDL_Texture* uiTexture = nullptr;
+	
 
 	char grenadeNum[10] = { "\0" };
 	uint totalGrenades = 50;
