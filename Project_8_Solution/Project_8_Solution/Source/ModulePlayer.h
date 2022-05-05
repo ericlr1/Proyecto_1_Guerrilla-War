@@ -49,6 +49,7 @@ public:
 
 	SDL_Texture* weaponTexture = nullptr;
 	SDL_Texture* raligunTexture = nullptr;
+	SDL_Texture* palmerasTexture = nullptr;
 
 
 	//UI

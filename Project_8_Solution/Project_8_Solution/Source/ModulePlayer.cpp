@@ -338,6 +338,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
+	palmerasTexture= App->textures->Load("Assets/Sprites/Palmeras.png");
 	raligunTexture = App->textures->Load("Assets/Sprites/raligun.png");
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
@@ -1018,9 +1019,11 @@ Update_Status ModulePlayer::PostUpdate()
 		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
 		
 		App->render->Blit(raligunTexture, 171, 2971, NULL, 1.0, false);
+		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
-		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
+		App->render->Blit(palmerasTexture, 0, 0, NULL, 1.0, false);
+		
 		App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
 		
 		
