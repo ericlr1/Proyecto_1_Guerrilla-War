@@ -447,9 +447,10 @@ Update_Status ModulePlayer::Update()
 		else
 		{
 			totalGrenades--;
-			App->particles->AddParticle(App->particles->grenade, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->grenade, position.x + 20, position.y, Collider::Type::NONE);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfireup;
+			
 		}
 		
 	}
@@ -1128,7 +1129,14 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::HOSTAGE)
 		{
 			score += 500;
+			totalGrenades = 50;
 			
+		}
+		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::HOSTAGE)
+		{
+			score += 500;
+			totalGrenades = 50;
+
 		}
 
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::HOSTAGE)
