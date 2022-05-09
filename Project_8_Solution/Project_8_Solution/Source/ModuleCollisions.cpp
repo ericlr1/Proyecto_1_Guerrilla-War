@@ -338,19 +338,19 @@ void ModuleCollisions::DebugDraw()
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
 			
-			case Collider::Type::CAMERA_DOWN: // Gray
+			case Collider::Type::RALIGUN: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
 			
-			case Collider::Type::CAMERA_UP: // Gray
+			case Collider::Type::RALIGUN_SHOOT: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
 			
-			case Collider::Type::CAMERA_RIGHT: // Gray
+			case Collider::Type::LANZALLAMAS: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
 			
-			case Collider::Type::CAMERA_LEFT: // Gray
+			case Collider::Type::LANZALLAMAS_SHOOT: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
 

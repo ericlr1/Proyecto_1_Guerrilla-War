@@ -340,6 +340,7 @@ bool ModulePlayer::Start()
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png"); //Weapon
 	palmerasTexture= App->textures->Load("Assets/Sprites/Palmeras.png");
 	raligunTexture = App->textures->Load("Assets/Sprites/raligun.png");
+	lanzallamasTexture = App->textures->Load("Assets/Sprites/lanzallamas.png");
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
 	
