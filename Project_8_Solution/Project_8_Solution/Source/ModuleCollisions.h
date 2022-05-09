@@ -32,9 +32,12 @@ public:
 	// Removes all existing colliders
 	bool CleanUp();
 
-	// Adds a new collider to the list
-	Collider* AddCollider(SDL_Rect rect, Collider::Type type, Module* listener = nullptr);
+	
 
+	// Adds a new collider to the list
+	Collider* AddCollider(SDL_Rect rect,Collider::Type, Module* listener = nullptr);
+	
+	
 	// Draws all existing colliders with some transparency
 	void DebugDraw();
 

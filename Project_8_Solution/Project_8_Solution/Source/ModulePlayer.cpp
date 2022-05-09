@@ -1023,6 +1023,7 @@ Update_Status ModulePlayer::PostUpdate()
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
 		App->render->Blit(palmerasTexture, 0, 0, NULL, 1.0, false);
+
 		
 		App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
 		

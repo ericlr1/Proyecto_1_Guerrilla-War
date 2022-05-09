@@ -18,12 +18,13 @@ struct Collider
 		ENEMY_SHOT,
 		WATER,
 		TRENCH,
-		CAMERA_UP,
-		CAMERA_DOWN,
-		CAMERA_RIGHT,
-		CAMERA_LEFT,
 		HOSTAGE,
+		RALIGUN,
+		RALIGUN_SHOOT,
+		LANZALLAMAS,
+		LANZALLAMAS_SHOOT,
 		WIN,
+	
 
 		MAX
 	};
@@ -36,6 +37,8 @@ struct Collider
 		LEFT,
 	};
 	
+	
+		
 
 	//Methods
 	Collider(SDL_Rect rectangle, Type type, Module* listener = nullptr);

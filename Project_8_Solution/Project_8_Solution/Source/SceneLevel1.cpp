@@ -36,22 +36,6 @@ bool SceneLevel1::Start()
 	bgTexture = App->textures->Load("Assets/Sprites/background.png");
 	App->audio->PlayMusic("Assets/Fx/Game_sounds_level1.ogg", 1.0f);
 
-	// Enemies ---
-	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
-	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 625, 80);
-	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 640, 80);
-	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 665, 80);
-
-	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 735, 120);
-	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 750, 120);
-	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 775, 120);
-	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 790, 120);
-
-	//App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 830, 100);
-	//App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 850, 100);
-	//App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 870, 100);
-	//App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 290, 3400);
-
 
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 280, 2920);
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 140, 2820);
@@ -94,7 +78,7 @@ bool SceneLevel1::Start()
 	collider_wall = App->collisions->AddCollider({ 241, 2089, 144, 64 }, Collider::Type::WALL);
 	collider_wall = App->collisions->AddCollider({ 241, 1976, 166, 113 }, Collider::Type::WALL);
 
-	collider_wall = App->collisions->AddCollider({ 56, 3380, 400, 100 }, Collider::Type::WALL);			//Collider provisional para que no te vayas muy para abajo
+
 	
 	//Colliders pared izquierda
 	collider_wall = App->collisions->AddCollider({ 427, 3463, 56, 33 }, Collider::Type::WALL);
@@ -141,15 +125,10 @@ bool SceneLevel1::Start()
 	collider_water = App->collisions->AddCollider({ 453, 526, 490, 346 }, Collider::Type::WATER);
 
 	
-	//Colliders camara
-	collider_camera_up = App->collisions->AddCollider({ 0,0, 100,50 }, Collider::Type::CAMERA_UP);
-	collider_camera_down = App->collisions->AddCollider({ 0,0, 100,50 }, Collider::Type::CAMERA_DOWN);
-	collider_camera_right = App->collisions->AddCollider({ 0,0, 50,100 }, Collider::Type::CAMERA_RIGHT);
-	collider_camera_left = App->collisions->AddCollider({ 0,0, 50,100 }, Collider::Type::CAMERA_LEFT);
-	collider_limit = App->collisions->AddCollider({ 0,0,10,10 }, Collider::Type::WALL);
+	//Armas
+	raligun = App->collisions->AddCollider({ 171, 2971, 32,28 }, Collider::Type::RALIGUN);
 	
-	//Collider de victoria (provisional)
-	win = App->collisions->AddCollider({ 423, 2358, 110, 50 }, Collider::Type::WIN);
+	
 	
 	return ret;
 }
