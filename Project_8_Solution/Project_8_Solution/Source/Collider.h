@@ -21,8 +21,6 @@ struct Collider
 		HOSTAGE,
 		RALIGUN,
 		RALIGUN_SHOOT,
-		LANZALLAMAS,
-		LANZALLAMAS_SHOOT,
 		WIN,
 	
 

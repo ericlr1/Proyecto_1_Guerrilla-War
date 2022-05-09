@@ -23,8 +23,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL][Collider::Type::WIN] = false;
 	matrix[Collider::Type::WALL][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::WALL][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::WALL][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::WALL][Collider::Type::LANZALLAMAS_SHOOT] = false;
 
 	matrix[Collider::Type::BODY][Collider::Type::WALL] = false;
 	matrix[Collider::Type::BODY][Collider::Type::BODY] = false;
@@ -38,9 +36,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::BODY][Collider::Type::WIN] = false;
 	matrix[Collider::Type::BODY][Collider::Type::RALIGUN] = true;
 	matrix[Collider::Type::BODY][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::BODY][Collider::Type::LANZALLAMAS] = true;
-	matrix[Collider::Type::BODY][Collider::Type::LANZALLAMAS_SHOOT] = false;
-
 	
 	matrix[Collider::Type::FOOT][Collider::Type::WALL] = true;
 	matrix[Collider::Type::FOOT][Collider::Type::BODY] = false;
@@ -54,8 +49,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::FOOT][Collider::Type::WIN] = true;
 	matrix[Collider::Type::FOOT][Collider::Type::RALIGUN] = true;
 	matrix[Collider::Type::FOOT][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::FOOT][Collider::Type::LANZALLAMAS] = true;
-	matrix[Collider::Type::FOOT][Collider::Type::LANZALLAMAS_SHOOT] = false;
 	
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::BODY] = true;
@@ -69,8 +62,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY][Collider::Type::WIN] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::RALIGUN_SHOOT] = true;
-	matrix[Collider::Type::ENEMY][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::ENEMY][Collider::Type::LANZALLAMAS_SHOOT] = true;
 	
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WALL] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::BODY] = false;
@@ -84,8 +75,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::LANZALLAMAS_SHOOT] = false;
 	
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::WALL] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::BODY] = true;
@@ -99,8 +88,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::LANZALLAMAS_SHOOT] = false;
 
 	matrix[Collider::Type::WATER][Collider::Type::WALL] = false;
 	matrix[Collider::Type::WATER][Collider::Type::BODY] = false;
@@ -114,8 +101,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WATER][Collider::Type::WIN] = false;
 	matrix[Collider::Type::WATER][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::WATER][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::WATER][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::WATER][Collider::Type::LANZALLAMAS_SHOOT] = false;
 
 	matrix[Collider::Type::TRENCH][Collider::Type::WALL] = false;
 	matrix[Collider::Type::TRENCH][Collider::Type::BODY] = false;
@@ -129,8 +114,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::TRENCH][Collider::Type::WIN] = false;
 	matrix[Collider::Type::TRENCH][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::TRENCH][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::TRENCH][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::TRENCH][Collider::Type::LANZALLAMAS_SHOOT] = false;
 	
 	matrix[Collider::Type::HOSTAGE][Collider::Type::WALL] = false;
 	matrix[Collider::Type::HOSTAGE][Collider::Type::BODY] = true;
@@ -143,8 +126,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::HOSTAGE][Collider::Type::WIN] = false;
 	matrix[Collider::Type::HOSTAGE][Collider::Type::RALIGUN] = true;
 	matrix[Collider::Type::HOSTAGE][Collider::Type::RALIGUN_SHOOT] = true;
-	matrix[Collider::Type::HOSTAGE][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::HOSTAGE][Collider::Type::LANZALLAMAS_SHOOT] = true;
 	
 	matrix[Collider::Type::RALIGUN][Collider::Type::WALL] = false;
 	matrix[Collider::Type::RALIGUN][Collider::Type::BODY] = true;
@@ -158,8 +139,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::RALIGUN][Collider::Type::WIN] = false;
 	matrix[Collider::Type::RALIGUN][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::RALIGUN][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::RALIGUN][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::RALIGUN][Collider::Type::LANZALLAMAS_SHOOT] = false;
 
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::WALL] = false;
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::BODY] = false;
@@ -173,38 +152,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::LANZALLAMAS_SHOOT] = false;
-
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::WALL] = false;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::BODY] = true;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::FOOT] = true;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::ENEMY] = true;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::PLAYER_SHOT] = false;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::ENEMY_SHOT] = false;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::WATER] = false;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::TRENCH] = false;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::HOSTAGE] = true;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::WIN] = false	;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::RALIGUN] = false;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::LANZALLAMAS][Collider::Type::LANZALLAMAS_SHOOT] = false;
-	
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::WALL] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::BODY] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::FOOT] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::ENEMY] = true;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::PLAYER_SHOT] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::ENEMY_SHOT] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::WATER] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::TRENCH] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::HOSTAGE] = true;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::WIN] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::RALIGUN] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::LANZALLAMAS_SHOOT][Collider::Type::LANZALLAMAS_SHOOT] = false;
 
 	matrix[Collider::Type::WIN][Collider::Type::WALL] = false;
 	matrix[Collider::Type::WIN][Collider::Type::BODY] = true;
@@ -218,9 +165,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WIN][Collider::Type::WIN] = false;
 	matrix[Collider::Type::WIN][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::WIN][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::WIN][Collider::Type::LANZALLAMAS] = false;
-	matrix[Collider::Type::WIN][Collider::Type::LANZALLAMAS_SHOOT] = false;
-
 	
 }
 
@@ -343,14 +287,6 @@ void ModuleCollisions::DebugDraw()
 			break;
 			
 			case Collider::Type::RALIGUN_SHOOT: // Gray
-			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
-			break;
-			
-			case Collider::Type::LANZALLAMAS: // Gray
-			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
-			break;
-			
-			case Collider::Type::LANZALLAMAS_SHOOT: // Gray
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
 
