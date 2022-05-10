@@ -105,7 +105,7 @@ bool ModuleParticles::Start()
 	enemyBullet.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBullet.speed.y = 5;
 	enemyBullet.lifetime = 30;
-	enemyBullet.anim.speed = 0.2f;
+	enemyBullet.anim.speed = 0.3f;
 
 	//Grenade animation
 	grenade.anim.PushBack({ 0, 160, 16, 16});
