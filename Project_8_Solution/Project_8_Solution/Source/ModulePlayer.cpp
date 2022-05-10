@@ -231,79 +231,79 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 		
 	// -UP-	[x]
 	//Idle
-	widleup.PushBack({ -4, 22, 32, 32 });
+	widleup.PushBack({ -4, 19, 32, 32 });
 	widleup.loop = false;
-	widleup.speed = 0.2f;
+	widleup.speed = 0.f;
 	widleup.pingpong = false;
 	//Fire
-	wfireup.PushBack({ 0, 32, 32, 32 });
+	wfireup.PushBack({ -4, 137, 32, 32 });
 	wfireup.loop = false;
 	wfireup.speed = 0.2f;
 	wfireup.pingpong = false;
 
 	// -RIGHT/UP-	[x]
 	//Idle
-	widlerightup.PushBack({ 56, 22, 32, 32 });
+	widlerightup.PushBack({ 52, 19, 32, 32 });
 	widlerightup.loop = false;
 	widlerightup.speed = 0.2f;
 	widlerightup.pingpong = false;
 	//Fire
-	wfirerightup.PushBack({ 32, 32, 32, 32 });
+	wfirerightup.PushBack({ 52, 140, 38, 32 });
 	wfirerightup.loop = false;
 	wfirerightup.speed = 0.2f;
 	wfirerightup.pingpong = false;
 	
 	// -RIGHT-	[x]
 	//Idle
-	widleright.PushBack({ 64, 0, 32, 32 });
+	widleright.PushBack({ 106, 12, 32, 39 });
 	widleright.loop = false;
 	widleright.speed = 0.2f;
 	widleright.pingpong = false;
 	//Fire
-	wfireright.PushBack({ 64, 32, 32, 32 });
+	wfireright.PushBack({ 108, 132, 38, 39 });
 	wfireright.loop = false;
 	wfireright.speed = 0.2f;
 	wfireright.pingpong = false;
 	
 	// -RIGHT/DOWN-	[x]
 	//Idle
-	widlerightdown.PushBack({ 96, 0, 32, 32 });
+	widlerightdown.PushBack({ 188, 12, 32, 39 });
 	widlerightdown.loop = false;
 	widlerightdown.speed = 0.2f;
 	widlerightdown.pingpong = false;
 	//Fire
-	wfirerightdown.PushBack({ 96, 32, 32, 32 });
+	wfirerightdown.PushBack({ 188, 124, 34, 48 });
 	wfirerightdown.loop = false;
 	wfirerightdown.speed = 0.2f;
 	wfirerightdown.pingpong = false;
 	
 	// -DOWN-	[x]
 	//Idle
-	widledown.PushBack({ 128, 0, 32, 32 });
+	widledown.PushBack({ 265, 10, 32, 41 });
 	widledown.loop = false;
 	widledown.speed = 0.2f;
 	widledown.pingpong = false;
 	//Fire
-	wfiredown.PushBack({ 128, 32, 32, 32 });
+	wfiredown.PushBack({ 267, 120, 32, 50 });
 	wfiredown.loop = false;
 	wfiredown.speed = 0.2f;
 	wfiredown.pingpong = false;
 	
 	// -LEFT/DOWN-	[x]
 	//Idle
-	widleleftdown.PushBack({ 160, 0, 32, 32 });
+	widleleftdown.PushBack({ 343, 7, 32, 39 });
 	widleleftdown.loop = false;
 	widleleftdown.speed = 0.2f;
 	widleleftdown.pingpong = false;
 	//Fire
-	wfireleftdown.PushBack({ 160, 32, 32, 32 });
+	wfireleftdown.PushBack({ 338, 120, 42, 45 });
 	wfireleftdown.loop = false;
 	wfireleftdown.speed = 0.2f;
 	wfireleftdown.pingpong = false;
 	
 	// -LEFT-	[x]
 	//Idle
-	widleleft.PushBack({ 192, 0, 32, 32 });
+	widleleft.PushBack({ 406, 12, 33, 35 });
 	widleleft.loop = false;
 	widleleft.speed = 0.2f;
 	widleleft.pingpong = false;
@@ -315,12 +315,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	
 	// -LEFT/UP-	[X]
 	//Idle
-	widleleftup.PushBack({ 224, 0, 32, 32 });
+	widleleftup.PushBack({ 483, 19, 29, 32 });
 	widleleftup.loop = false;
 	widleleftup.speed = 0.2f;
 	widleleftup.pingpong = false;
 	//Fire
-	wfireleftup.PushBack({ 224, 32, 32, 32 });
+	wfireleftup.PushBack({ 483, 140, 29, 32 });
 	wfireleftup.loop = false;
 	wfireleftup.speed = 0.2f;
 	wfireleftup.pingpong = false;
@@ -397,9 +397,10 @@ bool ModulePlayer::Start()
 		break;
 
 	case 5:
-		currentAnimation = &idleleftdownAnim;
-		currentAnimation2 = &idleleftdownfootAnim;
 		currentAnimation3 = &widleleftdown;
+		currentAnimation2 = &idleleftdownfootAnim;
+		currentAnimation = &idleleftdownAnim;
+		
 		break;
 
 	case 6:
