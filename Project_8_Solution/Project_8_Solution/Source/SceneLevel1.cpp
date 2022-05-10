@@ -34,6 +34,7 @@ bool SceneLevel1::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/background.png");
+	iconoVida = App->textures->Load("Assets/Sprites/UI _Vidas.png");
 	App->audio->PlayMusic("Assets/Fx/Game_sounds_level1.ogg", 1.0f);
 
 
@@ -137,7 +138,15 @@ Update_Status SceneLevel1::Update()
 	
 	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
 	{
-		coins += 1;
+		if (coins == 10)
+		{
+
+		}
+		else
+		{
+			coins += 1;
+		}
+		
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
@@ -148,6 +157,12 @@ Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
+
+	for (int i = 0; i < coins*3; i++)
+	{
+		
+		App->render->Blit(iconoVida, App->render->GetCameraCenterX() + 8*i, App->render->GetCameraCenterY() , NULL, 1.0, false);
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }

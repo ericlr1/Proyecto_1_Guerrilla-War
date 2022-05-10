@@ -126,6 +126,13 @@ public:
 
 	char grenadeNum[10] = { "\0" };
 	uint totalGrenades = 50;
+
+	//Vidas
+	SDL_Texture* iconoVida;
+
+
+	//Coins para jugar
+	int coins = 1;
 	
 
 };

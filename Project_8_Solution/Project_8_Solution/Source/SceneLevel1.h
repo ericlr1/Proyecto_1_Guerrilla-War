@@ -47,9 +47,12 @@ public:
 	Collider* collider_limit = nullptr;
 	Collider* win = nullptr;
 	
-	
+	//Vidas
+	SDL_Texture* iconoVida;
+
+
 	//Coins para jugar
-	int coins = 0;
+	int coins = 1;
 
 };
 
