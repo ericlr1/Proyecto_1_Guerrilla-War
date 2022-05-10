@@ -17,6 +17,8 @@ public:
 
 	void Shoot() override;
 
+	virtual void OnCollision(Collider* collider) override;
+
 private:
 	// The path that will define the position in the world
 	Path path;

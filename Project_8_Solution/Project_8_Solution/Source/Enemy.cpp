@@ -5,6 +5,7 @@
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
 #include "ModuleRender.h"
+#include "ModulePlayer.h"
 
 Enemy::Enemy(int x, int y) : position(x, y)
 {
@@ -39,6 +40,11 @@ void Enemy::Draw()
 
 void Enemy::OnCollision(Collider* collider)
 {
+	if (collider->type == Collider::Type::PLAYER_SHOT)
+	{
+		App->player->score += 500;
+	}
+
 	App->particles->AddParticle(App->particles->dead, position.x, position.y);
 	App->audio->PlayFx(destroyedFx);
 }

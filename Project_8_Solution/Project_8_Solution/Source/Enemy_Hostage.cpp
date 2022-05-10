@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "Enemy.h"
+#include "ModulePlayer.h"
 
 Enemy_Hostage::Enemy_Hostage(int x, int y) : Enemy(x, y)
 {
@@ -66,4 +67,17 @@ void Enemy_Hostage::Update()
 void Enemy_Hostage::Shoot()
 {
 
+}
+
+
+
+void Enemy_Hostage::OnCollision(Collider* collider)
+{
+	if (collider->type == Collider::Type::PLAYER_SHOT)
+	{
+		App->player->score -= 500;
+	}
+	
+	
+	
 }
