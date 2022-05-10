@@ -231,7 +231,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 		
 	// -UP-	[x]
 	//Idle
-	widleup.PushBack({ 0, 0, 32, 32 });
+	widleup.PushBack({ -4, 22, 32, 32 });
 	widleup.loop = false;
 	widleup.speed = 0.2f;
 	widleup.pingpong = false;
@@ -243,7 +243,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	// -RIGHT/UP-	[x]
 	//Idle
-	widlerightup.PushBack({ 32, 0, 32, 32 });
+	widlerightup.PushBack({ 56, 22, 32, 32 });
 	widlerightup.loop = false;
 	widlerightup.speed = 0.2f;
 	widlerightup.pingpong = false;
