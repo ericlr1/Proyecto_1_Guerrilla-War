@@ -118,6 +118,9 @@ public:
 
 	int cameraStartFollow = 0;
 
+	int lives = 0;
+	char vidas[10] = { "\0" };
+
 	SDL_Texture* uiTexture = nullptr;
 	
 

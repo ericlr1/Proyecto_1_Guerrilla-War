@@ -78,6 +78,10 @@ void Enemy_Hostage::OnCollision(Collider* collider)
 		App->player->score -= 500;
 	}
 	
-	
+	if (collider->type == Collider::Type::BODY)
+	{
+		App->player->score += 1000;
+		App->player->totalGrenades = 50;
+	}
 	
 }

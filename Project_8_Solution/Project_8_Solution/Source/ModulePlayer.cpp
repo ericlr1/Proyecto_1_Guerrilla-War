@@ -353,6 +353,9 @@ bool ModulePlayer::Start()
 	//Reset de la score
 	score = 0;
 
+	//Reset de las vidas
+	lives = 3;
+
 	//Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
 	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV"};
 	scoreFont = App->fonts->Load("Assets/Sprites/fonts.png", lookupTable, 2);
@@ -469,6 +472,11 @@ Update_Status ModulePlayer::Update()
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
 		destroyed = true;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
+	{
+		lives = 3;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -1038,6 +1046,7 @@ Update_Status ModulePlayer::PostUpdate()
 	// Draw UI (score) --------------------------------------
 	sprintf_s(scoreText, 10, "%7d", score);
 	sprintf_s(grenadeNum, 10, "%d", totalGrenades);
+	sprintf_s(vidas, 10, "%d", lives);
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
 	App->fonts->BlitText(20, 30, scoreFont, scoreText);
@@ -1046,6 +1055,8 @@ Update_Status ModulePlayer::PostUpdate()
 	App->fonts->BlitText(125, 20, scoreFont, "30000");
 
 	App->fonts->BlitText(13, 70, scoreFont, grenadeNum);
+
+	App->fonts->BlitText(10, 5, scoreFont, vidas);
 
 	//App->fonts->BlitText(70, 50, scoreFont, totalGrenades);
 
@@ -1115,26 +1126,15 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		{
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 50);
 
-			destroyed = true;
-		}
-
-		//Rehén
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::HOSTAGE)
-		{
-			score += 500;
-			totalGrenades = 50;
+			if (lives >= 1)
+			{
+				lives--;
+			}
+			else
+			{
+				destroyed = true;
+			}
 			
-		}
-		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::HOSTAGE)
-		{
-			score += 500;
-			totalGrenades = 50;
-
-		}
-
-		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::HOSTAGE)
-		{
-			score -= 500;
 		}
 
 		//Collider victoria
