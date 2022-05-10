@@ -1017,9 +1017,9 @@ Update_Status ModulePlayer::PostUpdate()
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
 		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
 		
-		App->render->Blit(raligunTexture, 171, 2971, NULL, 1.0, false);
+		App->render->Blit(raligunTexture, 0, 0, NULL, 1.0, false);
 		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
-		App->render->Blit(texture, position.x, position.y + 30, &rect2);
+		App->render->Blit(texture, posit ion.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
 		App->render->Blit(palmerasTexture, 0, 0, NULL, 1.0, false);
 

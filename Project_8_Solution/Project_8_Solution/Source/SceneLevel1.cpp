@@ -158,7 +158,6 @@ bool SceneLevel1::CleanUp()
 	App->player->Disable();
 	App->enemies->Disable();
 	App->collisions->Disable();
-
 	// TODO 5: Remove All Memory Leaks - no solution here guys ;)
 
 	return true;
