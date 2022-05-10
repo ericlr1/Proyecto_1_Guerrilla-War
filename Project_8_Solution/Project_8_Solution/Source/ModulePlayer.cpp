@@ -343,12 +343,13 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 	 //Weapon
+	iconoVida = App->textures->Load("Assets/Sprites/UI _Vidas.png"); //Icono vidas
+	uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
 	palmerasTexture= App->textures->Load("Assets/Sprites/Palmeras.png");
 	raligunTexture = App->textures->Load("Assets/Sprites/raligun.png");
-	
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png");
-	uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
+	
 	
 	//UI 
 
@@ -475,6 +476,19 @@ Update_Status ModulePlayer::Update()
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
 		destroyed = true;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
+	{
+		if (coins == 3)
+		{
+
+		}
+		else
+		{
+			coins += 1;
+		}
+
 	}
 
 	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
@@ -1059,7 +1073,11 @@ Update_Status ModulePlayer::PostUpdate()
 		
 		App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
 		
-		
+		for (int i = 0; i < lives * 3; i++)
+		{
+
+			App->render->Blit(iconoVida, App->render->GetCameraCenterX() + 8 * i, App->render->GetCameraCenterY()-50, NULL, 1.0, false);
+		}
 	}
 
 	// Draw UI (score) --------------------------------------
