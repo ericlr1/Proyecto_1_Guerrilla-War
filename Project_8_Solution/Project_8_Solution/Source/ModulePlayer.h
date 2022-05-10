@@ -94,6 +94,9 @@ public:
 	Animation wfireup, wfiredown, wfireleft, wfireright;						//Arma-Fire
 	Animation wfireleftup, wfireleftdown, wfirerightup, wfirerightdown;			//Arma-Fire
 
+	Animation raligunidleup, raligunidledown, raligunidleleft, raligunidleright;						//Raligun
+	Animation raligunidleleftup, raligunidleleftdown, raligunidlerightup, raligunidlerightdown;
+
 	// The player's collider
 	Collider* collider = nullptr;
 	Collider* collider_foot = nullptr;

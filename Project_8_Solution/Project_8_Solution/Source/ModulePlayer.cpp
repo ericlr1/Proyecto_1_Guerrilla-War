@@ -324,6 +324,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	wfireleftup.loop = false;
 	wfireleftup.speed = 0.2f;
 	wfireleftup.pingpong = false;
+
+	//Ralligun
+	raligunidleup.PushBack({ 7, 69, 25, 29 });
+	raligunidleup.loop = false;
+	raligunidleup.speed = 0.2f;
+	raligunidleup.pingpong = false;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -1017,9 +1023,9 @@ Update_Status ModulePlayer::PostUpdate()
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
 		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
 		
-		App->render->Blit(raligunTexture, 0, 0, NULL, 1.0, false);
+		App->render->Blit(raligunTexture,214, 3106, NULL, 1.0, false);
 		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
-		App->render->Blit(texture, posit ion.x, position.y + 30, &rect2);
+		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(texture, position.x, position.y, &rect);
 		App->render->Blit(palmerasTexture, 0, 0, NULL, 1.0, false);
 
@@ -1141,6 +1147,46 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			destroyed = true;
 		}
 		
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
+		{
+
+			switch (facing)
+			{
+			case 0:
+				currentAnimation3 = &raligunidleup;
+				break;
+
+			case 1:
+				currentAnimation3 = &widlerightup;
+				break;
+
+			case 2:;
+				currentAnimation3 = &widleright;
+				break;
+
+			case 3:
+				currentAnimation3 = &widlerightdown;
+				break;
+
+			case 4:
+				currentAnimation3 = &widledown;
+				break;
+
+			case 5:
+				currentAnimation3 = &widleleftdown;
+				break;
+
+			case 6:
+				currentAnimation3 = &widleleft;
+				break;
+
+			case 7:
+				currentAnimation3 = &widleleftup;
+				break;
+
+			}
+	
+		}
 		
 	}
 	
