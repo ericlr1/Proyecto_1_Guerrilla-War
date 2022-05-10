@@ -476,7 +476,12 @@ Update_Status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
 	{
-		lives = 3;
+		lives++;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN)
+	{
+		lives--;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -1010,6 +1015,14 @@ Update_Status ModulePlayer::Update()
 	collider->SetPos(position.x+8, position.y+17);
 	collider_foot->SetPos(position.x + 10, position.y + 45);
 	
+	//Fade si vidas < 0
+	if (lives <= 0)
+	{
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+		destroyed = true;
+	}
+
+
 	//Posicion de los colliders conforme se mueve la camara
 	currentAnimation->Update();
 	currentAnimation2->Update();
@@ -1116,35 +1129,23 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			{
 				App->render->camera.x -= 2;
 			}*/
+
 		//Updated upstream
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
 			currentAnimation2 = &water;			
 		}
-					
+			
+
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
 		{
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 50);
-
-			if (lives >= 1)
-			{
-				lives--;
-			}
-			else
-			{
-				destroyed = true;
-			}
-			
-		}
-
-		//Collider victoria
-		
+			lives--;			
+		}		
 
 		//Matar al pj con balas del enemigo
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY_SHOT)
 		{
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
-			destroyed = true;
+			lives--;
 		}
 		
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
