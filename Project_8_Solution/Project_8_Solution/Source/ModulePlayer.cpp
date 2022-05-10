@@ -327,10 +327,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	
 
 
-
 	// -UP-	[x]
-	//Ralligun
-	//Idle
+		//Ralligun
+		//Idle
 	raligunidleup.PushBack({ -4, 274, 25, 29 });
 	raligunidleup.loop = false;
 	raligunidleup.speed = 0.2f;
@@ -342,6 +341,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunfireup.speed = 0.2f;
 	raligunfireup.pingpong = false;
 
+	
 	// -RIGHT/UP-	[x]
 	// Ralligun
 	//Idle
