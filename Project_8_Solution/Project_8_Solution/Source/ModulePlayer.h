@@ -97,6 +97,9 @@ public:
 	Animation raligunidleup, raligunidledown, raligunidleleft, raligunidleright;						//Raligun
 	Animation raligunidleleftup, raligunidleleftdown, raligunidlerightup, raligunidlerightdown;
 
+	Animation raligunfireup, raligunfiredown, raligunfireleft, raligunfireright;						//Arma-Fire
+	Animation raligunfireleftup, raligunfireleftdown, raligunfirerightup, raligunfirerightdown;
+
 	// The player's collider
 	Collider* collider = nullptr;
 	Collider* collider_foot = nullptr;
@@ -118,6 +121,7 @@ public:
 
 	int cameraStartFollow = 0;
 
+	bool raligun = false;
 	int lives = 0;
 	char vidas[10] = { "\0" };
 
@@ -126,6 +130,7 @@ public:
 
 	char grenadeNum[10] = { "\0" };
 	uint totalGrenades = 50;
+<<<<<<< Updated upstream
 
 	//Vidas
 	SDL_Texture* iconoVida;
@@ -133,6 +138,9 @@ public:
 
 	//Coins para jugar
 	int coins = 1;
+=======
+	uint ammo_raligun = 0;
+>>>>>>> Stashed changes
 	
 
 };

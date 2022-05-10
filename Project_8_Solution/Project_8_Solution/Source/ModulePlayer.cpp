@@ -324,12 +324,115 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	wfireleftup.loop = false;
 	wfireleftup.speed = 0.2f;
 	wfireleftup.pingpong = false;
+	
 
+
+
+	// -UP-	[x]
 	//Ralligun
-	raligunidleup.PushBack({ 7, 69, 25, 29 });
+	//Idle
+	raligunidleup.PushBack({ -4, 274, 25, 29 });
 	raligunidleup.loop = false;
 	raligunidleup.speed = 0.2f;
 	raligunidleup.pingpong = false;
+
+	//Fire
+	raligunfireup.PushBack({ -4, 137, 32, 32 });
+	raligunfireup.loop = false;
+	raligunfireup.speed = 0.2f;
+	raligunfireup.pingpong = false;
+
+	// -RIGHT/UP-	[x]
+	// Ralligun
+	//Idle
+	raligunidlerightup.PushBack({ 48, 274, 38, 32 });
+	raligunidlerightup.loop = false;
+	raligunidlerightup.speed = 0.2f;
+	raligunidlerightup.pingpong = false;
+	//Fire
+	raligunfirerightup.PushBack({ 52, 140, 38, 32 });
+	raligunfirerightup.loop = false;
+	raligunfirerightup.speed = 0.2f;
+	raligunfirerightup.pingpong = false;
+
+	// -RIGHT-	[x]
+	// Ralligun
+	//Idle
+	raligunidleright.PushBack({ 106, 257, 39, 36 });
+	raligunidleright.loop = false;
+	raligunidleright.speed = 0.2f;
+	raligunidleright.pingpong = false;
+	//Fire
+	raligunfireright.PushBack({ 108, 132, 38, 39 });
+	raligunfireright.loop = false;
+	raligunfireright.speed = 0.2f;
+	raligunfireright.pingpong = false;
+
+	// -RIGHT/DOWN-	[x]
+	// Ralligun
+	//Idle
+	raligunidlerightdown.PushBack({ 265, 250, 32, 45 });
+	raligunidlerightdown.loop = false;
+	raligunidlerightdown.speed = 0.2f;
+	raligunidlerightdown.pingpong = false;
+	//Fire
+	raligunfirerightdown.PushBack({ 188, 124, 34, 48 });
+	raligunfirerightdown.loop = false;
+	raligunfirerightdown.speed = 0.2f;
+	raligunfirerightdown.pingpong = false;
+
+	// -DOWN-	[x]
+	// Ralligun
+	//Idle
+	raligunidledown.PushBack({ 265, 10, 32, 41 });
+	raligunidledown.loop = false;
+	raligunidledown.speed = 0.2f;
+	raligunidledown.pingpong = false;
+	//Fire
+	raligunfiredown.PushBack({ 267, 120, 32, 50 });
+	raligunfiredown.loop = false;
+	raligunfiredown.speed = 0.2f;
+	raligunfiredown.pingpong = false;
+
+	// -LEFT/DOWN-	[x]
+	// Ralligun
+	//Idle
+	raligunidleleftdown.PushBack({ 338, 249, 33, 39 });
+	raligunidleleftdown.loop = false;
+	raligunidleleftdown.speed = 0.2f;
+	raligunidleleftdown.pingpong = false;
+	//Fire
+	raligunfireleftdown.PushBack({ 338, 120, 42, 45 });
+	raligunfireleftdown.loop = false;
+	raligunfireleftdown.speed = 0.2f;
+	raligunfireleftdown.pingpong = false;
+
+	// -LEFT-	[x]
+	// Ralligun
+	//Idle
+	raligunidleleft.PushBack({ 299, 257, 35, 32 });
+	raligunidleleft.loop = false;
+	raligunidleleft.speed = 0.2f;
+	raligunidleleft.pingpong = false;
+	//Fire
+	raligunfireleft.PushBack({ 192, 32, 32, 32 });
+	raligunfireleft.loop = false;
+	raligunfireleft.speed = 0.2f;
+	raligunfireleft.pingpong = false;
+
+	// -LEFT/UP-	[X]
+	// Ralligun
+	//Idle
+	raligunidleleftup.PushBack({ 483, 19, 32, 32 });
+	raligunidleleftup.loop = false;
+	raligunidleleftup.speed = 0.2f;
+	raligunidleleftup.pingpong = false;
+	//Fire
+	raligunfireleftup.PushBack({ 480, 256, 29, 32 });
+	raligunfireleftup.loop = false;
+	raligunfireleftup.speed = 0.2f;
+	raligunfireleftup.pingpong = false;
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -1061,8 +1164,7 @@ Update_Status ModulePlayer::PostUpdate()
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
 		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
 		
-		App->render->Blit(raligunTexture,214, 3106, NULL, 1.0, false);
-		
+		App->render->Blit(raligunTexture, 214, 3106, NULL, 1.0, false);
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
 		App->render->Blit(texture, position.x, position.y, &rect);
@@ -1174,41 +1276,42 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
 		{
+			
+				switch (facing)
+				{
+				case 0:
+					currentAnimation3 = &raligunidleup;
+					break;
 
-			switch (facing)
-			{
-			case 0:
-				currentAnimation3 = &raligunidleup;
-				break;
+				case 1:
+					currentAnimation3 = &raligunidlerightup;
+					break;
 
-			case 1:
-				currentAnimation3 = &widlerightup;
-				break;
+				case 2:;
+					currentAnimation3 = &raligunidleright;
+					break;
 
-			case 2:;
-				currentAnimation3 = &widleright;
-				break;
+				case 3:
+					currentAnimation3 = &raligunidlerightdown;
+					break;
 
-			case 3:
-				currentAnimation3 = &widlerightdown;
-				break;
+				case 4:
+					currentAnimation3 = &raligunidledown;
+					break;
 
-			case 4:
-				currentAnimation3 = &widledown;
-				break;
+				case 5:
+					currentAnimation3 = &raligunidleleftdown;
+					break;
 
-			case 5:
-				currentAnimation3 = &widleleftdown;
-				break;
+				case 6:
+					currentAnimation3 = &raligunidleleft;
+					break;
 
-			case 6:
-				currentAnimation3 = &widleleft;
-				break;
+				case 7:
+					currentAnimation3 = &raligunidleleftup;
+					break;
 
-			case 7:
-				currentAnimation3 = &widleleftup;
-				break;
-
+				
 			}
 	
 		}
