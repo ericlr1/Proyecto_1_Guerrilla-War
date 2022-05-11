@@ -130,7 +130,7 @@ public:
 
 	char grenadeNum[10] = { "\0" };
 	uint totalGrenades = 50;
-<<<<<<< Updated upstream
+
 
 	//Vidas
 	SDL_Texture* iconoVida;
@@ -138,10 +138,8 @@ public:
 
 	//Coins para jugar
 	int coins = 1;
-=======
+
 	uint ammo_raligun = 0;
->>>>>>> Stashed changes
-	
 
 };
 
