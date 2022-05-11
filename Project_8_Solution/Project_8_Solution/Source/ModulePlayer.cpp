@@ -1149,6 +1149,7 @@ Update_Status ModulePlayer::PostUpdate()
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
 		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
+		SDL_Rect rectVida[10];
 		
 
 		
@@ -1161,11 +1162,11 @@ Update_Status ModulePlayer::PostUpdate()
 		
 		App->render->Blit(palmerasTexture, 0, 0, NULL, 1.0, false);
 
-		
+		//UI
 		App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
-		for (int i = 0; i < coins * 3; i++)
+		for (int i = 0; i < lives; i++)
 		{
-
+			rectVida[i] = App->textures->Load("Assets/Sprites/UI _Vidas.png");
 			App->render->Blit(iconoVida, App->render->GetCameraCenterX() + 8 * i, App->render->GetCameraCenterY(), NULL, 1.0, false);
 		}
 		

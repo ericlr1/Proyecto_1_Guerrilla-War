@@ -144,6 +144,7 @@ Update_Status SceneLevel1::Update()
 		else
 		{
 			coins += 1;
+			App->player->lives += 3;
 		}
 		
 	}
