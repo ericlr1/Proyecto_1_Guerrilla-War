@@ -1166,7 +1166,7 @@ Update_Status ModulePlayer::PostUpdate()
 		App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
 		for (int i = 0; i < lives; i++)
 		{
-			rectVida[i] = App->textures->Load("Assets/Sprites/UI _Vidas.png");
+			//rectVida[i] = App->textures->Load("Assets/Sprites/UI _Vidas.png");
 			App->render->Blit(iconoVida, App->render->GetCameraCenterX() + 8 * i, App->render->GetCameraCenterY(), NULL, 1.0, false);
 		}
 		
