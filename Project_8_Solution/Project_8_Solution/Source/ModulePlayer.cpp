@@ -363,7 +363,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunidleright.speed = 0.2f;
 	raligunidleright.pingpong = false;
 	//Fire
-	raligunfireright.PushBack({ 108, 132, 38, 39 });
+	raligunfireright.PushBack({ 105, 387, 42, 37 });
 	raligunfireright.loop = false;
 	raligunfireright.speed = 0.2f;
 	raligunfireright.pingpong = false;
@@ -376,7 +376,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunidlerightdown.speed = 0.2f;
 	raligunidlerightdown.pingpong = false;
 	//Fire
-	raligunfirerightdown.PushBack({ 188, 124, 34, 48 });
+	raligunfirerightdown.PushBack({ 188, 380, 39, 51 });
 	raligunfirerightdown.loop = false;
 	raligunfirerightdown.speed = 0.2f;
 	raligunfirerightdown.pingpong = false;
@@ -389,7 +389,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunidledown.speed = 0.2f;
 	raligunidledown.pingpong = false;
 	//Fire
-	raligunfiredown.PushBack({ 267, 120, 32, 50 });
+	raligunfiredown.PushBack({ 262, 378, 33, 54 });
 	raligunfiredown.loop = false;
 	raligunfiredown.speed = 0.2f;
 	raligunfiredown.pingpong = false;
@@ -402,7 +402,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunidleleftdown.speed = 0.2f;
 	raligunidleleftdown.pingpong = false;
 	//Fire
-	raligunfireleftdown.PushBack({ 338, 120, 42, 45 });
+	raligunfireleftdown.PushBack({ 333, 384, 42, 44 });
 	raligunfireleftdown.loop = false;
 	raligunfireleftdown.speed = 0.2f;
 	raligunfireleftdown.pingpong = false;
@@ -415,7 +415,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunidleleft.speed = 0.2f;
 	raligunidleleft.pingpong = false;
 	//Fire
-	raligunfireleft.PushBack({ 192, 32, 32, 32 });
+	raligunfireleft.PushBack({ 394, 394, 40, 33 });
 	raligunfireleft.loop = false;
 	raligunfireleft.speed = 0.2f;
 	raligunfireleft.pingpong = false;
@@ -428,7 +428,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunidleleftup.speed = 0.2f;
 	raligunidleleftup.pingpong = false;
 	//Fire
-	raligunfireleftup.PushBack({ 480, 256, 29, 32 });
+	raligunfireleftup.PushBack({ 477, 394, 35, 32 });
 	raligunfireleftup.loop = false;
 	raligunfireleftup.speed = 0.2f;
 	raligunfireleftup.pingpong = false;
