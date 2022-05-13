@@ -44,6 +44,8 @@ public:
 	// Defines the total amount of frames during which the particle will be active
 	uint lifetime = 0;
 
+	uint spawnDelay = 0;
+
 	// The particle's collider
 	Collider* collider = nullptr;
 };

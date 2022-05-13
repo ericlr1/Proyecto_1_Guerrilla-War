@@ -545,6 +545,11 @@ Update_Status ModulePlayer::Update()
 		facing = 0;
 	}
 	
+	if (App->input->keys[SDL_SCANCODE_ESCAPE] == Key_State::KEY_DOWN)
+	{
+		return Update_Status::UPDATE_STOP;
+	}
+
 	//Auto kill
 	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
 	{

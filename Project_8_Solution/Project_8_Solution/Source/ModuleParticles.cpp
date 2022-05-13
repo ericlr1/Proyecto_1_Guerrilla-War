@@ -195,7 +195,8 @@ bool ModuleParticles::Start()
 
 	grenadeExplosion.anim.speed = 0.2f;
 	grenadeExplosion.anim.loop = false;
-	//grenadeExplosion.lifetime = 25;
+	grenadeExplosion.spawnDelay = 10000;
+	//grenadeExplosion.lifetime = 250;
 	
 
 	return true;
