@@ -58,9 +58,13 @@ bool Particle::Update()
 		return ret;
 		
 	}
+	else
+	{
+		spawnDelay--;
 
-	spawnDelay--;
+		return ret;
+	}
 
-	return ret;
+	
 	
 }

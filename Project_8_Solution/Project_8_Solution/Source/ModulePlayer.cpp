@@ -1281,7 +1281,7 @@ Update_Status ModulePlayer::PostUpdate()
 		for (int i = 0; i < lives; i++)
 		{
 
-			App->render->Blit(iconoVida, App->render->GetCameraCenterX() + 8 * i, App->render->GetCameraCenterY(), NULL, 1.0, false);
+			App->render->Blit(iconoVida, App->render->GetCameraCenterX() + 9 * i, App->render->GetCameraCenterY() + 20, NULL, 1.0, false);
 		}
 
 	}
