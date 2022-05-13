@@ -17,6 +17,7 @@
 #include "SDL/include/SDL_scancode.h"
 
 #include <stdio.h>
+#include <SDL/include/SDL_timer.h>
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
@@ -402,7 +403,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunidleleftdown.speed = 0.2f;
 	raligunidleleftdown.pingpong = false;
 	//Fire
-	raligunfireleftdown.PushBack({ 333, 384, 42, 44 });
+	raligunfireleftdown.PushBack({ 343, 384, 32, 42 });
 	raligunfireleftdown.loop = false;
 	raligunfireleftdown.speed = 0.2f;
 	raligunfireleftdown.pingpong = false;
@@ -410,12 +411,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	// -LEFT-	[x]
 	// Ralligun
 	//Idle
-	raligunidleleft.PushBack({ 299, 257, 35, 32 });
+	raligunidleleft.PushBack({ 401, 250, 32, 32 });
 	raligunidleleft.loop = false;
 	raligunidleleft.speed = 0.2f;
 	raligunidleleft.pingpong = false;
 	//Fire
-	raligunfireleft.PushBack({ 394, 394, 40, 33 });
+	raligunfireleft.PushBack({ 395, 394, 40, 33 });
 	raligunfireleft.loop = false;
 	raligunfireleft.speed = 0.2f;
 	raligunfireleft.pingpong = false;
@@ -423,12 +424,13 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	// -LEFT/UP-	[X]
 	// Ralligun
 	//Idle
-	raligunidleleftup.PushBack({ 483, 19, 32, 32 });
+	raligunidleleftup.PushBack({ 480, 256, 32, 32 });
 	raligunidleleftup.loop = false;
 	raligunidleleftup.speed = 0.2f;
 	raligunidleleftup.pingpong = false;
 	//Fire
-	raligunfireleftup.PushBack({ 477, 394, 35, 32 });
+
+	raligunfireleftup.PushBack({ 480, 394, 32, 32 });
 	raligunfireleftup.loop = false;
 	raligunfireleftup.speed = 0.2f;
 	raligunfireleftup.pingpong = false;
@@ -1156,7 +1158,7 @@ Update_Status ModulePlayer::Update()
 			currentAnimation2 = &idleleftupfootAnim;
 			break;
 		}
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 		{
 			if (ammo_raligun > 0)
 			{
@@ -1164,33 +1166,47 @@ Update_Status ModulePlayer::Update()
 				{
 				case 0:
 					currentAnimation3 = &raligunfireup;
+					currentAnimation3 = &raligunidleup;
 					break;
 
 				case 1:
 					currentAnimation3 = &raligunfirerightup;
+					currentAnimation3 = &raligunidlerightup;
 					break;
 
 				case 2:
-					currentAnimation3 = &raligunfireright;
+					
+					currentAnimation3 = &raligunfireright;				
+					currentAnimation3 = &raligunidleright;
 					break;
 
 				case 3:
 					currentAnimation3 = &raligunfirerightdown;
+					currentAnimation3 = &raligunidlerightdown;
 					break;
 
 				case 4:
 					currentAnimation3 = &raligunfiredown;
+					currentAnimation3 = &raligunidledown;
 					break;
 
 				case 5:
 					currentAnimation3 = &raligunfireleftdown;
+					currentAnimation3 = &raligunidleleftdown;
 					break;
 
 				case 6:
 					currentAnimation3 = &raligunfireleft;
+					currentAnimation3 = &raligunidleleft;
+					break;
+				
+				case 7:
+					currentAnimation3 = &raligunfireleftup;
+					currentAnimation3 = &raligunidleleftup;
 					break;
 				}
 			}
+			
 			else
 			{
 

@@ -70,62 +70,62 @@ bool ModuleParticles::Start()
 	//bullet down-left
 	bulletDL.anim.PushBack({ 165, 180, 8, 12 });
 	bulletDL.anim.PushBack({ 181, 180, 8, 12 });
-	bulletDL.speed.x = -3.5;
-	bulletDL.speed.y = 3.5;
+	bulletDL.speed.x = -5;
+	bulletDL.speed.y = 5;
 	bulletDL.lifetime = 30;
 	bulletDL.anim.speed = 0.2f;
 
 	//bullet down-right
 	bulletDR.anim.PushBack({ 98, 180, 9, 12 });
 	bulletDR.anim.PushBack({ 114, 180, 9, 12 });
-	bulletDR.speed.x = 3.5;
-	bulletDR.speed.y = 3.5;
+	bulletDR.speed.x = 5;
+	bulletDR.speed.y = 5;
 	bulletDR.lifetime = 30;
 	bulletDR.anim.speed = 0.2f;
 
 	//bullet up-left
 	bulletUL.anim.PushBack({ 228, 181, 8, 11 });
 	bulletUL.anim.PushBack({ 244, 181, 8, 11 });
-	bulletUL.speed.x = -3.5;
-	bulletUL.speed.y = -3.5;
+	bulletUL.speed.x = -5;
+	bulletUL.speed.y = -5;
 	bulletUL.lifetime = 30;
 	bulletUL.anim.speed = 0.2f;
 
 	//bullet up-right
 	bulletUR.anim.PushBack({ 35, 181, 9, 11 });
 	bulletUR.anim.PushBack({ 51, 181, 9, 11 });
-	bulletUR.speed.x = 3.5;
-	bulletUR.speed.y = -3.5;
+	bulletUR.speed.x = 5;
+	bulletUR.speed.y = -5;
 	bulletUR.lifetime = 30;
 	bulletUR.anim.speed = 0.2f;
 	
 	//RaligunU
 	raligunU.anim.PushBack({ 5, 208, 8, 29 });
 	raligunU.anim.PushBack({ 21, 208, 8, 29 });
-	raligunU.speed.y = -4;
+	raligunU.speed.y = -5;
 	raligunU.lifetime = 40;
 	raligunU.anim.speed = 0.3f;
 	
 	//ralligun right-up
 	raligunUR.anim.PushBack({ 34, 211, 26, 26 });
 	raligunUR.anim.PushBack({ 61, 211, 26, 26 });
-	raligunUR.speed.x = 4;
-	raligunUR.speed.y = -4;
+	raligunUR.speed.x = 5;
+	raligunUR.speed.y = -5;
 	raligunUR.lifetime = 40;
 	raligunUR.anim.speed = 0.3f;
 	
 	//ralligun right-
 	raligunR.anim.PushBack({ 4, 245, 28, 8 });
 	raligunR.anim.PushBack({ 34, 245, 30, 8 });
-	raligunR.speed.x = 4;
+	raligunR.speed.x = 5;
 	raligunR.lifetime = 40;
 	raligunR.anim.speed = 0.3f;
 	
 	//ralligun right-down
 	raligunDR.anim.PushBack({89, 209, 28, 28 });
 	raligunDR.anim.PushBack({ 116, 209, 28, 28 });
-	raligunDR.speed.x = 4;
-	raligunDR.speed.y = 4;
+	raligunDR.speed.x = 5;
+	raligunDR.speed.y = 5;
 	raligunDR.lifetime = 40;
 	raligunDR.anim.speed = 0.3f;
 	
