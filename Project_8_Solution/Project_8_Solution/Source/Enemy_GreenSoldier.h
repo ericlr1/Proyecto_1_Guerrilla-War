@@ -7,6 +7,8 @@
 class Enemy_GreenSoldier : public Enemy
 {
 public:
+	int cx, cy, rx, ry;
+
 	// Constructor (x y coordinates in the world)
 	// Creates animation and movement data and the collider
 	Enemy_GreenSoldier(int x, int y);
@@ -16,6 +18,8 @@ public:
 	void Update() override;
 
 	void Shoot() override;
+
+	//void Draw() override;
 
 private:
 

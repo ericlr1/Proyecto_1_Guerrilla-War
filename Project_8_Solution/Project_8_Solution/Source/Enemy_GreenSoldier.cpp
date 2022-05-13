@@ -4,9 +4,15 @@
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
 #include "Enemy.h"
+#include <math.h>
+#include <stdio.h>
+#include "SDL/include/SDL_render.h"
+#include "ModuleRender.h"
+#include "ModulePlayer.h"
 
 Enemy_GreenSoldier::Enemy_GreenSoldier(int x, int y) : Enemy(x, y)
 {
+
 	idleAnim.PushBack({ 448, 0, 32, 64 });
 	idleAnim.PushBack({ 448, 0, 32, 64 });
 	idleAnim.PushBack({ 416, 0, 32, 64 });
@@ -32,11 +38,30 @@ void Enemy_GreenSoldier::Update()
 	currentAnim = path.GetCurrentAnimation();
 
 	Shoot();
+	//cx = 225 / 2;
+	//cy = 325 / 2;
+
+	//rx = App->player->position.x - cx;
+	//ry = -(App->player->position.y - cy);
+	//alpha = atan2(ry, rx);
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();
 }
+
+//void Enemy_GreenSoldier::Draw()
+//{
+//	degrees = alpha / (M_PI / 180.0);
+//	if (degrees < 0)	degrees += 360.0f;
+//
+//	//Draw radar
+//	SDL_SetRenderDrawColor(App->render->renderer, 255, 255, 255, 255);
+//	SDL_RenderDrawLine(App->render->renderer, cx, cy, cx + cy * cos(alpha), cy - cy * sin(alpha));
+//
+//	//Update screen
+//	SDL_RenderPresent(App->render->renderer);
+//}
 
 void Enemy_GreenSoldier::Shoot()
 {
