@@ -33,26 +33,26 @@ If you want more information about the game, check the following link: https://g
      * Place holder
      
 ## Changelist
-### 0.1 Version (27/03/2017)
+### 0.1 Version (27/03/2022)
 * First map
 * Character (Guevara)
 * Character spritesheet (Guevara)
 * Character Movement (Guevara)
 * Create enemy collision
 * Create characters collisions
-### 0.2 Version (31/03/2017)
+### 0.2 Version (31/03/2022)
 * Welcome screen (screenshot)
 * Added wal colliders
 * Fade to black
-### 0.3 Version (03/04/2017)
+### 0.3 Version (03/04/2022)
 * Added Guevara's shoot with sound effect
 * Added Enemy's spritesheet (Green and Red soilder)
 * **Bug-Fixing**
      * Memory Leaks
-### 0.4 Version (07/04/2017)
+### 0.4 Version (07/04/2022)
 * Added water and trench collider
 * Added camera colliders     
-### 0.47 Version (19/04/2017)
+### 0.47 Version (19/04/2022)
 * Implement enemy modules
 * Implement bullet particles
 * Order png images
@@ -63,7 +63,7 @@ If you want more information about the game, check the following link: https://g
 * Create death Particle Enemy
 * **Bug-Fixing**
      * Fixed Module Audio
-### 0.5 Version (26/04/2017)
+### 0.5 Version (26/04/2022)
 * Implement enemies 
 * Implement player death
 * Implement Game Over screen
