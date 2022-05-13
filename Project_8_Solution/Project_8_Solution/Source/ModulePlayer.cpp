@@ -462,7 +462,7 @@ bool ModulePlayer::Start()
 	lives = 3;
 
 	//Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
-	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV"};
+	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV."};
 	scoreFont = App->fonts->Load("Assets/Sprites/fonts.png", lookupTable, 2);
 
 
@@ -550,7 +550,7 @@ Update_Status ModulePlayer::Update()
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 		
-		//destroyed = true;
+		destroyed = true;
 	}
 
 	//Granada
@@ -588,6 +588,11 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN)
 	{
 		lives--;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN)
+	{
+		godMode = !godMode;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -1181,8 +1186,12 @@ Update_Status ModulePlayer::Update()
 	//Fade si vidas < 0
 	if (lives <= 0)
 	{
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
-		destroyed = true;
+		if (godMode == false)
+		{
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+			destroyed = true;
+		}
+		
 	}
 
 
@@ -1228,6 +1237,14 @@ for (int i = 0; i < lives; i++)
 }
 
 	}
+
+	//Debug godmode
+	if (godMode == true)
+	{
+		App->fonts->BlitText(125, 100, scoreFont, "GODMODE.ON");
+	}
+	
+
 
 	// Draw UI (score) --------------------------------------
 	sprintf_s(scoreText, 10, "%7d", score);
@@ -1312,16 +1329,17 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
 		{
-			lives--;
-		}
-		if(c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
-		{
-			ammo_raligun = 10;
-		}	
+			
+					
+		}		
+
 		//Matar al pj con balas del enemigo
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY_SHOT)
 		{
-			lives--;
+			if (godMode == false)
+			{
+				lives--;
+			}
 		}
 		
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)

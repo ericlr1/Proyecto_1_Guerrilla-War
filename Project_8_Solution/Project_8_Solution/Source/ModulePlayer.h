@@ -140,6 +140,14 @@ public:
 	//Coins para jugar
 	int coins = 1;
 
+<<<<<<< Updated upstream
+=======
+	uint ammo_raligun = 0;
+
+	//God mode
+	bool godMode = false;
+
+>>>>>>> Stashed changes
 };
 
 #endif //!__MODULE_PLAYER_H_
