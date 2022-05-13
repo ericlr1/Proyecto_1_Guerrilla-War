@@ -350,7 +350,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunidlerightup.speed = 0.2f;
 	raligunidlerightup.pingpong = false;
 	//Fire
-	raligunfirerightup.PushBack({ 52, 140, 38, 32 });
+	raligunfirerightup.PushBack({ 46, 397, 44, 32 });
 	raligunfirerightup.loop = false;
 	raligunfirerightup.speed = 0.2f;
 	raligunfirerightup.pingpong = false;
@@ -1153,42 +1153,77 @@ Update_Status ModulePlayer::Update()
 		}
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT)
 		{
-			
-			switch (facing)
+			if (ammo_raligun > 0)
 			{
-			case 0:
-				currentAnimation3 = &widleup;
-				break;
+				switch (facing)
+				{
+				case 0:
+					currentAnimation3 = &raligunfireup;
+					break;
 
-			case 1:
-				currentAnimation3 = &widlerightup;
-				break;
+				case 1:
+					currentAnimation3 = &raligunfirerightup;
+					break;
 
-			case 2:
-				currentAnimation3 = &widleright;
-				break;
+				case 2:
+					currentAnimation3 = &raligunfireright;
+					break;
 
-			case 3:
-				currentAnimation3 = &widlerightdown;
-				break;
+				case 3:
+					currentAnimation3 = &raligunfirerightdown;
+					break;
 
-			case 4:
-				currentAnimation3 = &widledown;
-				break;
+				case 4:
+					currentAnimation3 = &raligunfiredown;
+					break;
 
-			case 5:
-				currentAnimation3 = &widleleftdown;
-				break;
+				case 5:
+					currentAnimation3 = &raligunfireleftdown;
+					break;
 
-			case 6:
-				currentAnimation3 = &widleleft;
-				break;
-
-			case 7:
-				currentAnimation3 = &widleleftup;
-				break;
+				case 6:
+					currentAnimation3 = &raligunfireleft;
+					break;
+				}
 			}
+			else
+			{
 
+				switch (facing)
+				{
+				case 0:
+					currentAnimation3 = &widleup;
+					break;
+
+				case 1:
+					currentAnimation3 = &widlerightup;
+					break;
+
+				case 2:
+					currentAnimation3 = &widleright;
+					break;
+
+				case 3:
+					currentAnimation3 = &widlerightdown;
+					break;
+
+				case 4:
+					currentAnimation3 = &widledown;
+					break;
+
+				case 5:
+					currentAnimation3 = &widleleftdown;
+					break;
+
+				case 6:
+					currentAnimation3 = &widleleft;
+					break;
+
+				case 7:
+					currentAnimation3 = &widleleftup;
+					break;
+				}
+			}
 		}
 	}
 	
