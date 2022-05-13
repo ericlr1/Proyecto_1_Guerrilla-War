@@ -140,6 +140,8 @@ public:
 	//Coins para jugar
 	int coins = 1;
 
+	//God mode
+	bool godMode = false;
 };
 
 #endif //!__MODULE_PLAYER_H_

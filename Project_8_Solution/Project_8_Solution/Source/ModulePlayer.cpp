@@ -462,7 +462,7 @@ bool ModulePlayer::Start()
 	lives = 3;
 
 	//Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
-	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV"};
+	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV."};
 	scoreFont = App->fonts->Load("Assets/Sprites/fonts.png", lookupTable, 2);
 
 
@@ -565,6 +565,7 @@ Update_Status ModulePlayer::Update()
 			totalGrenades--;
 			App->particles->AddParticle(App->particles->grenade, position.x + 20, position.y, Collider::Type::NONE);
 			//Añadir particula explosion con collider
+			
 			App->particles->AddParticle(App->particles->grenadeExplosion, position.x-7, position.y-110, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(bulletFx);
 			currentAnimation3 = &wfireup;
@@ -588,6 +589,20 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN)
 	{
 		lives--;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN)
+	{
+		
+		if (godMode == false)
+		{
+			speed += 1;
+		}
+		else
+		{
+			speed -= 1;
+		}
+		godMode = !godMode;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -1206,10 +1221,10 @@ Update_Status ModulePlayer::PostUpdate()
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
 		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
-		
-		
 
-		
+
+
+
 
 		App->render->Blit(raligunTexture, 214, 3106, NULL, 1.0, false);
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
@@ -1217,15 +1232,15 @@ Update_Status ModulePlayer::PostUpdate()
 		App->render->Blit(texture, position.x, position.y, &rect);
 
 
-App->render->Blit(palmerasTexture, 0, 0, NULL, 1.0, false);
+		App->render->Blit(palmerasTexture, 0, 0, NULL, 1.0, false);
 
-//UI
-App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
-for (int i = 0; i < lives; i++)
-{
+		//UI
+		App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
+		for (int i = 0; i < lives; i++)
+		{
 
-	App->render->Blit(iconoVida, App->render->GetCameraCenterX() + 8 * i, App->render->GetCameraCenterY(), NULL, 1.0, false);
-}
+			App->render->Blit(iconoVida, App->render->GetCameraCenterX() + 8 * i, App->render->GetCameraCenterY(), NULL, 1.0, false);
+		}
 
 	}
 
@@ -1242,12 +1257,27 @@ for (int i = 0; i < lives; i++)
 
 	App->fonts->BlitText(13, 70, scoreFont, grenadeNum);
 
-	App->fonts->BlitText(10, 5, scoreFont, vidas);
+
+	if (App->collisions->debug == true)
+	{
+		App->fonts->BlitText(10, 5, scoreFont, vidas);
+		if (godMode == true)
+		{
+			App->fonts->BlitText(10, 300, scoreFont, "GODMODE.ON");
+		}
+		else
+		{
+			App->fonts->BlitText(10, 300, scoreFont, "GODMODE.OFF");
+		}
+		
+	}
+	
 
 	//App->fonts->BlitText(70, 50, scoreFont, totalGrenades);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
+
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
@@ -1312,17 +1342,27 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
 		{
-			lives--;
+			if (godMode == false)
+			{
+				lives--;
+			}
+			
 		}
+
+		//Matar al pj con balas del enemigo
+		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY_SHOT)
+		{
+			if (godMode == false)
+			{
+				lives--;
+			}
+		}
+
 		if(c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
 		{
 			ammo_raligun = 10;
 		}	
-		//Matar al pj con balas del enemigo
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY_SHOT)
-		{
-			lives--;
-		}
+		
 		
 		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
 		{
