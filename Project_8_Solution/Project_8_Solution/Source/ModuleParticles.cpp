@@ -98,7 +98,14 @@ bool ModuleParticles::Start()
 	bulletUR.speed.y = -3.5;
 	bulletUR.lifetime = 30;
 	bulletUR.anim.speed = 0.2f;
-
+	
+	//ralligun up
+	raligun.anim.PushBack({ 4, 245, 28, 8 });
+	raligun.anim.PushBack({ 34, 245, 30, 8 });
+	raligun.speed.x = 3.5;
+	raligun.speed.y = -3.5;
+	raligun.lifetime = 30;
+	raligun.anim.speed = 0.1f;
 
 	//Enemy bullet
 	enemyBullet.anim.PushBack({ 198, 66, 7, 14 });

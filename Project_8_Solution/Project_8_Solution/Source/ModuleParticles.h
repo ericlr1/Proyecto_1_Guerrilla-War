@@ -63,6 +63,10 @@ public:
 	//Template particle for a bullet
 	Particle bullet;	//a la derecha
 	Particle bulletL, bulletU, bulletD, bulletUL, bulletUR, bulletDL, bulletDR;
+	
+	Particle raligun;
+	Particle raligunL, raligunU, raligunD, raligunUL, ralligunUR, raligunDL, raligunDR;
+	
 	Particle enemyBullet;
 	Particle grenade, grenadeExplosion;		
 
