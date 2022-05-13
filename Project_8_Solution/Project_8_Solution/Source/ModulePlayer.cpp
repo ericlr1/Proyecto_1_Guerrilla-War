@@ -548,9 +548,16 @@ Update_Status ModulePlayer::Update()
 	//Auto kill
 	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
 		
 		//destroyed = true;
+	}
+
+	//Auto win
+	if (App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_DOWN)
+	{
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
+		destroyed = true;
 	}
 
 	//Granada
@@ -574,12 +581,7 @@ Update_Status ModulePlayer::Update()
 		
 	}
 
-	//Auto win
-	if (App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_DOWN)
-	{
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
-		destroyed = true;
-	}
+	
 
 	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
 	{

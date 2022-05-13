@@ -8,6 +8,8 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
 #include "SceneLevel1.h" 
+#include "ModuleFonts.h"
+#include "ModulePlayer.h"
 
 
 SceneLose::SceneLose(bool startEnabled) : Module(startEnabled)
@@ -27,7 +29,7 @@ bool SceneLose::Start()
 
 	bool ret = true;
 
-	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV" };
+	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV." };
 	LoseFont = App->fonts->Load("Assets/Sprites/fonts.png", lookupTable, 2);
 
 	bgTexture = App->textures->Load("Assets/Sprites/loseScreen.png");
@@ -53,6 +55,6 @@ Update_Status SceneLose::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
-
+	App->fonts->BlitText(100, 100, LoseFont, "GAME.OVER");
 	return Update_Status::UPDATE_CONTINUE;
 }
