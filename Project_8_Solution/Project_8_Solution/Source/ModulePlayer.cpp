@@ -422,6 +422,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunfireleft.pingpong = false;
 
 	// -LEFT/UP-	[X]
+	// 
 	// Ralligun
 	//Idle
 	raligunidleleftup.PushBack({ 480, 256, 32, 32 });
@@ -1327,7 +1328,21 @@ Update_Status ModulePlayer::PostUpdate()
 		{
 			App->fonts->BlitText(10, 300, scoreFont, "GODMODE.OFF");
 		}
+
+		int camerax = App->render->GetCameraCenterX();
+		int cameray = App->render->GetCameraCenterY();
+
+		App->render->DrawQuad({ camerax, cameray }, { 10, 10 }, 255, 0, 0, 255);
 		
+		int moveCameraUp = cameray - cameraStartFollow;
+		int moveCameraDown = cameray + cameraStartFollow;
+		int moveCameraRight = camerax + cameraStartFollow;
+		int moveCameraLeft = camerax - cameraStartFollow;
+
+		App->render->DrawQuad({ camerax, moveCameraUp }, { 10, 10 }, 255, 255, 0, 255);
+		App->render->DrawQuad({ camerax, moveCameraDown }, { 10, 10 }, 255, 0, 255, 255);
+		App->render->DrawQuad({ moveCameraRight, cameray }, { 10, 10 }, 255, 255, 0, 255);
+		App->render->DrawQuad({ moveCameraLeft, cameray }, { 10, 10 }, 255, 0, 255, 255);
 	}
 	
 
@@ -1474,18 +1489,35 @@ void ModulePlayer::CameraFollowPlayer()
 {
 	int camerax = App->render->GetCameraCenterX();
 	int cameray = App->render->GetCameraCenterY();
-	
-	//Arreglar
 
-	/*int moveCameraUp=cameray-cameraStartFollow;*/
-	/*int moveCamera = cameray + cameraStartFollow;
+	int moveCameraUp = cameray - cameraStartFollow;
+	int moveCameraDown = cameray + cameraStartFollow;
+	int moveCameraRight = camerax + cameraStartFollow;
+	int moveCameraLeft = camerax - cameraStartFollow;
 	
-	if (position.y <= moveCamera)
+	if (position.y <= moveCameraUp)
 	{
 		cameray = position.y + cameraStartFollow;
-		
-	}*/
-	
-	App->render->SetCameraCenter(position.x-50, position.y-100);
+	}
+
+	if (position.y >= moveCameraDown-64)
+	{
+		cameray = position.y - cameraStartFollow+64;
+
+	}
+
+	if (position.x >= moveCameraRight - 32)
+	{
+		camerax = position.x - cameraStartFollow + 32;
+
+	}
+
+	if (position.x <= moveCameraLeft)
+	{
+		camerax = position.x + cameraStartFollow;
+
+	}
+
+	App->render->SetCameraCenter(camerax, cameray);
 
 }

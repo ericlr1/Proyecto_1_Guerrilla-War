@@ -119,7 +119,7 @@ public:
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
 
-	int cameraStartFollow = 0;
+	int cameraStartFollow = 35;
 
 	bool raligun = false;
 	int lives = 0;

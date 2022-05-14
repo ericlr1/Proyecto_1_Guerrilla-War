@@ -62,24 +62,7 @@ Update_Status ModuleRender::PreUpdate()
 }
 
 Update_Status ModuleRender::Update()
-{
-	//Handle positive vertical movement
-	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT)
-		camera.y -= cameraSpeed;
-
-	//Handle negative vertical movement
-	if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT)
-		camera.y += cameraSpeed;
-
-	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)
-		camera.x -= cameraSpeed;
-	if (camera.x < 0) camera.x = 0;
-
-	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
-		camera.x += cameraSpeed;
-	
-
-	
+{	
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -154,6 +137,13 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	}
 
 	return ret;
+}
+
+bool ModuleRender::DrawQuad(const SDL_Point& center, const SDL_Point& size, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed)
+{
+	SDL_Rect rect { center.x - (size.x * 0.5), center.y - (size.y * 0.5), size.x , size.y };
+
+	return DrawQuad(rect, r, g, b, a, speed);
 }
 
 bool ModuleRender::DrawLine(int x1, int y1, int x2, int y2, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed, bool useCamera) {
