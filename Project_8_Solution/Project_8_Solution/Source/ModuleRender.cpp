@@ -62,7 +62,18 @@ Update_Status ModuleRender::PreUpdate()
 }
 
 Update_Status ModuleRender::Update()
-{	
+{
+	//Camera block
+	if (camera.x < 0)
+	{
+		camera.x = 0;
+	}
+	
+	if (camera.y + camera.h > 10400)
+	{
+		camera.y = 10400 - camera.h;
+	}
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
