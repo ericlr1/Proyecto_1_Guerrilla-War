@@ -1434,46 +1434,133 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			//Updated upstream
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
-			currentAnimation2 = &water;
-		}
-
-
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
-		{
-			if (godMode == false)
+			switch (facing)
 			{
-				lives--;
-				if (lives % 3 == 0)
+			case 0:
+				currentAnimation2 = &water;
+				break;
+
+			case 1:
+				currentAnimation2 = &water;
+				break;
+
+			case 2:;
+				currentAnimation2 = &water;
+				break;
+
+			case 3:
+				currentAnimation2 = &water;
+				break;
+
+			case 4:
+				currentAnimation2 = &water;
+				break;
+
+			case 5:
+				currentAnimation2 = &water;
+				break;
+
+			case 6:
+				currentAnimation2 = &water;
+				break;
+
+			case 7:
+				currentAnimation2 = &water;
+				break;
+			}
+		}
+		else
+		{
+
+			switch (facing)
+			{
+			case 0:
+
+				currentAnimation2 = &idleupfootAnim;
+
+				break;
+
+			case 1:
+
+				currentAnimation2 = &idlerightupfootAnim;
+
+				break;
+
+			case 2:
+
+				currentAnimation2 = &idlerightfootAnim;
+
+				break;
+
+			case 3:
+
+				currentAnimation2 = &idlerightdownfootAnim;
+
+				break;
+
+			case 4:
+
+				currentAnimation2 = &idledownfootAnim;
+
+				break;
+
+			case 5:
+
+				currentAnimation2 = &idleleftdownfootAnim;
+
+
+				break;
+
+			case 6:
+
+				currentAnimation2 = &idleleftfootAnim;
+
+				break;
+
+			case 7:
+
+				currentAnimation2 = &idleleftupfootAnim;
+
+				break;
+			}
+
+		}
+			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
+			{
+				if (godMode == false)
 				{
-					coins--;
+					lives--;
+					if (lives % 3 == 0)
+					{
+						coins--;
+					}
+
 				}
 
 			}
-			
-		}
 
-		//Matar al pj con balas del enemigo
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY_SHOT)
-		{
-			if (godMode == false)
+			//Matar al pj con balas del enemigo
+			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY_SHOT)
 			{
-				lives--;
-				if (lives == 3 || lives == 6)
+				if (godMode == false)
 				{
-					coins--;
+					lives--;
+					if (lives == 3 || lives == 6)
+					{
+						coins--;
+					}
 				}
 			}
-		}
 
-		if(c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
-		{
-			ammo_raligun = 10;
-		}	
-		
-		
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
-		{
-			
+			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
+			{
+				ammo_raligun = 10;
+			}
+
+
+			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
+			{
+
 				switch (facing)
 				{
 				case 0:
@@ -1508,10 +1595,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 					currentAnimation3 = &raligunidleleftup;
 					break;
 
-				
+				}
 			}
-	
-		}
+
+		
 		
 	}
 	

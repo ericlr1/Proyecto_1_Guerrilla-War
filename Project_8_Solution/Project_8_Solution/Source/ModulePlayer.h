@@ -105,6 +105,7 @@ public:
 	Collider* collider_camara = nullptr;
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
+	bool water_checker = false;
 
 	// A countdown to when the player gets destroyed. After a while, the game exits
 	uint destroyedCountdown = 50;
@@ -121,6 +122,7 @@ public:
 	int cameraStartFollow = 35;
 
 	bool raligun = false;
+
 
 	//Vidas
 	int lives = 0;
