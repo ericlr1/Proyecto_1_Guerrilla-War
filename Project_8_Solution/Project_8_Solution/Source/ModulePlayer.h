@@ -52,8 +52,7 @@ public:
 	SDL_Texture* palmerasTexture = nullptr;
 
 
-	//UI
-	SDL_Texture* ui = nullptr;
+	
 	
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
@@ -122,23 +121,21 @@ public:
 	int cameraStartFollow = 35;
 
 	bool raligun = false;
+
+	//Vidas
 	int lives = 0;
 	char vidas[10] = { "\0" };
-
-	SDL_Texture* uiTexture = nullptr;
 	
 
+	//Granadas
 	char grenadeNum[10] = { "\0" };
 	uint totalGrenades = 50;
 	uint ammo_raligun = 0;
 
 
-	//Vidas
-	SDL_Texture* iconoVida;
-
-
 	//Coins para jugar
-	int coins = 1;
+	int coins;
+	char monedas[10] = { "\0" };
 
 	//God mode
 	bool godMode = false;

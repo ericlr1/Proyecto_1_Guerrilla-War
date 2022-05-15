@@ -13,6 +13,8 @@
 #include "ModuleFonts.h"
 #include "SceneLose.h"
 #include "SceneLogo.h"
+#include "SceneLevel1.h"
+#include "ModuleUI.h"
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -449,12 +451,12 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 	
-	iconoVida = App->textures->Load("Assets/Sprites/UI _Vidas.png"); //Icono vida
+	App->UI->iconoVida = App->textures->Load("Assets/Sprites/UI _Vidas.png"); //Icono vida
 	palmerasTexture= App->textures->Load("Assets/Sprites/Palmeras.png");
 	raligunTexture = App->textures->Load("Assets/Sprites/raligun.png");
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png");
-	uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
+	App->UI->uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
 	
 	//UI 
 
@@ -463,6 +465,9 @@ bool ModulePlayer::Start()
 
 	//Reset de las vidas
 	lives = 3;
+
+
+	coins = 1;
 
 	//Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
 	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUV."};
@@ -551,6 +556,21 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_ESCAPE] == Key_State::KEY_DOWN)
 	{
 		return Update_Status::UPDATE_STOP;
+	}
+
+	//Coins
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
+	{
+		if (coins == 3)
+		{
+
+		}
+		else
+		{
+			coins += 1;
+			lives += 3;
+		}
+
 	}
 
 	//Auto kill
@@ -1294,11 +1314,11 @@ Update_Status ModulePlayer::PostUpdate()
 		App->render->Blit(palmerasTexture, 0, 0, NULL, 1.0, false);
 
 		//UI
-		App->render->Blit(uiTexture, App->render->GetCameraCenterX() - 25, App->render->GetCameraCenterY(), NULL, 1.0, false);
+		App->render->Blit(App->UI->uiTexture, App->render->GetCameraCenterX() - 100, App->render->GetCameraCenterY() - 110, NULL, 1.0, false);
 		for (int i = 0; i < lives; i++)
 		{
 
-			App->render->Blit(iconoVida, App->render->GetCameraCenterX() + 9 * i, App->render->GetCameraCenterY() + 20, NULL, 1.0, false);
+			App->render->Blit(App->UI->iconoVida,  App->render->GetCameraCenterX() - 100  + (9 * i), App->render->GetCameraCenterY() + 70, NULL, 1.0, false);
 		}
 
 	}
@@ -1307,6 +1327,7 @@ Update_Status ModulePlayer::PostUpdate()
 	sprintf_s(scoreText, 10, "%7d", score);
 	sprintf_s(grenadeNum, 10, "%d", totalGrenades);
 	sprintf_s(vidas, 10, "%d", lives);
+	sprintf_s(monedas, 10, "%d", coins);
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
 	App->fonts->BlitText(20, 30, scoreFont, scoreText);
@@ -1328,6 +1349,10 @@ Update_Status ModulePlayer::PostUpdate()
 		{
 			App->fonts->BlitText(10, 300, scoreFont, "GODMODE.OFF");
 		}
+
+		App->fonts->BlitText(10, 290, scoreFont, "COINS");
+		App->fonts->BlitText(50, 290, scoreFont, monedas);
+
 
 		int camerax = App->render->GetCameraCenterX();
 		int cameray = App->render->GetCameraCenterY();
@@ -1418,6 +1443,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			if (godMode == false)
 			{
 				lives--;
+				if (lives % 3 == 0)
+				{
+					coins--;
+				}
+
 			}
 			
 		}
@@ -1428,6 +1458,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			if (godMode == false)
 			{
 				lives--;
+				if (lives == 3 || lives == 6)
+				{
+					coins--;
+				}
 			}
 		}
 

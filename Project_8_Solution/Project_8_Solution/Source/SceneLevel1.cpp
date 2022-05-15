@@ -135,19 +135,7 @@ Update_Status SceneLevel1::Update()
 {
 	
 	
-	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
-	{
-		if (coins == 10)
-		{
-
-		}
-		else
-		{
-			coins += 1;
-			App->player->lives += 3;
-		}
-		
-	}
+	
 
 	return Update_Status::UPDATE_CONTINUE;
 }
