@@ -540,10 +540,11 @@ bool ModulePlayer::Start()
 	destroyed = false;
 	collider = App->collisions->AddCollider({ 0,0, 15,30 }, Collider::Type::BODY, this);
 	collider_foot = App->collisions->AddCollider({ 0,0,12,11 }, Collider::Type::FOOT, this);
+	collider_camara =App->collisions->AddCollider({0,0, 485, 16 }, Collider::Type::WALL);
 	return ret;
 }
 
-Update_Status ModulePlayer::Update()
+Update_Status ModulePlayer::Update()    
 {
 	// Moving the player with the camera scroll
 	//App->player->position.y += 1;
@@ -1271,7 +1272,8 @@ Update_Status ModulePlayer::Update()
 	
 	collider->SetPos(position.x+8, position.y+17);
 	collider_foot->SetPos(position.x + 10, position.y + 45);
-	
+	collider_camara->SetPos(App->render->GetCameraCenterX()-100, App->render->GetCameraCenterY() +160);
+
 	//Fade si vidas < 0
 	if (lives <= 0)
 	{
@@ -1408,9 +1410,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			}
 		}
 
-		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
+		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN)
 		{
-			currentAnimation2 = &trench;
+			App->sceneLevel_1->passar=true;
 		}
 
 

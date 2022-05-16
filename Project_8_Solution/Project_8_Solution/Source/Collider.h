@@ -21,6 +21,7 @@ struct Collider
 		HOSTAGE,
 		RALIGUN,
 		RALIGUN_SHOOT,
+		RESPAWN,
 		WIN,
 	
 

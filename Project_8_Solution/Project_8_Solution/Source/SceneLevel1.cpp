@@ -79,8 +79,15 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 241, 1976, 166, 113 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 0, 3510, 500, 2 }, Collider::Type::WALL);
 
+	//Respawns
+	App->collisions->AddCollider({ 234,1903, 485, 16 }, Collider::Type::RESPAWN);
+	App->collisions->AddCollider({ 551,489, 280, 24 }, Collider::Type::RESPAWN);
+	
+	
 
 	
+	
+
 	//Colliders pared izquierda
 	App->collisions->AddCollider({ 427, 3463, 56, 33 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 399, 3413, 84, 50 }, Collider::Type::WALL);
@@ -126,6 +133,8 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 453, 526, 490, 346 }, Collider::Type::WATER);
 
 	
+
+
 	//Armas
 	App->collisions->AddCollider({ 214, 3106, 32,28 }, Collider::Type::RALIGUN);
 
@@ -148,7 +157,7 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgTexture, 0, 0, NULL);
 
 	
-
+	
 	return Update_Status::UPDATE_CONTINUE;
 }
 

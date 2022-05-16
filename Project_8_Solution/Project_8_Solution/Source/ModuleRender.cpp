@@ -7,6 +7,9 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
+#include "SceneLevel1.h"
+#include "ModuleCollisions.h"
+#include "Collider.h"
 
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_scancode.h"
@@ -63,6 +66,7 @@ Update_Status ModuleRender::PreUpdate()
 
 Update_Status ModuleRender::Update()
 {
+
 	//Camera block
 	if (camera.x < 0)
 	{
@@ -72,6 +76,11 @@ Update_Status ModuleRender::Update()
 	if (camera.y + camera.h > 10490)
 	{
 		camera.y = 10490 - camera.h;
+	}
+	//Respawn 1
+   	if (camera.y + camera.h > 6210 && App->sceneLevel_1->passar==true)
+	{
+		camera.y = 6210 - camera.h;
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
