@@ -15,6 +15,16 @@ public:
 	//Destructor
 	~SceneLevel1();
 
+	enum Suelos
+	{
+		NONE = -1,
+		GROUND,
+		WATER,
+		TRENCH,
+
+
+		MAX
+	};
 	// Called when the module is activated
 	// Loads the necessary textures for the map background
 	bool Start() override;

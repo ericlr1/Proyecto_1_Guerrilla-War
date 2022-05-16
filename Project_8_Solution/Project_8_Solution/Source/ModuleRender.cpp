@@ -69,9 +69,9 @@ Update_Status ModuleRender::Update()
 		camera.x = 0;
 	}
 	
-	if (camera.y + camera.h > 10400)
+	if (camera.y + camera.h > 10490)
 	{
-		camera.y = 10400 - camera.h;
+		camera.y = 10490 - camera.h;
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
