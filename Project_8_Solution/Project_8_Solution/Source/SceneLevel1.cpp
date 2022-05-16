@@ -172,7 +172,8 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 199, 3325, 89, 14 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 241, 1926, 131, 19 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 565, 1928, 160, 19 }, Collider::Type::WATER);
-	App->collisions->AddCollider({ 453, 526, 490, 346 }, Collider::Type::WATER);
+	App->collisions->AddCollider({ 0, 526, 681, 341 }, Collider::Type::WATER);
+	App->collisions->AddCollider({ 742, 526, 290, 341 }, Collider::Type::WATER);
 
 	
 
