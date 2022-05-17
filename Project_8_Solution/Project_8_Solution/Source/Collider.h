@@ -23,6 +23,7 @@ struct Collider
 		RALIGUN_SHOOT,
 		RESPAWN,
 		WIN,
+		DESTRUCTIBLE,
 	
 
 		MAX
