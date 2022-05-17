@@ -77,7 +77,7 @@ Update_Status ModuleRender::Update()
 	{
 		camera.y = 10490 - camera.h;
 	}
-	//Respawn 1
+	//Respawn 1	
    	if (camera.y + camera.h > 6210 && App->sceneLevel_1->passar==true)
 	{
 		camera.y = 6210 - camera.h;

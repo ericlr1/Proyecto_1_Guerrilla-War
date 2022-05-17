@@ -41,5 +41,5 @@ void Enemy_RedSoldier::Draw()
 {
 	//Draw radar
 	SDL_SetRenderDrawColor(App->render->renderer, 255, 255, 255, 255);
-	SDL_RenderDrawLine(App->render->renderer, 210, 3360, App->player->position.x /** cos(alpha)*/, App->player->position.y /** sin(alpha)*/);
+	SDL_RenderDrawLine(App->render->renderer, this->position.x, this->position.y, App->player->position.x /** cos(alpha)*/, App->player->position.y /** sin(alpha)*/);
 }
