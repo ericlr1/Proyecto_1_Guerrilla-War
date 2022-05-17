@@ -115,6 +115,9 @@
     <ClInclude Include="ModuleUI.h">
       <Filter>Source Files\Modules\Core</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_RedSoldier.h">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -197,6 +200,9 @@
     </ClCompile>
     <ClCompile Include="ModuleUI.cpp">
       <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_RedSoldier.cpp">
+      <Filter>Source Files\Entities\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
