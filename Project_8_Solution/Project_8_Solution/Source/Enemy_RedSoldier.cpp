@@ -10,8 +10,11 @@
 #include "SDL/include/SDL_render.h"
 
 
+
+
 Enemy_RedSoldier::Enemy_RedSoldier(int x, int y) : Enemy(x, y)
 {
+	//alpha = 0.0;
 	front.PushBack({ 256, 384, 32, 32 });
 	frontleft.PushBack({ 288, 384, 32, 32 });
 	frontright.PushBack({ 224, 384, 32, 32 });
@@ -27,7 +30,7 @@ Enemy_RedSoldier::Enemy_RedSoldier(int x, int y) : Enemy(x, y)
 
 void Enemy_RedSoldier::Update()
 {
-	alpha = atan2(position.y, position.x);
+	//alpha = atan2(position.y, position.x);
 
 	path.Update();
 	position = spawnPos + path.GetRelativePosition();

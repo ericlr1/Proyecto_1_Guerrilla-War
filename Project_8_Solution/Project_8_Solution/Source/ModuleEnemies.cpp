@@ -162,7 +162,7 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					enemies[i] = new Enemy_GreenSoldier2(info.x, info.y);
 					break;	
 				case Enemy_Type::REDSOLDIER:
-					enemies[i] = new Enemy_GreenSoldier2(info.x, info.y);
+					enemies[i] = new Enemy_RedSoldier(info.x, info.y);
 					break;	
 				case Enemy_Type::HOSTAGE:
 					enemies[i] = new Enemy_Hostage(info.x, info.y);

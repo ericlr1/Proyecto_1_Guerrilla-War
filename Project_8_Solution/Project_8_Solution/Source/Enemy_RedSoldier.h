@@ -15,7 +15,7 @@ public:
 	// Position will be updated depending on the speed defined at each step
 	void Update() override;
 	void Draw() override;
-private:
+public:
 
 	float alpha;	//angle computed as atan2
 
