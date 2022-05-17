@@ -457,6 +457,7 @@ bool ModulePlayer::Start()
 	texture = App->textures->Load("Assets/Sprites/Characters_Clean.png"); // arcade version
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png");
 	App->UI->uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
+	App->UI->iconoRailgun = App->textures->Load("Assets/Sprites/pistolaUI.png"); //Raligun
 	
 	//UI 
 
@@ -1330,6 +1331,7 @@ Update_Status ModulePlayer::PostUpdate()
 	sprintf_s(grenadeNum, 10, "%d", totalGrenades);
 	sprintf_s(vidas, 10, "%d", lives);
 	sprintf_s(monedas, 10, "%d", coins);
+	sprintf_s(railgunBullets, 10, "%d", ammo_raligun);
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
 	App->fonts->BlitText(20, 30, scoreFont, scoreText);
@@ -1338,6 +1340,15 @@ Update_Status ModulePlayer::PostUpdate()
 	App->fonts->BlitText(125, 20, scoreFont, "30000");
 
 	App->fonts->BlitText(13, 70, scoreFont, grenadeNum);
+
+	if (ammo_raligun > 0)
+	{
+		App->render->Blit(App->UI->iconoRailgun, 13, 80, 0);
+		App->fonts->BlitText(13, 85, scoreFont, grenadeNum);
+	}
+
+	
+
 
 
 	if (App->collisions->debug == true)

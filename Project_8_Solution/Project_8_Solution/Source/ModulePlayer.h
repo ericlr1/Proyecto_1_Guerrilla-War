@@ -132,12 +132,15 @@ public:
 	//Granadas
 	char grenadeNum[10] = { "\0" };
 	uint totalGrenades = 50;
-	uint ammo_raligun = 0;
 
 
 	//Coins para jugar
 	int coins;
 	char monedas[10] = { "\0" };
+
+	//Railgun balas
+	char railgunBullets[10] = { "\0" };
+	uint ammo_raligun = 0;
 
 	//God mode
 	bool godMode = false;

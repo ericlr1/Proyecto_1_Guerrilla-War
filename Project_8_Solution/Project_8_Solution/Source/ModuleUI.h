@@ -30,6 +30,8 @@ public:
 
 	SDL_Texture* uiTexture = nullptr;
 
+	SDL_Texture* iconoRailgun = nullptr;
+
 	int num;
 
 };
