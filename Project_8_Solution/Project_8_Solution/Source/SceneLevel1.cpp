@@ -39,6 +39,7 @@ bool SceneLevel1::Start()
 
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 280, 2920);
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 140, 2820);
+	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 210, 3360);
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 200, 2820);
 	App->render->camera.x = 300;
 	App->render->camera.y = 9200;
@@ -148,6 +149,12 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 718, 1375, 17, 50 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 778, 1375, 17, 50 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 835, 1375, 17, 50 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 267, 1482, 41, 162 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 572, 1427, 32, 226 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 480, 1596, 26, 58 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 364, 1596, 26, 58 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 367, 1435, 24, 108 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 480, 1435, 30, 105 }, Collider::Type::WALL);
 
 
 

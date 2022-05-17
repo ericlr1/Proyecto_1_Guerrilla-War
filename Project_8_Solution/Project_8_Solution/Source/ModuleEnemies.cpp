@@ -11,6 +11,7 @@
 #include "Enemy_BrownShip.h"
 #include "Enemy_GreenSoldier.h"
 #include "Enemy_GreenSoldier2.h"
+#include "Enemy_RedSoldier.h"
 #include "Enemy_Hostage.h"
 
 #define SPAWN_MARGIN 50
@@ -157,6 +158,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					enemies[i] = new Enemy_GreenSoldier(info.x, info.y);
 					break;	
 				case Enemy_Type::GREENSOLDIER2:
+					enemies[i] = new Enemy_GreenSoldier2(info.x, info.y);
+					break;	
+				case Enemy_Type::REDSOLDIER:
 					enemies[i] = new Enemy_GreenSoldier2(info.x, info.y);
 					break;	
 				case Enemy_Type::HOSTAGE:
