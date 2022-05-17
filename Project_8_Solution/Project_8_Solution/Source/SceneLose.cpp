@@ -55,6 +55,6 @@ Update_Status SceneLose::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
-	App->fonts->BlitText(100, 100, LoseFont, "GAME.OVER");
+	App->fonts->BlitText(80, 100, LoseFont, "GAME.OVER");
 	return Update_Status::UPDATE_CONTINUE;
 }
