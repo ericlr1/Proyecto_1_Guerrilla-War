@@ -1343,8 +1343,8 @@ Update_Status ModulePlayer::PostUpdate()
 
 	if (ammo_raligun > 0)
 	{
-		App->render->Blit(App->UI->iconoRailgun, 13, 80, 0);
-		App->fonts->BlitText(13, 85, scoreFont, grenadeNum);
+		App->render->Blit(App->UI->iconoRailgun, App->render->GetCameraCenterX() - 100 , App->render->GetCameraCenterY() - 84, NULL, 1.0, false);
+		App->fonts->BlitText(13, 94, scoreFont, railgunBullets);
 	}
 
 	
