@@ -39,7 +39,10 @@ void Enemy_RedSoldier::Update()
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 }
+void Enemy_RedSoldier::Shoot()
+{
 
+}
 void Enemy_RedSoldier::Draw()
 {
 	//Draw radar

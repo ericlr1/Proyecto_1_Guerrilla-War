@@ -14,6 +14,7 @@ public:
 	// The enemy is going to follow the different steps in the path
 	// Position will be updated depending on the speed defined at each step
 	void Update() override;
+	void Shoot() override;
 	void Draw() override;
 public:
 

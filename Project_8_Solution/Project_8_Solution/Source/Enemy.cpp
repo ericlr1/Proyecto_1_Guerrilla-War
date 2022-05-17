@@ -49,9 +49,9 @@ void Enemy::lookAtPlayer()
 	distance.x = App->player->position.x - this->position.x;
 	distance.y = App->player->position.y - this->position.y;
 
-	alpha = atan2(distance.y, distance.x);
+	/*alpha = atan2(distance.y, distance.x);
 
-	degrees = alpha / (M_PI / 180.0f);
+	degrees = alpha / (M_PI / 180.0f);*/
 
 	if (degrees < 0)
 		degrees += 360.0f;
