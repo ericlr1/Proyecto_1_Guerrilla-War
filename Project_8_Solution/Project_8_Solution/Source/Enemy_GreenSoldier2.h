@@ -17,6 +17,8 @@ public:
 
 	void Shoot() override;
 
+	void Enemy_GreenSoldier2::OnCollision(Collider* collider) override;
+
 private:
 	// The path that will define the position in the world
 	Path path;

@@ -19,6 +19,8 @@ public:
 
 	void Shoot() override;
 
+	void Enemy_GreenSoldier::OnCollision(Collider* collider) override;
+
 	//void Draw() override;
 
 private:

@@ -73,3 +73,13 @@ void Enemy_GreenSoldier::Shoot()
 
 	attackTimer++;
 }
+
+void Enemy_GreenSoldier::OnCollision(Collider* collider)
+{
+	if (collider->type == Collider::Type::PLAYER_SHOT)
+	{
+		App->player->score += 500;
+	}
+
+
+}
