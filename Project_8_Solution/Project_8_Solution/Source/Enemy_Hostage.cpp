@@ -75,7 +75,15 @@ void Enemy_Hostage::OnCollision(Collider* collider)
 {
 	if (collider->type == Collider::Type::PLAYER_SHOT)
 	{
-		App->player->score -= 500;
+		if (App->player->score >= 500)
+		{
+			App->player->score -= 500;
+		}
+		else
+		{
+			App->player->score = 0;
+		}
+		
 	}
 	
 	if (collider->type == Collider::Type::BODY)

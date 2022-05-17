@@ -68,6 +68,7 @@ public:
 	Particle raligunL, raligunU, raligunD, raligunUL, raligunUR, raligunDL, raligunDR;
 	
 	Particle enemyBullet;
+	Particle enemyBulletU, enemyBulletUR, enemyBulletR, enemyBulletDR, enemyBulletDL, enemyBulletL, enemyBulletUL;
 	Particle grenade, grenadeExplosion;		
 
 };

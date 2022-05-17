@@ -160,12 +160,73 @@ bool ModuleParticles::Start()
 	raligunUL.anim.speed = 0.3f;
 	
 
-	//Enemy bullet
+	//Enemy bullet Down
 	enemyBullet.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBullet.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBullet.speed.y = 5;
 	enemyBullet.lifetime = 40;
 	enemyBullet.anim.speed = 0.3f;
+
+	//Enemy bullet up
+	enemyBulletU.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletU.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletU.speed.y = -5;
+	enemyBulletU.lifetime = 40;
+	enemyBulletU.anim.speed = 0.3f;
+	
+	//Enemy bullet up-right
+	enemyBulletUR.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletUR.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletUR.speed.y = -5;
+	enemyBulletUR.speed.x = 5;
+	enemyBulletUR.lifetime = 40;
+	enemyBulletUR.anim.speed = 0.3f;
+
+	//Enemy bullet right
+	enemyBulletR.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletR.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletR.speed.x = 5;
+	enemyBulletR.lifetime = 40;
+	enemyBulletR.anim.speed = 0.3f;
+	
+	//Enemy bullet	down-right
+	enemyBulletDR.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletDR.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletDR.speed.x = 5;
+	enemyBulletDR.speed.y = 5;
+	enemyBulletDR.lifetime = 40;
+	enemyBulletDR.anim.speed = 0.3f;	
+
+	//Enemy bullet	down-right
+	enemyBulletDR.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletDR.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletDR.speed.x = 5;
+	enemyBulletDR.speed.y = 5;
+	enemyBulletDR.lifetime = 40;
+	enemyBulletDR.anim.speed = 0.3f;
+
+	//Enemy bullet	down-left
+	enemyBulletDL.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletDL.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletDL.speed.x = -5;
+	enemyBulletDL.speed.y = 5;
+	enemyBulletDL.lifetime = 40;
+	enemyBulletDL.anim.speed = 0.3f;
+
+	//Enemy bullet left
+	enemyBulletL.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletL.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletL.speed.x = -5;
+	enemyBulletL.lifetime = 40;
+	enemyBulletL.anim.speed = 0.3f;
+
+	//Enemy bullet up-left
+	enemyBulletUL.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletUL.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletUL.speed.x = -5;
+	enemyBulletUL.speed.y = 5;
+	enemyBulletUL.lifetime = 40;
+	enemyBulletUL.anim.speed = 0.3f;
 
 	//Grenade animation
 	grenade.anim.PushBack({ 0, 160, 16, 16});
