@@ -374,7 +374,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	// -RIGHT/DOWN-	[x]
 	// Ralligun
 	//Idle
-	raligunidlerightdown.PushBack({ 265, 250, 32, 45 });
+	raligunidlerightdown.PushBack({ 188, 250, 32, 45 });
 	raligunidlerightdown.loop = false;
 	raligunidlerightdown.speed = 0.2f;
 	raligunidlerightdown.pingpong = false;
@@ -387,7 +387,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	// -DOWN-	[x]
 	// Ralligun
 	//Idle
-	raligunidledown.PushBack({ 265, 10, 32, 41 });
+	raligunidledown.PushBack({ 265, 250, 32, 45 });
 	raligunidledown.loop = false;
 	raligunidledown.speed = 0.2f;
 	raligunidledown.pingpong = false;
