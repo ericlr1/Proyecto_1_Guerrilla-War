@@ -1421,6 +1421,33 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			}
 		}
 
+		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::DESTRUCTIBLE)
+		{
+			int to_push_x;
+			int to_push_y;
+			Collider::ColliderSide side = c1->GetSideToPush(c2->rect, to_push_x, to_push_y);
+
+			LOG("%d", side);
+
+			switch (side)
+			{
+			case Collider::ColliderSide::UP:
+				App->player->position.y += to_push_y;
+				break;
+			case Collider::ColliderSide::DOWN:
+				App->player->position.y += to_push_y;
+				break;
+			case Collider::ColliderSide::RIGHT:
+				App->player->position.x += to_push_x;
+				break;
+			case Collider::ColliderSide::LEFT:
+				App->player->position.x += to_push_x;
+				break;
+			default:
+				break;
+			}
+		}
+
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN)
 		{
 			App->sceneLevel_1->passar=true;
