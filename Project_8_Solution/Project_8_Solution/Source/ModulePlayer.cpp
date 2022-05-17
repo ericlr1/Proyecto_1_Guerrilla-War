@@ -1181,92 +1181,92 @@ Update_Status ModulePlayer::Update()
 			currentAnimation2 = &idleleftupfootAnim;
 			break;
 		}
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	}
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE)
+	{
+		if (ammo_raligun > 0)
 		{
-			if (ammo_raligun > 0)
+			switch (facing)
 			{
-				switch (facing)
-				{
-				case 0:
-					currentAnimation3 = &raligunfireup;
-					currentAnimation3 = &raligunidleup;
-					break;
+			case 0:
+				currentAnimation3 = &raligunfireup;
+				currentAnimation3 = &raligunidleup;
+				break;
 
-				case 1:
-					currentAnimation3 = &raligunfirerightup;
-					currentAnimation3 = &raligunidlerightup;
-					break;
+			case 1:
+				currentAnimation3 = &raligunfirerightup;
+				currentAnimation3 = &raligunidlerightup;
+				break;
 
-				case 2:
-					
-					currentAnimation3 = &raligunfireright;				
-					currentAnimation3 = &raligunidleright;
-					break;
+			case 2:
 
-				case 3:
-					currentAnimation3 = &raligunfirerightdown;
-					currentAnimation3 = &raligunidlerightdown;
-					break;
+				currentAnimation3 = &raligunfireright;
+				currentAnimation3 = &raligunidleright;
+				break;
 
-				case 4:
-					currentAnimation3 = &raligunfiredown;
-					currentAnimation3 = &raligunidledown;
-					break;
+			case 3:
+				currentAnimation3 = &raligunfirerightdown;
+				currentAnimation3 = &raligunidlerightdown;
+				break;
 
-				case 5:
-					currentAnimation3 = &raligunfireleftdown;
-					currentAnimation3 = &raligunidleleftdown;
-					break;
+			case 4:
+				currentAnimation3 = &raligunfiredown;
+				currentAnimation3 = &raligunidledown;
+				break;
 
-				case 6:
-					currentAnimation3 = &raligunfireleft;
-					currentAnimation3 = &raligunidleleft;
-					break;
-				
-				case 7:
-					currentAnimation3 = &raligunfireleftup;
-					currentAnimation3 = &raligunidleleftup;
-					break;
-				}
+			case 5:
+				currentAnimation3 = &raligunfireleftdown;
+				currentAnimation3 = &raligunidleleftdown;
+				break;
+
+			case 6:
+				currentAnimation3 = &raligunfireleft;
+				currentAnimation3 = &raligunidleleft;
+				break;
+
+			case 7:
+				currentAnimation3 = &raligunfireleftup;
+				currentAnimation3 = &raligunidleleftup;
+				break;
 			}
-			
-			else
+		}
+
+		else
+		{
+
+			switch (facing)
 			{
+			case 0:
+				currentAnimation3 = &widleup;
+				break;
 
-				switch (facing)
-				{
-				case 0:
-					currentAnimation3 = &widleup;
-					break;
+			case 1:
+				currentAnimation3 = &widlerightup;
+				break;
 
-				case 1:
-					currentAnimation3 = &widlerightup;
-					break;
+			case 2:
+				currentAnimation3 = &widleright;
+				break;
 
-				case 2:
-					currentAnimation3 = &widleright;
-					break;
+			case 3:
+				currentAnimation3 = &widlerightdown;
+				break;
 
-				case 3:
-					currentAnimation3 = &widlerightdown;
-					break;
+			case 4:
+				currentAnimation3 = &widledown;
+				break;
 
-				case 4:
-					currentAnimation3 = &widledown;
-					break;
+			case 5:
+				currentAnimation3 = &widleleftdown;
+				break;
 
-				case 5:
-					currentAnimation3 = &widleleftdown;
-					break;
+			case 6:
+				currentAnimation3 = &widleleft;
+				break;
 
-				case 6:
-					currentAnimation3 = &widleleft;
-					break;
-
-				case 7:
-					currentAnimation3 = &widleleftup;
-					break;
-				}
+			case 7:
+				currentAnimation3 = &widleleftup;
+				break;
 			}
 		}
 	}
