@@ -1307,8 +1307,10 @@ Update_Status ModulePlayer::PostUpdate()
 
 
 
-
-		App->render->Blit(raligunTexture, 214, 3106, NULL, 1.0, false);
+		if (ammo_raligun <= 0)
+		{
+			App->render->Blit(raligunTexture, 214, 3106, NULL, 1.0, false);
+		}
 		App->render->Blit(texture, position.x, position.y + 30, &rect2);
 		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
 		App->render->Blit(texture, position.x, position.y, &rect);
@@ -1427,24 +1429,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 
 
-		/*if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_UP)
-			{
-				App->render->camera.y -= 1;
-			}
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_DOWN)
-			{
-				App->render->camera.y += 2;
-			}
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_RIGHT)
-			{
-				App->render->camera.x += 1;
-			}
-		if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::CAMERA_LEFT)
-			{
-				App->render->camera.x -= 2;
-			}*/
-
-			//Updated upstream
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
 			switch (facing)
@@ -1573,7 +1557,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
 			{
-
+				App->sceneLevel_1->raligun_colldier->pendingToDelete = true;
+				
+				
 				switch (facing)
 				{
 				case 0:
@@ -1655,3 +1641,6 @@ void ModulePlayer::CameraFollowPlayer()
 	App->render->SetCameraCenter(camerax, cameray);
 
 }
+
+
+

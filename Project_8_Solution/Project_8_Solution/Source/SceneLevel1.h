@@ -47,6 +47,7 @@ public:
 	SDL_Texture* bgTexture = nullptr;
 
 
+	Collider* raligun_colldier = nullptr;
 
 	bool passar = false;
 	
