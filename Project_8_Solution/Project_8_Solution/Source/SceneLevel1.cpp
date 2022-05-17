@@ -34,6 +34,7 @@ bool SceneLevel1::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/background.png");
+	destructibles = App->textures->Load("Assets/Sprites/Destruibles.png");
 	App->audio->PlayMusic("Assets/Fx/Game_sounds_level1.ogg", 1.0f);
 
 
@@ -216,6 +217,7 @@ bool SceneLevel1::Start()
 	//Armas
 	raligun_colldier= App->collisions->AddCollider({ 214, 3106, 32,28 }, Collider::Type::RALIGUN);
 
+	App->collisions->AddCollider({ 175, 3000, 100, 20 }, Collider::Type::DESTRUCTIBLE);
 	return ret;
 }
 
@@ -234,7 +236,7 @@ Update_Status SceneLevel1::PostUpdate()
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
 
-	
+	App->render->Blit(destructibles, 163, 113, false);
 	
 	return Update_Status::UPDATE_CONTINUE;
 }

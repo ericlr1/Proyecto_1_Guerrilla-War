@@ -342,6 +342,10 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::RESPAWN: // Lime
 				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 				break;
+
+			case Collider::Type::DESTRUCTIBLE: // Lime
+				App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
+				break;
 		}
 	}
 }
