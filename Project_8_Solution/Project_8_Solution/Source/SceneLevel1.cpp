@@ -83,13 +83,7 @@ bool SceneLevel1::Start()
 
 	//Respawns
 	App->collisions->AddCollider({ 200,1903, 500, 16 }, Collider::Type::RESPAWN);
-	App->collisions->AddCollider({ 551,489, 280, 24 }, Collider::Type::RESPAWN);
 	
-	
-
-	
-	
-
 	//Colliders pared izquierda
 	App->collisions->AddCollider({ 427, 3463, 56, 33 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 399, 3413, 84, 50 }, Collider::Type::WALL);
@@ -188,9 +182,6 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 844, 479, 186, 18 }, Collider::Type::WALL);
 
 
-
-
-
 	//Colliders trinchera
 	App->collisions->AddCollider({ 130, 2574, 10, 5 }, Collider::Type::TRENCH);
 	App->collisions->AddCollider({ 133, 2502, 150, 25 }, Collider::Type::TRENCH);
@@ -219,7 +210,7 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 0, 526, 681, 341 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 745, 526, 290, 341 }, Collider::Type::WATER);
 
-	
+	//Colliders reset anim
 
 
 	//Armas
