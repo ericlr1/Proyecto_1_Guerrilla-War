@@ -35,17 +35,29 @@ bool SceneIntro::Start()
 
 Update_Status SceneIntro::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	
+	if (intro == false)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
-		
-		
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+		{
+			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
+
+
+		}
+		if (App->input->keys[SDL_SCANCODE_RETURN] == KEY_DOWN)
+		{
+			Mix_PauseMusic();
+
+		}
 	}
-	if (App->input->keys[SDL_SCANCODE_RETURN] == KEY_DOWN)
+	else
 	{
-		Mix_PauseMusic();
-		
+
+
 	}
+
+
+	
 	return Update_Status::UPDATE_CONTINUE;
 }
 
