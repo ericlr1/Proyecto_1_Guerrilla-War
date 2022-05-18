@@ -217,7 +217,7 @@ bool SceneLevel1::Start()
 	//Armas
 	raligun_colldier= App->collisions->AddCollider({ 214, 3106, 32,28 }, Collider::Type::RALIGUN);
 
-	App->collisions->AddCollider({ 175, 3000, 100, 20 }, Collider::Type::DESTRUCTIBLE);
+	App->collisions->AddCollider({ 250, 3000, 100, 20 }, Collider::Type::DESTRUCTIBLE);
 	return ret;
 }
 
