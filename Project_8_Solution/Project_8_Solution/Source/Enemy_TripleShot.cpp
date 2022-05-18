@@ -54,8 +54,8 @@ void Enemy_TripleShot::Shoot()
 	if (attackTimer >= 50)
 	{
 		App->particles->AddParticle(App->particles->enemyBullet, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->enemyBulletDL, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->enemyBulletDR, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->enemyBulletDLcustom, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->enemyBulletDRcustom, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
 		attackTimer = 0;
 	}
 

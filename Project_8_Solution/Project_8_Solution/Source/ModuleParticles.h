@@ -69,6 +69,7 @@ public:
 	
 	Particle enemyBullet;
 	Particle enemyBulletU, enemyBulletUR, enemyBulletR, enemyBulletDR, enemyBulletDL, enemyBulletL, enemyBulletUL;
+	Particle enemyBulletDLcustom, enemyBulletDRcustom;
 	Particle grenade, grenadeExplosion;		
 
 };

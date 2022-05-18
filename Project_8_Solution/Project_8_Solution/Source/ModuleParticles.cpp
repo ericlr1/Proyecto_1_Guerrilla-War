@@ -228,6 +228,22 @@ bool ModuleParticles::Start()
 	enemyBulletUL.lifetime = 40;
 	enemyBulletUL.anim.speed = 0.3f;
 
+	//Enemy bullet Down-left custom (triple shot)
+	enemyBulletDLcustom.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletDLcustom.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletDLcustom.speed.x = -2;
+	enemyBulletDLcustom.speed.y = 5;
+	enemyBulletDLcustom.lifetime = 40;
+	enemyBulletDLcustom.anim.speed = 0.3f;
+
+	//Enemy bullet Down-right custom (triple shot)
+	enemyBulletDRcustom.anim.PushBack({ 198, 66, 7, 14 });
+	enemyBulletDRcustom.anim.PushBack({ 215, 66, 7, 14 });
+	enemyBulletDRcustom.speed.x = 2;
+	enemyBulletDRcustom.speed.y = 5;
+	enemyBulletDRcustom.lifetime = 40;
+	enemyBulletDRcustom.anim.speed = 0.3f;
+
 	//Grenade animation
 	grenade.anim.PushBack({ 0, 160, 16, 16});
 	grenade.anim.PushBack({ 16, 160, 16, 16});

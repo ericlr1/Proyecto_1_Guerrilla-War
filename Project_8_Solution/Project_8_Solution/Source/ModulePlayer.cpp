@@ -1323,7 +1323,7 @@ Update_Status ModulePlayer::PostUpdate()
 		for (int i = 0; i < lives; i++)
 		{
 
-			App->render->Blit(App->UI->iconoVida,  App->render->GetCameraCenterX() - 100  + (9 * i), App->render->GetCameraCenterY() + 70, NULL, 1.0, false);
+			App->render->Blit(App->UI->iconoVida,  App->render->GetCameraCenterX() - 100  + (9 * i), App->render->GetCameraCenterY() + 120, NULL, 1.0, false);
 		}
 
 	}
@@ -1448,6 +1448,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			default:
 				break;
 			}
+		}
+
+		if (c1->type == Collider::Type::RALIGUN_SHOOT && c2->type == Collider::Type::DESTRUCTIBLE)
+		{
+			c2->type == Collider::Type::NONE;
 		}
 
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN)
