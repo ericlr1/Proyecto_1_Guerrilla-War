@@ -102,60 +102,60 @@ bool ModuleParticles::Start()
 	//RaligunU
 	raligunU.anim.PushBack({ 5, 208, 8, 29 });
 	raligunU.anim.PushBack({ 21, 208, 8, 29 });
-	raligunU.speed.y = -5;
+	raligunU.speed.y = -10;
 	raligunU.lifetime = 40;
 	raligunU.anim.speed = 0.3f;
 	
 	//ralligun right-up
 	raligunUR.anim.PushBack({ 34, 211, 26, 26 });
 	raligunUR.anim.PushBack({ 61, 211, 26, 26 });
-	raligunUR.speed.x = 5;
-	raligunUR.speed.y = -5;
+	raligunUR.speed.x = 7;
+	raligunUR.speed.y = -7;
 	raligunUR.lifetime = 40;
 	raligunUR.anim.speed = 0.3f;
 	
 	//ralligun right-
 	raligunR.anim.PushBack({ 4, 245, 28, 8 });
 	raligunR.anim.PushBack({ 34, 245, 30, 8 });
-	raligunR.speed.x = 5;
+	raligunR.speed.x = 10;
 	raligunR.lifetime = 40;
 	raligunR.anim.speed = 0.3f;
 	
 	//ralligun right-down
 	raligunDR.anim.PushBack({89, 209, 28, 28 });
 	raligunDR.anim.PushBack({ 116, 209, 28, 28 });
-	raligunDR.speed.x = 5;
-	raligunDR.speed.y = 5;
+	raligunDR.speed.x = 7;
+	raligunDR.speed.y = 7;
 	raligunDR.lifetime = 40;
 	raligunDR.anim.speed = 0.3f;
 	
 	//ralligun down
 	raligunD.anim.PushBack({ 2, 256, 8, 26 });
 	raligunD.anim.PushBack({ 18, 256, 8, 26 });
-	raligunD.speed.y = 4;
+	raligunD.speed.y = 10;
 	raligunD.lifetime = 40;
 	raligunD.anim.speed = 0.3f;
 	
 	//ralligun down-left
 	raligunDL.anim.PushBack({ 147, 211, 25, 25 });
 	raligunDL.anim.PushBack({ 172, 211, 25, 25 });
-	raligunDL.speed.x = -4;
-	raligunDL.speed.y = 4;
+	raligunDL.speed.x = -7;
+	raligunDL.speed.y = 7;
 	raligunDL.lifetime = 40;
 	raligunDL.anim.speed = 0.3f;
 
 	//ralligun left
 	raligunL.anim.PushBack({ 64, 245, 29, 8 });
 	raligunL.anim.PushBack({ 96, 245, 29, 8 });
-	raligunL.speed.x = -4;
+	raligunL.speed.x = -10;
 	raligunL.lifetime = 40;
 	raligunL.anim.speed = 0.3f;
 	
 	//ralligun up-left
 	raligunUL.anim.PushBack({ 203, 211, 25, 27 });
 	raligunUL.anim.PushBack({ 227, 211, 25, 28 });
-	raligunUL.speed.x = -4;
-	raligunUL.speed.y = -4;
+	raligunUL.speed.x = -7;
+	raligunUL.speed.y = -7;
 	raligunUL.lifetime = 40;
 	raligunUL.anim.speed = 0.3f;
 	

@@ -83,7 +83,7 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 0, 3510, 500, 2 }, Collider::Type::WALL);
 
 	//Respawns
-	App->collisions->AddCollider({ 200,1903, 500, 16 }, Collider::Type::RESPAWN);
+	App->collisions->AddCollider({ 200,1903, 500, 1 }, Collider::Type::RESPAWN);
 	
 	//Colliders pared izquierda
 	App->collisions->AddCollider({ 427, 3463, 56, 33 }, Collider::Type::WALL);

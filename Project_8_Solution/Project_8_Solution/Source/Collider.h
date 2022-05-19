@@ -22,6 +22,7 @@ struct Collider
 		RALIGUN,
 		RALIGUN_SHOOT,
 		RESPAWN,
+		RESET_ANIM,
 		WIN,
 		DESTRUCTIBLE,
 	
