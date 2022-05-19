@@ -9,7 +9,7 @@ Particle::Particle()
 }
 
 Particle::Particle(const Particle& p) : anim(p.anim), position(p.position), speed(p.speed),
-										frameCount(p.frameCount), lifetime(p.lifetime)
+frameCount(p.frameCount), lifetime(p.lifetime), explodes(p.explodes), isExplosion(p.isExplosion)
 {
 
 }
@@ -18,6 +18,14 @@ Particle::~Particle()
 {
 	if (collider != nullptr)
 		collider->pendingToDelete = true;
+}
+
+void Particle::setExplodes() {
+	this->explodes = !this->explodes;
+}
+
+void Particle::setIsExplosion() {
+	this->isExplosion = !this->isExplosion;
 }
 
 bool Particle::Update()

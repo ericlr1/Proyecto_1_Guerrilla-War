@@ -190,7 +190,27 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::WIN] = false;
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::RALIGUN_SHOOT] = true;
+<<<<<<< Updated upstream
  
+=======
+	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::RESPAWN] = false;
+
+
+	matrix[Collider::Type::EXPLOSION][Collider::Type::WALL] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::BODY] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::FOOT] = true;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::WATER] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::TRENCH] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::HOSTAGE] = true;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::WIN] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::RALIGUN] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::RALIGUN_SHOOT] = true;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::RESPAWN] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::DESTRUCTIBLE] = true;
+>>>>>>> Stashed changes
 	
 }
 
@@ -328,6 +348,7 @@ void ModuleCollisions::DebugDraw()
 				App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 				break;
 
+<<<<<<< Updated upstream
 			case Collider::Type::RESPAWN_1: // Lime
 				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 				break;
@@ -342,6 +363,10 @@ void ModuleCollisions::DebugDraw()
 				break;
 			case Collider::Type::RESPAWN_5: // Lime
 				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+=======
+			case Collider::Type::EXPLOSION: // Lime
+				App->render->DrawQuad(colliders[i]->rect, 255, 0, 50, alpha);
+>>>>>>> Stashed changes
 				break;
 		}
 	}

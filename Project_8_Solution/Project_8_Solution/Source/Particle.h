@@ -23,6 +23,9 @@ public:
 	// Returns false when the particle reaches its lifetime
 	bool Update();
 
+	void setExplodes();
+	void setIsExplosion();
+
 public:
 	// Defines the position in the screen
 	iPoint position;
@@ -45,6 +48,12 @@ public:
 	uint lifetime = 0;
 
 	uint spawnDelay = 0;
+
+	// Defines if the particle explodes. (Leaves an explosion particle)
+	bool explodes = false;
+
+	// Defines if the particle is an explosion. (Has a collider)
+	bool isExplosion = false;
 
 	// The particle's collider
 	Collider* collider = nullptr;

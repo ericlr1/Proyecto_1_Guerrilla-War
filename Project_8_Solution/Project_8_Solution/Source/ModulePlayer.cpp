@@ -604,13 +604,14 @@ Update_Status ModulePlayer::Update()
 		}
 		else
 		{
-			totalGrenades--;
-			App->particles->AddParticle(App->particles->grenade, position.x + 20, position.y, Collider::Type::NONE);
-			//Añadir particula explosion con collider
-			
-			App->particles->AddParticle(App->particles->grenadeExplosion, position.x-7, position.y-110, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(bulletFx);
-			currentAnimation3 = &wfireup;
+			throwGrenade();
+			//totalGrenades--;
+			//App->particles->AddParticle(App->particles->grenade, position.x + 20, position.y, Collider::Type::NONE);
+			////Añadir particula explosion con collider
+			//
+			//App->particles->AddParticle(App->particles->grenadeExplosion, position.x-7, position.y-110, Collider::Type::PLAYER_SHOT);
+			//App->audio->PlayFx(bulletFx);
+			//currentAnimation3 = &wfireup;
 			
 		}
 		
@@ -1698,4 +1699,51 @@ void ModulePlayer::CameraFollowPlayer()
 }
 
 
-
+void ModulePlayer::throwGrenade() {
+	
+	totalGrenades--;
+	App->audio->PlayFx(explosionFx);
+	//App->particles->grenade.explodes = true;
+	switch (facing) {
+	case 0:
+		App->particles->grenade.speed.x = 0;
+		App->particles->grenade.speed.y = -2;
+		App->particles->AddParticle(App->particles->grenade, position.x + 13, position.y, Collider::Type::NONE);
+		break;
+	case 1:
+		App->particles->grenade.speed.x = 2;
+		App->particles->grenade.speed.y = -2;
+		App->particles->AddParticle(App->particles->grenade, position.x + 32, position.y, Collider::Type::NONE);
+		break;
+	case 7:
+		App->particles->grenade.speed.x = -2;
+		App->particles->grenade.speed.y = -2;
+		App->particles->AddParticle(App->particles->grenade, position.x, position.y, Collider::Type::NONE);
+		break;
+	case 4:
+		App->particles->grenade.speed.x = 0;
+		App->particles->grenade.speed.y = 2;
+		App->particles->AddParticle(App->particles->grenade, position.x + 13, position.y + 64, Collider::Type::NONE);
+		break;
+	case 3:
+		App->particles->grenade.speed.x = 2;
+		App->particles->grenade.speed.y = 2;
+		App->particles->AddParticle(App->particles->grenade, position.x + 32, position.y + 64, Collider::Type::NONE);
+		break;
+	case 5:
+		App->particles->grenade.speed.x = -2;
+		App->particles->grenade.speed.y = 2;
+		App->particles->AddParticle(App->particles->grenade, position.x, position.y + 64, Collider::Type::NONE);
+		break;
+	case 2:
+		App->particles->grenade.speed.x = 2;
+		App->particles->grenade.speed.y = 0;
+		App->particles->AddParticle(App->particles->grenade, position.x + 32, position.y + 29, Collider::Type::NONE);
+		break;
+	case 6:
+		App->particles->grenade.speed.x = -2;
+		App->particles->grenade.speed.y = 0;
+		App->particles->AddParticle(App->particles->grenade, position.x, position.y + 29, Collider::Type::NONE);
+		break;
+	}
+}

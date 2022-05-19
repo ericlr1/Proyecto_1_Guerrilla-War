@@ -25,11 +25,16 @@ struct Collider
 		RESET_ANIM,
 		WIN,
 		DESTRUCTIBLE,
+<<<<<<< Updated upstream
 		RESPAWN_1,
 		RESPAWN_2,
 		RESPAWN_3,
 		RESPAWN_4,
 		RESPAWN_5,
+=======
+		EXPLOSION,
+	
+>>>>>>> Stashed changes
 
 		MAX
 	};

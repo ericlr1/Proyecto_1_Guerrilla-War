@@ -5,6 +5,8 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleCollisions.h"
+#include "ModuleAudio.h"
+#include "ModulePlayer.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -260,7 +262,8 @@ bool ModuleParticles::Start()
 	grenade.speed.y = -1;
 	
 	grenade.anim.speed = 0.2f;
-	grenade.lifetime = 75;
+	grenade.lifetime = 50;
+	grenade.explodes = true;
 
 
 	grenadeExplosion.anim.PushBack({ 0, 300, 64, 64 });
@@ -269,11 +272,9 @@ bool ModuleParticles::Start()
 	grenadeExplosion.anim.PushBack({ 192, 300, 64, 64 });
 	grenadeExplosion.anim.PushBack({ 256, 300, 64, 64 });
 	grenadeExplosion.anim.PushBack({ 320, 300, 64, 64 });
-
 	grenadeExplosion.anim.speed = 0.2f;
 	grenadeExplosion.anim.loop = false;
-	grenadeExplosion.spawnDelay = 10000;
-	//grenadeExplosion.lifetime = 250;
+	grenadeExplosion.isExplosion = true;
 	
 
 	return true;
@@ -321,6 +322,10 @@ Update_Status ModuleParticles::Update()
 		// Call particle Update. If it has reached its lifetime, destroy it
 		if(particle->Update() == false)
 		{
+			if (particle->explodes && !particle->isExplosion) {
+				App->particles->AddParticle(App->particles->grenadeExplosion, particle->position.x - 26, particle->position.y - 26, Collider::Type::EXPLOSION);
+				App->audio->PlayFx(App->player->explosionFx);
+			}
 			delete particle;
 			particles[i] = nullptr;
 		}
