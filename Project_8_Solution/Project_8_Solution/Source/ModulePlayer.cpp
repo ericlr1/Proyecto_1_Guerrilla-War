@@ -633,11 +633,11 @@ Update_Status ModulePlayer::Update()
 		
 		if (godMode == false)
 		{
-			speed += 1;
+			speed += 7;
 		}
 		else
 		{
-			speed -= 1;
+			speed -= 7;
 		}
 		godMode = !godMode;
 	}
@@ -1460,10 +1460,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			c2->type == Collider::Type::NONE;
 		}
 
-		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN)
-		{
-			App->sceneLevel_1->passar=true;
-		}
+
+		
 
 
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
@@ -1634,7 +1632,27 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				}
 			}
 
-		
+			//Spawns
+			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_1)
+			{
+				App->sceneLevel_1->spawn_1 = true;
+			}
+			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_2)
+			{
+				App->sceneLevel_1->spawn_2 = true;
+			}
+			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_3)
+			{
+				App->sceneLevel_1->spawn_3 = true;
+			}
+			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_4)
+			{
+				App->sceneLevel_1->spawn_4 = true;
+			}
+			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_5)
+			{
+				App->sceneLevel_1->spawn_5 = true;
+			}
 		
 	}
 	

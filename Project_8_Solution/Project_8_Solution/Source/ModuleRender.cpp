@@ -78,15 +78,30 @@ Update_Status ModuleRender::Update()
 		camera.y = 10490 - camera.h;
 	}
 	//Respawn 1
-	if (camera.y + camera.h > 6215 && App->sceneLevel_1->passar == true)
+	if (camera.y + camera.h > 8343 && App->sceneLevel_1->spawn_1 == true)
 	{
-		camera.y = 6215 - camera.h;
+		camera.y = 8343 - camera.h;
 	}
 	
 	//Respawn 2
-   	if (camera.y + camera.h > 6215 && App->sceneLevel_1->passar==true)
+   	if (camera.y + camera.h > 6215 && App->sceneLevel_1->spawn_2 ==true)
 	{
 		camera.y = 6215 - camera.h;
+	}
+	//Respawn 3
+	if (camera.y + camera.h > 4322 && App->sceneLevel_1->spawn_3 == true)
+	{
+		camera.y = 4322 - camera.h;
+	}
+	//Respawn 4
+	if (camera.y + camera.h > 3247 && App->sceneLevel_1->spawn_4 == true)
+	{
+		camera.y = 3247 - camera.h;
+	}
+	//Respawn 5
+  	if (camera.y + camera.h > 1742 && App->sceneLevel_1->spawn_5 == true)
+	{
+		camera.y = 1742 - camera.h;
 	}
 
 	return Update_Status::UPDATE_CONTINUE;

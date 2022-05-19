@@ -21,11 +21,15 @@ struct Collider
 		HOSTAGE,
 		RALIGUN,
 		RALIGUN_SHOOT,
-		RESPAWN,
+		
 		RESET_ANIM,
 		WIN,
 		DESTRUCTIBLE,
-	
+		RESPAWN_1,
+		RESPAWN_2,
+		RESPAWN_3,
+		RESPAWN_4,
+		RESPAWN_5,
 
 		MAX
 	};
@@ -37,7 +41,11 @@ struct Collider
 		RIGHT,	
 		LEFT,
 	};
-	
+	enum Respawn
+	{
+		
+
+	};
 	
 		
 

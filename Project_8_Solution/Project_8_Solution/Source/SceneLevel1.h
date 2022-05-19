@@ -50,8 +50,14 @@ public:
 
 
 	Collider* raligun_colldier = nullptr;
+	
 
-	bool passar = false;
+	bool spawn_1 = false;
+	bool spawn_2 = false;
+	bool spawn_3 = false;
+	bool spawn_4 = false;
+	bool spawn_5 = false;
+
 	
 
 };
