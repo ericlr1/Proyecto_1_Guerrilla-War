@@ -55,7 +55,9 @@ public:
 	SDL_Texture* raligunTexture = nullptr;
 	SDL_Texture* palmerasTexture = nullptr;
 
-	
+	SDL_Texture* textura_barricada_horizontal = nullptr;
+	SDL_Texture* textura_barricada_vertical = nullptr;
+	SDL_Texture* textura_espinas = nullptr;
 
 	
 	

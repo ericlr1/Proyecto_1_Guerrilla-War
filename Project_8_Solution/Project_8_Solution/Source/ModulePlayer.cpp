@@ -15,7 +15,7 @@
 #include "SceneLogo.h"
 #include "SceneLevel1.h"
 #include "ModuleUI.h"
-#include "ModuleDestruibles.h"
+
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -460,9 +460,9 @@ bool ModulePlayer::Start()
 	App->UI->uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
 	App->UI->iconoRailgun = App->textures->Load("Assets/Sprites/pistolaUI.png"); //Raligun
 	
-	App->destruibles->textura_barricada_horizontal = App->textures->Load("Assets/Sprites/Barricada_Horizontal.png");
-	App->destruibles->textura_barricada_vertical = App->textures->Load("Assets/Sprites/Barricada_Vertical.png");
-	App->destruibles->textura_espinas = App->textures->Load("Assets/Sprites/Espinas.png");
+	textura_barricada_horizontal = App->textures->Load("Assets/Sprites/Barricada_Horizontal.png");
+	textura_barricada_vertical = App->textures->Load("Assets/Sprites/Barricada_Vertical.png");
+	textura_espinas = App->textures->Load("Assets/Sprites/Espinas.png");
 	//UI 
 
 	//Reset de la score
@@ -1315,7 +1315,9 @@ Update_Status ModulePlayer::PostUpdate()
 		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
 
 
-
+		App->render->Blit(textura_barricada_horizontal, 200, 3106, NULL, 1.0, true);
+		App->render->Blit(textura_barricada_vertical, 214, 3106, NULL, 1.0, false);
+		App->render->Blit(textura_espinas, 214, 3106, NULL, 1.0, false);
 
 		if (ammo_raligun <= 0)
 		{
@@ -1325,9 +1327,7 @@ Update_Status ModulePlayer::PostUpdate()
 		App->render->Blit(weaponTexture, position.x, position.y, &rect3);
 		App->render->Blit(texture, position.x, position.y, &rect);
 		
-		App->render->Blit(App->destruibles->textura_barricada_horizontal, 200, 3106, NULL, 1.0, true);
-		App->render->Blit(App->destruibles->textura_barricada_vertical, 214, 3106, NULL, 1.0, false);
-		App->render->Blit(App->destruibles->textura_espinas, 214, 3106, NULL, 1.0, false);
+		
 
 		App->render->Blit(palmerasTexture, 0, 0, NULL, 1.0, false);
 
