@@ -149,6 +149,10 @@ public:
 
 	//God mode
 	bool godMode = false;
+
+	//Delay chispa
+	int delayChispa;
+	bool isShoting = false;
 };
 
 #endif //!__MODULE_PLAYER_H_
