@@ -578,11 +578,37 @@ Update_Status ModulePlayer::Update()
 		}
 
 	}
+
 	if (App->input->keys[SDL_SCANCODE_U] == Key_State::KEY_DOWN)
 	{
 		ammo_raligun += 10;
 	}
 
+	if (freeCam == true)
+	{
+
+
+		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT)
+		{
+			App->render->camera.y += 7;
+		}
+
+		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
+		{
+			App->render->camera.x -= 7;
+		}
+
+		if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_REPEAT)
+		{
+			App->render->camera.x += 7;
+		}
+
+		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT)
+		{
+			App->render->camera.y -= 7;
+		}
+
+	}
 
 	//Auto kill
 	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
@@ -631,6 +657,13 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN)
 	{
 		lives--;
+	}
+	
+	if (App->input->keys[SDL_SCANCODE_F] == Key_State::KEY_DOWN)
+	{
+		freeCam = !freeCam;
+		godMode = !godMode;
+
 	}
 
 	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN)
@@ -1382,20 +1415,23 @@ Update_Status ModulePlayer::PostUpdate()
 		App->fonts->BlitText(50, 290, scoreFont, monedas);
 
 
-		int camerax = App->render->GetCameraCenterX();
-		int cameray = App->render->GetCameraCenterY();
+		if (freeCam == false)
+		{
+			int camerax = App->render->GetCameraCenterX();
+			int cameray = App->render->GetCameraCenterY();
 
-		App->render->DrawQuad({ camerax, cameray }, { 10, 10 }, 255, 0, 0, 255);
-		
-		int moveCameraUp = cameray - cameraStartFollow;
-		int moveCameraDown = cameray + cameraStartFollow;
-		int moveCameraRight = camerax + cameraStartFollow;
-		int moveCameraLeft = camerax - cameraStartFollow;
+			App->render->DrawQuad({ camerax, cameray }, { 10, 10 }, 255, 0, 0, 255);
 
-		App->render->DrawQuad({ camerax, moveCameraUp }, { 10, 10 }, 255, 255, 0, 255);
-		App->render->DrawQuad({ camerax, moveCameraDown }, { 10, 10 }, 255, 0, 255, 255);
-		App->render->DrawQuad({ moveCameraRight, cameray }, { 10, 10 }, 255, 255, 0, 255);
-		App->render->DrawQuad({ moveCameraLeft, cameray }, { 10, 10 }, 255, 0, 255, 255);
+			int moveCameraUp = cameray - cameraStartFollow;
+			int moveCameraDown = cameray + cameraStartFollow;
+			int moveCameraRight = camerax + cameraStartFollow;
+			int moveCameraLeft = camerax - cameraStartFollow;
+
+			App->render->DrawQuad({ camerax, moveCameraUp }, { 10, 10 }, 255, 255, 0, 255);
+			App->render->DrawQuad({ camerax, moveCameraDown }, { 10, 10 }, 255, 0, 255, 255);
+			App->render->DrawQuad({ moveCameraRight, cameray }, { 10, 10 }, 255, 255, 0, 255);
+			App->render->DrawQuad({ moveCameraLeft, cameray }, { 10, 10 }, 255, 0, 255, 255);
+		}
 	}
 	
 
@@ -1670,39 +1706,43 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 void ModulePlayer::CameraFollowPlayer()
 {
-	int camerax = App->render->GetCameraCenterX();
-	int cameray = App->render->GetCameraCenterY();
-
-	int moveCameraUp = cameray - cameraStartFollow;
-	int moveCameraDown = cameray + cameraStartFollow;
-	int moveCameraRight = camerax + cameraStartFollow;
-	int moveCameraLeft = camerax - cameraStartFollow;
-	
-	if (position.y <= moveCameraUp)
+	if (freeCam == false)
 	{
-		cameray = position.y + cameraStartFollow;
+
+
+		int camerax = App->render->GetCameraCenterX();
+		int cameray = App->render->GetCameraCenterY();
+
+		int moveCameraUp = cameray - cameraStartFollow;
+		int moveCameraDown = cameray + cameraStartFollow;
+		int moveCameraRight = camerax + cameraStartFollow;
+		int moveCameraLeft = camerax - cameraStartFollow;
+
+		if (position.y <= moveCameraUp)
+		{
+			cameray = position.y + cameraStartFollow;
+		}
+
+		if (position.y >= moveCameraDown - 64)
+		{
+			cameray = position.y - cameraStartFollow + 64;
+
+		}
+
+		if (position.x >= moveCameraRight - 32)
+		{
+			camerax = position.x - cameraStartFollow + 32;
+
+		}
+
+		if (position.x <= moveCameraLeft)
+		{
+			camerax = position.x + cameraStartFollow;
+
+		}
+
+		App->render->SetCameraCenter(camerax, cameray);
 	}
-
-	if (position.y >= moveCameraDown-64)
-	{
-		cameray = position.y - cameraStartFollow+64;
-
-	}
-
-	if (position.x >= moveCameraRight - 32)
-	{
-		camerax = position.x - cameraStartFollow + 32;
-
-	}
-
-	if (position.x <= moveCameraLeft)
-	{
-		camerax = position.x + cameraStartFollow;
-
-	}
-
-	App->render->SetCameraCenter(camerax, cameray);
-
 }
 
 

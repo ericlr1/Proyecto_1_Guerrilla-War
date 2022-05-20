@@ -158,6 +158,9 @@ public:
 	//Delay chispa
 	int delayChispa;
 	bool isShoting = false;
+
+	//FreeCam
+	bool freeCam = false;
 };
 
 #endif //!__MODULE_PLAYER_H_
