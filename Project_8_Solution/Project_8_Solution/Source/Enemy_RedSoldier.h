@@ -16,9 +16,14 @@ public:
 	void Update() override;
 	void Shoot() override;
 	void Draw() override;
+	void Enemy_RedSoldier::OnCollision(Collider* collider) override;
+
 public:
 
 	float alpha;	//angle computed as atan2
+
+	//Tiempo entre disparos
+	int attackTimer;
 
 	// A set of steps that define the position in the screen
 	// And an animation for each step
