@@ -15,7 +15,7 @@ Enemy::Enemy(int x, int y) : position(x, y)
 {
 	spawnPos = position;
 
-	alpha = degrees = 0.0f;
+	//alpha = degrees = 0.0f;
 }
 
 Enemy::~Enemy()
