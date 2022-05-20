@@ -77,6 +77,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="ModuleDestruibles.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_GreenSoldier.h" />
     <ClInclude Include="Enemy_GreenSoldier2.h" />
@@ -118,6 +119,7 @@
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleCollisions.cpp" />
+    <ClCompile Include="ModuleDestruibles.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
