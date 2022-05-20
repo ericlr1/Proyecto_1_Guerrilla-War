@@ -22,7 +22,7 @@ class ModuleFadeToBlack;
 class ModuleRender;
 class ModuleFonts;
 class ModuleUI;
-class ModuleDestruibles;
+
 
 class Application
 {
@@ -65,8 +65,6 @@ public:
 
 	ModuleEnemies* enemies = nullptr;
 	ModuleParticles* particles = nullptr;
-
-	ModuleDestruibles* destruibles = nullptr;
 
 	ModuleCollisions* collisions = nullptr;
 	ModuleFadeToBlack* fade = nullptr;
