@@ -21,6 +21,8 @@ public:
 public:
 
 	float alpha;	//angle computed as atan2
+	int cx, cy;		//center of the screen
+	int rx, ry;		//target point regarding radar coordinate system
 
 	//Tiempo entre disparos
 	int attackTimer;
