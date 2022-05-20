@@ -40,7 +40,7 @@ bool SceneLevel1::Start()
 
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 280, 2920);
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 140, 2820);
-	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 210, 3360);
+	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 220, 3350);
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 200, 2820);
 	App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, 200, 2700);
 	App->render->camera.x = 300;
