@@ -33,6 +33,7 @@ public:
 	SDL_Texture* bgTexture = nullptr;
 
 	SDL_Texture* win1 = nullptr;
+	SDL_Texture* spritesAnimacion = nullptr;
 
 	Animation winAnimation;
 
