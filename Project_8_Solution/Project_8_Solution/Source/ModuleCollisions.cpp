@@ -206,6 +206,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::EXPLOSION][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::RALIGUN_SHOOT] = true;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::DESTRUCTIBLE] = true;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::EXPLOSION] = false;
 
 	
 }
