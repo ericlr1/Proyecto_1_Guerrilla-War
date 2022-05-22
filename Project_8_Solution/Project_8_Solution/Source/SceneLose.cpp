@@ -33,7 +33,14 @@ bool SceneLose::Start()
 	LoseFont = App->fonts->Load("Assets/Sprites/fonts.png", lookupTable, 2);
 
 	bgTexture = App->textures->Load("Assets/Sprites/loseScreen.png");
+	win1 = App->textures->Load("Assets/Sprites/win1.png");
 
+	//AYUDA
+	winAnimation.PushBack({0, 0, SCREEN_WIDTH, SCREEN_HEIGHT });
+	winAnimation.speed = 0.1f;
+	winAnimation.loop = true;
+	
+	
 
 	return ret;
 }
@@ -46,6 +53,8 @@ Update_Status SceneLose::Update()
 
 
 	}
+
+	winAnimation.Update();
 	
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -54,7 +63,34 @@ Update_Status SceneLose::Update()
 Update_Status SceneLose::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 0, 0, NULL);
-	App->fonts->BlitText(80, 100, LoseFont, "GAME.OVER");
+	
+	SDL_Rect animacion;
+	animacion.x = 0;
+	animacion.y = 0;
+	animacion.w = SCREEN_WIDTH;
+	animacion.h = SCREEN_HEIGHT;
+
+
+	SDL_Rect fondo;
+	fondo.x = 0;
+	fondo.y = 0;
+	fondo.w = SCREEN_WIDTH;
+	fondo.h = SCREEN_HEIGHT;
+	
+	App->render->camera.x = 5;
+	App->render->camera.y = 5;
+
+	//Win animation
+	if (App->player->lives > 0)
+	{
+		App->render->Blit(win1, 0, 0, &fondo);
+	}
+	else
+	{
+		//Lose animation (GAME OVER)
+		App->render->Blit(bgTexture, 0, 0, &fondo);
+		App->fonts->BlitText(80, 100, LoseFont, "GAME.OVER");
+	}
+	
 	return Update_Status::UPDATE_CONTINUE;
 }
