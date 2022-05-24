@@ -95,7 +95,7 @@ public:
 	
 	//Entorno
 	Animation water, idlewater;															//Agua
-	Animation trench;															//Barro
+	Animation trench, idletrench;															//Barro
 	//Arma
 	Animation widleup, widledown, widleleft, widleright;						//Arma-Idle
 	Animation widleleftup, widleleftdown, widlerightup, widlerightdown;			//Arma-Idle
@@ -162,7 +162,8 @@ public:
 	//FreeCam
 	bool freeCam = false;
 
-	bool walk = true;
+	bool walk_water = false;
+	bool walk_trench = false;
 };
 
 #endif //!__MODULE_PLAYER_H_
