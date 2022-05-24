@@ -277,6 +277,15 @@ bool ModuleParticles::Start()
 	grenadeExplosion.isExplosion = true;
 	
 
+	mas1000.anim.PushBack({ 354, 8, 38, 8});
+	mas1000.anim.speed = 0.01f;
+	mas1000.anim.loop = false;
+
+
+	menos500.anim.PushBack({ 363, 0, 28, 8 });
+	menos500.anim.speed = 0.01f;
+	menos500.anim.loop = false;
+
 	return true;
 }
 

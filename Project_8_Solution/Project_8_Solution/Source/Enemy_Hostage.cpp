@@ -4,6 +4,7 @@
 #include "ModuleCollisions.h"
 #include "Enemy.h"
 #include "ModulePlayer.h"
+#include "ModuleParticles.h"
 
 Enemy_Hostage::Enemy_Hostage(int x, int y) : Enemy(x, y)
 {
@@ -78,10 +79,12 @@ void Enemy_Hostage::OnCollision(Collider* collider)
 		if (App->player->score >= 500)
 		{
 			App->player->score -= 500;
+			App->particles->AddParticle(App->particles->menos500, position.x, position.y - 20);
 		}
 		else
 		{
 			App->player->score = 0;
+			App->particles->AddParticle(App->particles->menos500, position.x, position.y - 20);
 		}
 		
 	}
@@ -89,6 +92,7 @@ void Enemy_Hostage::OnCollision(Collider* collider)
 	if (collider->type == Collider::Type::BODY)
 	{
 		App->player->score += 1000;
+		App->particles->AddParticle(App->particles->mas1000, position.x, position.y - 20);
 		App->player->totalGrenades = 50;
 	}
 	
