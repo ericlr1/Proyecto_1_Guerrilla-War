@@ -23,20 +23,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL][Collider::Type::WIN] = false;
 	matrix[Collider::Type::WALL][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::WALL][Collider::Type::RALIGUN_SHOOT] = false;
-
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::WALL] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::BODY] = true;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::FOOT] = true;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::ENEMY] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::PLAYER_SHOT] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::ENEMY_SHOT] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::WATER] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::TRENCH] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::HOSTAGE] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::WIN] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::RALIGUN] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::RESET_ANIM][Collider::Type::RESET_ANIM] = false;
 	
 
 	matrix[Collider::Type::BODY][Collider::Type::WALL] = false;
@@ -93,7 +79,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RESET_ANIM] = false;
+	
 	
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::WALL] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::BODY] = true;
@@ -107,7 +93,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::RESET_ANIM] = false;
 	
 
 	matrix[Collider::Type::WATER][Collider::Type::WALL] = false;
@@ -378,11 +363,6 @@ void ModuleCollisions::DebugDraw()
 
 			case Collider::Type::EXPLOSION: // Lime
 				App->render->DrawQuad(colliders[i]->rect, 255, 0, 50, alpha);
-
-				break;
-			
-			case Collider::Type::RESET_ANIM: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 
 				break;
 		}

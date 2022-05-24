@@ -216,32 +216,7 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 745, 526, 290, 341 }, Collider::Type::WATER);
 
 	//Colliders reset anim
-	App->collisions->AddCollider({ 196, 3321, 90, 4 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 186, 3329, 3, 35 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 174, 3366, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 160, 3377, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 150, 3385, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 140, 3394, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 130, 3402, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 120, 3411, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 110, 3420, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 100, 3427, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 76, 3443, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 66, 3464, 4, 34}, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 287, 3322, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 298, 3331, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 309, 3336, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 317, 3354, 3, 30 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 331, 3386, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 347, 3404, 3, 36 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 356, 3445, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 375, 3461, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 370, 3445, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 400, 3468, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 384, 3464, 10, 3 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 400, 3479, 3, 14 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 500, 883, 400, 1 }, Collider::Type::RESET_ANIM);
-	App->collisions->AddCollider({ 521, 511, 400, 1 }, Collider::Type::RESET_ANIM);
+
 
 	//Armas
 	raligun_colldier= App->collisions->AddCollider({ 214, 3106, 32,28 }, Collider::Type::RALIGUN);
