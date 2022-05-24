@@ -1,0 +1,5 @@
+App->render->DrawLine(App->enemies->enemies[i]->position.x + 16,
+				App->enemies->enemies[i]->position.y + 32,
+				App->enemies->enemies[i]->position.x + 16 + 20 * cos(App->enemies->enemies[i]->degrees * (M_PI / 180)),
+				App->enemies->enemies[i]->position.y + 32 + 20 * sin(App->enemies->enemies[i]->degrees * (M_PI / 180)),
+				0, 255, 0, 255);
