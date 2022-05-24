@@ -6,7 +6,6 @@
 #include "ModulePlayer.h"
 #include "SceneLevel1.h"
 #include "ModuleInput.h"
-#include "ModuleRender.h"
 #include "SDL/include/SDL_render.h"
 #include "ModuleParticles.h"
 #include "Enemy.h"
@@ -18,8 +17,7 @@
 
 Enemy_RedSoldier::Enemy_RedSoldier(int x, int y) : Enemy(x, y)
 {
-	cx = SCREEN_WIDTH >> 1,
-	cy = SCREEN_HEIGHT >> 1;
+
 	alpha = 0.0f;
 
 	front.PushBack({ 448, 0, 32, 64 });
@@ -43,6 +41,8 @@ Enemy_RedSoldier::Enemy_RedSoldier(int x, int y) : Enemy(x, y)
 
 void Enemy_RedSoldier::Update()
 {
+	cx = App->render->camera.x;
+	cy = App->render->camera.y;
 	rx = App->player->position.x - cx;
 	ry = -(App->player->position.y - cy);
 	alpha = atan2(ry, rx);
@@ -69,9 +69,11 @@ void Enemy_RedSoldier::Draw()
 	float degrees = alpha / (M_PI / 180.0);
 	if (degrees < 0)	degrees += 360.0f;
 
+
+
 	//Draw radar
 	SDL_SetRenderDrawColor(App->render->renderer, 255, 255, 255, 255);
-	SDL_RenderDrawLine(App->render->renderer, position.x - cx, position.y - cy, (App->player->position.x - position.x) * cos(alpha), (App->player->position.y - position.y)* sin(alpha));
+	SDL_RenderDrawLine(App->render->renderer, position.x - cx, position.y - cy, (App->player->position.x - cx) * cos(alpha), (App->player->position.y - cy)* sin(alpha));
 }
 
 void Enemy_RedSoldier::OnCollision(Collider* collider)

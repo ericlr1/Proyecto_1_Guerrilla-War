@@ -227,4 +227,5 @@ void ModuleRender::SetCameraCenter(int x, int y)
 	camera.x = (x * SCREEN_SIZE) - floor(camera.w * 0.5);
 	camera.y = (y * SCREEN_SIZE) - floor(camera.h * 0.5);
 
+
 }

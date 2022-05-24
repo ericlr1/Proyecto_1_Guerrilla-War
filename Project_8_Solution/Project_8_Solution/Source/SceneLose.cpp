@@ -36,10 +36,9 @@ bool SceneLose::Start()
 	win1 = App->textures->Load("Assets/Sprites/win1.png");
 
 	spritesAnimacion = App->textures->Load("Assets/Sprites/animacion_isla.png");
-
 	//AYUDA
 	winAnimation.PushBack({0, 0, SCREEN_WIDTH, SCREEN_HEIGHT });
-	winAnimation.PushBack({225, 0, SCREEN_WIDTH, SCREEN_HEIGHT });
+	winAnimation.PushBack({224, 0, SCREEN_WIDTH-1, SCREEN_HEIGHT });
 	winAnimation.speed = 0.01f;
 	winAnimation.loop = true;
 	
@@ -93,7 +92,7 @@ Update_Status SceneLose::PostUpdate()
 	{
 		//Lose animation (GAME OVER)
 		App->render->Blit(bgTexture, 0, 0, &fondo);
-		App->fonts->BlitText(80, 100, LoseFont, "GAME.OVER");
+		//App->fonts->BlitText(80, 100, LoseFont, "GAME.OVER");
 	}
 	
 	return Update_Status::UPDATE_CONTINUE;
