@@ -222,6 +222,8 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	water.speed = 0.1f;
 	water.pingpong = true;
 
+	idlewater.PushBack({ 192,256,32,32 });
+	
 	//trench
 
 	trench.PushBack({ 160,256,32,32 });
@@ -694,6 +696,7 @@ Update_Status ModulePlayer::Update()
 				currentAnimation = &upAnim;
 				currentAnimation2 = &upfootAnim;
 			}
+			if(walk==true){ currentAnimation2 = &water; }
 			break;
 		case 1:
 			if (currentAnimation != &rightupAnim && currentAnimation2 != &rightupfootAnim)
@@ -702,7 +705,7 @@ Update_Status ModulePlayer::Update()
 				rightupfootAnim.Reset();
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 2:
@@ -712,7 +715,7 @@ Update_Status ModulePlayer::Update()
 				rightfootAnim.Reset();
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 3:
@@ -722,7 +725,7 @@ Update_Status ModulePlayer::Update()
 				rightdownfootAnim.Reset();
 				currentAnimation = &rightdownAnim;
 				currentAnimation2 = &rightdownfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 4:
@@ -732,7 +735,7 @@ Update_Status ModulePlayer::Update()
 				downfootAnim.Reset();
 				currentAnimation = &downAnim;
 				currentAnimation2 = &downfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 5:
@@ -742,7 +745,7 @@ Update_Status ModulePlayer::Update()
 				leftdownfootAnim.Reset();
 				currentAnimation = &leftdownAnim;
 				currentAnimation2 = &leftdownfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 6:
@@ -752,7 +755,7 @@ Update_Status ModulePlayer::Update()
 				leftfootAnim.Reset();
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 7:
@@ -762,7 +765,7 @@ Update_Status ModulePlayer::Update()
 				leftupfootAnim.Reset();
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 		}
 	}
@@ -781,7 +784,7 @@ Update_Status ModulePlayer::Update()
 				upfootAnim.Reset();
 				currentAnimation = &upAnim;
 				currentAnimation2 = &upfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 1:
@@ -791,7 +794,7 @@ Update_Status ModulePlayer::Update()
 				rightupfootAnim.Reset();
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 2:
@@ -801,7 +804,7 @@ Update_Status ModulePlayer::Update()
 				rightfootAnim.Reset();
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 3:
@@ -811,7 +814,7 @@ Update_Status ModulePlayer::Update()
 				rightdownfootAnim.Reset();
 				currentAnimation = &rightdownAnim;
 				currentAnimation2 = &rightdownfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 4:
@@ -821,7 +824,7 @@ Update_Status ModulePlayer::Update()
 				downfootAnim.Reset();
 				currentAnimation = &downAnim;
 				currentAnimation2 = &downfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 5:
@@ -831,7 +834,7 @@ Update_Status ModulePlayer::Update()
 				leftdownfootAnim.Reset();
 				currentAnimation = &leftdownAnim;
 				currentAnimation2 = &leftdownfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 6:
@@ -841,7 +844,7 @@ Update_Status ModulePlayer::Update()
 				leftfootAnim.Reset();
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 7:
@@ -851,7 +854,7 @@ Update_Status ModulePlayer::Update()
 				leftupfootAnim.Reset();
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 		}
 	}
@@ -869,7 +872,7 @@ Update_Status ModulePlayer::Update()
 				upfootAnim.Reset();
 				currentAnimation = &upAnim;
 				currentAnimation2 = &upfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 1:
@@ -879,7 +882,7 @@ Update_Status ModulePlayer::Update()
 				rightupfootAnim.Reset();
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 2:
@@ -889,7 +892,7 @@ Update_Status ModulePlayer::Update()
 				rightfootAnim.Reset();
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 3:
@@ -899,7 +902,7 @@ Update_Status ModulePlayer::Update()
 				rightdownfootAnim.Reset();
 				currentAnimation = &rightdownAnim;
 				currentAnimation2 = &rightdownfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 4:
@@ -909,7 +912,7 @@ Update_Status ModulePlayer::Update()
 				downfootAnim.Reset();
 				currentAnimation = &downAnim;
 				currentAnimation2 = &downfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 5:
@@ -919,7 +922,7 @@ Update_Status ModulePlayer::Update()
 				leftdownfootAnim.Reset();
 				currentAnimation = &leftdownAnim;
 				currentAnimation2 = &leftdownfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 6:
@@ -929,7 +932,7 @@ Update_Status ModulePlayer::Update()
 				leftfootAnim.Reset();
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 7:
@@ -939,7 +942,7 @@ Update_Status ModulePlayer::Update()
 				leftupfootAnim.Reset();
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 		}
 	}
@@ -957,7 +960,7 @@ Update_Status ModulePlayer::Update()
 				upfootAnim.Reset();
 				currentAnimation = &upAnim;
 				currentAnimation2 = &upfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 1:
@@ -967,7 +970,7 @@ Update_Status ModulePlayer::Update()
 				rightupfootAnim.Reset();
 				currentAnimation = &rightupAnim;
 				currentAnimation2 = &rightupfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 2:
@@ -977,7 +980,7 @@ Update_Status ModulePlayer::Update()
 				rightfootAnim.Reset();
 				currentAnimation = &rightAnim;
 				currentAnimation2 = &rightfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 3:
@@ -987,7 +990,7 @@ Update_Status ModulePlayer::Update()
 				rightdownfootAnim.Reset();
 				currentAnimation = &rightdownAnim;
 				currentAnimation2 = &rightdownfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 4:
@@ -997,7 +1000,7 @@ Update_Status ModulePlayer::Update()
 				downfootAnim.Reset();
 				currentAnimation = &downAnim;
 				currentAnimation2 = &downfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 5:
@@ -1007,7 +1010,7 @@ Update_Status ModulePlayer::Update()
 				leftdownfootAnim.Reset();
 				currentAnimation = &leftdownAnim;
 				currentAnimation2 = &leftdownfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 6:
@@ -1017,7 +1020,7 @@ Update_Status ModulePlayer::Update()
 				leftfootAnim.Reset();
 				currentAnimation = &leftAnim;
 				currentAnimation2 = &leftfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 
 		case 7:
@@ -1027,7 +1030,7 @@ Update_Status ModulePlayer::Update()
 				leftupfootAnim.Reset();
 				currentAnimation = &leftupAnim;
 				currentAnimation2 = &leftupfootAnim;
-			}
+			}if (walk == true) { currentAnimation2 = &water; }
 			break;
 		}
 
@@ -1181,48 +1184,94 @@ Update_Status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 	{
-		
-		switch (facing)
+		if (walk == true)
 		{
-		case 0:
-			currentAnimation = &idleupAnim;
-			currentAnimation2 = &idleupfootAnim;
-			break;
+			switch (facing)
+			{
+			case 0:
+				currentAnimation = &idleupAnim;
+				currentAnimation2 = &idlewater;
+				break;
 
-		case 1:
-			currentAnimation = &idlerightupAnim;
-			currentAnimation2 = &idlerightupfootAnim;
-			break;
+			case 1:
+				currentAnimation = &idlerightupAnim;
+				currentAnimation2 = &idlewater;
+				break;
 
-		case 2:
-			currentAnimation = &idlerightAnim;
-			currentAnimation2 = &idlerightfootAnim;
-			break;
+			case 2:
+				currentAnimation = &idlerightAnim;
+				currentAnimation2 = &idlewater;
+				break;
 
-		case 3:
-			currentAnimation = &idlerightdownAnim;
-			currentAnimation2 = &idlerightdownfootAnim;
-			break;
+			case 3:
+				currentAnimation = &idlerightdownAnim;
+				currentAnimation2 = &idlewater;
+				break;
 
-		case 4:
-			currentAnimation = &idledownAnim;
-			currentAnimation2 = &idledownfootAnim;
-			break;
+			case 4:
+				currentAnimation = &idledownAnim;
+				currentAnimation2 = &idlewater;
+				break;
 
-		case 5:
-			currentAnimation = &idleleftdownAnim;
-			currentAnimation2 = &idleleftdownfootAnim;
-			break;
+			case 5:
+				currentAnimation = &idleleftdownAnim;
+				currentAnimation2 = &idlewater;
+				break;
 
-		case 6:
-			currentAnimation = &idleleftAnim;
-			currentAnimation2 = &idleleftfootAnim;
-			break;
+			case 6:
+				currentAnimation = &idleleftAnim;
+				currentAnimation2 = &idlewater;
+				break;
 
-		case 7:
-			currentAnimation = &idleleftupAnim;
-			currentAnimation2 = &idleleftupfootAnim;
-			break;
+			case 7:
+				currentAnimation = &idleleftupAnim;
+				currentAnimation2 = &idlewater;
+				break;
+			}
+		}
+		else {
+			switch (facing)
+			{
+			case 0:
+				currentAnimation = &idleupAnim;
+				currentAnimation2 = &idleupfootAnim;
+				break;
+
+			case 1:
+				currentAnimation = &idlerightupAnim;
+				currentAnimation2 = &idlerightupfootAnim;
+				break;
+
+			case 2:
+				currentAnimation = &idlerightAnim;
+				currentAnimation2 = &idlerightfootAnim;
+				break;
+
+			case 3:
+				currentAnimation = &idlerightdownAnim;
+				currentAnimation2 = &idlerightdownfootAnim;
+				break;
+
+			case 4:
+				currentAnimation = &idledownAnim;
+				currentAnimation2 = &idledownfootAnim;
+				break;
+
+			case 5:
+				currentAnimation = &idleleftdownAnim;
+				currentAnimation2 = &idleleftdownfootAnim;
+				break;
+
+			case 6:
+				currentAnimation = &idleleftAnim;
+				currentAnimation2 = &idleleftfootAnim;
+				break;
+
+			case 7:
+				currentAnimation = &idleleftupAnim;
+				currentAnimation2 = &idleleftupfootAnim;
+				break;
+			}
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE)
@@ -1506,11 +1555,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 
 
-		
+
 
 
 		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
 		{
+			walk = true;
 			switch (facing)
 			{
 			case 0:
@@ -1548,59 +1598,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 		else
 		{
-
-			switch (facing)
-			{
-			case 0:
-
-				currentAnimation2 = &idleupfootAnim;
-
-				break;
-
-			case 1:
-
-				currentAnimation2 = &idlerightupfootAnim;
-
-				break;
-
-			case 2:
-
-				currentAnimation2 = &idlerightfootAnim;
-
-				break;
-
-			case 3:
-
-				currentAnimation2 = &idlerightdownfootAnim;
-
-				break;
-
-			case 4:
-
-				currentAnimation2 = &idledownfootAnim;
-
-				break;
-
-			case 5:
-
-				currentAnimation2 = &idleleftdownfootAnim;
-
-
-				break;
-
-			case 6:
-
-				currentAnimation2 = &idleleftfootAnim;
-
-				break;
-
-			case 7:
-
-				currentAnimation2 = &idleleftupfootAnim;
-
-				break;
-			}
-
+			walk = false;
 		}
 			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
 			{
@@ -1676,7 +1674,43 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 				}
 			}
+			if(c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESET_ANIM_WATER)
+			{
+				if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT
+					|| App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT
+					|| App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT
+					|| App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+				{
+					switch (facing)
+					{
+					case 0:
+						currentAnimation2 = &upfootAnim;
+						break;
 
+					case 1:
+						currentAnimation2 = &rightupfootAnim;
+						break;
+					case 2:
+						currentAnimation2 = &rightfootAnim;
+						break;
+					case 3:
+						currentAnimation2 = &rightdownfootAnim;
+						break;
+					case 4:
+						currentAnimation2 = &downfootAnim;
+						break;
+					case 5:
+						currentAnimation2 = &leftdownfootAnim;
+						break;
+					case 6:
+						currentAnimation2 = &leftfootAnim;
+						break;
+					case 7:
+						currentAnimation2 = &leftupfootAnim;
+						break;
+					}
+				}
+			}
 			//Spawns
 			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_1)
 			{

@@ -94,7 +94,7 @@ public:
 	Animation leftdownAnim, leftdownfootAnim;									//Izquierda-Abajo
 	
 	//Entorno
-	Animation water;															//Agua
+	Animation water, idlewater;															//Agua
 	Animation trench;															//Barro
 	//Arma
 	Animation widleup, widledown, widleleft, widleright;						//Arma-Idle
@@ -161,6 +161,8 @@ public:
 
 	//FreeCam
 	bool freeCam = false;
+
+	bool walk = true;
 };
 
 #endif //!__MODULE_PLAYER_H_
