@@ -1375,7 +1375,7 @@ Update_Status ModulePlayer::PostUpdate()
 	}
 
 	// Draw UI (score) --------------------------------------
-	sprintf_s(scoreText, 10, "%7d", score);
+	sprintf_s(scoreText, 10, "%5d", score);
 	sprintf_s(grenadeNum, 10, "%d", totalGrenades);
 	sprintf_s(vidas, 10, "%d", lives);
 	sprintf_s(monedas, 10, "%d", coins);
@@ -1384,8 +1384,9 @@ Update_Status ModulePlayer::PostUpdate()
 	// TODO 3: Blit the text of the score in at the bottom of the screen
 	App->fonts->BlitText(20, 30, scoreFont, scoreText);
 
-	App->fonts->BlitText(70, 20, scoreFont, "HI");
-	App->fonts->BlitText(125, 20, scoreFont, "30000");
+	App->fonts->BlitText(70, 10, scoreFont, "HI");
+	App->fonts->BlitText(125, 10, scoreFont, "30000");
+	App->fonts->BlitText(20, 20, scoreFont, "1..UP");
 
 	App->fonts->BlitText(13, 70, scoreFont, grenadeNum);
 
