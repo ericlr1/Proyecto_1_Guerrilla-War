@@ -43,8 +43,13 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 220, 3350);
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 150, 3250);
 	App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, 200, 2700);
+
+	//Setting de la camera
+
 	App->render->camera.x = 300;
 	App->render->camera.y = 3200;
+
+
 	// TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
 	App->enemies->Enable();
