@@ -74,6 +74,8 @@ public:
 
 	Particle mas1000, menos500;
 
+	Particle humo;
+
 };
 
 #endif // !__MODULEPARTICLES_H__

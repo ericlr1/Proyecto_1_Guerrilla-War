@@ -40,6 +40,12 @@ bool ModuleParticles::Start()
 	dead.anim.loop = false;
 	dead.anim.speed = 0.1f;*/
 
+	//Humillo al acabar la bala
+	humo.anim.PushBack({ 229, 67, 8, 15 });
+	humo.anim.PushBack({ 244, 67, 8, 15 });
+	humo.anim.loop = false;
+	humo.anim.speed = 0.2f;
+
 	//bullet right
 	bullet.anim.PushBack({ 66, 183, 10, 9 });
 	bullet.anim.PushBack({ 83, 183, 10, 9 });
