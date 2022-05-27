@@ -15,6 +15,7 @@
 #include "SceneLogo.h"
 #include "SceneLevel1.h"
 #include "ModuleUI.h"
+#include "ModuleEnemies.h"
 
 
 #include "SDL/include/SDL_scancode.h"
@@ -737,6 +738,21 @@ Update_Status ModulePlayer::Update()
 			speed -= 7;
 		}
 		godMode = !godMode;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F9] == Key_State::KEY_DOWN)
+	{
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, position.x, position.y - 100);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F10] == Key_State::KEY_DOWN)
+	{
+		App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, position.x, position.y - 100);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F11] == Key_State::KEY_DOWN)
+	{
+		App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, position.x, position.y - 100);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -1612,10 +1628,10 @@ Update_Status ModulePlayer::PostUpdate()
 			int moveCameraRight = camerax + cameraStartFollow;
 			int moveCameraLeft = camerax - cameraStartFollow;
 
-			App->render->DrawQuad({ camerax, moveCameraUp }, { 10, 10 }, 255, 255, 0, 255);
-			App->render->DrawQuad({ camerax, moveCameraDown }, { 10, 10 }, 255, 0, 255, 255);
-			App->render->DrawQuad({ moveCameraRight, cameray }, { 10, 10 }, 255, 255, 0, 255);
-			App->render->DrawQuad({ moveCameraLeft, cameray }, { 10, 10 }, 255, 0, 255, 255);
+			App->render->DrawQuad({ camerax, moveCameraUp }, { 10, 5 }, 255, 255, 0, 255);
+			App->render->DrawQuad({ camerax, moveCameraDown }, { 10, 5 }, 255, 0, 255, 255);
+			App->render->DrawQuad({ moveCameraRight, cameray }, { 5, 10 }, 255, 255, 0, 255);
+			App->render->DrawQuad({ moveCameraLeft, cameray }, { 5, 10 }, 255, 0, 255, 255);
 		}
 	}
 	

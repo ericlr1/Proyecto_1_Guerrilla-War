@@ -26,6 +26,7 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	texture = App->textures->Load("Assets/Sprites/particles.png");
 	// Explosion particle
+	
 	/*dead.anim.PushBack({0, 322, 31, 60});
 	dead.anim.PushBack({31, 322, 31, 60});
 	dead.anim.PushBack({63, 322, 27, 60});
