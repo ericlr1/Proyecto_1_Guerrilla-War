@@ -26,8 +26,10 @@ Enemy_TripleShot::Enemy_TripleShot(int x, int y) : Enemy(x, y)
 	idleAnim.PushBack({ 416, 0, 32, 64 });
 	idleAnim.PushBack({ 448, 0, 32, 64 });
 	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+
 	idleAnim.loop = true;
-	idleAnim.speed = 0.15f;
+	idleAnim.speed = 0.145f;
 	idleAnim.pingpong = false;
 
 	currentAnim = &idleAnim;
@@ -52,11 +54,11 @@ void Enemy_TripleShot::Update()
 
 void Enemy_TripleShot::Shoot()
 {
-	if (attackTimer >= 44)
+	if (attackTimer >= 55)
 	{
-		App->particles->AddParticle(App->particles->enemyBullet, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->enemyBulletDLcustom, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->enemyBulletDRcustom, position.x + 16, position.y + 32, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->enemyBullet, position.x + 13, position.y + 32, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->enemyBulletDLcustom, position.x + 13, position.y + 32, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->enemyBulletDRcustom, position.x + 13, position.y + 32, Collider::Type::ENEMY_SHOT);
 		attackTimer = 0;
 	}
 
