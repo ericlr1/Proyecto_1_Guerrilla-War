@@ -442,6 +442,64 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	raligunfireleftup.speed = 0.2f;
 	raligunfireleftup.pingpong = false;
 
+	//GRENADE
+	// Throw grenade animations
+	upThrowGrenade.PushBack({ 320, 0, 32, 32 });
+	upThrowGrenade.PushBack({ 352, 0, 32, 32 });
+	upThrowGrenade.PushBack({ 384, 0, 32, 32 });
+	upThrowGrenade.PushBack({ 416, 0, 32, 32 });
+	upThrowGrenade.PushBack({ 448, 0, 32, 32 });
+	upThrowGrenade.speed = 0.1f;
+	upThrowGrenade.loop = false;
+
+	upRightThrowGrenade.PushBack({ 320, 32, 32, 32 });
+	upRightThrowGrenade.PushBack({ 352, 32, 32, 32 });
+	upRightThrowGrenade.PushBack({ 384, 32, 32, 32 });
+	upRightThrowGrenade.PushBack({ 416, 32, 32, 32 });
+	upRightThrowGrenade.PushBack({ 448, 32, 32, 32 });
+	upRightThrowGrenade.speed = 0.1f;
+	upRightThrowGrenade.loop = false;
+
+	rightThrowGrenade.PushBack({ 320, 64, 32, 32 });
+	rightThrowGrenade.PushBack({ 352, 64, 32, 32 });
+	rightThrowGrenade.PushBack({ 384, 64, 32, 32 });
+	rightThrowGrenade.PushBack({ 416, 64, 32, 32 });
+	rightThrowGrenade.PushBack({ 448, 64, 32, 32 });
+	rightThrowGrenade.speed = 0.1f;
+	rightThrowGrenade.loop = false;
+
+	downRightThrowGrenade.PushBack({ 320, 96, 32, 32 });
+	downRightThrowGrenade.PushBack({ 352, 96, 32, 32 });
+	downRightThrowGrenade.PushBack({ 384, 96, 32, 32 });
+	downRightThrowGrenade.PushBack({ 416, 96, 32, 32 });
+	downRightThrowGrenade.PushBack({ 448, 96, 32, 32 });
+	downRightThrowGrenade.speed = 0.1f;
+	downRightThrowGrenade.loop = false;
+
+	downThrowGrenade.PushBack({ 320, 128, 32, 32 });
+	downThrowGrenade.PushBack({ 352, 128, 32, 32 });
+	downThrowGrenade.PushBack({ 384, 128, 32, 32 });
+	downThrowGrenade.PushBack({ 416, 128, 32, 32 });
+	downThrowGrenade.PushBack({ 448, 128, 32, 32 });
+	downThrowGrenade.speed = 0.1f;
+	downThrowGrenade.loop = false;
+
+	downLeftThrowGrenade.PushBack({ 320, 160, 32, 32 });
+	downLeftThrowGrenade.PushBack({ 352, 160, 32, 32 });
+	downLeftThrowGrenade.PushBack({ 384, 160, 32, 32 });
+	downLeftThrowGrenade.PushBack({ 416, 160, 32, 32 });
+	downLeftThrowGrenade.PushBack({ 448, 160, 32, 32 });
+	downLeftThrowGrenade.speed = 0.1f;
+	downLeftThrowGrenade.loop = false;
+
+	leftThrowGrenade.PushBack({ 320, 192, 32, 32 });
+	leftThrowGrenade.PushBack({ 352, 192, 32, 32 });
+	leftThrowGrenade.PushBack({ 384, 192, 32, 32 });
+	leftThrowGrenade.PushBack({ 416, 192, 32, 32 });
+	leftThrowGrenade.PushBack({ 448, 192, 32, 32 });
+	leftThrowGrenade.speed = 0.1f;
+	leftThrowGrenade.loop = false;
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -1946,7 +2004,7 @@ void ModulePlayer::CameraFollowPlayer()
 void ModulePlayer::throwGrenade() {
 	
 	totalGrenades--;
-	App->audio->PlayFx(explosionFx);
+	App->audio->PlayFx(bulletFx);
 	//App->particles->grenade.explodes = true;
 	switch (facing) {
 	case 0:
@@ -1954,12 +2012,12 @@ void ModulePlayer::throwGrenade() {
 		App->particles->grenade.speed.y = -2;
 		App->particles->AddParticle(App->particles->grenade, position.x + 13, position.y, Collider::Type::NONE);
 		break;
-	case 1:
+	case 7:
 		App->particles->grenade.speed.x = 2;
 		App->particles->grenade.speed.y = -2;
 		App->particles->AddParticle(App->particles->grenade, position.x + 32, position.y, Collider::Type::NONE);
 		break;
-	case 7:
+	case 1:
 		App->particles->grenade.speed.x = -2;
 		App->particles->grenade.speed.y = -2;
 		App->particles->AddParticle(App->particles->grenade, position.x, position.y, Collider::Type::NONE);

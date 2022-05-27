@@ -317,10 +317,17 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		// Always destroy particles that collide
-		if (particles[i] != nullptr && particles[i]->collider == c1)
-		{
-			delete particles[i];
-			particles[i] = nullptr;
+		if (particles[i] != nullptr && particles[i]->collider == c1) {
+			if (c2->type == Collider::Type::DESTRUCTIBLE) {
+				if (particles[i]->explodes && !particles[i]->isExplosion) {
+					App->particles->AddParticle(App->particles->grenadeExplosion, particles[i]->position.x - 26, particles[i]->position.y - 26, Collider::Type::EXPLOSION);
+					App->audio->PlayFx(App->player->bulletFx);
+				}
+			}
+			if (!particles[i]->isExplosion && !particles[i]->collider->type == Collider::Type::HOSTAGE) {
+				delete particles[i];
+				particles[i] = nullptr;
+			}
 			break;
 		}
 	}

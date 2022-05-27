@@ -109,6 +109,9 @@ public:
 	Animation raligunfireup, raligunfiredown, raligunfireleft, raligunfireright;						//Arma-Fire
 	Animation raligunfireleftup, raligunfireleftdown, raligunfirerightup, raligunfirerightdown;
 
+	Animation upThrowGrenade, upRightThrowGrenade, rightThrowGrenade, downRightThrowGrenade, downThrowGrenade,
+		downLeftThrowGrenade, leftThrowGrenade;
+
 	// The player's collider
 	Collider* collider = nullptr;
 	Collider* collider_foot = nullptr;

@@ -20,6 +20,7 @@ SceneIntro::~SceneIntro() {}
 bool SceneIntro::Start() {
 	bool ret = true;
 
+
 	bgTexture = App->textures->Load("Assets/img/sprites/title_map_large.png");
 	introAssets = App->textures->Load("Assets/img/sprites/intro_assets.png");
 

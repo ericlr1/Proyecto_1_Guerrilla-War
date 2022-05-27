@@ -155,7 +155,7 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* sect
 	return ret;
 }
 
-bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed)
+bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed, bool useCamera)
 {
 	bool ret = true;
 
@@ -176,7 +176,7 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	return ret;
 }
 
-bool ModuleRender::DrawQuad(const SDL_Point& center, const SDL_Point& size, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed)
+bool ModuleRender::DrawQuad(const SDL_Point& center, const SDL_Point& size, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed, bool useCamera)
 {
 	SDL_Rect rect { center.x - (size.x * 0.5), center.y - (size.y * 0.5), size.x , size.y };
 

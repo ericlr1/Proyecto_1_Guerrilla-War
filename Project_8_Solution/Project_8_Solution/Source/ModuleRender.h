@@ -44,8 +44,8 @@ public:
 	// Param speed		- The amount of effect that is applied to the sprite depending on the camera
 	bool Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section = nullptr, float speed = 1.0f, bool useCamera = true);
 
-	bool DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed = 1.0f);
-	bool DrawQuad(const SDL_Point& center, const SDL_Point& size, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed = 1.0f);
+	bool DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed = 1.0f, bool useCamera = true);
+	bool DrawQuad(const SDL_Point& center, const SDL_Point& size, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed = 1.0f, bool useCamera = true);
 
 	bool DrawLine(int x1, int y1, int x2, int y2, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed = 1.0f, bool useCamera = true);
 
