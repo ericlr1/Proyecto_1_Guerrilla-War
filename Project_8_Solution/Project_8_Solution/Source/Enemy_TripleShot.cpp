@@ -29,7 +29,7 @@ Enemy_TripleShot::Enemy_TripleShot(int x, int y) : Enemy(x, y)
 	idleAnim.PushBack({ 448, 0, 32, 64 });
 
 	idleAnim.loop = true;
-	idleAnim.speed = 0.145f;
+	idleAnim.speed = 0.15f;
 	idleAnim.pingpong = false;
 
 	currentAnim = &idleAnim;
