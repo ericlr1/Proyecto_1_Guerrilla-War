@@ -36,6 +36,8 @@ bool Module_Destruibles::Start()
 }
 Update_Status Module_Destruibles::Update()
 {
+	App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 Update_Status Module_Destruibles::PostUpdate()
@@ -50,6 +52,6 @@ void Module_Destruibles::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::DESTRUCTIBLE)
 	{
-		
+		 
 	};
 };
