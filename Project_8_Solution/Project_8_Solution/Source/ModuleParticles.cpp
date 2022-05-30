@@ -206,14 +206,6 @@ bool ModuleParticles::Start()
 	enemyBulletDR.lifetime = 40;
 	enemyBulletDR.anim.speed = 0.3f;	
 
-	//Enemy bullet	down-right
-	enemyBulletDR.anim.PushBack({ 198, 66, 7, 14 });
-	enemyBulletDR.anim.PushBack({ 215, 66, 7, 14 });
-	enemyBulletDR.speed.x = 5;
-	enemyBulletDR.speed.y = 5;
-	enemyBulletDR.lifetime = 40;
-	enemyBulletDR.anim.speed = 0.3f;
-
 	//Enemy bullet	down-left
 	enemyBulletDL.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBulletDL.anim.PushBack({ 215, 66, 7, 14 });

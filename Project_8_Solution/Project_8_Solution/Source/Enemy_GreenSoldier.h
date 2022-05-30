@@ -17,6 +17,8 @@ public:
 	// Position will be updated depending on the speed defined at each step
 	void Update() override;
 
+	void Draw() override;
+
 	void Shoot() override;
 
 	void Enemy_GreenSoldier::OnCollision(Collider* collider) override;

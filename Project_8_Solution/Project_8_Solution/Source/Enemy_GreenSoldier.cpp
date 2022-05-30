@@ -60,15 +60,38 @@ void Enemy_GreenSoldier::Update()
 	Enemy::Update();
 }
 
+void Enemy_GreenSoldier::Draw()
+{
+	Enemy::Draw();
+
+	float angleDegrees = AngleToPlayerDegrees();
+
+	SDL_Point finalPos{ position.x + (cos(angleDegrees * DEGTORAD) * 100) + 16, position.y + (sin(angleDegrees * DEGTORAD) * 100 ) + 32};
+
+	App->render->DrawLine(position.x + 16, position.y + 32, finalPos.x, finalPos.y, 255, 255, 255, 255);
+}
+
 void Enemy_GreenSoldier::Shoot()
 {
-	if (attackTimer >=44)
+	float angleDegrees = AngleToPlayerDegrees();
+
+	LOG("%f", angleDegrees);
+
+	if (attackTimer < 44)
 	{
-		App->particles->AddParticle(App->particles->enemyBullet, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
-		attackTimer = 0;
+		attackTimer++;
+		return;
 	}
 
-	attackTimer++;
+	if (angleDegrees >= 70 && angleDegrees <= 110)
+	{
+		App->particles->AddParticle(App->particles->enemyBullet, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+	}
+	if (angleDegrees >= 110 && angleDegrees <= 150)
+	{
+		App->particles->AddParticle(App->particles->enemyBulletDL, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+	}
+	attackTimer = 0;
 }
 
 void Enemy_GreenSoldier::OnCollision(Collider* collider)

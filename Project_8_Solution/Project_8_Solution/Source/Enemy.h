@@ -37,6 +37,8 @@ public:
 	//The way each enemy shoots, defined by the specific classes
 	virtual void Shoot() = 0;
 
+	float AngleToPlayerDegrees();
+
 public:
 	// The current position in the world
 	iPoint position;

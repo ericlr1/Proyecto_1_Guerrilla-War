@@ -57,6 +57,11 @@ void Enemy::lookAtPlayer()
 		degrees += 360.0f;
 }
 
+float Enemy::AngleToPlayerDegrees()
+{
+	return atan2(App->player->position.y - position.y, App->player->position.x - position.x) * RADTODEG;
+}
+
 void Enemy::OnCollision(Collider* collider)
 {
 	

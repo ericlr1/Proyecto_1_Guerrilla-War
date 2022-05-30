@@ -183,31 +183,22 @@ bool ModuleRender::DrawQuad(const SDL_Point& center, const SDL_Point& size, Uint
 	return DrawQuad(rect, r, g, b, a, speed);
 }
 
-bool ModuleRender::DrawLine(int x1, int y1, int x2, int y2, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed, bool useCamera) {
+bool ModuleRender::DrawLine(int x1, int y1, int x2, int y2, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed, bool useCamera)
+{
 	bool ret = true;
 
 	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(renderer, r, g, b, a);
 
-	SDL_RenderDrawLine(renderer,
-		(int)(-camera.x * speed * 2) + x1 * SCREEN_SIZE,
-		(int)(-camera.y * speed * 2) + y1 * SCREEN_SIZE,
-		(int)(-camera.x * speed * 2) + x2 * SCREEN_SIZE,
-		(int)(-camera.y * speed * 2) + y2 * SCREEN_SIZE);
-
-	if (useCamera) {
-		x1 -= (camera.x * speed);
-		x2 -= (camera.y * speed);
-	}
-
-	/*if (SDL_RenderDrawLine(renderer,
-		(int)(-camera.x * speed * 2) + x1 * SCREEN_SIZE,
-		(int)(-camera.y * speed * 2) + y1 * SCREEN_SIZE,
-		(int)(-camera.x * speed * 2) + x2 * SCREEN_SIZE,
-		(int)(-camera.y * speed * 2) + y2 * SCREEN_SIZE) != 0) {
+	if (SDL_RenderDrawLine(renderer,
+		(int)(-camera.x * speed) + x1 * SCREEN_SIZE,
+		(int)(-camera.y * speed) + y1 * SCREEN_SIZE,
+		(int)(-camera.x * speed) + x2 * SCREEN_SIZE,
+		(int)(-camera.y * speed) + y2 * SCREEN_SIZE) != 0) 
+	{
 		LOG("Cannot draw line to screen. SDL_RenderDrawLine error: %s", SDL_GetError());
 		ret = false;
-	}*/
+	}
 
 	return ret;
 }

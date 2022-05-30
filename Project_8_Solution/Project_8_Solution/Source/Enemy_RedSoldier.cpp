@@ -66,14 +66,7 @@ void Enemy_RedSoldier::Shoot()
 }
 void Enemy_RedSoldier::Draw()
 {
-	float degrees = alpha / (M_PI / 180.0);
-	if (degrees < 0)	degrees += 360.0f;
-
-
-
-	//Draw radar
-	SDL_SetRenderDrawColor(App->render->renderer, 255, 255, 255, 255);
-	SDL_RenderDrawLine(App->render->renderer, position.x - cx, position.y - cy, (App->player->position.x - cx) * cos(alpha), (App->player->position.y - cy)* sin(alpha));
+  
 }
 
 void Enemy_RedSoldier::OnCollision(Collider* collider)
