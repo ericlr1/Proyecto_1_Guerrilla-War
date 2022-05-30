@@ -76,7 +76,7 @@ void Enemy_GreenSoldier::OnCollision(Collider* collider)
 	if (collider->type == Collider::Type::PLAYER_SHOT)
 	{
 		currentAnim = &death;
-		App->player->score += 500;
+		App->player->score += 100;
 	}
 
 

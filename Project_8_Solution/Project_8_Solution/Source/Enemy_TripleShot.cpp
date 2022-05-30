@@ -69,7 +69,7 @@ void Enemy_TripleShot::OnCollision(Collider* collider)
 {
 	if (collider->type == Collider::Type::PLAYER_SHOT)
 	{
-		App->player->score += 500;
+		App->player->score += 100;
 	}
 
 
