@@ -27,6 +27,7 @@ bool ModuleParticles::Start()
 	texture = App->textures->Load("Assets/Sprites/particles.png");
 	// Explosion particle
 	
+	//Player Muerte (No va) (Pendiente)
 	dead.anim.PushBack({0, 322, 31, 60});
 	dead.anim.PushBack({31, 322, 31, 60});
 	dead.anim.PushBack({63, 322, 27, 60});
@@ -41,7 +42,53 @@ bool ModuleParticles::Start()
 	dead.anim.loop = false;
 	dead.anim.speed = 0.1f;
 
+	//Enemigo verde muerte 
+	GreenSoilderDeath.anim.PushBack({ 0, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 32, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 64, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 96, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 128, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 160, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 192, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 224, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 256, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 288, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 320, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 352, 400, 32, 64 });
+	GreenSoilderDeath.anim.PushBack({ 384, 400, 32, 64 });
+
+	GreenSoilderDeath.anim.loop = false;
+	GreenSoilderDeath.anim.speed = 0.15f;
+	GreenSoilderDeath.anim.pingpong = false;
+	GreenSoilderDeath.speed.y = -1;
+
+	//Hostage Celebrating
+	HostageCelebrating.anim.PushBack({ 0, 500, 32, 57});
+	HostageCelebrating.anim.PushBack({ 32, 500, 32, 57});
+	HostageCelebrating.anim.PushBack({ 64, 500, 32, 57});
+
+	HostageCelebrating.anim.loop = false;
+	HostageCelebrating.anim.speed = 0.15f;
+	HostageCelebrating.anim.pingpong = false;
+
+	//Death hostage
+	HostageDeath.anim.PushBack({ 0, 558, 32, 56});
+	HostageDeath.anim.PushBack({ 32, 558, 32, 56 });
+	HostageDeath.anim.PushBack({ 64, 558, 32, 56 });
+	HostageDeath.anim.PushBack({ 96, 558, 32, 56 });
+
+	HostageDeath.anim.loop = false;
+	HostageDeath.anim.speed = 0.15f;
+	HostageDeath.anim.pingpong = false;
+	HostageDeath.speed.y = -1;
+
+
 	//Humillo al acabar la bala
+	humo.anim.PushBack({ 0, 0, 1, 1 });
+	humo.anim.PushBack({ 0, 0, 1, 1 });
+	humo.anim.PushBack({ 0, 0, 1, 1 });
+	humo.anim.PushBack({ 0, 0, 1, 1 });
+	humo.anim.PushBack({ 0, 0, 1, 1 });
 	humo.anim.PushBack({ 229, 67, 8, 15 });
 	humo.anim.PushBack({ 244, 67, 8, 15 });
 	humo.anim.loop = false;
@@ -51,7 +98,7 @@ bool ModuleParticles::Start()
 	bullet.anim.PushBack({ 66, 183, 10, 9 });
 	bullet.anim.PushBack({ 83, 183, 10, 9 });
 	bullet.speed.x = 5;
-	bullet.lifetime = 30;
+	bullet.lifetime = 20;
 	bullet.anim.speed = 0.2f;
 
 
@@ -59,21 +106,21 @@ bool ModuleParticles::Start()
 	bulletL.anim.PushBack({ 196, 182, 9, 9 });
 	bulletL.anim.PushBack({ 211, 182, 9, 9 });
 	bulletL.speed.x = -5;
-	bulletL.lifetime = 30;
+	bulletL.lifetime = 20;
 	bulletL.anim.speed = 0.2f;
 
 	//bullet up
 	bulletU.anim.PushBack({ 7, 179, 7, 11 });
 	bulletU.anim.PushBack({23, 179, 7, 11});
 	bulletU.speed.y = -5;
-	bulletU.lifetime = 30;
+	bulletU.lifetime = 20;
 	bulletU.anim.speed = 0.2f;
 
 	//bullet down
 	bulletD.anim.PushBack({ 133, 178, 8, 13 });
 	bulletD.anim.PushBack({ 149, 178, 8, 13 });
 	bulletD.speed.y = 5;
-	bulletD.lifetime = 30;
+	bulletD.lifetime = 20;
 	bulletD.anim.speed = 0.2f;
 
 	//bullet down-left
@@ -81,7 +128,7 @@ bool ModuleParticles::Start()
 	bulletDL.anim.PushBack({ 181, 180, 8, 12 });
 	bulletDL.speed.x = -5;
 	bulletDL.speed.y = 5;
-	bulletDL.lifetime = 30;
+	bulletDL.lifetime = 20;
 	bulletDL.anim.speed = 0.2f;
 
 	//bullet down-right
@@ -89,7 +136,7 @@ bool ModuleParticles::Start()
 	bulletDR.anim.PushBack({ 114, 180, 9, 12 });
 	bulletDR.speed.x = 5;
 	bulletDR.speed.y = 5;
-	bulletDR.lifetime = 30;
+	bulletDR.lifetime = 20;
 	bulletDR.anim.speed = 0.2f;
 
 	//bullet up-left
@@ -97,7 +144,7 @@ bool ModuleParticles::Start()
 	bulletUL.anim.PushBack({ 244, 181, 8, 11 });
 	bulletUL.speed.x = -5;
 	bulletUL.speed.y = -5;
-	bulletUL.lifetime = 30;
+	bulletUL.lifetime = 20;
 	bulletUL.anim.speed = 0.2f;
 
 	//bullet up-right
@@ -105,7 +152,7 @@ bool ModuleParticles::Start()
 	bulletUR.anim.PushBack({ 51, 181, 9, 11 });
 	bulletUR.speed.x = 5;
 	bulletUR.speed.y = -5;
-	bulletUR.lifetime = 30;
+	bulletUR.lifetime = 20;
 	bulletUR.anim.speed = 0.2f;
 	
 	//RaligunU

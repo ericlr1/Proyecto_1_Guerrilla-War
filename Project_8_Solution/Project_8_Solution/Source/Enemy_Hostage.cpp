@@ -80,11 +80,13 @@ void Enemy_Hostage::OnCollision(Collider* collider)
 		{
 			App->player->score -= 500;
 			App->particles->AddParticle(App->particles->menos500, position.x, position.y - 20);
+			App->particles->AddParticle(App->particles->HostageDeath, position.x, position.y);
 		}
 		else
 		{
 			App->player->score = 0;
 			App->particles->AddParticle(App->particles->menos500, position.x, position.y - 20);
+			App->particles->AddParticle(App->particles->HostageDeath, position.x, position.y);
 		}
 		
 	}
@@ -93,6 +95,7 @@ void Enemy_Hostage::OnCollision(Collider* collider)
 	{
 		App->player->score += 1000;
 		App->particles->AddParticle(App->particles->mas1000, position.x, position.y - 20);
+		App->particles->AddParticle(App->particles->HostageCelebrating, position.x, position.y);
 		App->player->totalGrenades = 50;
 	}
 	

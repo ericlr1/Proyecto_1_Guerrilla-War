@@ -1233,48 +1233,56 @@ Update_Status ModulePlayer::Update()
 			{
 			case 0:
 				App->particles->AddParticle(App->particles->bulletU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->humo, position.x + 20, position.y - 100, Collider::Type::NONE);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &wfireup;
 				break;
 
 			case 1:
 				App->particles->AddParticle(App->particles->bulletUR, position.x + 20, position.y + 20, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->humo, position.x + 20 + 100, position.y - 100 + 20, Collider::Type::NONE);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &wfirerightup;
 				break;
 
 			case 2:
 				App->particles->AddParticle(App->particles->bullet, position.x + 20, position.y + 25, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->humo, position.x + 20 + 100, position.y + 25, Collider::Type::NONE);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &wfireright;
 				break;
 
 			case 3:
 				App->particles->AddParticle(App->particles->bulletDR, position.x + 12, position.y + 30, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->humo, position.x + 12 + 100, position.y + 100 + 30, Collider::Type::NONE);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &wfirerightdown;
 				break;
 
 			case 4:
 				App->particles->AddParticle(App->particles->bulletD, position.x + 10, position.y + 25, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->humo, position.x + 10, position.y + 100 + 25, Collider::Type::NONE);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &wfiredown;
 				break;
 
 			case 5:
 				App->particles->AddParticle(App->particles->bulletDL, position.x + 10, position.y + 20, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->humo, position.x + 10 - 100, position.y + 100 + 20, Collider::Type::NONE);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &wfireleftdown;
 				break;
 
 			case 6:
 				App->particles->AddParticle(App->particles->bulletL, position.x + 5, position.y + 20, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->humo, position.x + 5 - 100, position.y + 20, Collider::Type::NONE);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &wfireleft;
 				break;
 
 			case 7:
 				App->particles->AddParticle(App->particles->bulletUL, position.x + 5, position.y + 15, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->humo, position.x + 5 - 100, position.y - 100 + 15, Collider::Type::NONE);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &wfireleftup;
 				break;

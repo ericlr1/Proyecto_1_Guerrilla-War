@@ -76,6 +76,9 @@ public:
 
 	Particle humo;
 
+	//Añadir aqui las diferentes animaciones de muerte
+	Particle GreenSoilderDeath, RedSoilderDeath, HostageDeath, HostageCelebrating;
+
 };
 
 #endif // !__MODULEPARTICLES_H__
