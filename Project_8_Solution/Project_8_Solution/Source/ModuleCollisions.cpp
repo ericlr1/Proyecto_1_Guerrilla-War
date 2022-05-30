@@ -103,6 +103,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WATER] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::TRENCH] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::HOSTAGE] = true;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::DESTRUCTIBLE] = true;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN_SHOOT] = false;
@@ -190,6 +191,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::RALIGUN_SHOOT] = false;
+	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::DESTRUCTIBLE] = false;
 
 	matrix[Collider::Type::WIN][Collider::Type::WALL] = false;
 	matrix[Collider::Type::WIN][Collider::Type::BODY] = true;
@@ -207,16 +209,16 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::WALL] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::BODY] = true;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::FOOT] = true;
+	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::BODY] = false;
+	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::FOOT] = false;
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::ENEMY] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::WATER] = false;
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::TRENCH] = false;
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::HOSTAGE] = false;
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::WIN] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::RALIGUN] = false;
+	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::RALIGUN] = true;
 	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::RALIGUN_SHOOT] = true;
 
 
@@ -370,7 +372,7 @@ void ModuleCollisions::DebugDraw()
 				break;
 
 			case Collider::Type::DESTRUCTIBLE: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
+				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 				break;
 
 
