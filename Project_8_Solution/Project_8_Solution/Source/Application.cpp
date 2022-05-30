@@ -17,7 +17,7 @@
 #include "SceneLose.h"
 #include "SceneLogo.h"
 #include "ModuleUI.h"
-#include "Module_Destruibles.h"
+#include "ModuleDestruibles.h"
 
 
 
@@ -39,11 +39,10 @@ Application::Application()
 	modules[7] =	sceneLose =		new SceneLose(false);
 	modules[8] =	sceneLogo =		new SceneLogo(true);
 	modules[9] =    enemies =       new ModuleEnemies(false);	//Player starts disabled
-	modules[10] =	destruibles =	new Module_Destruibles(true);
+	modules[10] =	destruibles =	new ModuleDestruibles(true);
 	modules[11] =	particles =		new ModuleParticles(true);
 
 	modules[12] =   player =          new ModulePlayer(false);
-		//Enemies start disabled
 	
 	modules[13] =	collisions =	new ModuleCollisions(true);
 	modules[14] =	fade =			new ModuleFadeToBlack(true);

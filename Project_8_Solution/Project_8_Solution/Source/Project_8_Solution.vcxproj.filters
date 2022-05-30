@@ -121,7 +121,7 @@
     <ClInclude Include="Enemy_TripleShot.h">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Module_Destruibles.h">
+    <ClInclude Include="ModuleDestruibles.h">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>
@@ -213,7 +213,7 @@
     <ClCompile Include="Enemy_TripleShot.cpp">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="Module_Destruibles.cpp">
+    <ClCompile Include="ModuleDestruibles.cpp">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
   </ItemGroup>

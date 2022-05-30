@@ -1644,326 +1644,299 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider_foot || c1 == collider && destroyed == false && destroyed == false)
+	if (destroyed)
 	{
-		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WALL)
+		return;
+	}
+
+	if (c1 != collider_foot && c1 != collider)
+	{
+		return;
+	}
+
+	bool isNonWalkable = c1->type == Collider::Type::FOOT && 
+		(c2->type == Collider::Type::WALL || c2->type == Collider::Type::DESTRUCTIBLE);
+
+	if (isNonWalkable)
+	{
+		int to_push_x;
+		int to_push_y;
+		Collider::ColliderSide side = c1->GetSideToPush(c2->rect, to_push_x, to_push_y);
+
+		LOG("%d", side);
+
+		switch (side)
 		{
-			int to_push_x;
-			int to_push_y;
-			Collider::ColliderSide side = c1->GetSideToPush(c2->rect, to_push_x, to_push_y);
+		case Collider::ColliderSide::UP:
+			App->player->position.y += to_push_y;
+			break;
+		case Collider::ColliderSide::DOWN:
+			App->player->position.y += to_push_y;
+			break;
+		case Collider::ColliderSide::RIGHT:
+			App->player->position.x += to_push_x;
+			break;
+		case Collider::ColliderSide::LEFT:
+			App->player->position.x += to_push_x;
+			break;
+		default:
+			break;
+		}
+	}
 
-			LOG("%d", side);
+	if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
+	{
+		walk_water = true;
+		switch (facing)
+		{
+		case 0:
+			currentAnimation2 = &water;
+			break;
 
-			switch (side)
+		case 1:
+			currentAnimation2 = &water;
+			break;
+
+		case 2:;
+			currentAnimation2 = &water;
+			break;
+
+		case 3:
+			currentAnimation2 = &water;
+			break;
+
+		case 4:
+			currentAnimation2 = &water;
+			break;
+
+		case 5:
+			currentAnimation2 = &water;
+			break;
+
+		case 6:
+			currentAnimation2 = &water;
+			break;
+
+		case 7:
+			currentAnimation2 = &water;
+			break;
+		}
+	}
+	else {
+		walk_water = false;
+	}
+	if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::TRENCH)
+	{
+		walk_trench = true;
+		switch (facing)
+		{
+		case 0:
+			currentAnimation2 = &trench;
+			break;
+
+		case 1:
+			currentAnimation2 = &trench;
+			break;
+
+		case 2:;
+			currentAnimation2 = &trench;
+			break;
+
+		case 3:
+			currentAnimation2 = &trench;
+			break;
+
+		case 4:
+			currentAnimation2 = &trench;
+			break;
+
+		case 5:
+			currentAnimation2 = &trench;
+			break;
+
+		case 6:
+			currentAnimation2 = &trench;
+			break;
+
+		case 7:
+			currentAnimation2 = &trench;
+			break;
+		}
+	}
+	else
+	{
+		walk_trench = false;
+	}
+	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
+	{
+		if (godMode == false)
+		{
+			lives--;
+			if (lives % 3 == 0)
 			{
-			case Collider::ColliderSide::UP:
-				App->player->position.y += to_push_y;
-				break;
-			case Collider::ColliderSide::DOWN:
-				App->player->position.y += to_push_y;
-				break;
-			case Collider::ColliderSide::RIGHT:
-				App->player->position.x += to_push_x;
-				break;
-			case Collider::ColliderSide::LEFT:
-				App->player->position.x += to_push_x;
-				break;
-			default:
-				break;
+				coins--;
+			}
+
+		}
+
+	}
+
+	//Matar al pj con balas del enemigo
+	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY_SHOT)
+	{
+		if (godMode == false)
+		{
+			lives--;
+			if (lives == 3 || lives == 6)
+			{
+				coins--;
 			}
 		}
+	}
 
-		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::DESTRUCTIBLE)
+	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
+	{
+		ammo_raligun = 10;
+	}
+
+
+	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
+	{
+		App->sceneLevel_1->raligun_colldier->pendingToDelete = true;
+
+
+		switch (facing)
 		{
-			int to_push_x;
-			int to_push_y;
-			Collider::ColliderSide side = c1->GetSideToPush(c2->rect, to_push_x, to_push_y);
+		case 0:
+			currentAnimation3 = &raligunidleup;
+			break;
 
-			LOG("%d", side);
+		case 1:
+			currentAnimation3 = &raligunidlerightup;
+			break;
 
-			switch (side)
-			{
-			case Collider::ColliderSide::UP:
-				App->player->position.y += to_push_y;
-				break;
-			case Collider::ColliderSide::DOWN:
-				App->player->position.y += to_push_y;
-				break;
-			case Collider::ColliderSide::RIGHT:
-				App->player->position.x += to_push_x;
-				break;
-			case Collider::ColliderSide::LEFT:
-				App->player->position.x += to_push_x;
-				break;
-			default:
-				break;
-			}
+		case 2:;
+			currentAnimation3 = &raligunidleright;
+			break;
+
+		case 3:
+			currentAnimation3 = &raligunidlerightdown;
+			break;
+
+		case 4:
+			currentAnimation3 = &raligunidledown;
+			break;
+
+		case 5:
+			currentAnimation3 = &raligunidleleftdown;
+			break;
+
+		case 6:
+			currentAnimation3 = &raligunidleleft;
+			break;
+
+		case 7:
+			currentAnimation3 = &raligunidleleftup;
+			break;
+
 		}
-
-		if (c1->type == Collider::Type::RALIGUN_SHOOT && c2->type == Collider::Type::DESTRUCTIBLE)
+	}
+	if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESET_ANIM_WATER)
+	{
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT
+			|| App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT
+			|| App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT
+			|| App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 		{
-			c2->type == Collider::Type::NONE;
-		}
-
-
-
-
-
-		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::WATER)
-		{
-			walk_water = true;
 			switch (facing)
 			{
 			case 0:
-				currentAnimation2 = &water;
+				currentAnimation2 = &upfootAnim;
 				break;
 
 			case 1:
-				currentAnimation2 = &water;
+				currentAnimation2 = &rightupfootAnim;
 				break;
-
-			case 2:;
-				currentAnimation2 = &water;
+			case 2:
+				currentAnimation2 = &rightfootAnim;
 				break;
-
 			case 3:
-				currentAnimation2 = &water;
+				currentAnimation2 = &rightdownfootAnim;
 				break;
-
 			case 4:
-				currentAnimation2 = &water;
+				currentAnimation2 = &downfootAnim;
 				break;
-
 			case 5:
-				currentAnimation2 = &water;
+				currentAnimation2 = &leftdownfootAnim;
 				break;
-
 			case 6:
-				currentAnimation2 = &water;
+				currentAnimation2 = &leftfootAnim;
 				break;
-
 			case 7:
-				currentAnimation2 = &water;
+				currentAnimation2 = &leftupfootAnim;
 				break;
 			}
 		}
-		else {
-			walk_water = false;
-		}
-		if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::TRENCH)
+
+	}
+	if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESET_ANIM_TRENCH)
+	{
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT
+			|| App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT
+			|| App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT
+			|| App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT
+			)
 		{
-			walk_trench = true;
 			switch (facing)
 			{
 			case 0:
-				currentAnimation2 = &trench;
+				currentAnimation2 = &upfootAnim;
 				break;
 
 			case 1:
-				currentAnimation2 = &trench;
+				currentAnimation2 = &rightupfootAnim;
 				break;
-
-			case 2:;
-				currentAnimation2 = &trench;
+			case 2:
+				currentAnimation2 = &rightfootAnim;
 				break;
-
 			case 3:
-				currentAnimation2 = &trench;
+				currentAnimation2 = &rightdownfootAnim;
 				break;
-
 			case 4:
-				currentAnimation2 = &trench;
+				currentAnimation2 = &downfootAnim;
 				break;
-
 			case 5:
-				currentAnimation2 = &trench;
+				currentAnimation2 = &leftdownfootAnim;
 				break;
-
 			case 6:
-				currentAnimation2 = &trench;
+				currentAnimation2 = &leftfootAnim;
 				break;
-
 			case 7:
-				currentAnimation2 = &trench;
+				currentAnimation2 = &leftupfootAnim;
 				break;
 			}
 		}
-		else
-		{
-			walk_trench = false;
-		}
-			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
-			{
-				if (godMode == false)
-				{
-					lives--;
-					if (lives % 3 == 0)
-					{
-						coins--;
-					}
-
-				}
-
-			}
-
-			//Matar al pj con balas del enemigo
-			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY_SHOT)
-			{
-				if (godMode == false)
-				{
-					lives--;
-					if (lives == 3 || lives == 6)
-					{
-						coins--;
-					}
-				}
-			}
-
-			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
-			{
-				ammo_raligun = 10;
-			}
-
-
-			if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
-			{
-				App->sceneLevel_1->raligun_colldier->pendingToDelete = true;
-				
-				
-				switch (facing)
-				{
-				case 0:
-					currentAnimation3 = &raligunidleup;
-					break;
-
-				case 1:
-					currentAnimation3 = &raligunidlerightup;
-					break;
-
-				case 2:;
-					currentAnimation3 = &raligunidleright;
-					break;
-
-				case 3:
-					currentAnimation3 = &raligunidlerightdown;
-					break;
-
-				case 4:
-					currentAnimation3 = &raligunidledown;
-					break;
-
-				case 5:
-					currentAnimation3 = &raligunidleleftdown;
-					break;
-
-				case 6:
-					currentAnimation3 = &raligunidleleft;
-					break;
-
-				case 7:
-					currentAnimation3 = &raligunidleleftup;
-					break;
-
-				}
-			}
-			if(c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESET_ANIM_WATER)
-			{
-				if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT
-					|| App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT
-					|| App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT
-					|| App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
-				{
-					switch (facing)
-					{
-					case 0:
-						currentAnimation2 = &upfootAnim;
-						break;
-
-					case 1:
-						currentAnimation2 = &rightupfootAnim;
-						break;
-					case 2:
-						currentAnimation2 = &rightfootAnim;
-						break;
-					case 3:
-						currentAnimation2 = &rightdownfootAnim;
-						break;
-					case 4:
-						currentAnimation2 = &downfootAnim;
-						break;
-					case 5:
-						currentAnimation2 = &leftdownfootAnim;
-						break;
-					case 6:
-						currentAnimation2 = &leftfootAnim;
-						break;
-					case 7:
-						currentAnimation2 = &leftupfootAnim;
-						break;
-					}
-				}
-				
-			}
-			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESET_ANIM_TRENCH)
-			{
-				if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT
-					|| App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT
-					|| App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT
-					|| App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT
-					)
-				{
-					switch (facing)
-					{
-					case 0:
-						currentAnimation2 = &upfootAnim;
-						break;
-
-					case 1:
-						currentAnimation2 = &rightupfootAnim;
-						break;
-					case 2:
-						currentAnimation2 = &rightfootAnim;
-						break;
-					case 3:
-						currentAnimation2 = &rightdownfootAnim;
-						break;
-					case 4:
-						currentAnimation2 = &downfootAnim;
-						break;
-					case 5:
-						currentAnimation2 = &leftdownfootAnim;
-						break;
-					case 6:
-						currentAnimation2 = &leftfootAnim;
-						break;
-					case 7:
-						currentAnimation2 = &leftupfootAnim;
-						break;
-					}
-				}
-			}
-			//Spawns
-			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_1)
-			{
-				App->sceneLevel_1->spawn_1 = true;
-			}
-			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_2)
-			{
-				App->sceneLevel_1->spawn_2 = true;
-			}
-			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_3)
-			{
-				App->sceneLevel_1->spawn_3 = true;
-			}
-			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_4)
-			{
-				App->sceneLevel_1->spawn_4 = true;
-			}
-			if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_5)
-			{
-				App->sceneLevel_1->spawn_5 = true;
-			}
-		
+	}
+	//Spawns
+	if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_1)
+	{
+		App->sceneLevel_1->spawn_1 = true;
+	}
+	if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_2)
+	{
+		App->sceneLevel_1->spawn_2 = true;
+	}
+	if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_3)
+	{
+		App->sceneLevel_1->spawn_3 = true;
+	}
+	if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_4)
+	{
+		App->sceneLevel_1->spawn_4 = true;
+	}
+	if (c1->type == Collider::Type::FOOT && c2->type == Collider::Type::RESPAWN_5)
+	{
+		App->sceneLevel_1->spawn_5 = true;
 	}
 	
 }

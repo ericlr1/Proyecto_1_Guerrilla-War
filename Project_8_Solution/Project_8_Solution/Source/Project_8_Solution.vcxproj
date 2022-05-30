@@ -90,7 +90,7 @@
     <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModuleUI.h" />
-    <ClInclude Include="Module_Destruibles.h" />
+    <ClInclude Include="ModuleDestruibles.h" />
     <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="SceneLevel1.h" />
     <ClInclude Include="ModuleInput.h" />
@@ -124,7 +124,7 @@
     <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModuleUI.cpp" />
-    <ClCompile Include="Module_Destruibles.cpp" />
+    <ClCompile Include="ModuleDestruibles.cpp" />
     <ClCompile Include="SceneIntro.cpp" />
     <ClCompile Include="SceneLevel1.cpp" />
     <ClCompile Include="ModuleInput.cpp" />

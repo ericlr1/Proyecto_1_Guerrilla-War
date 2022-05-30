@@ -5,13 +5,13 @@
 struct SDL_Texture;
 struct Collider;
 
-class Module_Destruibles : public Module
+class ModuleDestruibles : public Module
 {
 public:
 
-	Module_Destruibles(bool startEnabled);
+	ModuleDestruibles(bool startEnabled);
 
-	~Module_Destruibles();
+	~ModuleDestruibles();
 
 	bool Start() override;
 

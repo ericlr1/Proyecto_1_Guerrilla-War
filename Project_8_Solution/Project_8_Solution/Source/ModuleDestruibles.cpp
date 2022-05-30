@@ -1,4 +1,4 @@
-#include "Module_Destruibles.h"
+#include "ModuleDestruibles.h"
 
 #include "Collider.h"
 #include "Application.h"
@@ -14,35 +14,35 @@
 #include "Enemy_GreenSoldier.h"
 #include "Enemy_GreenSoldier2.h"
 
-Module_Destruibles::Module_Destruibles(bool startEnabled) :Module(startEnabled)
+ModuleDestruibles::ModuleDestruibles(bool startEnabled) :Module(startEnabled)
 {
 
 }
 
-Module_Destruibles::~Module_Destruibles()
+ModuleDestruibles::~ModuleDestruibles()
 {
 
 }
 
 
-bool Module_Destruibles::Start()
+bool ModuleDestruibles::Start()
 {
 	bool ret = true;
 	textura_barricada_horizontal = App->textures->Load("Assets/Sprites/Barricada_Horizontal.png");
 	textura_barricada_vertical = App->textures->Load("Assets/Sprites/Barricada_Vertical.png");
 	textura_espinas = App->textures->Load("Assets/Sprites/Espinas.png");
 	
-	App->collisions->AddCollider({ 143, 2951, 34, 23 }, Collider::Type::DESTRUCTIBLE);
+	App->collisions->AddCollider({ 143, 2951, 34, 23 }, Collider::Type::DESTRUCTIBLE, this);
 	
 	return ret;
 }
-Update_Status Module_Destruibles::Update()
+Update_Status ModuleDestruibles::Update()
 {
 	
 
 	return Update_Status::UPDATE_CONTINUE;
 }
-Update_Status Module_Destruibles::PostUpdate()
+Update_Status ModuleDestruibles::PostUpdate()
 {
 	App->render->Blit(textura_barricada_horizontal, 143, 2951, NULL, 1.0, true);
 	App->render->Blit(textura_barricada_vertical, 214, 3106, NULL, 1.0, false);
@@ -50,6 +50,8 @@ Update_Status Module_Destruibles::PostUpdate()
 
 	return Update_Status::UPDATE_CONTINUE;
 }
-void Module_Destruibles::OnCollision(Collider* c1, Collider* c2)
+
+void ModuleDestruibles::OnCollision(Collider* c1, Collider* c2)
 {
+
 }
