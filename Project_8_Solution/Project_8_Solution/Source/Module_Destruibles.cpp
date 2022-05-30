@@ -31,12 +31,14 @@ bool Module_Destruibles::Start()
 	textura_barricada_horizontal = App->textures->Load("Assets/Sprites/Barricada_Horizontal.png");
 	textura_barricada_vertical = App->textures->Load("Assets/Sprites/Barricada_Vertical.png");
 	textura_espinas = App->textures->Load("Assets/Sprites/Espinas.png");
-
+	
+	App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
+	
 	return ret;
 }
 Update_Status Module_Destruibles::Update()
 {
-	App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
+	
 
 	return Update_Status::UPDATE_CONTINUE;
 }
