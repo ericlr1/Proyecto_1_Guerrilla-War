@@ -34,6 +34,7 @@ private:
 
 	// Enemy animations
 	Animation idleAnim;
+	Animation death;
 };
 
 #endif // __ENEMY_GREENSOILDER_H__

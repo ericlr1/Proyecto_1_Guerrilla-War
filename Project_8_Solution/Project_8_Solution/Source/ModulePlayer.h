@@ -129,7 +129,7 @@ public:
 
 
 	//Vidas
-	int lives = 0;
+	int lives = 3;
 	char vidas[10] = { "\0" };
 	
 

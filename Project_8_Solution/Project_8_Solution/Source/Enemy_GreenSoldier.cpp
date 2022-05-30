@@ -24,6 +24,25 @@ Enemy_GreenSoldier::Enemy_GreenSoldier(int x, int y) : Enemy(x, y)
 	idleAnim.speed = 0.15f;
 	idleAnim.pingpong = false;
 
+	death.PushBack({ 0, 320, 32, 64 });
+	death.PushBack({ 32, 320, 32, 64 });
+	death.PushBack({ 64, 320, 32, 64 });
+	death.PushBack({ 96, 320, 32, 64 });
+	death.PushBack({ 128, 320, 32, 64 });
+	death.PushBack({ 160, 320, 32, 64 });
+	death.PushBack({ 192, 320, 32, 64 });
+	death.PushBack({ 224, 320, 32, 64 });
+	death.PushBack({ 256, 320, 32, 64 });
+	death.PushBack({ 288, 320, 32, 64 });
+	death.PushBack({ 320, 320, 32, 64 });
+	death.PushBack({ 352, 320, 32, 64 });
+	death.PushBack({ 384, 320, 32, 64 });
+	death.loop = false;
+	death.speed = 0.15f;
+	death.pingpong = false;
+
+
+
 	//collider = App->collisions->AddCollider({100, 0, 30, 55}, Collider::Type::ENEMY, (Module*)App->enemies);
 
 	path.PushBack({ 0.0f, 0.0f }, 150, &idleAnim);
@@ -56,6 +75,7 @@ void Enemy_GreenSoldier::OnCollision(Collider* collider)
 {
 	if (collider->type == Collider::Type::PLAYER_SHOT)
 	{
+		currentAnim = &death;
 		App->player->score += 500;
 	}
 
