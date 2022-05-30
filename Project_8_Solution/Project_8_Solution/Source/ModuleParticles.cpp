@@ -27,19 +27,21 @@ bool ModuleParticles::Start()
 	texture = App->textures->Load("Assets/Sprites/particles.png");
 	// Explosion particle
 	
-	//Player Muerte (No va) (Pendiente)
-	dead.anim.PushBack({0, 322, 31, 60});
-	dead.anim.PushBack({31, 322, 31, 60});
-	dead.anim.PushBack({63, 322, 27, 60});
-	dead.anim.PushBack({93, 322, 27, 60});
-	dead.anim.PushBack({125, 322, 27, 60});
-	dead.anim.PushBack({156, 322, 30, 60});
-	dead.anim.PushBack({189, 322, 28, 60});
-	dead.anim.PushBack({218, 322, 29, 60});
-	dead.anim.PushBack({253, 322, 29, 60});
-	dead.anim.PushBack({285, 322, 34, 60});
+	//Player Muerte (Pendiente)
+	dead.anim.PushBack({ 200, 500, 32, 58});
+	dead.anim.PushBack({ 232, 500, 32, 58});
+	dead.anim.PushBack({ 264, 500, 32, 58});
+	dead.anim.PushBack({ 296, 500, 32, 58});
+	dead.anim.PushBack({ 328, 500, 32, 58});
+	dead.anim.PushBack({ 360, 500, 32, 58});
+	dead.anim.PushBack({ 392, 500, 32, 58});
+	dead.anim.PushBack({ 424, 500, 32, 58});
+	dead.anim.PushBack({ 456, 500, 32, 58});
+	dead.anim.PushBack({ 488, 500, 32, 58});
 	
 	dead.anim.loop = false;
+	dead.anim.pingpong = false;
+	dead.speed.y = 1;
 	dead.anim.speed = 0.1f;
 
 	//Enemigo verde muerte 

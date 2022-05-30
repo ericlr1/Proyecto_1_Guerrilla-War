@@ -1779,6 +1779,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (godMode == false)
 		{
+			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
 			lives--;
 			if (lives % 3 == 0)
 			{
@@ -1794,6 +1795,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (godMode == false)
 		{
+			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
 			lives--;
 			if (lives == 3 || lives == 6)
 			{
