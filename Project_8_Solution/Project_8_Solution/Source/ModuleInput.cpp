@@ -21,10 +21,10 @@ bool ModuleInput::Init()
 		ret = false;
 	}
 
-	//num_controllers = SDL_NumJoysticks();
-	//for (int i = 0; i < num_controllers; ++i)
-	//	if (SDL_IsGameController(i))
-	//		sdl_controllers[i] = SDL_GameControllerOpen(i);
+	num_controllers = SDL_NumJoysticks();
+	for (int i = 0; i < num_controllers; ++i)
+		if (SDL_IsGameController(i))
+			sdl_controllers[i] = SDL_GameControllerOpen(i);
 	// Here we don't really have access to the controller
 	// SDL_GameController* is obfuscated, it is to know they are there.
 	// We will pass data to our own array of controllers
@@ -54,7 +54,7 @@ Update_Status ModuleInput::PreUpdate()
 	}
 
 	// Parse Controller button stats
-	/*SDL_GameControllerUpdate();
+	SDL_GameControllerUpdate();
 	for (int i = 0; i < num_controllers; ++i)
 	{
 		for (int j = 0; j < SDL_CONTROLLER_BUTTON_MAX; ++j)
@@ -71,17 +71,9 @@ Update_Status ModuleInput::PreUpdate()
 		controllers[i].j2_y = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_RIGHTY);
 		controllers[i].RT = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_TRIGGERRIGHT);
 		controllers[i].LT = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_TRIGGERLEFT);
-	}*/
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
-}
-
-float reduce_val(float v1, float min, float clamp_to) {
-	float sign = v1 / fabs(v1);
-	float reduced = v1 - ((fabs(v1) > min) ? sign * min : v1);
-	float to_1 = reduced / (float)(SDL_MAX_SINT16);
-	float reclamped = to_1 * clamp_to;
-	return reclamped;
 }
 
 bool ModuleInput::CleanUp()
