@@ -66,8 +66,9 @@ Update_Status ModuleRender::PreUpdate()
 
 Update_Status ModuleRender::Update()
 {
-
-	
+	SDL_Point screen_size = GetWindowSize();
+	camera.w = screen_size.x;
+	camera.h = screen_size.y;
 	
 	if (camera.y + camera.h > 10490)
 	{
@@ -219,4 +220,13 @@ void ModuleRender::SetCameraCenter(int x, int y)
 	camera.y = (y * SCREEN_SIZE) - floor(camera.h * 0.5);
 
 
+}
+
+SDL_Point ModuleRender::GetWindowSize()
+{
+	SDL_Point size;
+
+	SDL_GetWindowSize(App->window->window, &size.x, &size.y);
+
+	return size;
 }

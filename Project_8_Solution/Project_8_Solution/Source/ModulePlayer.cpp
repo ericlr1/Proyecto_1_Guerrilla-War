@@ -1963,8 +1963,6 @@ void ModulePlayer::CameraFollowPlayer()
 {
 	if (freeCam == false)
 	{
-
-
 		int camerax = App->render->GetCameraCenterX();
 		int cameray = App->render->GetCameraCenterY();
 
