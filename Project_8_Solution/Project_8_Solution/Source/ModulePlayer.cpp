@@ -22,6 +22,7 @@
 
 #include <stdio.h>
 #include <SDL/include/SDL_timer.h>
+#include <SDL/include/SDL_video.h>
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
@@ -1167,6 +1168,11 @@ Update_Status ModulePlayer::Update()
 		{
 			facing = 7;
 		}
+	}
+
+	if (App->input->keys[SDL_SCANCODE_H] == Key_State::KEY_DOWN)
+	{
+		SDL_SetWindowFullscreen((SDL_Window*) App->render->renderer, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	}
 
 	// Comprobaciones de la orientación para realizar los disparos 
