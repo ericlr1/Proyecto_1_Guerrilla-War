@@ -2013,12 +2013,12 @@ void ModulePlayer::throwGrenade() {
 		App->particles->AddParticle(App->particles->grenade, position.x + 13, position.y, Collider::Type::NONE);
 		break;
 	case 7:
-		App->particles->grenade.speed.x = 2;
+		App->particles->grenade.speed.x = -2;
 		App->particles->grenade.speed.y = -2;
 		App->particles->AddParticle(App->particles->grenade, position.x + 32, position.y, Collider::Type::NONE);
 		break;
 	case 1:
-		App->particles->grenade.speed.x = -2;
+		App->particles->grenade.speed.x = 2;
 		App->particles->grenade.speed.y = -2;
 		App->particles->AddParticle(App->particles->grenade, position.x, position.y, Collider::Type::NONE);
 		break;
