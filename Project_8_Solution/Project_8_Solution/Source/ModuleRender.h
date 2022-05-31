@@ -54,6 +54,8 @@ public:
 	
 	void SetCameraCenter(int x, int y);
 
+	SDL_Point GetWindowSize();
+
 public:
 	// Rendering context used for any rendering action
 	SDL_Renderer* renderer = nullptr;
