@@ -51,8 +51,10 @@ void Enemy_GreenSoldier::Draw()
 	float angleDegrees = AngleToPlayerDegrees();
 
 	SDL_Point finalPos{ position.x + (cos(angleDegrees * DEGTORAD) * 100) + 16, position.y + (sin(angleDegrees * DEGTORAD) * 100 ) + 32};
-
-	App->render->DrawLine(position.x + 16, position.y + 32, finalPos.x, finalPos.y, 255, 255, 255, 255);
+	if (App->collisions->debug)
+	{
+		App->render->DrawLine(position.x + 16, position.y + 32, finalPos.x, finalPos.y, 255, 255, 255, 255);
+	}
 }
 
 void Enemy_GreenSoldier::Shoot()
