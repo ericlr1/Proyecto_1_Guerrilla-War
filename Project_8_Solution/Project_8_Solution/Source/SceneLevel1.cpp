@@ -193,13 +193,14 @@ bool SceneLevel1::Start()
 
 
 	//Colliders trinchera
-	App->collisions->AddCollider({ 130, 2518, 157, 19 }, Collider::Type::TRENCH);
-	App->collisions->AddCollider({ 133, 2579, 2, 2 }, Collider::Type::TRENCH);
+	App->collisions->AddCollider({ 130, 2513, 157, 19 }, Collider::Type::TRENCH);
+	App->collisions->AddCollider({ 130, 2579, 4, 4 }, Collider::Type::TRENCH);
 	App->collisions->AddCollider({ 241, 1748, 164, 18 }, Collider::Type::TRENCH);
 	App->collisions->AddCollider({ 527, 1748, 197, 18 }, Collider::Type::TRENCH);
 	App->collisions->AddCollider({ 404, 1242, 95, 17 }, Collider::Type::TRENCH);
 	App->collisions->AddCollider({ 497, 1161, 154, 21 }, Collider::Type::TRENCH);
 	App->collisions->AddCollider({ 678,975, 91, 14 }, Collider::Type::TRENCH);
+	App->collisions->AddCollider({ 638,404,119, 23 }, Collider::Type::TRENCH);
 
 	// Colliders agua
 	App->collisions->AddCollider({ 78, 3472, 315, 37 }, Collider::Type::WATER);
@@ -213,8 +214,8 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 175, 3376, 139, 10 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 189, 3359, 125, 17 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 197, 3349, 111, 10 }, Collider::Type::WATER);
-	App->collisions->AddCollider({ 199, 3339, 95, 10 }, Collider::Type::WATER);
-	App->collisions->AddCollider({ 199, 3328, 89, 14 }, Collider::Type::WATER);
+	App->collisions->AddCollider({ 199, 3334, 95, 10 }, Collider::Type::WATER);
+	App->collisions->AddCollider({ 199, 3323, 89, 14 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 1, 1937, 361, 17 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 557, 1934, 361, 15 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 0, 526, 681, 341 }, Collider::Type::WATER);
@@ -248,13 +249,48 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 400, 3479, 3, 14 }, Collider::Type::RESET_ANIM_WATER);
 	App->collisions->AddCollider({ 500, 883, 400, 1 }, Collider::Type::RESET_ANIM_WATER);
 	App->collisions->AddCollider({ 521, 511, 400, 1 }, Collider::Type::RESET_ANIM_WATER);
-	
+	App->collisions->AddCollider({ 368, 1928, 3, 21 }, Collider::Type::RESET_ANIM_WATER);
+	App->collisions->AddCollider({ 549, 1928, 3, 21 }, Collider::Type::RESET_ANIM_WATER);
+	App->collisions->AddCollider({ 30, 1923, 337, 3 }, Collider::Type::RESET_ANIM_WATER);
+	App->collisions->AddCollider({ 559, 1923, 337, 3 }, Collider::Type::RESET_ANIM_WATER);
+	App->collisions->AddCollider({ 559, 1960, 337, 3 }, Collider::Type::RESET_ANIM_WATER);
+	App->collisions->AddCollider({ 30, 1960, 337, 3 }, Collider::Type::RESET_ANIM_WATER);
+	App->collisions->AddCollider({ 682, 521, 3, 353 }, Collider::Type::RESET_ANIM_WATER);
+	App->collisions->AddCollider({ 737, 521, 3, 353 }, Collider::Type::RESET_ANIM_WATER);
+
 	//Colliders reset anim_trench
-	App->collisions->AddCollider({ 124, 2573, 4, 10 }, Collider::Type::RESET_ANIM_TRENCH);
-	App->collisions->AddCollider({ 127, 2572, 14, 3 }, Collider::Type::RESET_ANIM_TRENCH);
-	App->collisions->AddCollider({ 140, 2575, 3, 7 }, Collider::Type::RESET_ANIM_TRENCH);
-	App->collisions->AddCollider({ 127, 2572, 14, 3 }, Collider::Type::RESET_ANIM_TRENCH);
-	App->collisions->AddCollider({ 127, 2550, 160, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 126, 2502, 5, 29 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 287, 2502, 5, 29 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 133, 2499, 148, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 127, 2544, 160, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 123, 2567, 21, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 148, 2572, 3, 20  }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 114, 2572, 3, 12 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 126, 2595, 21, 3 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 221, 1749, 5, 18 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 403, 1749, 5, 18 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 516, 1749, 5, 18 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 701, 1749, 5, 18 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 227, 1747, 172, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 227, 1780, 172, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 520, 1747, 172, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 520, 1780, 172, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 400, 1234, 90, 3 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 400, 1278, 90, 3 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 394, 1238, 3, 33 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 492, 1238, 3, 33 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 489, 1149, 148, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 489, 1200, 148, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 482, 1155, 3, 38 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 649, 1155, 3, 38 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 665, 967, 93, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 665, 1010, 93, 4 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 659, 967, 4, 32 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 761, 967, 4, 32 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 638, 401, 118, 3 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 638, 442, 118, 3 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 628, 403, 3, 40 }, Collider::Type::RESET_ANIM_TRENCH);
+	App->collisions->AddCollider({ 760, 403, 3, 40 }, Collider::Type::RESET_ANIM_TRENCH);
 	
 	//Armas
 	raligun_colldier= App->collisions->AddCollider({ 214, 3106, 32,28 }, Collider::Type::RALIGUN);

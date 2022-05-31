@@ -57,7 +57,7 @@ Update_Status ModuleEnemies::PostUpdate()
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if (enemies[i] != nullptr)
-			enemies[i]->Draw();
+			enemies[i]->Draw ();
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
