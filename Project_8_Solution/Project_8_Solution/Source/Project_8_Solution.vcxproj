@@ -76,7 +76,9 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Destruible_Barricada_Horizontal.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="Destruible.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_GreenSoldier.h" />
     <ClInclude Include="Enemy_GreenSoldier2.h" />
@@ -110,7 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Destruible_Barricada_Horizontal.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Destuirble.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_GreenSoldier.cpp" />
     <ClCompile Include="Enemy_GreenSoldier2.cpp" />

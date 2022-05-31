@@ -1669,7 +1669,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 
 	bool isNonWalkable = c1->type == Collider::Type::FOOT && 
-		(c2->type == Collider::Type::WALL || c2->type == Collider::Type::DESTRUCTIBLE);
+		(c2->type == Collider::Type::WALL || c2->type == Collider::Type::DESTRUIBLE);
 
 	if (isNonWalkable)
 	{
@@ -1954,7 +1954,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		App->sceneLevel_1->spawn_5 = true;
 	}
-	
+
 }
 
 

@@ -1,22 +1,21 @@
 #include "ModuleDestruibles.h"
 
-#include "Collider.h"
 #include "Application.h"
-#include "ModuleTextures.h"
+
 #include "ModuleRender.h"
+#include "ModuleTextures.h"
 #include "ModuleAudio.h"
-#include "ModuleCollisions.h"
-#include "ModuleEnemies.h"
-#include "ModulePlayer.h"
-#include "ModuleParticles.h"
-#include <SDL/include/SDL_scancode.h>
-#include "ModuleInput.h"
-#include "Enemy_GreenSoldier.h"
-#include "Enemy_GreenSoldier2.h"
 
-ModuleDestruibles::ModuleDestruibles(bool startEnabled) :Module(startEnabled)
+#include "Destruible.h"
+#include "Destruible_Barricada_Horizontal.h"
+
+#define SPAWN_MARGIN 50
+
+
+ModuleDestruibles::ModuleDestruibles(bool startEnabled) : Module(startEnabled)
 {
-
+	for (uint i = 0; i < MAX_DESTRUIBLES; ++i)
+		destruibles[i] = nullptr;
 }
 
 ModuleDestruibles::~ModuleDestruibles()
@@ -24,34 +23,150 @@ ModuleDestruibles::~ModuleDestruibles()
 
 }
 
-
 bool ModuleDestruibles::Start()
 {
-	bool ret = true;
-	textura_barricada_horizontal = App->textures->Load("Assets/Sprites/Barricada_Horizontal.png");
-	textura_barricada_vertical = App->textures->Load("Assets/Sprites/Barricada_Vertical.png");
-	textura_espinas = App->textures->Load("Assets/Sprites/Espinas.png");
-	
-	App->collisions->AddCollider({ 143, 2951, 34, 23 }, Collider::Type::DESTRUCTIBLE, this);
-	
-	return ret;
+	/*texture = App->textures->Load("Assets/Sprites/Guerrilla War Enemy Spritesheet.png");
+	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/sounds_gwar-195 (1).wav");*/
+
+	return true;
 }
+
 Update_Status ModuleDestruibles::Update()
 {
-	
+	HandleDestruibleSpawn();
+
+	for (uint i = 0; i < MAX_DESTRUIBLES; ++i)
+	{
+		if (destruibles[i] != nullptr)
+			destruibles[i]->Update();
+	}
+
+	HandleDestruibleDespawn();
 
 	return Update_Status::UPDATE_CONTINUE;
 }
+
 Update_Status ModuleDestruibles::PostUpdate()
 {
-	App->render->Blit(textura_barricada_horizontal, 143, 2951, NULL, 1.0, true);
-	App->render->Blit(textura_barricada_vertical, 214, 3106, NULL, 1.0, false);
-	App->render->Blit(textura_espinas, 214, 3106, NULL, 1.0, false);
+	for (uint i = 0; i < MAX_DESTRUIBLES; ++i)
+	{
+		if (destruibles[i] != nullptr)
+			destruibles[i]->Draw();
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
+}
+
+// Called before quitting
+bool ModuleDestruibles::CleanUp()
+{
+	LOG("Freeing all destruibles");
+
+	for (uint i = 0; i < MAX_DESTRUIBLES; ++i)
+	{
+		if (destruibles[i] != nullptr)
+		{
+			delete destruibles[i];
+			destruibles[i] = nullptr;
+		}
+	}
+
+	return true;
+}
+
+bool ModuleDestruibles::AddDestruible(Destruible_Type type, int x, int y)
+{
+	bool ret = false;
+
+	for (uint i = 0; i < MAX_DESTRUIBLES; ++i)
+	{
+		if (spawnQueue[i].type == Destruible_Type::NO_TYPE)
+		{
+			spawnQueue[i].type = type;
+			spawnQueue[i].x = x;
+			spawnQueue[i].y = y;
+			ret = true;
+			break;
+		}
+	}
+
+	return ret;
+}
+
+void ModuleDestruibles::HandleDestruibleSpawn()
+{
+	// Iterate all the enemies queue
+	for (uint i = 0; i < MAX_DESTRUIBLES; ++i)
+	{
+		if (spawnQueue[i].type != Destruible_Type::NO_TYPE)
+		{
+			// Spawn a new enemy if the screen has reached a spawn position
+			if (spawnQueue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
+			{
+				LOG("Spawning destruible at %d", spawnQueue[i].x * SCREEN_SIZE);
+
+				SpawnDestruible(spawnQueue[i]);
+				spawnQueue[i].type = Destruible_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
+			}
+		}
+	}
+}
+
+void ModuleDestruibles::HandleDestruibleDespawn()
+{
+	// Iterate existing enemies
+	for (uint i = 0; i < MAX_DESTRUIBLES; ++i)
+	{
+		if (destruibles[i] != nullptr)
+		{
+			if (destruibles[i]->GetNeedsToBeDestroyed())
+			{
+				delete destruibles[i];
+				destruibles[i] = nullptr;
+			}
+			//QUITADO SOLO PARA EL PROTOTYPE
+			// 
+			//// Delete the enemy when it has reached the end of the screen
+			//if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
+			//{
+			//	LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
+
+			//	delete enemies[i];
+			//	enemies[i] = nullptr;
+			//	
+			//}
+		}
+	}
+}
+
+void ModuleDestruibles::SpawnDestruible(const DestruibleSpawnpoint& info)
+{
+	// Find an empty slot in the enemies array
+	for (uint i = 0; i < MAX_DESTRUIBLES; ++i)
+	{
+		if (destruibles[i] == nullptr)
+		{
+			switch (info.type)
+			{
+				case Destruible_Type::BARRICADA_H:
+					destruibles[i] = new Destruible_Barricada_Horizontal(info.x, info.y);
+					break;
+			}
+
+			destruibles[i]->destroyedFx = destruibleDestroyedFx;
+			break;
+		}
+	}
 }
 
 void ModuleDestruibles::OnCollision(Collider* c1, Collider* c2)
 {
-
+	for (uint i = 0; i < MAX_DESTRUIBLES; ++i)
+	{
+		if (destruibles[i] != nullptr && destruibles[i]->GetCollider() == c1)
+		{
+			destruibles[i]->OnCollision(c2); //Notify the enemy of a collision
+			break;
+		}
+	}
 }

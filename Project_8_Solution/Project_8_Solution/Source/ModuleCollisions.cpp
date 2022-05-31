@@ -25,7 +25,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL][Collider::Type::WIN] = false;
 	matrix[Collider::Type::WALL][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::WALL][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::WALL][Collider::Type::DESTRUCTIBLE] = false;
+	matrix[Collider::Type::WALL][Collider::Type::DESTRUIBLE] = false;
 	
 	matrix[Collider::Type::RESET_ANIM_WATER][Collider::Type::WALL] = false;
 	matrix[Collider::Type::RESET_ANIM_WATER][Collider::Type::BODY] = false;
@@ -39,7 +39,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::RESET_ANIM_WATER][Collider::Type::WIN] = false;
 	matrix[Collider::Type::RESET_ANIM_WATER][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::RESET_ANIM_WATER][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::RESET_ANIM_WATER][Collider::Type::DESTRUCTIBLE] = false;
+	matrix[Collider::Type::RESET_ANIM_WATER][Collider::Type::DESTRUIBLE] = false;
 
 	matrix[Collider::Type::RESET_ANIM_TRENCH][Collider::Type::WALL] = false;
 	matrix[Collider::Type::RESET_ANIM_TRENCH][Collider::Type::BODY] = true;
@@ -53,11 +53,11 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::RESET_ANIM_TRENCH][Collider::Type::WIN] = false;
 	matrix[Collider::Type::RESET_ANIM_TRENCH][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::RESET_ANIM_TRENCH][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::RESET_ANIM_TRENCH][Collider::Type::DESTRUCTIBLE] = false;
+	matrix[Collider::Type::RESET_ANIM_TRENCH][Collider::Type::DESTRUIBLE] = false;
 
 	matrix[Collider::Type::BODY][Collider::Type::WALL] = false;
 	matrix[Collider::Type::BODY][Collider::Type::BODY] = false;
-	matrix[Collider::Type::BODY][Collider::Type::DESTRUCTIBLE] = true;
+	matrix[Collider::Type::BODY][Collider::Type::DESTRUIBLE] = true;
 	matrix[Collider::Type::BODY][Collider::Type::FOOT] = false;
 	matrix[Collider::Type::BODY][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::BODY][Collider::Type::PLAYER_SHOT] = false;
@@ -83,7 +83,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::FOOT][Collider::Type::RALIGUN] = true;
 	matrix[Collider::Type::FOOT][Collider::Type::RALIGUN_SHOOT] = false;
 	matrix[Collider::Type::FOOT][Collider::Type::RESET_ANIM_TRENCH] = true;
-	matrix[Collider::Type::FOOT][Collider::Type::DESTRUCTIBLE] = true;
+	matrix[Collider::Type::FOOT][Collider::Type::DESTRUIBLE] = true;
 
 	
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = false;
@@ -98,7 +98,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY][Collider::Type::WIN] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::RALIGUN_SHOOT] = true;
-	matrix[Collider::Type::ENEMY][Collider::Type::DESTRUCTIBLE] = false;
+	matrix[Collider::Type::ENEMY][Collider::Type::DESTRUIBLE] = false;
 	
 	
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WALL] = false;
@@ -110,7 +110,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WATER] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::TRENCH] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::HOSTAGE] = true;
-	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::DESTRUCTIBLE] = true;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::DESTRUIBLE] = true;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN_SHOOT] = false;
@@ -130,7 +130,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::RALIGUN_SHOOT] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::RESET_ANIM_WATER] = false;
-	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::DESTRUCTIBLE] = true;
+	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::DESTRUIBLE] = true;
 
 	matrix[Collider::Type::WATER][Collider::Type::WALL] = false;
 	matrix[Collider::Type::WATER][Collider::Type::BODY] = false;
@@ -199,7 +199,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::DESTRUCTIBLE] = false;
+	matrix[Collider::Type::RALIGUN_SHOOT][Collider::Type::DESTRUIBLE] = false;
 
 	matrix[Collider::Type::WIN][Collider::Type::WALL] = false;
 	matrix[Collider::Type::WIN][Collider::Type::BODY] = true;
@@ -216,18 +216,18 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 
 
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::WALL] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::BODY] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::FOOT] = true;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::ENEMY] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::PLAYER_SHOT] = true;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::ENEMY_SHOT] = true;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::WATER] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::TRENCH] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::HOSTAGE] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::WIN] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::RALIGUN] = false;
-	matrix[Collider::Type::DESTRUCTIBLE][Collider::Type::RALIGUN_SHOOT] = true;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::WALL] = false;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::BODY] = false;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::FOOT] = true;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::ENEMY_SHOT] = true;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::WATER] = false;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::TRENCH] = false;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::HOSTAGE] = false;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::WIN] = false;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::RALIGUN] = false;
+	matrix[Collider::Type::DESTRUIBLE][Collider::Type::RALIGUN_SHOOT] = true;
 
 
 
@@ -243,7 +243,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::EXPLOSION][Collider::Type::WIN] = false;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::RALIGUN_SHOOT] = true;
-	matrix[Collider::Type::EXPLOSION][Collider::Type::DESTRUCTIBLE] = true;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::DESTRUIBLE] = true;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::EXPLOSION] = false;
 
 	
@@ -379,7 +379,7 @@ void ModuleCollisions::DebugDraw()
 				App->render->DrawQuad(colliders[i]->rect, 0, 255, 100, alpha);
 				break;
 
-			case Collider::Type::DESTRUCTIBLE: // Lime
+			case Collider::Type::DESTRUIBLE: // Lime
 				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 				break;
 

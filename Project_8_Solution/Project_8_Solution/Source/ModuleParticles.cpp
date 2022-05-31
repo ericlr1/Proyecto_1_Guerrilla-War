@@ -360,7 +360,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	{
 		// Always destroy particles that collide
 		if (particles[i] != nullptr && particles[i]->collider == c1) {
-			if (c2->type == Collider::Type::DESTRUCTIBLE) {
+			if (c2->type == Collider::Type::DESTRUIBLE) {
 				if (particles[i]->explodes && !particles[i]->isExplosion) {
 					App->particles->AddParticle(App->particles->grenadeExplosion, particles[i]->position.x - 26, particles[i]->position.y - 26, Collider::Type::EXPLOSION);
 					App->audio->PlayFx(App->player->bulletFx);

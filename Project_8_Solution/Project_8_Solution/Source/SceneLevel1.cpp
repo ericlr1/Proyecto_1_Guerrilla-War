@@ -13,6 +13,8 @@
 #include "ModuleInput.h"
 #include "Enemy_GreenSoldier.h"
 #include "Enemy_GreenSoldier2.h"
+#include "ModuleDestruibles.h"
+
 
 #define SPAWN_MARGIN 60
 
@@ -43,6 +45,9 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 220, 3350);
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 150, 3250);
 	App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, 200, 2800);
+
+	//Destruibles
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 215, 3255);
 
 	//Setting de la camera
 
@@ -295,7 +300,7 @@ bool SceneLevel1::Start()
 	//Armas
 	raligun_colldier= App->collisions->AddCollider({ 214, 3106, 32,28 }, Collider::Type::RALIGUN);
 
-	App->collisions->AddCollider({ 250, 3000, 100, 20 }, Collider::Type::DESTRUCTIBLE);
+	App->collisions->AddCollider({ 250, 3000, 100, 20 }, Collider::Type::DESTRUIBLE);
 	return ret;
 }
 
@@ -321,10 +326,12 @@ Update_Status SceneLevel1::PostUpdate()
 
 bool SceneLevel1::CleanUp()
 {
-	// TODO 2: Enable (and properly disable) the player module
+	
 	App->player->Disable();
 	App->enemies->Disable();
 	App->collisions->Disable();
+	App->destruibles->Disable();
+
 	// TODO 5: Remove All Memory Leaks - no solution here guys ;)
 
 	return true;
