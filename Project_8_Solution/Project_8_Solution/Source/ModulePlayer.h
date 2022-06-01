@@ -148,6 +148,7 @@ public:
 
 	//God mode
 	bool godMode = false;
+	bool shortcuts = false;
 
 	//Delay chispa
 	int delayChispa;

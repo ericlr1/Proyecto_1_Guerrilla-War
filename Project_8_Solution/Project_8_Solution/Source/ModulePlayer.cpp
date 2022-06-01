@@ -612,7 +612,38 @@ bool ModulePlayer::Start()
 
 Update_Status ModulePlayer::Update()    
 {
-	
+	float fx = 0, fy = 0;
+
+	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT)	fy = -1;
+	if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT)	fy = 1;
+	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)	fx = -1;
+	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)	fx = 1;
+
+	//fx += reduce_val(App->input->controllers[0].j1_x, 3000, 2);
+	//fy += reduce_val(App->input->controllers[0].j1_y, 3000, 2);
+	//fx += reduce_val(App->input->controllers[0].j2_x, 3000, 2);
+	//fy += reduce_val(App->input->controllers[0].j2_y, 3000, 2);
+
+	// GAMEPAD: Triggers Count as axis, have specific values
+	if (App->input->controllers[0].LT > SDL_MAX_SINT16 / 2) {
+		fx *= 2;
+		fy *= 2;
+	}
+	if (App->input->controllers[0].RT > SDL_MAX_SINT16 / 2) {
+		fx *= 3;
+		fy *= 3;
+	}
+
+	// GAMEPAD: Fire with any button for now to check they all work
+	bool button_press = false;
+	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
+	{
+		if (App->input->controllers[0].buttons[i] == KEY_DOWN)
+		{
+			button_press = true; break;
+		}
+	}
+
 
 	// Moving the player with the camera scroll
 	//App->player->position.y += 1;
@@ -741,6 +772,11 @@ Update_Status ModulePlayer::Update()
 			speed -= 7;
 		}
 		godMode = !godMode;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_T] == Key_State::KEY_DOWN)
+	{
+		shortcuts = !shortcuts;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_F9] == Key_State::KEY_DOWN)
@@ -1538,7 +1574,7 @@ Update_Status ModulePlayer::Update()
 	collider_camara->SetPos(App->render->GetCameraCenterX()-100, App->render->GetCameraCenterY() +160);
 
 	//Fade si vidas < 0
-	if (lives <= 0)
+	if (lives == 0)
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
 		destroyed = true;
@@ -1626,6 +1662,19 @@ Update_Status ModulePlayer::PostUpdate()
 		else
 		{
 			App->fonts->BlitText(10, 300, scoreFont, "GODMODE.OFF");
+		}
+
+		if (shortcuts == false)
+		{
+			App->fonts->BlitText(10, 200, scoreFont, "PRESS.T.FOR.SHORTCUTS");
+		}
+
+		if (shortcuts == true)
+		{
+			App->fonts->BlitText(10, 200, scoreFont, "F9.GREEN.SOILDER");
+			App->fonts->BlitText(10, 210, scoreFont, "F10.TRIPLESHOT");
+			App->fonts->BlitText(10, 220, scoreFont, "F11.RED.SOILDER");
+			App->fonts->BlitText(10, 230, scoreFont, "H.HOSTAGE");
 		}
 
 		App->fonts->BlitText(10, 290, scoreFont, "COINS");
@@ -1803,8 +1852,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (godMode == false)
 		{
-			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
 			lives--;
+			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
 			if (lives == 3 || lives == 6)
 			{
 				coins--;
