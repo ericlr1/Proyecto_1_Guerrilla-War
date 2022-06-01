@@ -40,14 +40,38 @@ bool SceneLevel1::Start()
 	App->audio->PlayMusic("Assets/Fx/Game_sounds_level1.ogg", 1.0f);
 
 
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 280, 2920);
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 140, 2820);
-	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 220, 3350);
-	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 150, 3250);
-	App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, 200, 2800);
+	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 280, 2920);
+	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 140, 2820);
+	//App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 220, 3350);
+	//App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 150, 3250);
+	//App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, 200, 2800);
+
+	//CREACION NPCs
+
+	//REHENES []
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 140, 2805);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 175, 2805);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 230, 2440);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 195, 2440);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 515, 2140);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 490, 1940);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 395, 1940);
+
 
 	//Destruibles
-	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 215, 3255);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 129, 2936);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 158, 2936);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 239, 2936);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 268, 2936);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 279, 2588);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 311, 2588);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 118, 2523);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 149, 2523);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 178, 2523);
+	
 
 	//Setting de la camera
 
@@ -299,8 +323,6 @@ bool SceneLevel1::Start()
 	
 	//Armas
 	raligun_colldier= App->collisions->AddCollider({ 214, 3106, 32,28 }, Collider::Type::RALIGUN);
-
-	App->collisions->AddCollider({ 250, 3000, 100, 20 }, Collider::Type::DESTRUIBLE);
 	return ret;
 }
 

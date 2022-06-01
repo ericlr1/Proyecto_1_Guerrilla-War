@@ -131,7 +131,8 @@ bool SceneIntro::Start() {
 
 Update_Status SceneIntro::Update() {
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || duration >= 500) {
+
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || duration >= 500 ) {
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 0);
 	}
 

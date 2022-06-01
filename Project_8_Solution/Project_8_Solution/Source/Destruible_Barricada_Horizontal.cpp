@@ -14,9 +14,9 @@
 Destruible_Barricada_Horizontal::Destruible_Barricada_Horizontal(int x, int y) : Destruible(x, y)
 {
 
-	collider = App->collisions->AddCollider({ 0, 0, 39, 26 }, Collider::Type::DESTRUIBLE, (Module*)App->destruibles);
+	collider = App->collisions->AddCollider({ 0, 0, 28, 23 }, Collider::Type::DESTRUIBLE, (Module*)App->destruibles);
 	sintocar = App->textures->Load("Assets/Sprites/Barricada_Horitzontal.png");
-	tocado = App->textures->Load("Assets/Sprites/Barricada_Vertical.png");
+	tocado = App->textures->Load("Assets/Sprites/Barricada_Horitzontal_Destruida.png");
 	
 	texture = sintocar;
 	
@@ -35,10 +35,27 @@ void Destruible_Barricada_Horizontal::Draw()
 
 void Destruible_Barricada_Horizontal::OnCollision(Collider* collider)
 {
+	if (collider->type != Collider::Type::EXPLOSION)
+	{
+		return;
+	}
+
+	if (collider == last_collider)
+	{ 
+		return;
+	}
+	
 	//Aplicar canvio de spritesheet + contador para destruido
-	if (collider->type == Collider::Type::EXPLOSION)
+	if (collider->type == Collider::Type::EXPLOSION && texture != tocado)
 	{
 		texture = tocado;
+		
+	}
+	else if (collider->type == Collider::Type::EXPLOSION && texture == tocado)
+	{
 		Destroy();
 	}
+
+	last_collider = collider;
 }
+

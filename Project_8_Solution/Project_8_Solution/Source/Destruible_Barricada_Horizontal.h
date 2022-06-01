@@ -25,6 +25,8 @@ private:
 	SDL_Texture* sintocar = nullptr;
 	SDL_Texture* tocado = nullptr;
 
+	Collider* last_collider = nullptr;
+
 };
 
 #endif // __ENEMY_GREENSOILDER_H__
