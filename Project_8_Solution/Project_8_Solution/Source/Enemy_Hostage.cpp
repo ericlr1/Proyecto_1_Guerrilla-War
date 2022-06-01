@@ -74,7 +74,7 @@ void Enemy_Hostage::Shoot()
 
 void Enemy_Hostage::OnCollision(Collider* collider)
 {
-	if (collider->type == Collider::Type::PLAYER_SHOT)
+	if (collider->type == Collider::Type::PLAYER_SHOT || collider->type == Collider::Type::EXPLOSION)
 	{
 		if (App->player->score >= 500)
 		{

@@ -71,7 +71,7 @@ void Enemy_RedSoldier::Draw()
 
 void Enemy_RedSoldier::OnCollision(Collider* collider)
 {
-	if (collider->type == Collider::Type::PLAYER_SHOT)
+	if (collider->type == Collider::Type::PLAYER_SHOT || collider->type == Collider::Type::EXPLOSION)
 	{
 		App->player->score += 100;
 	}
