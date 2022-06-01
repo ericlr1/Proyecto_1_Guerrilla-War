@@ -1568,7 +1568,7 @@ Update_Status ModulePlayer::Update()
 	collider_camara->SetPos(App->render->GetCameraCenterX()-100, App->render->GetCameraCenterY() +160);
 
 	//Fade si vidas < 0
-	if (lives <= 0)
+	if (lives == 0)
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
 		destroyed = true;
@@ -1833,8 +1833,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (godMode == false)
 		{
-			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
 			lives--;
+			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
 			if (lives == 3 || lives == 6)
 			{
 				coins--;
