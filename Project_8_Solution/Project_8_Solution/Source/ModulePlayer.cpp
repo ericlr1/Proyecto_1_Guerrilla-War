@@ -773,11 +773,11 @@ Update_Status ModulePlayer::Update()
 		
 		if (godMode == false)
 		{
-			speed += 7;
+			speed += 3;
 		}
 		else
 		{
-			speed -= 7;
+			speed -= 3;
 		}
 		godMode = !godMode;
 	}
@@ -1190,7 +1190,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 	//Rotación del personaje Q y E
-	if (App->input->keys[SDL_SCANCODE_E] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_E] == Key_State::KEY_DOWN || App->input->controllers[0].RT == Key_State::KEY_DOWN)
 	{
 		if (facing >= 0 && facing < 7)
 		{
@@ -1203,7 +1203,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_Q] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_Q] == Key_State::KEY_DOWN || App->input->controllers[0].LT == Key_State::KEY_DOWN)
 	{
 		if (facing > 0 && facing <= 7)
 		{
