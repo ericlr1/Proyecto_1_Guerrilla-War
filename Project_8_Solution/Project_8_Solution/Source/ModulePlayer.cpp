@@ -779,6 +779,11 @@ Update_Status ModulePlayer::Update()
 		godMode = !godMode;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_T] == Key_State::KEY_DOWN)
+	{
+		shortcuts = !shortcuts;
+	}
+
 	if (App->input->keys[SDL_SCANCODE_F9] == Key_State::KEY_DOWN)
 	{
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, position.x, position.y - 100);
@@ -1661,6 +1666,18 @@ Update_Status ModulePlayer::PostUpdate()
 		else
 		{
 			App->fonts->BlitText(10, 300, scoreFont, "GODMODE.OFF");
+		}
+
+		if (shortcuts == false)
+		{
+			App->fonts->BlitText(10, 200, scoreFont, "PRESS.T.FOR.SHORTCUTS");
+		}
+
+		if (shortcuts == true)
+		{
+			App->fonts->BlitText(10, 200, scoreFont, "F9.GREEN.SOILDER");
+			App->fonts->BlitText(10, 210, scoreFont, "F10.TRIPLESHOT");
+			App->fonts->BlitText(10, 220, scoreFont, "F11.RED.SOILDER");
 		}
 
 		App->fonts->BlitText(10, 290, scoreFont, "COINS");
