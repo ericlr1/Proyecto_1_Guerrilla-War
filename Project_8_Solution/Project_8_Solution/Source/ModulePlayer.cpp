@@ -622,6 +622,11 @@ Update_Status ModulePlayer::Update()
 {
 	float fx = 0, fy = 0;
 
+	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT)	fy = -1;
+	if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT)	fy = 1;
+	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)	fx = -1;
+	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)	fx = 1;
+
 	fx += reduce_val(App->input->controllers[0].j1_x, 3000, 2);
 	fy += reduce_val(App->input->controllers[0].j1_y, 3000, 2);
 	fx += reduce_val(App->input->controllers[0].j2_x, 3000, 2);
