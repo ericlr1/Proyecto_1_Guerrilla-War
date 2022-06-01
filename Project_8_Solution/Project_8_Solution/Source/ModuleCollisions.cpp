@@ -367,8 +367,8 @@ void ModuleCollisions::DebugDraw()
 			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
 			break;
 			
-			case Collider::Type::RALIGUN_SHOOT: // Gray
-			App->render->DrawQuad(colliders[i]->rect, 150, 150, 150, alpha);
+			case Collider::Type::RALIGUN_SHOOT: // Blue
+			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
 
 			case Collider::Type::HOSTAGE: // Lime

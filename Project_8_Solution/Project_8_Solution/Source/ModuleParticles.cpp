@@ -235,8 +235,8 @@ bool ModuleParticles::Start()
 	//Enemy bullet up-right
 	enemyBulletUR.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBulletUR.anim.PushBack({ 215, 66, 7, 14 });
-	enemyBulletUR.speed.y = -5;
-	enemyBulletUR.speed.x = 5;
+	enemyBulletUR.speed.y = -3;
+	enemyBulletUR.speed.x = 3;
 	enemyBulletUR.lifetime = 40;
 	enemyBulletUR.anim.speed = 0.3f;
 
@@ -250,16 +250,16 @@ bool ModuleParticles::Start()
 	//Enemy bullet	down-right
 	enemyBulletDR.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBulletDR.anim.PushBack({ 215, 66, 7, 14 });
-	enemyBulletDR.speed.x = 5;
-	enemyBulletDR.speed.y = 5;
+	enemyBulletDR.speed.x = 3;
+	enemyBulletDR.speed.y = 3;
 	enemyBulletDR.lifetime = 40;
 	enemyBulletDR.anim.speed = 0.3f;	
 
 	//Enemy bullet	down-left
 	enemyBulletDL.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBulletDL.anim.PushBack({ 215, 66, 7, 14 });
-	enemyBulletDL.speed.x = -5;
-	enemyBulletDL.speed.y = 5;
+	enemyBulletDL.speed.x = -3;
+	enemyBulletDL.speed.y = 3;
 	enemyBulletDL.lifetime = 40;
 	enemyBulletDL.anim.speed = 0.3f;
 
@@ -273,8 +273,8 @@ bool ModuleParticles::Start()
 	//Enemy bullet up-left
 	enemyBulletUL.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBulletUL.anim.PushBack({ 215, 66, 7, 14 });
-	enemyBulletUL.speed.x = -5;
-	enemyBulletUL.speed.y = 5;
+	enemyBulletUL.speed.x = -3;
+	enemyBulletUL.speed.y = 3;
 	enemyBulletUL.lifetime = 40;
 	enemyBulletUL.anim.speed = 0.3f;
 

@@ -74,7 +74,7 @@ void Enemy_Hostage::Shoot()
 
 void Enemy_Hostage::OnCollision(Collider* collider)
 {
-	if (collider->type == Collider::Type::PLAYER_SHOT || collider->type == Collider::Type::EXPLOSION)
+	if (collider->type == Collider::Type::PLAYER_SHOT || collider->type == Collider::Type::EXPLOSION || collider->type == Collider::Type::RALIGUN_SHOOT)
 	{
 		if (App->player->score >= 500)
 		{
