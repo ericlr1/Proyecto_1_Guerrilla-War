@@ -66,12 +66,48 @@ bool SceneLevel1::Start()
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 158, 2936);
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 239, 2936);
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 268, 2936);
-	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 279, 2588);
-	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 311, 2588);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 279, 2580);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 311, 2580);
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 118, 2523);
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 149, 2523);
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 178, 2523);
-	
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 409, 2100);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 438, 2100);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 229, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 258, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 287, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 316, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 345, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 374, 1769);	
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 533, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 562, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 591, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 620, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 649, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 678, 1769);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 400, 1259);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 429, 1259);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 458, 1259);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 480, 1177);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 509, 1177);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 538, 1177);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 567, 1177);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 596, 1177);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 625, 1177);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 600, 895);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 629, 895);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 658, 895);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 735, 895);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 764, 895);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 793, 895);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 600, 462);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 629, 462);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 658, 462);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 735, 462);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 764, 462);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 571, 492);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 658, 492);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 735, 492);
 
 	//Setting de la camera
 
@@ -348,13 +384,10 @@ Update_Status SceneLevel1::PostUpdate()
 
 bool SceneLevel1::CleanUp()
 {
-	
 	App->player->Disable();
 	App->enemies->Disable();
-	App->collisions->Disable();
 	App->destruibles->Disable();
-
-	// TODO 5: Remove All Memory Leaks - no solution here guys ;)
+	App->collisions->Disable();
 
 	return true;
 }

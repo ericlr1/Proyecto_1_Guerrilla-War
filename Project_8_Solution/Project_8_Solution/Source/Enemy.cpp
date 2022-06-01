@@ -29,6 +29,16 @@ const Collider* Enemy::GetCollider() const
 	return collider;
 }
 
+void Enemy::Destroy()
+{
+	needs_to_be_destroyed = true;
+}
+
+const bool Enemy::GetNeedsToBeDestroyed()
+{
+	return needs_to_be_destroyed;
+}
+
 void Enemy::Update()
 {
 	if (currentAnim != nullptr)

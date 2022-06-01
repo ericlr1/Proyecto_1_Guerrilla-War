@@ -21,18 +21,17 @@ struct Collider
 		HOSTAGE,
 		RALIGUN,
 		RALIGUN_SHOOT,
-		
+		EXPLOSION,
+		DESTRUIBLE,
 		RESET_ANIM_WATER,
 		RESET_ANIM_TRENCH,
 		WIN,
-		DESTRUIBLE,
 		RESPAWN_1,
 		RESPAWN_2,
 		RESPAWN_3,
 		RESPAWN_4,
 		RESPAWN_5,
-
-		EXPLOSION,
+		
 	
 
 
@@ -52,8 +51,6 @@ struct Collider
 
 	};
 	
-		
-
 	//Methods
 	Collider(SDL_Rect rectangle, Type type, Module* listener = nullptr);
 

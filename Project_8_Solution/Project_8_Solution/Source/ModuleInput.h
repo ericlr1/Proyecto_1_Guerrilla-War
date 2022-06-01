@@ -7,6 +7,7 @@
 #include "Entity.h"
 
 #include "SDL/include/SDL.h"
+#include <SDL/include/SDL_gamecontroller.h>
 
 #define MAX_KEYS 256
 #define MAX_CONTROLLERS 8

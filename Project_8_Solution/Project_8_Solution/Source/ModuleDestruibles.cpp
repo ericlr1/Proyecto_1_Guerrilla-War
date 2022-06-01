@@ -124,17 +124,6 @@ void ModuleDestruibles::HandleDestruibleDespawn()
 				delete destruibles[i];
 				destruibles[i] = nullptr;
 			}
-			//QUITADO SOLO PARA EL PROTOTYPE
-			// 
-			//// Delete the enemy when it has reached the end of the screen
-			//if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
-			//{
-			//	LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
-
-			//	delete enemies[i];
-			//	enemies[i] = nullptr;
-			//	
-			//}
 		}
 	}
 }

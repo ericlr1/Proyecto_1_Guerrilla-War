@@ -610,40 +610,9 @@ bool ModulePlayer::Start()
 	return ret;
 }
 
-float reduce_val(float v1, float min, float clamp_to) {
-	float sign = v1 / fabs(v1);
-	float reduced = v1 - ((fabs(v1) > min) ? sign * min : v1);
-	float to_1 = reduced / (float)(SDL_MAX_SINT16);
-	float reclamped = to_1 * clamp_to;
-	return reclamped;
-}
-
 Update_Status ModulePlayer::Update()    
 {
-	float fx = 0, fy = 0;
-
-	fx += reduce_val(App->input->controllers[0].j1_x, 3000, 2);
-	fy += reduce_val(App->input->controllers[0].j1_y, 3000, 2);
-	fx += reduce_val(App->input->controllers[0].j2_x, 3000, 2);
-	fy += reduce_val(App->input->controllers[0].j2_y, 3000, 2);
-
-	// GAMEPAD: Triggers Count as axis, have specific values
-	if (App->input->controllers[0].LT > SDL_MAX_SINT16 / 2) {
-		fx *= 2;
-		fy *= 2;
-	}
-	if (App->input->controllers[0].RT > SDL_MAX_SINT16 / 2) {
-		fx *= 3;
-		fy *= 3;
-	}
-
-	// GAMEPAD: Fire with any button for now to check they all work
-	bool button_press = false;
-	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
-		if (App->input->controllers[0].buttons[i] == KEY_DOWN)
-		{
-			button_press = true; break;
-		}
+	
 
 	// Moving the player with the camera scroll
 	//App->player->position.y += 1;
@@ -1203,11 +1172,13 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	
+	if (App->input->keys[SDL_SCANCODE_H] == Key_State::KEY_DOWN)
+	{
+		SDL_SetWindowFullscreen((SDL_Window*) App->render->renderer, SDL_WINDOW_FULLSCREEN_DESKTOP);
+	}
 
 	// Comprobaciones de la orientación para realizar los disparos 
-
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || button_press)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		//La variable facing aumenta al rotar hacia la derecha (Como las agujas del reloj)
 		if (ammo_raligun > 0)
@@ -1215,49 +1186,49 @@ Update_Status ModulePlayer::Update()
 			switch (facing)
 			{
 			case 0:
-				App->particles->AddParticle(App->particles->raligunU, position.x + 20, position.y, Collider::Type::RALIGUN_SHOOT);
+				App->particles->AddParticle(App->particles->raligunU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &raligunfireup;
 				break;
 
 			case 1:
-				App->particles->AddParticle(App->particles->raligunUR, position.x + 18, position.y + 8, Collider::Type::RALIGUN_SHOOT);
+				App->particles->AddParticle(App->particles->raligunUR, position.x + 18, position.y + 8, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &raligunfirerightup;
 				break;
 
 			case 2:
-				App->particles->AddParticle(App->particles->raligunR, position.x + 20, position.y + 27, Collider::Type::RALIGUN_SHOOT);
+				App->particles->AddParticle(App->particles->raligunR, position.x + 20, position.y + 27, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &raligunfireright;
 				break;
 
 			case 3:
-				App->particles->AddParticle(App->particles->raligunDR, position.x + 12, position.y + 30, Collider::Type::RALIGUN_SHOOT);
+				App->particles->AddParticle(App->particles->raligunDR, position.x + 12, position.y + 30, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &raligunfirerightdown;
 				break;
 
 			case 4:
-				App->particles->AddParticle(App->particles->raligunD, position.x + 10, position.y + 40, Collider::Type::RALIGUN_SHOOT);
+				App->particles->AddParticle(App->particles->raligunD, position.x + 10, position.y + 40, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &raligunfiredown;
 				break;
 
 			case 5:
-				App->particles->AddParticle(App->particles->raligunDL, position.x-10 , position.y +20, Collider::Type::RALIGUN_SHOOT);
+				App->particles->AddParticle(App->particles->raligunDL, position.x-10 , position.y +20, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &raligunfireleftdown;
 				break;
 
 			case 6:
-				App->particles->AddParticle(App->particles->raligunL, position.x -10, position.y + 20, Collider::Type::RALIGUN_SHOOT);
+				App->particles->AddParticle(App->particles->raligunL, position.x -10, position.y + 20, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &raligunfireleft;
 				break;
 
 			case 7:
-				App->particles->AddParticle(App->particles->raligunUL, position.x -3, position.y, Collider::Type::RALIGUN_SHOOT);
+				App->particles->AddParticle(App->particles->raligunUL, position.x -3, position.y, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(bulletFx);
 				currentAnimation3 = &raligunfireleftup;
 				break;
@@ -1473,8 +1444,7 @@ Update_Status ModulePlayer::Update()
 			}
 		
 	}
-
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE || button_press)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE)
 	{
 		if (ammo_raligun > 0)
 		{
@@ -2045,37 +2015,37 @@ void ModulePlayer::throwGrenade() {
 	case 7:
 		App->particles->grenade.speed.x = -2;
 		App->particles->grenade.speed.y = -2;
-		App->particles->AddParticle(App->particles->grenade, position.x, position.y, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->grenade, position.x + 32, position.y, Collider::Type::NONE);
 		break;
 	case 1:
 		App->particles->grenade.speed.x = 2;
 		App->particles->grenade.speed.y = -2;
-		App->particles->AddParticle(App->particles->grenade, position.x + 10, position.y + 10, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->grenade, position.x, position.y, Collider::Type::NONE);
 		break;
 	case 4:
 		App->particles->grenade.speed.x = 0;
 		App->particles->grenade.speed.y = 2;
-		App->particles->AddParticle(App->particles->grenade, position.x + 10, position.y + 50, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->grenade, position.x + 13, position.y + 64, Collider::Type::NONE);
 		break;
 	case 3:
 		App->particles->grenade.speed.x = 2;
 		App->particles->grenade.speed.y = 2;
-		App->particles->AddParticle(App->particles->grenade, position.x + 10 , position.y + 10, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->grenade, position.x + 32, position.y + 64, Collider::Type::NONE);
 		break;
 	case 5:
 		App->particles->grenade.speed.x = -2;
 		App->particles->grenade.speed.y = 2;
-		App->particles->AddParticle(App->particles->grenade, position.x, position.y + 10, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->grenade, position.x, position.y + 64, Collider::Type::NONE);
 		break;
 	case 2:
 		App->particles->grenade.speed.x = 2;
 		App->particles->grenade.speed.y = 0;
-		App->particles->AddParticle(App->particles->grenade, position.x + 10, position.y + 5, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->grenade, position.x + 32, position.y + 29, Collider::Type::NONE);
 		break;
 	case 6:
 		App->particles->grenade.speed.x = -2;
 		App->particles->grenade.speed.y = 0;
-		App->particles->AddParticle(App->particles->grenade, position.x, position.y + 10, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->grenade, position.x, position.y + 29, Collider::Type::NONE);
 		break;
 	}
 }

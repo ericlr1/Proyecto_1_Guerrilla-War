@@ -125,18 +125,14 @@ void ModuleEnemies::HandleEnemiesDespawn()
 	{
 		if (enemies[i] != nullptr)
 		{
-			//QUITADO SOLO PARA EL PROTOTYPE
-			// 
-			//// Delete the enemy when it has reached the end of the screen
-			//if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
-			//{
-			//	LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
+			if (enemies[i]->GetNeedsToBeDestroyed())
+			{
+				delete enemies[i];
+				enemies[i] = nullptr;
+			}
 
-			//	delete enemies[i];
-			//	enemies[i] = nullptr;
-			//	
-			//}
 		}
+		
 	}
 }
 
@@ -155,31 +151,30 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 				case Enemy_Type::BROWNSHIP:
 					enemies[i] = new Enemy_BrownShip(info.x, info.y);
 					break;*/
-				case Enemy_Type::GREENSOLDIER:
-					enemies[i] = new Enemy_GreenSoldier(info.x, info.y);
-					break;	
-				case Enemy_Type::GREENSOLDIER2:
-					enemies[i] = new Enemy_GreenSoldier2(info.x, info.y);
-					break;	
-				case Enemy_Type::REDSOLDIER:
-					enemies[i] = new Enemy_RedSoldier(info.x, info.y);
-					break;	
-				case Enemy_Type::HOSTAGE:
-					enemies[i] = new Enemy_Hostage(info.x, info.y);
-					break;
-				case Enemy_Type::TRIPLESHOT:
-					enemies[i] = new Enemy_TripleShot(info.x, info.y);
-					break;
-					//	idleAnim.PushBack({ 416, 64, 32, 64 });
+			case Enemy_Type::GREENSOLDIER:
+				enemies[i] = new Enemy_GreenSoldier(info.x, info.y);
+				break;
+			case Enemy_Type::GREENSOLDIER2:
+				enemies[i] = new Enemy_GreenSoldier2(info.x, info.y);
+				break;
+			case Enemy_Type::REDSOLDIER:
+				enemies[i] = new Enemy_RedSoldier(info.x, info.y);
+				break;
+			case Enemy_Type::HOSTAGE:
+				enemies[i] = new Enemy_Hostage(info.x, info.y);
+				break;
+			case Enemy_Type::TRIPLESHOT:
+				enemies[i] = new Enemy_TripleShot(info.x, info.y);
+				break;
+				//	idleAnim.PushBack({ 416, 64, 32, 64 });
 
 			}
 			enemies[i]->texture = texture;
-				enemies[i]->destroyedFx = enemyDestroyedFx;
+			enemies[i]->destroyedFx = enemyDestroyedFx;
 			break;
 		}
 	}
 }
-
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)

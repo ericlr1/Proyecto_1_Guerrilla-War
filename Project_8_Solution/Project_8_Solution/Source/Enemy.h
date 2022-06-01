@@ -20,6 +20,10 @@ public:
 	// Returns the enemy's collider
 	const Collider* GetCollider() const;
 
+	void Destroy();
+	const bool GetNeedsToBeDestroyed();
+
+
 	// Called from inhering enemies' Udpate
 	// Updates animation and collider position
 	virtual void Update();
@@ -54,6 +58,7 @@ public:
 	// Sound fx when destroyed
 	int destroyedFx = 0;
 
+
 protected:
 	// A ptr to the current animation
 	Animation* currentAnim = nullptr;
@@ -63,6 +68,8 @@ protected:
 
 	// Original spawn position. Stored for movement calculations
 	iPoint spawnPos;
+private:
+	bool needs_to_be_destroyed = false;
 };
 
 #endif // __ENEMY_H__

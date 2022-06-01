@@ -17,11 +17,14 @@ SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled) {
 SceneIntro::~SceneIntro() {}
 
 // Load assets
-bool SceneIntro::Start() {
+bool SceneIntro::Start() 
+{
 	bool ret = true;
+	 
+	int posx = App->render->camera.x;
+	int posy = App->render->camera.y;
 
-
-	bgTexture = App->textures->Load("Assets/img/sprites/title_map_large.png");
+  	bgTexture = App->textures->Load("Assets/img/sprites/title_map_large.png");
 	introAssets = App->textures->Load("Assets/img/sprites/intro_assets.png");
 
 	App->audio->PlayMusic("Assets/sounds/bgm/112.ogg", 1.0f);
