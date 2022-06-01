@@ -34,7 +34,14 @@ bool SceneLogo::Start()
 
 Update_Status SceneLogo::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	bool button_press = false;
+	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
+		if (App->input->controllers[0].buttons[i] == KEY_DOWN)
+		{
+			button_press = true; break;
+		}
+
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || button_press)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 

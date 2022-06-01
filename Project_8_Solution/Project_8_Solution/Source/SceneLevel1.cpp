@@ -40,11 +40,26 @@ bool SceneLevel1::Start()
 	App->audio->PlayMusic("Assets/Fx/Game_sounds_level1.ogg", 1.0f);
 
 
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 280, 2920);
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 140, 2820);
-	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 220, 3350);
-	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 150, 3250);
-	App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, 200, 2800);
+	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 280, 2920);
+	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 140, 2820);
+	//App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 220, 3350);
+	//App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 150, 3250);
+	//App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, 200, 2800);
+
+	//CREACION NPCs
+
+	//REHENES []
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 140, 2805);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 175, 2805);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 230, 2440);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 195, 2440);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 515, 2140);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 490, 1940);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 395, 1940);
+
 
 	//Destruibles
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 129, 2936);

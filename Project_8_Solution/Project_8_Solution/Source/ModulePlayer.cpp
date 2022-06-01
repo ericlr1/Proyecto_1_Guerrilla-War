@@ -610,23 +610,31 @@ bool ModulePlayer::Start()
 	return ret;
 }
 
+float reduce_val(float v1, float min, float clamp_to) {
+	float sign = v1 / fabs(v1);
+	float reduced = v1 - ((fabs(v1) > min) ? sign * min : v1);
+	float to_1 = reduced / (float)(SDL_MAX_SINT16);
+	float reclamped = to_1 * clamp_to;
+	return reclamped;
+}
+
 Update_Status ModulePlayer::Update()    
 {
+	float fx = 0, fy = 0;
 
-	// GAMEPAD: Avoid Deadzones and use the values in you own way
-	position.x += reduce_val(App->input->controllers[0].j1_x, 3000, 2);
-	position.y += reduce_val(App->input->controllers[0].j1_y, 3000, 2);
-	position.x += reduce_val(App->input->controllers[0].j2_x, 3000, 2);
-	position.y += reduce_val(App->input->controllers[0].j2_y, 3000, 2);
+	fx += reduce_val(App->input->controllers[0].j1_x, 3000, 2);
+	fy += reduce_val(App->input->controllers[0].j1_y, 3000, 2);
+	fx += reduce_val(App->input->controllers[0].j2_x, 3000, 2);
+	fy += reduce_val(App->input->controllers[0].j2_y, 3000, 2);
 
 	// GAMEPAD: Triggers Count as axis, have specific values
 	if (App->input->controllers[0].LT > SDL_MAX_SINT16 / 2) {
-		position.x *= 2;
-		position.y *= 2;
+		fx *= 2;
+		fy *= 2;
 	}
 	if (App->input->controllers[0].RT > SDL_MAX_SINT16 / 2) {
-		position.x *= 3;
-		position.y *= 3;
+		fx *= 3;
+		fy *= 3;
 	}
 
 	// GAMEPAD: Fire with any button for now to check they all work
@@ -1202,7 +1210,7 @@ Update_Status ModulePlayer::Update()
 
 	// Comprobaciones de la orientación para realizar los disparos 
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || button_press)
 	{
 		//La variable facing aumenta al rotar hacia la derecha (Como las agujas del reloj)
 		if (ammo_raligun > 0)
@@ -1469,7 +1477,7 @@ Update_Status ModulePlayer::Update()
 		
 	}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE || button_press)
 	{
 		if (ammo_raligun > 0)
 		{

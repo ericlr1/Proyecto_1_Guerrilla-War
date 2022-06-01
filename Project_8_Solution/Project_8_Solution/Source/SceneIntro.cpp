@@ -130,9 +130,15 @@ bool SceneIntro::Start() {
 }
 
 Update_Status SceneIntro::Update() {
+	
+	bool button_press = false;
+	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
+		if (App->input->controllers[0].buttons[i] == KEY_DOWN)
+		{
+			button_press = true; break;
+		}
 
-
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || duration >= 500) 
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || duration >= 500 || button_press)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 0);
 	}
