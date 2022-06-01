@@ -21,11 +21,11 @@ bool SceneIntro::Start()
 {
 	bool ret = true;
 	 
-	int posx = App->render->camera.x;
-	int posy = App->render->camera.y;
+	App->render->camera.x = 0;
+	App->render->camera.y = 0;
 
-  	bgTexture = App->textures->Load("Assets/img/sprites/title_map_large.png");
-	introAssets = App->textures->Load("Assets/img/sprites/intro_assets.png");
+  	bgTexture = App->textures->Load("Assets/Sprites/title_map_large.png");
+	introAssets = App->textures->Load("Assets/Sprites/intro_assets.png");
 
 	App->audio->PlayMusic("Assets/sounds/bgm/112.ogg", 1.0f);
 	duration = 0;
@@ -76,9 +76,6 @@ bool SceneIntro::Start()
 	boatAnim.loop = true;
 	boatAnim.speed = 0.1f;
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
-
 	assetsPoint[0] = &boat;
 	assetsPoint[1] = &playerMini;
 	assetsPoint[2] = &bombs[0];
@@ -108,25 +105,26 @@ bool SceneIntro::Start()
 	assetsAnim[11] = planesAnim;
 	assetsAnim[12] = planesAnim;
 
-	boat.x = (SCREEN_WIDTH / 2) - 8;
-	boat.y = (SCREEN_HEIGHT / 2) + 64;
+	int value = App->render->GetWindowSize().x / 2;
+	boat.x = App->render->GetCameraCenterX() - 8;
+	boat.y = App->render->GetCameraCenterY() + 64;
 
-	planes[0].x = (SCREEN_WIDTH / 2) - 64;
+	planes[0].x = App->render->GetCameraCenterX() - 64;
 	planes[0].y = SCREEN_HEIGHT + 96;
-	planes[1].x = 0 - 32;
+	planes[1].x = App->render->GetCameraCenterX() - 140;
 	planes[1].y = SCREEN_HEIGHT + 128 + 96;
-	planes[2].x = SCREEN_WIDTH - 96;
+	planes[2].x = App->render->GetCameraCenterX() +8 ;
 	planes[2].y = SCREEN_HEIGHT + 128 + 96;
 
 	playerMini.x = -32;
-	bombs[0].x = SCREEN_WIDTH;
-	bombs[1].x = -32;
-	bombs[2].x = SCREEN_WIDTH;
-	bombs[3].x = -32;
-	bombs[4].x = SCREEN_WIDTH;
-	bombs[5].x = -32;
-	bombs[6].x = SCREEN_WIDTH;
-	bombs[7].x = -32;
+	bombs[0].x = App->render->GetCameraCenterX();
+	//bombs[1].x = -32;
+	bombs[2].x = App->render->GetCameraCenterX();
+	//bombs[3].x = -32;
+	bombs[4].x = App->render->GetCameraCenterX();
+	//bombs[5].x = -32;
+	bombs[6].x = App->render->GetCameraCenterX();
+	//bombs[7].x = -32;
 
 
 	return ret;
@@ -151,10 +149,10 @@ Update_Status SceneIntro::Update() {
 	}
 
 	if (duration < 360) {
-		App->render->camera.y -= 2 * SCREEN_SIZE;
+		App->render->camera.y -= 4 * SCREEN_SIZE;
 	}
 	if (duration < 400 && duration >= 360) {
-		App->render->camera.y -= 1 * SCREEN_SIZE;
+		App->render->camera.y -= 2 * SCREEN_SIZE;
 	}
 	if (duration < 360) {
 		boat.y -= 4;
@@ -246,8 +244,9 @@ Update_Status SceneIntro::Update() {
 }
 
 // Update: draw background
-Update_Status SceneIntro::PostUpdate() {
-	App->render->Blit(bgTexture, 0, SCREEN_HEIGHT - 1904, NULL);
+Update_Status SceneIntro::PostUpdate() 
+{
+	App->render->Blit(bgTexture, App->render->GetCameraCenterX() -112, SCREEN_HEIGHT - 1904, NULL);
 
 	for (int i = 0; i < MAX_ASSETS_TITLE; ++i) {
 		SDL_Rect rect = assetsAnim[i].GetCurrentFrame();
