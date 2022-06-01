@@ -15,14 +15,14 @@ bool ModuleInput::Init()
 	bool ret = true;
 	SDL_Init(0);
 
-	if(SDL_InitSubSystem(SDL_INIT_EVENTS) < 0)
+	if(SDL_InitSubSystem(SDL_INIT_EVENTS | SDL_INIT_GAMECONTROLLER | SDL_INIT_JOYSTICK) < 0)
 	{
 		LOG("SDL_EVENTS could not initialize! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
 
 	num_controllers = SDL_NumJoysticks();
-	for (int i = 0; i < num_controllers; ++i)
+   	for (int i = 0; i < num_controllers; ++i)
 		if (SDL_IsGameController(i))
 			sdl_controllers[i] = SDL_GameControllerOpen(i);
 	 /*Here we don't really have access to the controller

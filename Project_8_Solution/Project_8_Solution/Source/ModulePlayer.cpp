@@ -610,6 +610,14 @@ bool ModulePlayer::Start()
 	return ret;
 }
 
+float reduce_val(float v1, float min, float clamp_to) {
+	float sign = v1 / fabs(v1);
+	float reduced = v1 - ((fabs(v1) > min) ? sign * min : v1);
+	float to_1 = reduced / (float)(SDL_MAX_SINT16);
+	float reclamped = to_1 * clamp_to;
+	return reclamped;
+}
+
 Update_Status ModulePlayer::Update()    
 {
 	float fx = 0, fy = 0;
@@ -619,10 +627,10 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)	fx = -1;
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)	fx = 1;
 
-	//fx += reduce_val(App->input->controllers[0].j1_x, 3000, 2);
-	//fy += reduce_val(App->input->controllers[0].j1_y, 3000, 2);
-	//fx += reduce_val(App->input->controllers[0].j2_x, 3000, 2);
-	//fy += reduce_val(App->input->controllers[0].j2_y, 3000, 2);
+	fx += reduce_val(App->input->controllers[0].j1_x, 3000, 2);
+	fy += reduce_val(App->input->controllers[0].j1_y, 3000, 2);
+	fx += reduce_val(App->input->controllers[0].j2_x, 3000, 2);
+	fy += reduce_val(App->input->controllers[0].j2_y, 3000, 2);
 
 	// GAMEPAD: Triggers Count as axis, have specific values
 	if (App->input->controllers[0].LT > SDL_MAX_SINT16 / 2) {
@@ -720,7 +728,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 	//Granada
-	if (App->input->keys[SDL_SCANCODE_LALT] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_LALT] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A] == Key_State::KEY_DOWN)
 	{
 		if (totalGrenades == 0)
 		{
@@ -1214,7 +1222,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 	// Comprobaciones de la orientación para realizar los disparos 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_B] == Key_State::KEY_DOWN)
 	{
 		//La variable facing aumenta al rotar hacia la derecha (Como las agujas del reloj)
 		if (ammo_raligun > 0)
