@@ -633,10 +633,10 @@ Update_Status ModulePlayer::Update()
 {
 	float fx = 0, fy = 0;
 
-	fx += reduce_val(App->input->controllers[0].j1_x, 3000, 2);
-	fy += reduce_val(App->input->controllers[0].j1_y, 3000, 2);
-	fx += reduce_val(App->input->controllers[0].j2_x, 3000, 2);
-	fy += reduce_val(App->input->controllers[0].j2_y, 3000, 2);
+	fx += reduce_val(App->input->controllers[0].j1_x, 10000, 2);
+	fy += reduce_val(App->input->controllers[0].j1_y, 10000, 2);
+	fx += reduce_val(App->input->controllers[0].j2_x, 10000, 2);
+	fy += reduce_val(App->input->controllers[0].j2_y, 10000, 2);
 
 	// GAMEPAD: Triggers Count as axis, have specific values
 	if (App->input->controllers[0].LT > SDL_MAX_SINT16 / 2) {
@@ -883,7 +883,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_x < 3000 && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && immovable == false ||
+		App->input->controllers[0].j1_x < 0 && immovable == false)
 	{
 		position.x -= speed;
 		
@@ -981,7 +982,7 @@ Update_Status ModulePlayer::Update()
 	}
 	
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_x > 3000 && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_x > 0 && immovable == false)
 	{
 		position.x += speed;
 		
@@ -1077,7 +1078,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_y > 3000 && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_y > 0 && immovable == false)
 	{
 		position.y += speed;
 	
@@ -1173,7 +1174,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_y < 3000 && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_y < 0 && immovable == false)
 	{
 		position.y -= speed;
 
