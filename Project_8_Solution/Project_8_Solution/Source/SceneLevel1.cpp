@@ -48,7 +48,7 @@ bool SceneLevel1::Start()
 
 	//CREACION NPCs
 
-	//REHENES []
+	//REHENES [X]
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 140, 2805);
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 175, 2805);
 
@@ -70,6 +70,10 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 695, 600);
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 695, 535);
 
+	//REDSOLDIER []
+	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 213, 2610);
+	
+	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 400, 1400);
 
 	//Destruibles
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 129, 2936);
