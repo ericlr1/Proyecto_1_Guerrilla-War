@@ -633,11 +633,6 @@ Update_Status ModulePlayer::Update()
 {
 	float fx = 0, fy = 0;
 
-	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT)	fy = -1;
-	if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT)	fy = 1;
-	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)	fx = -1;
-	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)	fx = 1;
-
 	fx += reduce_val(App->input->controllers[0].j1_x, 3000, 2);
 	fy += reduce_val(App->input->controllers[0].j1_y, 3000, 2);
 	fx += reduce_val(App->input->controllers[0].j2_x, 3000, 2);
@@ -888,7 +883,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_x < 3000 && immovable == false)
 	{
 		position.x -= speed;
 		
@@ -986,7 +981,7 @@ Update_Status ModulePlayer::Update()
 	}
 	
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_x > 3000 && immovable == false)
 	{
 		position.x += speed;
 		
@@ -1082,7 +1077,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_y > 3000 && immovable == false)
 	{
 		position.y += speed;
 	
@@ -1178,7 +1173,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && immovable == false || App->input->controllers[0].j1_y < 3000 && immovable == false)
 	{
 		position.y -= speed;
 
@@ -1276,7 +1271,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 	//Rotación del personaje Q y E
-	if (App->input->keys[SDL_SCANCODE_E] == Key_State::KEY_DOWN || App->input->controllers[0].RT == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_E] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_RIGHTSHOULDER] == Key_State::KEY_DOWN)
 	{
 		if (facing >= 0 && facing < 7)
 		{
@@ -1289,7 +1284,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_Q] == Key_State::KEY_DOWN || App->input->controllers[0].LT == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_Q] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_LEFTSHOULDER] == Key_State::KEY_DOWN)
 	{
 		if (facing > 0 && facing <= 7)
 		{
