@@ -31,12 +31,12 @@ Application::Application()
 	modules[1] =	input =			new ModuleInput(true);
 	modules[2] =	textures =		new ModuleTextures(true);
 	modules[3] =	audio =			new ModuleAudio(true);
-	modules[4] =    collisions = new ModuleCollisions(true);
 
-	modules[5] =	UI =			new ModuleUI(false);		//UI
+	modules[4] =	UI =			new ModuleUI(false);		//UI
 
-	modules[6] =	sceneIntro =	new SceneIntro(false);
-	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
+	modules[5] =	sceneIntro =	new SceneIntro(false);
+	modules[6] =	sceneLevel_1 =	new SceneLevel1(false);
+	modules[7] =	collisions =	new ModuleCollisions(true);//Gameplay scene starts disabled
 	modules[8] =	sceneLose =		new SceneLose(false);
 	modules[9] =	sceneLogo =		new SceneLogo(true);
 	modules[10] =   enemies =       new ModuleEnemies(false);	//Player starts disabled

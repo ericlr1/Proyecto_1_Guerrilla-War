@@ -370,47 +370,48 @@ void ModuleCollisions::DebugDraw()
 			break;
 
 			case Collider::Type::HOSTAGE: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 0, 255, 20, alpha);
-				break;
+			App->render->DrawQuad(colliders[i]->rect, 0, 255, 20, alpha);
+			break;
 
 			case Collider::Type::WIN: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 0, 255, 100, alpha);
-				break;
+			App->render->DrawQuad(colliders[i]->rect, 0, 255, 100, alpha);
+			break;
 
 			case Collider::Type::DESTRUIBLE: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
-				break;
-
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			break;
 
 			case Collider::Type::RESPAWN_1: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
-				break;
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			break;
+
 			case Collider::Type::RESPAWN_2: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
-				break;
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			break;
+
 			case Collider::Type::RESPAWN_3: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
-				break;
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			break;
+
 			case Collider::Type::RESPAWN_4: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
-				break;
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			break;
+
 			case Collider::Type::RESPAWN_5: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			break;
 
 			case Collider::Type::EXPLOSION: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 255, 0, 50, alpha);
-
-				break;
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 50, alpha);
+			break;
 		
 			case Collider::Type::RESET_ANIM_WATER: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
-
-				break;
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			break;
 
 			case Collider::Type::RESET_ANIM_TRENCH: // Lime
-				App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
-
-				break;
+			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
+			break;
 		}
 	}
 }
