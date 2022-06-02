@@ -55,10 +55,20 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 230, 2440);
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 195, 2440);
 
-	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 515, 2140);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 500, 2110);
 
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 490, 1940);
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 395, 1940);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 412, 1620);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 620, 1105);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 680, 835);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 710, 835);
+
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 695, 600);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 695, 535);
 
 
 	//Destruibles
