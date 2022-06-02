@@ -1430,7 +1430,9 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
+		&& reduce_val(App->input->controllers[0].j1_x, 10000, 2) == 0
+		&& reduce_val(App->input->controllers[0].j1_y, 10000, 2) == 0)
 	{
 		if (walk_trench == true)
 		{
