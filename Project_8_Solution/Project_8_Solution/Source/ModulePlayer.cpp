@@ -883,7 +883,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && immovable == false /*|| App->input->controllers[0].j1_x < 0 && immovable == false*/)
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && immovable == false 
+		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0 && immovable == false)
 	{
 		position.x -= speed;
 		
@@ -981,7 +982,8 @@ Update_Status ModulePlayer::Update()
 	}
 	
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && immovable == false /*|| App->input->controllers[0].j1_x > 0 && immovable == false*/)
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && immovable == false 
+		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0 && immovable == false)
 	{
 		position.x += speed;
 		
@@ -1077,7 +1079,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && immovable == false /*|| App->input->controllers[0].j1_y > 0 && immovable == false*/)
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && immovable == false 
+		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && immovable == false)
 	{
 		position.y += speed;
 	
@@ -1173,7 +1176,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && immovable == false /*|| App->input->controllers[0].j1_y < 0 && immovable == false*/)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && immovable == false 
+		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && immovable == false)
 	{
 		position.y -= speed;
 

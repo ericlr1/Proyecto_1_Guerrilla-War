@@ -40,7 +40,8 @@ public:
 	// Called on application start.
 	// Initializes the SDL system for input detection
 	bool Init() override;
-
+	
+	float reduce_val();
 	// Called at the beginning of the application loop
 	// Updates all input data received from SDL
 	Update_Status PreUpdate() override;
