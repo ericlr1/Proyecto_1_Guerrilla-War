@@ -65,6 +65,8 @@ public:
 	//Body
 	Animation deadAnim, deadfootAnim;											//Muerte Player
 
+	Animation invisibleAnim, invisibleUpAnim;									//Invisible para cuando mueres
+
 	Animation idleupAnim, idleupfootAnim;										//Quieto-Arriba
 	Animation idledownAnim, idledownfootAnim;									//Quieto-Abajo
 	Animation idlerightAnim, idlerightfootAnim;									//Quieto-Derecha
@@ -149,6 +151,23 @@ public:
 	//God mode
 	bool godMode = false;
 	bool shortcuts = false;
+
+	// A flag to detect when the player has been killed
+	bool dead = false;
+
+	// Countdowns
+	int deathCooldown = 0;
+	int invincibleCooldown = 0;
+	int continueCooldown = 9;
+
+	// Spawn point where it needs to spawn
+	int spawnPoint;
+
+	// Variable to calculate seconds
+	int t1 = 0;
+
+	// Flag to prevent the player from moving
+	bool immovable = false;
 
 	//Delay chispa
 	int delayChispa;

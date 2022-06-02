@@ -26,6 +26,11 @@
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
+	//Invisible
+	invisibleAnim.PushBack({-32, 0, 32, 32});
+
+	invisibleUpAnim.PushBack({-32, 0, 32, 32});
+
 	// -IDLE-		[x]
 	//_Body
 	idleupAnim.PushBack({ 64, 0, 32, 32 });
@@ -523,7 +528,13 @@ bool ModulePlayer::Start()
 	App->UI->uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
 	App->UI->iconoRailgun = App->textures->Load("Assets/Sprites/pistolaUI.png"); //Raligun
 	
-	
+	//Spawn point
+	spawnPoint = -INT_MAX;
+	t1 = SDL_GetTicks();
+	continueCooldown = 9;
+	deathCooldown = 0;
+	invincibleCooldown = 0;
+
 	//UI 
 
 	//Reset de la score
@@ -787,6 +798,7 @@ Update_Status ModulePlayer::Update()
 		shortcuts = !shortcuts;
 	}
 
+	//Spawning enemies menu
 	if (shortcuts == true)
 	{
 		if (App->input->keys[SDL_SCANCODE_F9] == Key_State::KEY_DOWN)
@@ -810,8 +822,68 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 	
+	// If the player is dead
+	if (dead) {
+		godMode = true;
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+		deathCooldown++;
+
+		if (deathCooldown >= DEATH_ANIM_DURATION) {
+
+			if (lives == 0) {
+
+
+				int t2 = SDL_GetTicks();
+				if ((t2 - t1) / 1000.0f >= 1) {
+					continueCooldown--;
+					t1 = t2;
+				}
+
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+					lives = 3;
+					continueCooldown = 9;
+				}
+
+				if (continueCooldown == 0)
+					App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 0);
+
+			}
+			else {
+
+				facing = 0;
+
+				dead = false;
+				totalGrenades = 50;
+
+				spawnPoint = this->position.y;
+				this->position.y += 150;
+				
+				ammo_raligun = 0;
+
+				immovable = true;
+			}
+		}
+	}
+
+	// Invincible frames
+	if (lives != 0) {
+		if (deathCooldown >= DEATH_ANIM_DURATION) {
+			invincibleCooldown++;
+			if (spawnPoint < this->position.y) {
+				this->position.y--;
+			}
+			if (invincibleCooldown >= INVINCIBLE_DURATION) {
+				godMode = false;
+				deathCooldown = 0;
+				invincibleCooldown = 0;
+			}
+		}
+		else {
+			immovable = false;
+		}
+	}
+
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && immovable == false)
 	{
 		position.x -= speed;
 		
@@ -909,7 +981,7 @@ Update_Status ModulePlayer::Update()
 	}
 	
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && immovable == false)
 	{
 		position.x += speed;
 		
@@ -1005,7 +1077,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && immovable == false)
 	{
 		position.y += speed;
 	
@@ -1101,7 +1173,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && immovable == false)
 	{
 		position.y -= speed;
 
@@ -1866,6 +1938,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (godMode == false)
 		{
+			dead = true;
+			currentAnimation = &invisibleAnim;
+			currentAnimation2 = &invisibleUpAnim;
 			lives--;
 			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
 			if (lives == 3 || lives == 6)

@@ -30,6 +30,10 @@ typedef unsigned int uint;
 #define WIN_RESIZABLE 1
 #define VSYNC 1
 
+// Gameplay variables
+#define DEATH_ANIM_DURATION 185
+#define INVINCIBLE_DURATION 150
+
 #define DEGTORAD 0.0174532925199432957f
 #define RADTODEG 57.295779513082320876f
 #define PI       3.1415926535897932384f
