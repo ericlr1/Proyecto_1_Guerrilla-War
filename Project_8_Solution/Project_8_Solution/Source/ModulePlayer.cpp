@@ -787,20 +787,29 @@ Update_Status ModulePlayer::Update()
 		shortcuts = !shortcuts;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F9] == Key_State::KEY_DOWN)
+	if (shortcuts == true)
 	{
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, position.x, position.y - 100);
-	}
+		if (App->input->keys[SDL_SCANCODE_F9] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, position.x, position.y - 100);
+		}
 
-	if (App->input->keys[SDL_SCANCODE_F10] == Key_State::KEY_DOWN)
-	{
-		App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, position.x, position.y - 100);
-	}
+		if (App->input->keys[SDL_SCANCODE_F10] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, position.x, position.y - 100);
+		}
 
-	if (App->input->keys[SDL_SCANCODE_F11] == Key_State::KEY_DOWN)
-	{
-		App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, position.x, position.y - 100);
+		if (App->input->keys[SDL_SCANCODE_F11] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, position.x, position.y - 100);
+		}
+
+		if (App->input->keys[SDL_SCANCODE_H] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::HOSTAGE, position.x, position.y - 100);
+		}
 	}
+	
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
@@ -1216,10 +1225,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_H] == Key_State::KEY_DOWN)
-	{
-		SDL_SetWindowFullscreen((SDL_Window*) App->render->renderer, SDL_WINDOW_FULLSCREEN_DESKTOP);
-	}
+	
 
 	// Comprobaciones de la orientación para realizar los disparos 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_B] == Key_State::KEY_DOWN)
