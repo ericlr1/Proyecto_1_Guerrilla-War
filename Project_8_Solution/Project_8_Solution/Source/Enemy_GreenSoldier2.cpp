@@ -21,22 +21,21 @@ Enemy_GreenSoldier2::Enemy_GreenSoldier2(int x, int y) : Enemy(x, y)
 
 	idleAnim.PushBack({ 448, 0, 32, 64});
 
-	upAnim.PushBack({ 192, 384, 32, 64});
-	upAnim.PushBack({ 192, 416, 32, 64});
-	upAnim.PushBack({ 192, 448, 32, 64});
-	upAnim.PushBack({ 192, 416, 32, 64});
-	upAnim.PushBack({ 192, 384, 32, 64});
-	upAnim.PushBack({ 128, 480, 32, 64});
-	upAnim.PushBack({ 128, 448, 32, 64});
-	upAnim.PushBack({ 128, 480, 32, 64});
-	upAnim.PushBack({ 192, 384, 32, 64 });
+	upAnim.PushBack({ 384, 192, 32, 64});
+	upAnim.PushBack({ 416, 192, 32, 64});
+	upAnim.PushBack({ 448, 192,  32, 64});
+	upAnim.PushBack({ 416, 192,  32, 64});
+	upAnim.PushBack({ 384, 192,  32, 64});
+	upAnim.PushBack({ 448, 128,  32, 64});
+	upAnim.PushBack({ 384, 192,  32, 64 });
 	upAnim.speed = 0.15;
 	upAnim.pingpong = true;
 
 
-	path.PushBack({ 0, -1.0f }, 50, &downAnim);
+	path.PushBack({ 0, 1.0f }, 100, &downAnim);
 	path.PushBack({ 0, 0 }, 50, &idleAnim);
-	path.PushBack({ 0, 1.0f }, 50, &upAnim);
+	path.PushBack({ 0, -1.0f }, 100, &upAnim);
+	path.PushBack({ 0, 0 }, 50, &idleAnim);
 
 
 	collider = App->collisions->AddCollider({ 0, 0, 36, 72 }, Collider::Type::ENEMY, (Module*)App->enemies);
@@ -54,13 +53,13 @@ void Enemy_GreenSoldier2::Update()
 
 void Enemy_GreenSoldier2::Shoot()
 {
-	if (attackTimer >= 44)
+	/*if (attackTimer >= 44)
 	{
 		App->particles->AddParticle(App->particles->enemyBullet, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
 		attackTimer = 0;
 	}
 
-	attackTimer++;
+	attackTimer++;*/
 }
 
 void Enemy_GreenSoldier2::OnCollision(Collider* collider)
