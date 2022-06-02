@@ -28,8 +28,9 @@ private:
 	Path path;
 
 	// Enemy animations
-	Animation topAnim;
-	Animation botAnim;
+	Animation downAnim;
+	Animation upAnim;
+	Animation idleAnim;
 };
 
 #endif // __ENEMY_GREENSOILDER_H__

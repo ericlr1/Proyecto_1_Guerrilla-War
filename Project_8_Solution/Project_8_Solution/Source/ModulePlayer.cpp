@@ -816,6 +816,11 @@ Update_Status ModulePlayer::Update()
 			App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, position.x, position.y - 100);
 		}
 
+		if (App->input->keys[SDL_SCANCODE_F12] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, position.x, position.y - 100);		//Tackler
+		}
+
 		if (App->input->keys[SDL_SCANCODE_H] == Key_State::KEY_DOWN)
 		{
 			App->enemies->AddEnemy(Enemy_Type::HOSTAGE, position.x, position.y - 100);
@@ -1760,7 +1765,8 @@ Update_Status ModulePlayer::PostUpdate()
 			App->fonts->BlitText(10, 200, scoreFont, "F9.GREEN.SOILDER");
 			App->fonts->BlitText(10, 210, scoreFont, "F10.TRIPLESHOT");
 			App->fonts->BlitText(10, 220, scoreFont, "F11.RED.SOILDER");
-			App->fonts->BlitText(10, 230, scoreFont, "H.HOSTAGE");
+			App->fonts->BlitText(10, 230, scoreFont, "F12.TACKLER");	//Green Soilder 2
+			App->fonts->BlitText(10, 240, scoreFont, "H.HOSTAGE");
 		}
 
 		App->fonts->BlitText(10, 290, scoreFont, "COINS");
@@ -1939,6 +1945,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (godMode == false)
 		{
 			dead = true;
+			immovable = true;
 			currentAnimation = &invisibleAnim;
 			currentAnimation2 = &invisibleUpAnim;
 			lives--;
