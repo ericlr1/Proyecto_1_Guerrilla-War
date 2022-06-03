@@ -294,7 +294,7 @@ bool ModuleParticles::Start()
 	enemyBulletDRcustom.lifetime = 40;
 	enemyBulletDRcustom.anim.speed = 0.3f;
 
-	//Grenade animation
+	//Grenade animation - player
 	grenade.anim.PushBack({ 0, 160, 16, 16});
 	grenade.anim.PushBack({ 16, 160, 16, 16});
 	grenade.anim.PushBack({ 32, 160, 16, 16});
@@ -313,7 +313,7 @@ bool ModuleParticles::Start()
 	grenade.lifetime = 50;
 	grenade.explodes = true;
 
-
+	//Grenade explosion - player
 	grenadeExplosion.anim.PushBack({ 0, 300, 64, 64 });
 	grenadeExplosion.anim.PushBack({ 64, 300, 64, 64 });
 	grenadeExplosion.anim.PushBack({ 128, 300, 64, 64 });
@@ -323,6 +323,38 @@ bool ModuleParticles::Start()
 	grenadeExplosion.anim.speed = 0.2f;
 	grenadeExplosion.anim.loop = false;
 	grenadeExplosion.isExplosion = true;
+
+
+	//Grenade animation - enemy
+	enemygrenade.anim.PushBack({ 0, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 16, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 32, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 64, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 80, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 96, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 112, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 128, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 144, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 160, 160, 16, 16 });
+	enemygrenade.anim.PushBack({ 176, 160, 16, 16 });
+	//grenade.anim.PushBack({ 192, 160, 16, 16});
+	enemygrenade.speed.y = -1;
+
+	enemygrenade.anim.speed = 0.2f;
+	enemygrenade.lifetime = 50;
+	enemygrenade.explodes = true;
+
+	//Grenade explosion - enemy
+	enemygrenadeExplosion.anim.PushBack({ 0, 300, 64, 64 });
+	enemygrenadeExplosion.anim.PushBack({ 64, 300, 64, 64 });
+	enemygrenadeExplosion.anim.PushBack({ 128, 300, 64, 64 });
+	enemygrenadeExplosion.anim.PushBack({ 192, 300, 64, 64 });
+	enemygrenadeExplosion.anim.PushBack({ 256, 300, 64, 64 });
+	enemygrenadeExplosion.anim.PushBack({ 320, 300, 64, 64 });
+
+	enemygrenadeExplosion.anim.speed = 0.2f;
+	enemygrenadeExplosion.anim.loop = false;
+	enemygrenadeExplosion.isExplosion = true;
 	
 
 	mas1000.anim.PushBack({ 354, 8, 38, 8});

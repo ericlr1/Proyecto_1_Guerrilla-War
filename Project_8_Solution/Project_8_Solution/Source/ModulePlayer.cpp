@@ -1986,6 +1986,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 
+	
 	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
 	{
 		ammo_raligun = 50;

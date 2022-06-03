@@ -71,15 +71,15 @@ void Enemy_Grenades::Shoot()
 
 	if (angleDegrees >= 70 && angleDegrees <= 110)
 	{
-		App->particles->grenade.speed.x = 0;
-		App->particles->grenade.speed.y = 1;
-		App->particles->AddParticle(App->particles->grenade, position.x + 10, position.y + 35, Collider::Type::NONE);
+		App->particles->enemygrenade.speed.x = 0;
+		App->particles->enemygrenade.speed.y = 1;
+		App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
 	}
 	if (angleDegrees >= 110 && angleDegrees <= 150)
 	{
 		App->particles->grenade.speed.x = -1;
 		App->particles->grenade.speed.y = 1;
-		App->particles->AddParticle(App->particles->grenade, position.x + 10, position.y + 35, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
 	}
 	attackTimer = 0;
 }

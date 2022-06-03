@@ -47,7 +47,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::BODY][Collider::Type::HOSTAGE] = true;
 	matrix[Collider::Type::BODY][Collider::Type::RALIGUN] = true;
 	matrix[Collider::Type::BODY][Collider::Type::RALIGUN_SHOOT] = false;
-	matrix[Collider::Type::BODY][Collider::Type::EXPLOSION] = false;
+	matrix[Collider::Type::BODY][Collider::Type::EXPLOSION] = true;
 	matrix[Collider::Type::BODY][Collider::Type::DESTRUIBLE] = false;
 	matrix[Collider::Type::BODY][Collider::Type::RESET_ANIM_TRENCH] = false;
 	matrix[Collider::Type::BODY][Collider::Type::RESET_ANIM_WATER] = false;
