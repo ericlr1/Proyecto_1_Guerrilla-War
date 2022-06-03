@@ -13,16 +13,29 @@
 Enemy_Grenades::Enemy_Grenades(int x, int y) : Enemy(x, y)
 {
 
-	idleAnim.PushBack({ 0, 994, 32, 64 });
-	idleAnim.PushBack({ 32, 994, 32, 64 });
-	idleAnim.PushBack({ 64, 994, 32, 64 });
-	idleAnim.PushBack({ 96, 994, 32, 64 });
+
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 0, 510, 32, 64 });
+	idleAnim.PushBack({ 32, 510, 32, 64 });
+	idleAnim.PushBack({ 64, 510, 32, 64 });
+
 	idleAnim.loop = true;
-	idleAnim.speed = 0.15f;
+	idleAnim.speed = 0.088f;
 	idleAnim.pingpong = false;
 
 
-
+	attackTimer = 30;
 
 	//collider = App->collisions->AddCollider({100, 0, 30, 55}, Collider::Type::ENEMY, (Module*)App->enemies);
 
@@ -60,7 +73,7 @@ void Enemy_Grenades::Shoot()
 
 	LOG("%f", angleDegrees);
 
-	if (attackTimer < 100)
+	if (attackTimer < 175)
 	{
 		attackTimer++;
 		return;
