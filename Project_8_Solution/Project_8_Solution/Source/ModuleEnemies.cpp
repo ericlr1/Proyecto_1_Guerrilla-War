@@ -14,6 +14,7 @@
 #include "Enemy_RedSoldier.h"
 #include "Enemy_Hostage.h"
 #include "Enemy_TripleShot.h"
+#include "Enemy_Grenades.h"
 
 #define SPAWN_MARGIN 50
 
@@ -166,8 +167,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 			case Enemy_Type::TRIPLESHOT:
 				enemies[i] = new Enemy_TripleShot(info.x, info.y);
 				break;
-				//	idleAnim.PushBack({ 416, 64, 32, 64 });
-
+			case Enemy_Type::GRENADER:
+				enemies[i] = new Enemy_Grenades(info.x, info.y);
+				break;
 			}
 			enemies[i]->texture = texture;
 			enemies[i]->destroyedFx = enemyDestroyedFx;

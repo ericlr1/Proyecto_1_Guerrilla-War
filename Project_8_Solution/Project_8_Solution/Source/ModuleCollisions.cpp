@@ -267,7 +267,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 
 	matrix[Collider::Type::EXPLOSION][Collider::Type::WALL] = false;
-	matrix[Collider::Type::EXPLOSION][Collider::Type::BODY] = false;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::BODY] = true;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::FOOT] = true;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::PLAYER_SHOT] = false;

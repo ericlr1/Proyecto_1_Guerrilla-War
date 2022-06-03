@@ -13,6 +13,7 @@ enum class Enemy_Type
 	REDSOLDIER,
 	HOSTAGE,
 	TRIPLESHOT,
+	GRENADER,
 };
 
 struct EnemySpawnpoint

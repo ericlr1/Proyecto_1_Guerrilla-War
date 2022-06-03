@@ -726,7 +726,7 @@ Update_Status ModulePlayer::Update()
 		//destroyed = true;
 	}
 
-	//Auto win
+	//Auto win //Creo que está mal
 	if (App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
@@ -819,6 +819,11 @@ Update_Status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_H] == Key_State::KEY_DOWN)
 		{
 			App->enemies->AddEnemy(Enemy_Type::HOSTAGE, position.x, position.y - 100);
+		}
+
+		if (App->input->keys[SDL_SCANCODE_G] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::GRENADER, position.x, position.y - 100);
 		}
 	}
 	
@@ -1768,6 +1773,7 @@ Update_Status ModulePlayer::PostUpdate()
 			App->fonts->BlitText(10, 220, scoreFont, "F11.RED.SOILDER");
 			App->fonts->BlitText(10, 230, scoreFont, "F8.TACKLER.WIP");	//Green Soilder 2
 			App->fonts->BlitText(10, 240, scoreFont, "H.HOSTAGE");
+			App->fonts->BlitText(10, 250, scoreFont, "G.GRENADER");
 		}
 
 		App->fonts->BlitText(10, 290, scoreFont, "COINS");
@@ -1925,17 +1931,39 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		walk_trench = false;
 	}
+	
+	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::EXPLOSION)
+	{
+		if (godMode == false)
+		{
+			dead = true;
+			immovable = true;
+			currentAnimation = &invisibleAnim;
+			currentAnimation2 = &invisibleUpAnim;
+			lives--;
+			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
+			if (lives == 3 || lives == 6)
+			{
+				coins--;
+			}
+		}
+
+	}
+
 	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::ENEMY)
 	{
 		if (godMode == false)
 		{
-			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
+			dead = true;
+			immovable = true;
+			currentAnimation = &invisibleAnim;
+			currentAnimation2 = &invisibleUpAnim;
 			lives--;
-			if (lives % 3 == 0)
+			App->particles->AddParticle(App->particles->dead, position.x, position.y, Collider::Type::NONE);
+			if (lives == 3 || lives == 6)
 			{
 				coins--;
 			}
-
 		}
 
 	}
