@@ -13,13 +13,10 @@
 Enemy_Grenades::Enemy_Grenades(int x, int y) : Enemy(x, y)
 {
 
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 416, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 416, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 0, 994, 32, 64 });
+	idleAnim.PushBack({ 32, 994, 32, 64 });
+	idleAnim.PushBack({ 64, 994, 32, 64 });
+	idleAnim.PushBack({ 96, 994, 32, 64 });
 	idleAnim.loop = true;
 	idleAnim.speed = 0.15f;
 	idleAnim.pingpong = false;
