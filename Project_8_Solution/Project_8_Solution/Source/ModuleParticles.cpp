@@ -64,6 +64,26 @@ bool ModuleParticles::Start()
 	GreenSoilderDeath.anim.pingpong = false;
 	GreenSoilderDeath.speed.y = -1;
 
+	//Enemigo rojo muerte 
+	RedSoilderDeath.anim.PushBack({ 0, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 32, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 64, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 96, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 128, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 160, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 192, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 224, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 256, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 288, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 320, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 352, 635, 32, 64 });
+	RedSoilderDeath.anim.PushBack({ 384, 635, 32, 64 });
+
+	RedSoilderDeath.anim.loop = false;
+	RedSoilderDeath.anim.speed = 0.15f;
+	RedSoilderDeath.anim.pingpong = false;
+	RedSoilderDeath.speed.y = -1;
+
 	//Hostage Celebrating
 	HostageCelebrating.anim.PushBack({ 0, 500, 32, 57});
 	HostageCelebrating.anim.PushBack({ 32, 500, 32, 57});

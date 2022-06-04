@@ -85,7 +85,7 @@ void Enemy_RedSoldier::OnCollision(Collider* collider)
 	{
 		currentAnim = &death;
 		App->player->score += 100;
-		App->particles->AddParticle(App->particles->GreenSoilderDeath, position.x, position.y, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->RedSoilderDeath, position.x, position.y, Collider::Type::NONE);
 	}
 
 
