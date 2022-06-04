@@ -828,7 +828,7 @@ Update_Status ModulePlayer::Update()
 	}
 	
 	// If the player is dead
-	if (dead) {
+	if (dead == true) {
 		godMode = true;
 
 		deathCooldown++;
@@ -888,8 +888,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && immovable == false 
-		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0 && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && dead == false && immovable == false
+		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0 && dead == false && immovable == false)
 	{
 		position.x -= speed;
 		
@@ -987,8 +987,8 @@ Update_Status ModulePlayer::Update()
 	}
 	
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && immovable == false 
-		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0 && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && dead == false && immovable == false
+		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0 && dead == false && immovable == false)
 	{
 		position.x += speed;
 		
@@ -1084,8 +1084,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && immovable == false 
-		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && dead == false && immovable == false
+		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && dead == false && immovable == false)
 	{
 		position.y += speed;
 	
@@ -1181,8 +1181,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && immovable == false 
-		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && dead == false && immovable == false
+		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && dead == false && immovable == false)
 	{
 		position.y -= speed;
 
@@ -1695,10 +1695,22 @@ Update_Status ModulePlayer::PostUpdate()
 {
 	if (!destroyed)
 	{
-		SDL_Rect rect = currentAnimation->GetCurrentFrame();
-		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
-		SDL_Rect rect3 = currentAnimation3->GetCurrentFrame();
+		SDL_Rect rect;
+		SDL_Rect rect2; 
+		SDL_Rect rect3; 
 
+		if (dead == false)
+		{
+			rect = currentAnimation->GetCurrentFrame();
+			rect2 = currentAnimation2->GetCurrentFrame();
+			rect3 = currentAnimation3->GetCurrentFrame();
+		}
+		else
+		{
+			rect = invisibleAnim.GetCurrentFrame();
+			rect2 = invisibleAnim.GetCurrentFrame();
+			rect3 = invisibleAnim.GetCurrentFrame();
+		}
 		
 
 		if (ammo_raligun <= 0)
@@ -1936,8 +1948,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (godMode == false)
 		{
-			dead = true;
-			immovable = true;
+			this->dead = true;
+			this->immovable = true;
 			currentAnimation = &invisibleAnim;
 			currentAnimation2 = &invisibleUpAnim;
 			lives--;
@@ -1954,8 +1966,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (godMode == false)
 		{
-			dead = true;
-			immovable = true;
+			this->dead = true;
+			this->immovable = true;
 			currentAnimation = &invisibleAnim;
 			currentAnimation2 = &invisibleUpAnim;
 			lives--;
@@ -1973,8 +1985,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (godMode == false)
 		{
-			dead = true;
-			immovable = true;
+			this->dead = true;
+			this->immovable = true;
 			currentAnimation = &invisibleAnim;
 			currentAnimation2 = &invisibleUpAnim;
 			lives--;
