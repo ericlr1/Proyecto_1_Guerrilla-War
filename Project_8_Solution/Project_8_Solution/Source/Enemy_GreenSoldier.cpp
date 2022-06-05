@@ -70,7 +70,7 @@ void Enemy_GreenSoldier::Shoot()
 		return;
 	}
 
-	if (-App->player->position.y + this->position.y > 100)
+	if (+App->player->position.y - this->position.y < 300)
 	{
 
 
