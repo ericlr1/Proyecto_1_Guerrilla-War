@@ -57,6 +57,7 @@ void Enemy_TripleShot::Shoot()
 {
 	if (attackTimer >= 55)
 	{
+		App->audio->PlayFx(App->player->shotFx);
 		App->particles->AddParticle(App->particles->enemyBullet, position.x + 13, position.y + 32, Collider::Type::ENEMY_SHOT);
 		App->particles->AddParticle(App->particles->enemyBulletDLcustom, position.x + 13, position.y + 32, Collider::Type::ENEMY_SHOT);
 		App->particles->AddParticle(App->particles->enemyBulletDRcustom, position.x + 13, position.y + 32, Collider::Type::ENEMY_SHOT);
