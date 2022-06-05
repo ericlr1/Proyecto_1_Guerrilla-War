@@ -69,15 +69,19 @@ void Enemy_RedSoldier::Shoot()
 		return;
 	}
 
-	if (angleDegrees >= 70 && angleDegrees <= 110)
+	if (+App->player->position.y - this->position.y < 300)
 	{
-		App->audio->PlayFx(App->player->shotFx);
-		App->particles->AddParticle(App->particles->enemyBullet, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
-	}
-	if (angleDegrees >= 110 && angleDegrees <= 150)
-	{
-		App->audio->PlayFx(App->player->shotFx);
-		App->particles->AddParticle(App->particles->enemyBulletDL, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+
+		if (angleDegrees >= 70 && angleDegrees <= 110)
+		{
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->AddParticle(App->particles->enemyBullet, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+		}
+		if (angleDegrees >= 110 && angleDegrees <= 150)
+		{
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->AddParticle(App->particles->enemyBulletDL, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+		}
 	}
 	attackTimer = 0;
 }
