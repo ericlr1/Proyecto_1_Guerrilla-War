@@ -32,7 +32,7 @@ typedef unsigned int uint;
 
 // Gameplay variables
 #define DEATH_ANIM_DURATION 185
-#define INVINCIBLE_DURATION 150
+#define INVINCIBLE_DURATION 175
 
 // Scenes
 #define SCENE_DURATION 500
