@@ -841,6 +841,21 @@ Update_Status ModulePlayer::Update()
 		{
 			App->enemies->AddEnemy(Enemy_Type::GRENADER, position.x, position.y - 100);
 		}
+
+		if (App->input->keys[SDL_SCANCODE_B] == Key_State::KEY_DOWN)
+		{
+			App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, position.x, position.y - 100);
+		}
+
+		if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN)
+		{
+			App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, position.x, position.y - 100);
+		}
+
+		if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN)
+		{
+			App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, position.x, position.y - 100);
+		}
 	}
 	
 	// If the player is dead
@@ -1808,17 +1823,20 @@ Update_Status ModulePlayer::PostUpdate()
 
 		if (shortcuts == false)
 		{
-			App->fonts->BlitText(10, 200, scoreFont, "PRESS.T.FOR.SHORTCUTS");
+			App->fonts->BlitText(10, 180, scoreFont, "PRESS.T.FOR.SHORTCUTS");
 		}
 
 		if (shortcuts == true)
 		{
-			App->fonts->BlitText(10, 200, scoreFont, "F8.TACKLER");		//Green Soilder 2
-			App->fonts->BlitText(10, 210, scoreFont, "F10.TRIPLESHOT");
-			App->fonts->BlitText(10, 220, scoreFont, "F11.RED.SOILDER");
-			App->fonts->BlitText(10, 230, scoreFont, "F9.GREEN.SOILDER");	
-			App->fonts->BlitText(10, 240, scoreFont, "H.HOSTAGE");
-			App->fonts->BlitText(10, 250, scoreFont, "G.GRENADER");
+			App->fonts->BlitText(10, 180, scoreFont, "F8.TACKLER");		//Green Soilder 2
+			App->fonts->BlitText(10, 190, scoreFont, "F10.TRIPLESHOT");
+			App->fonts->BlitText(10, 200, scoreFont, "F11.RED.SOILDER");
+			App->fonts->BlitText(10, 210, scoreFont, "F9.GREEN.SOILDER");	
+			App->fonts->BlitText(10, 220, scoreFont, "H.HOSTAGE");
+			App->fonts->BlitText(10, 230, scoreFont, "G.GRENADER");
+			App->fonts->BlitText(10, 240, scoreFont, "B.HORIZONAL BARICADE");
+			App->fonts->BlitText(10, 250, scoreFont, "N.ROTATED BARICADE");
+			App->fonts->BlitText(10, 260, scoreFont, "M.SPIKES");
 		}
 
 		App->fonts->BlitText(10, 290, scoreFont, "COINS");
