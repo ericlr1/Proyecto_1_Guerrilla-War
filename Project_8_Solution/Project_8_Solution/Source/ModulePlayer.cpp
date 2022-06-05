@@ -904,8 +904,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && dead == false && immovable == false
-		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0 && dead == false && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT /*&& dead == false && immovable == false
+		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0 && dead == false && immovable == false*/)
 	{
 		position.x -= speed;
 		
@@ -1003,8 +1003,8 @@ Update_Status ModulePlayer::Update()
 	}
 	
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && dead == false && immovable == false
-		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0 && dead == false && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT /*&& dead == false && immovable == false
+		|| reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0 && dead == false && immovable == false*/)
 	{
 		position.x += speed;
 		
@@ -1100,8 +1100,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && dead == false && immovable == false
-		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && dead == false && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT /*&& dead == false && immovable == false
+		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && dead == false && immovable == false*/)
 	{
 		position.y += speed;
 	
@@ -1197,8 +1197,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && dead == false && immovable == false
-		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && dead == false && immovable == false)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT /*&& dead == false && immovable == false
+		|| reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && dead == false && immovable == false*/)
 	{
 		position.y -= speed;
 
@@ -1296,7 +1296,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 	//Rotación del personaje Q y E
-	if (App->input->keys[SDL_SCANCODE_E] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_RIGHTSHOULDER] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_E] == Key_State::KEY_DOWN/* || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_RIGHTSHOULDER] == Key_State::KEY_DOWN*/)
 	{
 		if (facing >= 0 && facing < 7)
 		{
@@ -1309,7 +1309,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_Q] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_LEFTSHOULDER] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_Q] == Key_State::KEY_DOWN /*|| App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_LEFTSHOULDER] == Key_State::KEY_DOWN*/)
 	{
 		if (facing > 0 && facing <= 7)
 		{
@@ -1325,7 +1325,7 @@ Update_Status ModulePlayer::Update()
 	
 
 	// Comprobaciones de la orientación para realizar los disparos 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_B] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN /*|| App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_B] == Key_State::KEY_DOWN*/)
 	{
 		//La variable facing aumenta al rotar hacia la derecha (Como las agujas del reloj)
 		if (ammo_raligun > 0)
@@ -1452,8 +1452,8 @@ Update_Status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-		&& reduce_val(App->input->controllers[0].j1_x, 10000, 2) == 0
-		&& reduce_val(App->input->controllers[0].j1_y, 10000, 2) == 0)
+		/*&& reduce_val(App->input->controllers[0].j1_x, 10000, 2) == 0
+		&& reduce_val(App->input->controllers[0].j1_y, 10000, 2) == 0*/)
 	{
 		if (walk_trench == true)
 		{
