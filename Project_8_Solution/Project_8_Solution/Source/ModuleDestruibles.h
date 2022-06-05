@@ -8,7 +8,8 @@ enum class Destruible_Type
 {
 	NO_TYPE,
 	BARRICADA_H,
-	BARRICADA_V
+	BARRICADA_V,
+	ESPINAS,
 };
 
 struct DestruibleSpawnpoint

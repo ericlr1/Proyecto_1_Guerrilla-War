@@ -132,6 +132,8 @@ bool SceneLevel1::Start()
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 571, 420);	
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 571, 450);
 
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS,  251, 3000);
+
 	//Destruibles Espinas
 
 	//Setting de la camera
