@@ -132,7 +132,19 @@ bool SceneLevel1::Start()
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 571, 420);	
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 571, 450);
 
-	App->destruibles->AddDestruible(Destruible_Type::ESPINAS,  251, 3000);
+	//Destructible Espinas
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 425, 2000);
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 455, 2000);
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 300, 1666);
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 328, 1666);
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 356, 1666);
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 384, 1666);
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 574, 1666);
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 546, 1666);
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 518, 1666);
+	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 490, 1666);
+
+
 
 	//Destruibles Espinas
 
