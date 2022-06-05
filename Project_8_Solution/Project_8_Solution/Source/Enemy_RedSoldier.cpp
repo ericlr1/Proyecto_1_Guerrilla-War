@@ -36,11 +36,14 @@ Enemy_RedSoldier::Enemy_RedSoldier(int x, int y) : Enemy(x, y)
 
 void Enemy_RedSoldier::Update()
 {
-	path.Update();
-	position = spawnPos + path.GetRelativePosition();
-	currentAnim = path.GetCurrentAnimation();
+	if (+App->player->position.y - this->position.y < 300)
+	{
+		path.Update();
+		position = spawnPos + path.GetRelativePosition();
+		currentAnim = path.GetCurrentAnimation();
 
-	Shoot();
+		Shoot();
+	}
 	Enemy::Update();
 }
 
