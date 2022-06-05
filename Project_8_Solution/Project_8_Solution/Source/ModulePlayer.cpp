@@ -861,7 +861,7 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN)
 		{
-			App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, position.x, position.y - 100);
+			App->destruibles->AddDestruible(Destruible_Type::ESPINAS, position.x, position.y - 100);
 		}
 	}
 	
