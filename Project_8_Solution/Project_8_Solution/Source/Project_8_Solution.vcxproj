@@ -110,6 +110,7 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="SceneLogo.h" />
     <ClInclude Include="SceneLose.h" />
+    <ClInclude Include="ScenePrevTitle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="SceneLogo.cpp" />
     <ClCompile Include="SceneLose.cpp" />
+    <ClCompile Include="ScenePrevTitle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

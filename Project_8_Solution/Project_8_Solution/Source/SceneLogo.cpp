@@ -43,7 +43,7 @@ Update_Status SceneLogo::Update()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || button_press)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
+		App->fade->FadeToBlack(this, (Module*)App->scenePrevTitle, 90);
 
 
 	}
