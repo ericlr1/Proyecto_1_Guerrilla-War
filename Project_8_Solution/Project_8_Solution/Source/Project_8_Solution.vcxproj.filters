@@ -137,6 +137,12 @@
     <ClInclude Include="Enemy_Grenades.h">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="Destruible_Barricada_Vertical.h">
+      <Filter>Source Files\Entities\Destruibles</Filter>
+    </ClInclude>
+    <ClInclude Include="Espinas.h">
+      <Filter>Source Files\Entities\Destruibles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -240,6 +246,12 @@
     </ClCompile>
     <ClCompile Include="Enemy_Grenades.cpp">
       <Filter>Source Files\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Destruible_Barricada_Vertical.cpp">
+      <Filter>Source Files\Entities\Destruibles</Filter>
+    </ClCompile>
+    <ClCompile Include="Destruible_Espinas.cpp">
+      <Filter>Source Files\Entities\Destruibles</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -146,12 +146,7 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 		{
 			switch (info.type)
 			{
-				/*case Enemy_Type::REDBIRD:
-					enemies[i] = new Enemy_RedBird(info.x, info.y);
-					break;
-				case Enemy_Type::BROWNSHIP:
-					enemies[i] = new Enemy_BrownShip(info.x, info.y);
-					break;*/
+			
 			case Enemy_Type::GREENSOLDIER:
 				enemies[i] = new Enemy_GreenSoldier(info.x, info.y);
 				break;

@@ -79,6 +79,7 @@
     <ClInclude Include="Destruible_Barricada_Horizontal.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Destruible.h" />
+    <ClInclude Include="Destruible_Barricada_Vertical.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_GreenSoldier.h" />
     <ClInclude Include="Enemy_GreenSoldier2.h" />
@@ -87,6 +88,7 @@
     <ClInclude Include="Enemy_RedSoldier.h" />
     <ClInclude Include="Enemy_TripleShot.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Espinas.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleCollisions.h" />
     <ClInclude Include="ModuleEnemies.h" />
@@ -115,6 +117,8 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Destruible_Barricada_Horizontal.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Destruible_Barricada_Vertical.cpp" />
+    <ClCompile Include="Destruible_Espinas.cpp" />
     <ClCompile Include="Destuirble.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_GreenSoldier.cpp" />
