@@ -139,6 +139,8 @@ public:
 	char grenadeNum[10] = { "\0" };
 	uint totalGrenades = 50;
 
+	//Continue countdown
+	char continueTimer[10] = { "\0" };
 
 	//Coins para jugar
 	int coins;

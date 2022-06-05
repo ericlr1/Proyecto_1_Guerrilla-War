@@ -16,6 +16,7 @@
 #include "SceneLevel1.h"
 #include "ModuleUI.h"
 #include "ModuleEnemies.h"
+#include "ModuleDestruibles.h"
 
 
 #include "SDL/include/SDL_scancode.h"
@@ -721,9 +722,13 @@ Update_Status ModulePlayer::Update()
 	//Auto kill
 	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
 		
-		//destroyed = true;
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+		App->player->Disable();
+		App->enemies->Disable();
+		App->destruibles->Disable();
+		App->collisions->Disable();
+		destroyed = true;
 	}
 
 	//Auto win //Creo que está mal
@@ -731,6 +736,10 @@ Update_Status ModulePlayer::Update()
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
 		destroyed = true;
+		App->player->Disable();
+		App->enemies->Disable();
+		App->destruibles->Disable();
+		App->collisions->Disable();
 	}
 
 	//Granada
@@ -850,7 +859,14 @@ Update_Status ModulePlayer::Update()
 				}
 
 				if (continueCooldown == 0)
+				{
 					App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 0);
+					App->player->Disable();
+					App->enemies->Disable();
+					App->destruibles->Disable();
+					App->collisions->Disable();
+				}
+					
 
 			}
 			else {
@@ -1741,6 +1757,16 @@ Update_Status ModulePlayer::PostUpdate()
 	sprintf_s(vidas, 10, "%d", lives);
 	sprintf_s(monedas, 10, "%d", coins);
 	sprintf_s(railgunBullets, 10, "%d", ammo_raligun);
+	sprintf_s(continueTimer, 10, "%d", continueCooldown);
+
+	if (lives == 0)
+	{
+		//Continue screen
+		App->fonts->BlitText(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2, scoreFont, continueTimer);
+		App->fonts->BlitText(SCREEN_WIDTH / 2 - 35, (SCREEN_HEIGHT / 2 )- 10, scoreFont, "CONTINUE IN");
+		App->fonts->BlitText(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2, scoreFont, "SECONDS");
+	}
+	
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
 	App->fonts->BlitText(20, 30, scoreFont, scoreText);
@@ -1780,10 +1806,10 @@ Update_Status ModulePlayer::PostUpdate()
 
 		if (shortcuts == true)
 		{
-			App->fonts->BlitText(10, 200, scoreFont, "F8.TACKLER");
+			App->fonts->BlitText(10, 200, scoreFont, "F8.TACKLER");		//Green Soilder 2
 			App->fonts->BlitText(10, 210, scoreFont, "F10.TRIPLESHOT");
 			App->fonts->BlitText(10, 220, scoreFont, "F11.RED.SOILDER");
-			App->fonts->BlitText(10, 230, scoreFont, "F9.GREEN.SOILDER");	//Green Soilder 2
+			App->fonts->BlitText(10, 230, scoreFont, "F9.GREEN.SOILDER");	
 			App->fonts->BlitText(10, 240, scoreFont, "H.HOSTAGE");
 			App->fonts->BlitText(10, 250, scoreFont, "G.GRENADER");
 		}
