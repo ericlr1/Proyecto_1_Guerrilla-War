@@ -75,7 +75,7 @@ bool SceneLevel1::Start()
 	
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 400, 1400);
 
-	//Destruibles
+	//Destruibles Horizontal
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 129, 2936);
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 158, 2936);
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 239, 2936);
@@ -122,6 +122,17 @@ bool SceneLevel1::Start()
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 571, 492);
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 658, 492);
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 735, 492);
+
+	//Destruible Vertical
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 450, 2050);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 490, 1238);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 490, 1238);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 650, 1125);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 650, 1154);
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 571, 420);	
+	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_V, 571, 450);
+
+	//Destruibles Espinas
 
 	//Setting de la camera
 

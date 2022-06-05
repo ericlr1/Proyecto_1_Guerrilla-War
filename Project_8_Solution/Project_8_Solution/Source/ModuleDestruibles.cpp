@@ -7,6 +7,9 @@
 #include "ModuleAudio.h"
 
 #include "Destruible.h"
+
+#include "Destruible_Barricada_Vertical.h"
+
 #include "Destruible_Barricada_Horizontal.h"
 
 #define SPAWN_MARGIN 50
@@ -137,12 +140,13 @@ void ModuleDestruibles::SpawnDestruible(const DestruibleSpawnpoint& info)
 		{
 			switch (info.type)
 			{
+				case Destruible_Type::BARRICADA_V:
+					destruibles[i] = new Destruible_Barricada_Vertical(info.x, info.y);
+					break;
 				case Destruible_Type::BARRICADA_H:
 					destruibles[i] = new Destruible_Barricada_Horizontal(info.x, info.y);
 					break;
 			}
-
-			destruibles[i]->destroyedFx = destruibleDestroyedFx;
 			break;
 		}
 	}

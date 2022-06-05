@@ -2,12 +2,13 @@
 #define __MODULE_DESTRUIBLE_H__
 #include "Module.h"
 
-#define MAX_DESTRUIBLES 100
+#define MAX_DESTRUIBLES 200
 
 enum class Destruible_Type
 {
 	NO_TYPE,
 	BARRICADA_H,
+	BARRICADA_V
 };
 
 struct DestruibleSpawnpoint
