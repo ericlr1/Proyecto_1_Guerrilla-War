@@ -1780,10 +1780,10 @@ Update_Status ModulePlayer::PostUpdate()
 
 		if (shortcuts == true)
 		{
-			App->fonts->BlitText(10, 200, scoreFont, "F9.GREEN.SOILDER");
+			App->fonts->BlitText(10, 200, scoreFont, "F8.TACKLER");
 			App->fonts->BlitText(10, 210, scoreFont, "F10.TRIPLESHOT");
 			App->fonts->BlitText(10, 220, scoreFont, "F11.RED.SOILDER");
-			App->fonts->BlitText(10, 230, scoreFont, "F8.TACKLER.WIP");	//Green Soilder 2
+			App->fonts->BlitText(10, 230, scoreFont, "F9.GREEN.SOILDER");	//Green Soilder 2
 			App->fonts->BlitText(10, 240, scoreFont, "H.HOSTAGE");
 			App->fonts->BlitText(10, 250, scoreFont, "G.GRENADER");
 		}

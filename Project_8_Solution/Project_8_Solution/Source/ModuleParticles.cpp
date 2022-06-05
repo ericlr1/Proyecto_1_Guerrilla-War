@@ -28,16 +28,16 @@ bool ModuleParticles::Start()
 	// Explosion particle
 	
 	//Player Muerte (Pendiente)
-	dead.anim.PushBack({ 200, 500, 32, 58});
-	dead.anim.PushBack({ 232, 500, 32, 58});
-	dead.anim.PushBack({ 264, 500, 32, 58});
-	dead.anim.PushBack({ 296, 500, 32, 58});
-	dead.anim.PushBack({ 328, 500, 32, 58});
-	dead.anim.PushBack({ 360, 500, 32, 58});
-	dead.anim.PushBack({ 392, 500, 32, 58});
-	dead.anim.PushBack({ 424, 500, 32, 58});
-	dead.anim.PushBack({ 456, 500, 32, 58});
-	dead.anim.PushBack({ 488, 500, 32, 58});
+	dead.anim.PushBack({ 200, 500, 30, 58});
+	dead.anim.PushBack({ 232, 500, 30, 58});
+	dead.anim.PushBack({ 264, 500, 30, 58});
+	dead.anim.PushBack({ 296, 500, 30, 58});
+	dead.anim.PushBack({ 328, 500, 30, 58});
+	dead.anim.PushBack({ 360, 500, 30, 58});
+	dead.anim.PushBack({ 392, 500, 30, 58});
+	dead.anim.PushBack({ 424, 500, 30, 58});
+	dead.anim.PushBack({ 456, 500, 30, 58});
+	dead.anim.PushBack({ 488, 500, 30, 58});
 	
 	dead.anim.loop = false;
 	dead.anim.pingpong = false;
