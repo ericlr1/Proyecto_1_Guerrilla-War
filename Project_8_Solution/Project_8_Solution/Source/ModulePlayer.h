@@ -180,6 +180,13 @@ public:
 
 	bool walk_water = false;
 	bool walk_trench = false;
+
+	//Music & FX
+	uint shotFx = 0;
+	uint playerDeadFx = 0;
+	uint heavyRifleFx = 0;
+	uint weaponPickUpFx = 0;
+	uint throwGrenadeFx = 0;
 };
 
 #endif //!__MODULE_PLAYER_H_

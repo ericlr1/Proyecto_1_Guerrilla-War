@@ -80,6 +80,9 @@ public:
 	//Añadir aqui las diferentes animaciones de muerte
 	Particle GreenSoilderDeath, RedSoilderDeath, HostageDeath, HostageCelebrating;
 
+	//Music & FX
+	int grenadeExplosionFx;
+
 };
 
 #endif // !__MODULEPARTICLES_H__

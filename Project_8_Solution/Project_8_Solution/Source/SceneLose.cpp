@@ -25,6 +25,7 @@ SceneLose::~SceneLose()
 // Load assets
 bool SceneLose::Start()
 {
+	App->audio->Enable();
 	LOG("Loading background assets");
 
 	bool ret = true;
@@ -36,7 +37,6 @@ bool SceneLose::Start()
 	win1 = App->textures->Load("Assets/Sprites/win1.png");
 
 	spritesAnimacion = App->textures->Load("Assets/Sprites/animacion_isla.png");
-	//AYUDA
 	winAnimation.PushBack({0, 0, SCREEN_WIDTH, SCREEN_HEIGHT });
 	winAnimation.PushBack({224, 0, SCREEN_WIDTH-1, SCREEN_HEIGHT });
 	winAnimation.speed = 0.01f;
@@ -92,6 +92,7 @@ Update_Status SceneLose::PostUpdate()
 	//Win animation
 	if (App->player->lives > 0)
 	{
+		App->audio->PlayMusic("Assets/Fx/127.ogg");
 		App->render->Blit(win1, 0, 0, &fondo);
 		App->render->Blit(spritesAnimacion, 0, 0, &(winAnimation.GetCurrentFrame())); // Win animation
 	}

@@ -25,6 +25,7 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	texture = App->textures->Load("Assets/Sprites/particles.png");
+	grenadeExplosionFx = App->audio->LoadFx("Assets/Fx/186.wav");
 	// Explosion particle
 	
 	//Player Muerte (Pendiente)
@@ -415,7 +416,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 			if (c2->type == Collider::Type::DESTRUIBLE) {
 				if (particles[i]->explodes && !particles[i]->isExplosion) {
 					App->particles->AddParticle(App->particles->grenadeExplosion, particles[i]->position.x - 26, particles[i]->position.y - 26, Collider::Type::EXPLOSION);
-					App->audio->PlayFx(App->player->bulletFx);
+					App->audio->PlayFx(grenadeExplosionFx);
 				}
 			}
 			if (!particles[i]->isExplosion && !particles[i]->collider->type == Collider::Type::HOSTAGE) {
@@ -440,7 +441,7 @@ Update_Status ModuleParticles::Update()
 		{
 			if (particle->explodes && !particle->isExplosion) {
 				App->particles->AddParticle(App->particles->grenadeExplosion, particle->position.x - 26, particle->position.y - 26, Collider::Type::EXPLOSION);
-				App->audio->PlayFx(App->player->explosionFx);
+				App->audio->PlayFx(grenadeExplosionFx);
 			}
 			delete particle;
 			particles[i] = nullptr;

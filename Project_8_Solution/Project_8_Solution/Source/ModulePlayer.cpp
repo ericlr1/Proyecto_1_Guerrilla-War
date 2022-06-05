@@ -529,6 +529,13 @@ bool ModulePlayer::Start()
 	App->UI->uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
 	App->UI->iconoRailgun = App->textures->Load("Assets/Sprites/pistolaUI.png"); //Raligun
 	
+	// Initiate player audios here
+	shotFx = App->audio->LoadFx("Assets/Fx/142.wav"); // shot sfx
+	playerDeadFx = App->audio->LoadFx("Assets/Fx/195.wav"); // dead sfx
+	heavyRifleFx = App->audio->LoadFx("Assets/Fx/153.wav");
+	throwGrenadeFx = App->audio->LoadFx("Assets/Fx/137.wav");
+	weaponPickUpFx = App->audio->LoadFx("Assets/Fx/165.wav");
+	
 	//Spawn point
 	spawnPoint = -INT_MAX;
 	t1 = SDL_GetTicks();
@@ -863,7 +870,11 @@ Update_Status ModulePlayer::Update()
 		godMode = true;
 
 		deathCooldown++;
+		if (deathCooldown == 0) {
+			App->audio->PlayFx(playerDeadFx);
+		}
 
+		
 		if (deathCooldown >= DEATH_ANIM_DURATION) {
 
 			if (lives == 0) {
@@ -1356,49 +1367,49 @@ Update_Status ModulePlayer::Update()
 			{
 			case 0:
 				App->particles->AddParticle(App->particles->raligunU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(heavyRifleFx);
 				currentAnimation3 = &raligunfireup;
 				break;
 
 			case 1:
 				App->particles->AddParticle(App->particles->raligunUR, position.x + 18, position.y + 8, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(heavyRifleFx);
 				currentAnimation3 = &raligunfirerightup;
 				break;
 
 			case 2:
 				App->particles->AddParticle(App->particles->raligunR, position.x + 20, position.y + 27, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(heavyRifleFx);
 				currentAnimation3 = &raligunfireright;
 				break;
 
 			case 3:
 				App->particles->AddParticle(App->particles->raligunDR, position.x + 12, position.y + 30, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(heavyRifleFx);
 				currentAnimation3 = &raligunfirerightdown;
 				break;
 
 			case 4:
 				App->particles->AddParticle(App->particles->raligunD, position.x + 10, position.y + 40, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(heavyRifleFx);
 				currentAnimation3 = &raligunfiredown;
 				break;
 
 			case 5:
 				App->particles->AddParticle(App->particles->raligunDL, position.x-10 , position.y +20, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(heavyRifleFx);
 				currentAnimation3 = &raligunfireleftdown;
 				break;
 
 			case 6:
 				App->particles->AddParticle(App->particles->raligunL, position.x -10, position.y + 20, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(heavyRifleFx);
 				currentAnimation3 = &raligunfireleft;
 				break;
 
 			case 7:
 				App->particles->AddParticle(App->particles->raligunUL, position.x -3, position.y, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(heavyRifleFx);
 				currentAnimation3 = &raligunfireleftup;
 				break;
 			}
@@ -1411,56 +1422,56 @@ Update_Status ModulePlayer::Update()
 			case 0:
 				App->particles->AddParticle(App->particles->bulletU, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->humo, position.x + 20, position.y - 100, Collider::Type::NONE);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(shotFx);
 				currentAnimation3 = &wfireup;
 				break;
 
 			case 1:
 				App->particles->AddParticle(App->particles->bulletUR, position.x + 20, position.y + 20, Collider::Type::PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->humo, position.x + 20 + 100, position.y - 100 + 20, Collider::Type::NONE);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(shotFx);
 				currentAnimation3 = &wfirerightup;
 				break;
 
 			case 2:
 				App->particles->AddParticle(App->particles->bullet, position.x + 20, position.y + 25, Collider::Type::PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->humo, position.x + 20 + 100, position.y + 25, Collider::Type::NONE);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(shotFx);
 				currentAnimation3 = &wfireright;
 				break;
 
 			case 3:
 				App->particles->AddParticle(App->particles->bulletDR, position.x + 12, position.y + 30, Collider::Type::PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->humo, position.x + 12 + 100, position.y + 100 + 30, Collider::Type::NONE);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(shotFx);
 				currentAnimation3 = &wfirerightdown;
 				break;
 
 			case 4:
 				App->particles->AddParticle(App->particles->bulletD, position.x + 10, position.y + 25, Collider::Type::PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->humo, position.x + 10, position.y + 100 + 25, Collider::Type::NONE);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(shotFx);
 				currentAnimation3 = &wfiredown;
 				break;
 
 			case 5:
 				App->particles->AddParticle(App->particles->bulletDL, position.x + 10, position.y + 20, Collider::Type::PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->humo, position.x + 10 - 100, position.y + 100 + 20, Collider::Type::NONE);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(shotFx);
 				currentAnimation3 = &wfireleftdown;
 				break;
 
 			case 6:
 				App->particles->AddParticle(App->particles->bulletL, position.x + 5, position.y + 20, Collider::Type::PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->humo, position.x + 5 - 100, position.y + 20, Collider::Type::NONE);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(shotFx);
 				currentAnimation3 = &wfireleft;
 				break;
 
 			case 7:
 				App->particles->AddParticle(App->particles->bulletUL, position.x + 5, position.y + 15, Collider::Type::PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->humo, position.x + 5 - 100, position.y - 100 + 15, Collider::Type::NONE);
-				App->audio->PlayFx(bulletFx);
+				App->audio->PlayFx(shotFx);
 				currentAnimation3 = &wfireleftup;
 				break;
 			}
@@ -2052,6 +2063,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	
 	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::RALIGUN)
 	{
+		App->audio->PlayFx(weaponPickUpFx);
 		ammo_raligun = 50;
 	}
 
@@ -2242,7 +2254,7 @@ void ModulePlayer::CameraFollowPlayer()
 void ModulePlayer::throwGrenade() {
 	
 	totalGrenades--;
-	App->audio->PlayFx(bulletFx);
+	App->audio->PlayFx(throwGrenadeFx);
 	//App->particles->grenade.explodes = true;
 	switch (facing) {
 	case 0:
