@@ -14,6 +14,7 @@
 #include "ModuleCollisions.h"
 #include "Enemy.h"
 #include "ModulePlayer.h"
+#include "ModuleAudio.h"
 
 Enemy_TripleShot::Enemy_TripleShot(int x, int y) : Enemy(x, y)
 {
@@ -71,6 +72,7 @@ void Enemy_TripleShot::OnCollision(Collider* collider)
 	{
 		App->player->score += 100;
 		App->particles->AddParticle(App->particles->GreenSoilderDeath, position.x, position.y, Collider::Type::NONE);
+		App->audio->PlayFx(enemyDeadFx);
 	}
 
 

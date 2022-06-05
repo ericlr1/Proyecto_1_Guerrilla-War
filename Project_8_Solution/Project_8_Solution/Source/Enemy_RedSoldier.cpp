@@ -9,6 +9,7 @@
 #include "SDL/include/SDL_render.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleAudio.h"
 
 Enemy_RedSoldier::Enemy_RedSoldier(int x, int y) : Enemy(x, y)
 {
@@ -86,6 +87,7 @@ void Enemy_RedSoldier::OnCollision(Collider* collider)
 		currentAnim = &death;
 		App->player->score += 100;
 		App->particles->AddParticle(App->particles->RedSoilderDeath, position.x, position.y, Collider::Type::NONE);
+		App->audio->PlayFx(enemyDeadFx);
 	}
 
 

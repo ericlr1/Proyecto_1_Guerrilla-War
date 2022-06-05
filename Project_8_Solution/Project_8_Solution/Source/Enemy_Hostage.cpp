@@ -5,9 +5,14 @@
 #include "Enemy.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
+#include "ModuleAudio.h"
 
 Enemy_Hostage::Enemy_Hostage(int x, int y) : Enemy(x, y)
 {
+	//Music & FX
+	pickUpFx = App->audio->LoadFx("Assets/Fx/181.wav");
+	deadFx = App->audio->LoadFx("Assets/Fx/182.wav");
+	
 	idleAnim.PushBack({ 416, 352, 32, 64 });
 	idleAnim.PushBack({ 416, 352, 32, 64 });
 	idleAnim.PushBack({ 416, 352, 32, 64 });
@@ -76,6 +81,7 @@ void Enemy_Hostage::OnCollision(Collider* collider)
 {
 	if (collider->type == Collider::Type::PLAYER_SHOT || collider->type == Collider::Type::EXPLOSION || collider->type == Collider::Type::RALIGUN_SHOOT)
 	{
+		App->audio->PlayFx(deadFx);
 		if (App->player->score >= 500)
 		{
 			App->player->score -= 500;
@@ -93,6 +99,7 @@ void Enemy_Hostage::OnCollision(Collider* collider)
 	
 	if (collider->type == Collider::Type::BODY)
 	{
+		App->audio->PlayFx(pickUpFx);
 		App->player->score += 1000;
 		App->particles->AddParticle(App->particles->mas1000, position.x, position.y - 20);
 		App->particles->AddParticle(App->particles->HostageCelebrating, position.x, position.y);

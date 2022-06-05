@@ -55,6 +55,8 @@ public:
 
 	iPoint* assetsPoint[MAX_ASSETS_TITLE];
 	Animation assetsAnim[MAX_ASSETS_TITLE];
+
+	uint bombFx = 0;
 };
 
 #endif // __MODULE_SCENETITLE_H__

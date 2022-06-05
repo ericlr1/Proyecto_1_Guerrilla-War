@@ -33,7 +33,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	texture = App->textures->Load("Assets/Sprites/Guerrilla War Enemy Spritesheet.png");
-	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/sounds_gwar-195 (1).wav");
+	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/194.wav");
 
 	return true;
 }

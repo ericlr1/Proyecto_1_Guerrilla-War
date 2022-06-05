@@ -23,6 +23,10 @@ private:
 	// The path that will define the position in the world
 	Path path;
 
+	//Music & FX
+	int pickUpFx;
+	int deadFx;
+
 	// Enemy animations
 	Animation idleAnim, deadAnim, saveAnim;
 };

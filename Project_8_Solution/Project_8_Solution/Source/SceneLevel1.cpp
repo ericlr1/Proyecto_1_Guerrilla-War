@@ -37,7 +37,7 @@ bool SceneLevel1::Start()
 
 	bgTexture = App->textures->Load("Assets/Sprites/background.png");
 	destructibles = App->textures->Load("Assets/Sprites/Destruibles.png");
-	App->audio->PlayMusic("Assets/Fx/Game_sounds_level1.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Fx/106.ogg", 1.0f); // bgm Farm
 
 
 	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 280, 2920);
@@ -391,7 +391,17 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-	
+	if (App->player->lives == 0 && !isLevelMusic) {
+		isLevelMusic = true;
+		isContinueMusic = false;
+		App->audio->PlayMusic("Assets/Fx/124.ogg", 1.0f);
+	}
+
+	if (App->player->lives >= 1 && !isContinueMusic) {
+		isContinueMusic = true;
+		isLevelMusic = false;
+		App->audio->PlayMusic("Assets/Fx/106.ogg", 1.0f); // bgm Farm
+	}
 	
 	
 

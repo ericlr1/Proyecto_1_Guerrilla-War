@@ -51,7 +51,12 @@ public:
 
 	Collider* raligun_colldier = nullptr;
 	
+	// Bools to check if the music has changed
+	bool isLevelMusic = false;
+	bool isContinueMusic = false;
 
+
+	//Respawns camera
 	bool spawn_1 = false;
 	bool spawn_2 = false;
 	bool spawn_3 = false;

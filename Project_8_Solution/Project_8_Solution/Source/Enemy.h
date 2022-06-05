@@ -58,6 +58,9 @@ public:
 	// Sound fx when destroyed
 	int destroyedFx = 0;
 
+	// Sound fx when destroyed
+	int enemyDeadFx = 0;
+	int enemyShotFx = 0;
 
 protected:
 	// A ptr to the current animation

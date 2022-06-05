@@ -9,6 +9,7 @@
 #include "SDL/include/SDL_render.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleAudio.h"
 
 Enemy_Grenades::Enemy_Grenades(int x, int y) : Enemy(x, y)
 {
