@@ -893,11 +893,12 @@ Update_Status ModulePlayer::Update()
 
 				if (continueCooldown == 0)
 				{
-					App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 0);
 					App->player->Disable();
 					App->enemies->Disable();
 					App->destruibles->Disable();
 					App->collisions->Disable();
+					App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 0);
+				
 				}
 					
 
@@ -1719,12 +1720,12 @@ Update_Status ModulePlayer::Update()
 	collider_foot->SetPos(position.x + 10, position.y + 45);
 	collider_camara->SetPos(App->render->GetCameraCenterX()-100, App->render->GetCameraCenterY() +160);
 
-	//Fade si vidas < 0
-	if (lives == 0)
-	{
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
-		destroyed = true;
-	}
+	////Fade si vidas < 0
+	//if (lives == 0)
+	//{
+	//	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+	//	destroyed = true;
+	//}
 
 
 	//Posicion de los colliders conforme se mueve la camara
@@ -1796,8 +1797,8 @@ Update_Status ModulePlayer::PostUpdate()
 	{
 		//Continue screen
 		App->fonts->BlitText(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2, scoreFont, continueTimer);
-		App->fonts->BlitText(SCREEN_WIDTH / 2 - 35, (SCREEN_HEIGHT / 2 )- 10, scoreFont, "CONTINUE IN");
-		App->fonts->BlitText(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2, scoreFont, "SECONDS");
+		App->fonts->BlitText(SCREEN_WIDTH / 2 - 45, (SCREEN_HEIGHT / 2 )- 10, scoreFont, "CONTINUE.IN");
+		App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2, scoreFont, "SECONDS");
 	}
 	
 
