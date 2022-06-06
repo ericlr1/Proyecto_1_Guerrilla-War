@@ -90,6 +90,9 @@ bool SceneLevel1::Start()
 	
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 400, 1400);
 
+	//TripleShoot
+	App->enemies->AddEnemy(Enemy_Type::TRIPLESHOT, 700, 125);
+
 	//GRENADER [X]
 
 	App->enemies->AddEnemy(Enemy_Type::GRENADER, 170, 2970);

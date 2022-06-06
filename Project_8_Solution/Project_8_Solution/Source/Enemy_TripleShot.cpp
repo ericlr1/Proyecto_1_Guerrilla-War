@@ -20,17 +20,12 @@ Enemy_TripleShot::Enemy_TripleShot(int x, int y) : Enemy(x, y)
 {
 	Enemy_TripleShot:attackTimer = 0;
 
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 416, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 416, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
+	idleAnim.PushBack({ 303, 555, 27, 47 });
+	idleAnim.PushBack({ 334, 555, 26, 47 });
+	
 
 	idleAnim.loop = true;
-	idleAnim.speed = 0.15f;
+	idleAnim.speed = 0.1f;
 	idleAnim.pingpong = false;
 
 	currentAnim = &idleAnim;
@@ -60,7 +55,7 @@ void Enemy_TripleShot::Shoot()
 	if (+App->player->position.y - this->position.y < 300)
 	{
 
-		if (attackTimer >= 55)
+		if (attackTimer >= 10)
 		{
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->AddParticle(App->particles->enemyBullet, position.x + 13, position.y + 32, Collider::Type::ENEMY_SHOT);

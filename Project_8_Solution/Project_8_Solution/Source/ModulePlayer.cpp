@@ -1795,9 +1795,9 @@ Update_Status ModulePlayer::PostUpdate()
 	if (lives == 0)
 	{
 		//Continue screen
-		App->fonts->BlitText(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2, scoreFont, continueTimer);
-		App->fonts->BlitText(SCREEN_WIDTH / 2 - 45, (SCREEN_HEIGHT / 2 )- 10, scoreFont, "CONTINUE.IN");
-		App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2, scoreFont, "SECONDS");
+		App->fonts->BlitText(SCREEN_WIDTH / 2+120, SCREEN_HEIGHT / 2, scoreFont, continueTimer);
+		App->fonts->BlitText(SCREEN_WIDTH / 2+115, (SCREEN_HEIGHT / 2 )- 10, scoreFont, "CONTINUE.IN");
+		App->fonts->BlitText(SCREEN_WIDTH / 2+133, SCREEN_HEIGHT / 2, scoreFont, "SECONDS");
 	}
 	
 
