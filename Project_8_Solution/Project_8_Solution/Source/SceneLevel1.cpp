@@ -14,6 +14,7 @@
 #include "Enemy_GreenSoldier.h"
 #include "Enemy_GreenSoldier2.h"
 #include "ModuleDestruibles.h"
+#include "ModuleFonts.h"
 
 
 #define SPAWN_MARGIN 60
@@ -578,6 +579,13 @@ bool SceneLevel1::CleanUp()
 	App->destruibles->Disable();
 	App->collisions->Disable();
 	App->audio->Disable();
+	App->fonts->Disable();
+
+	App->textures->Unload(bgTexture);
+	App->textures->Unload(destructibles);
+	bgTexture = nullptr;
+	destructibles = nullptr;
+
 
 	return true;
 }
