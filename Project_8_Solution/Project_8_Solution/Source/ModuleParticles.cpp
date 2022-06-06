@@ -359,10 +359,10 @@ bool ModuleParticles::Start()
 	enemygrenade.anim.PushBack({ 160, 160, 16, 16 });
 	enemygrenade.anim.PushBack({ 176, 160, 16, 16 });
 	//grenade.anim.PushBack({ 192, 160, 16, 16});
-	enemygrenade.speed.y = -1;
-
+	enemygrenade.speed.y = 1;
+	enemygrenade.anim.loop = true;
 	enemygrenade.anim.speed = 0.2f;
-	enemygrenade.lifetime = 50;
+	enemygrenade.lifetime = 70;
 	enemygrenade.explodes = true;
 
 	//Grenade explosion - enemy

@@ -99,6 +99,13 @@ void Enemy_Grenades::Shoot()
 			App->audio->PlayFx(App->player->throwGrenadeFx);
 			App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
 		}
+		if (angleDegrees >= -80 && angleDegrees <= 70)
+		{
+			App->particles->grenade.speed.x = 1;
+			App->particles->grenade.speed.y = 1;
+			App->audio->PlayFx(App->player->throwGrenadeFx);
+			App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
+		}
 	}
 	attackTimer = 0;
 }
