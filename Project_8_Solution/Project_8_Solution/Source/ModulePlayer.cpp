@@ -797,7 +797,7 @@ Update_Status ModulePlayer::Update()
 
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_X] == Key_State::KEY_DOWN)
 	{
 		
 		if (godMode == false)

@@ -64,16 +64,62 @@ bool SceneLevel1::Start()
 
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 620, 1105);
 
-	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 680, 835);
+	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 680, 835);	
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 710, 835);
 
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 695, 600);
 	App->enemies->AddEnemy(Enemy_Type::HOSTAGE, 695, 535);
 
-	//REDSOLDIER []
+	//REDSOLDIER [X]
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 213, 2610);
 	
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 400, 1400);
+
+	//GRENADER [X]
+
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 170, 2970);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 235, 2970);
+
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 270, 2440);
+
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 430, 2150);
+
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 400, 1470);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 450, 1470);
+
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 485, 1110);
+
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 695, 960);
+
+	//USSLES []
+
+	//Bloc 1
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 240, 2970);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 225, 2970);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 210, 2970);
+
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 240, 3000);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 225, 3000);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 210, 3000);
+
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 240, 3020);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 225, 3020);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 210, 3020);
+
+	//Bloc 2
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 445, 2230);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 460, 2230);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 475, 2230);
+
+	//Bloc 3
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 425, 1290);
+
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 310, 1400);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 335, 1400);
+
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 510, 1400);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 535, 1400);
+
 
 	//Destruibles Horizontal
 	App->destruibles->AddDestruible(Destruible_Type::BARRICADA_H, 129, 2936);

@@ -16,27 +16,35 @@ Enemy_GreenSoldier2::Enemy_GreenSoldier2(int x, int y) : Enemy(x, y)
 	downAnim.PushBack({ 384, 64, 32, 64 });
 	downAnim.PushBack({ 384, 0, 32, 64 });
 	downAnim.PushBack({ 384, 128, 32, 64 });
+	downAnim.PushBack({ 384, 0, 32, 64 });
+	downAnim.PushBack({ 384, 64, 32, 64 });
+
 	downAnim.speed = 0.15;
-	downAnim.pingpong = true;
+	downAnim.pingpong = false;
 	currentAnim = &downAnim;
 
 	idleAnim.PushBack({ 448, 0, 32, 64});
 
-	upAnim.PushBack({ 384, 192, 32, 64});
-	upAnim.PushBack({ 416, 192, 32, 64});
-	upAnim.PushBack({ 448, 192,  32, 64});
-	upAnim.PushBack({ 416, 192,  32, 64});
-	upAnim.PushBack({ 384, 192,  32, 64});
-	upAnim.PushBack({ 448, 128,  32, 64});
+	upAnim.PushBack({ 384, 192, 32, 64 });
+	upAnim.PushBack({ 416, 192, 32, 64 });
+	upAnim.PushBack({ 448, 192,  32, 64 });
+	upAnim.PushBack({ 416, 192,  32, 64 });
 	upAnim.PushBack({ 384, 192,  32, 64 });
+	upAnim.PushBack({ 448, 128,  32, 64 });
+	upAnim.PushBack({ 384, 192,  32, 64 });
+	upAnim.PushBack({ 448, 128,  32, 64 });
+	upAnim.PushBack({ 384, 192,  32, 64 });
+	upAnim.PushBack({ 416, 192,  32, 64 });
+	upAnim.PushBack({ 448, 192,  32, 64 });
+	upAnim.PushBack({ 416, 192, 32, 64 });
+
+
 	upAnim.speed = 0.15;
-	upAnim.pingpong = true;
+	upAnim.pingpong = false;
 
 
-	path.PushBack({ 0, 1.0f }, 100, &downAnim);
-	path.PushBack({ 0, 0 }, 50, &idleAnim);
-	path.PushBack({ 0, -1.0f }, 100, &upAnim);
-	path.PushBack({ 0, 0 }, 50, &idleAnim);
+	path.PushBack({ 0, 1.0f }, 150, &downAnim);
+	path.PushBack({ 0, -1.0f }, 150, &upAnim);
 
 
 	collider = App->collisions->AddCollider({ 0, 0, 36, 72 }, Collider::Type::ENEMY, (Module*)App->enemies);
