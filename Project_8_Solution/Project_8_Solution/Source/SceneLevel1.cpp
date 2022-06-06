@@ -40,6 +40,11 @@ bool SceneLevel1::Start()
 	destructibles = App->textures->Load("Assets/Sprites/Destruibles.png");
 	App->audio->PlayMusic("Assets/Fx/106.ogg", 1.0f); // bgm Farm
 
+	spawn_1 = false;
+	spawn_2 = false;
+	spawn_3 = false;
+	spawn_4 = false;
+	spawn_5 = false;
 
 	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 280, 2920);
 	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 140, 2820);

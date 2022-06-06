@@ -75,6 +75,14 @@ void Enemy_RedSoldier::Shoot()
 	{
 
 		if (angleDegrees >= 1 && angleDegrees <= 60)
+<<<<<<< Updated upstream
+=======
+		{
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->AddParticle(App->particles->enemyBulletDR, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+		}
+		if (angleDegrees >= 61 && angleDegrees <= 130)
+>>>>>>> Stashed changes
 		{
 			currentAnim = &RedSloiderrightAnim;
 			App->audio->PlayFx(App->player->shotFx);

@@ -1800,18 +1800,18 @@ Update_Status ModulePlayer::PostUpdate()
 	
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
-	App->fonts->BlitText(20, 30, scoreFont, scoreText);
+	App->fonts->BlitText(SCREEN_WIDTH / 2 , SCREEN_HEIGHT / 2, scoreFont, scoreText);
 
-	App->fonts->BlitText(70, 10, scoreFont, "HI");
-	App->fonts->BlitText(125, 10, scoreFont, "30000");
-	App->fonts->BlitText(20, 20, scoreFont, "1..UP");
+	App->fonts->BlitText(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2-150, scoreFont, "HI");
+	App->fonts->BlitText(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, scoreFont, "30000");
+	App->fonts->BlitText(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, scoreFont, "1..UP");
 
 	App->fonts->BlitText(13, 70, scoreFont, grenadeNum);
 
 	if (ammo_raligun > 0)
 	{
-		App->render->Blit(App->UI->iconoRailgun, App->render->GetCameraCenterX() - 100 , App->render->GetCameraCenterY() - 84, NULL, 1.0, false);
-		App->fonts->BlitText(13, 94, scoreFont, railgunBullets);
+		App->render->Blit(App->UI->iconoRailgun, App->render->GetCameraCenterX() - 100 , App->render->GetCameraCenterY() - 84, NULL, 1.0, true);
+		App->fonts->BlitText(SCREEN_WIDTH / 2 - 118, SCREEN_HEIGHT / 2-80 ,scoreFont, railgunBullets);
 	}
 
 	
@@ -2208,8 +2208,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WIN)
 	{
 		
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
-		App->sceneLevel_1->CleanUp();
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+		App->player->Disable();
+		App->enemies->Disable();
+		App->destruibles->Disable();
+		App->collisions->Disable();
+		destroyed = true;
 	}
 }
 

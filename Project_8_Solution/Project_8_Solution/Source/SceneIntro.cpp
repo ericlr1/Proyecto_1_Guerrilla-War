@@ -111,11 +111,11 @@ bool SceneIntro::Start()
 	boat.x = App->render->GetCameraCenterX() - 8;
 	boat.y = App->render->GetCameraCenterY() + 64;
 
-	planes[0].x = App->render->GetCameraCenterX() - 64;
+	planes[0].x = App->render->GetCameraCenterX() - 50;
 	planes[0].y = SCREEN_HEIGHT + 96;
-	planes[1].x = App->render->GetCameraCenterX() - 140;
+	planes[1].x = App->render->GetCameraCenterX() - 105;
 	planes[1].y = SCREEN_HEIGHT + 128 + 96;
-	planes[2].x = App->render->GetCameraCenterX() +8 ;
+	planes[2].x = App->render->GetCameraCenterX() + 5;
 	planes[2].y = SCREEN_HEIGHT + 128 + 96;
 
 	playerMini.x = -32;
@@ -165,49 +165,49 @@ Update_Status SceneIntro::Update() {
 
 	if (duration == 180) {
 		assetsAnim[2].Reset();
-		bombs[0].x = (SCREEN_WIDTH / 2) - 8;
+		bombs[0].x = App->render->GetCameraCenterX();
 		bombs[0].y = -528; //-176
 		App->audio->PlayFx(bombFx);
 	}
 	if (duration == 185) {
 		assetsAnim[3].Reset();
-		bombs[1].x = (SCREEN_WIDTH / 2) - 8;
+		bombs[1].x = App->render->GetCameraCenterX();
 		bombs[1].y = -588; //-206
 		App->audio->PlayFx(bombFx);
 	}
 	if (duration == 200) {
 		assetsAnim[4].Reset();
-		bombs[2].x = (SCREEN_WIDTH / 2) - 8;
+		bombs[2].x = App->render->GetCameraCenterX();
 		bombs[2].y = -648; //-236
 		App->audio->PlayFx(bombFx);
 	}
 	if (duration == 210) {
 		assetsAnim[5].Reset();
-		bombs[3].x = (SCREEN_WIDTH / 2) - 8;
+		bombs[3].x = App->render->GetCameraCenterX();
 		bombs[3].y = -708; //-266
 		App->audio->PlayFx(bombFx);
 	}
 	if (duration == 220) {
 		assetsAnim[6].Reset();
-		bombs[4].x = (SCREEN_WIDTH / 2) - 8;
+		bombs[4].x = App->render->GetCameraCenterX();
 		bombs[4].y = -768; //-296
 		App->audio->PlayFx(bombFx);
 	}
 	if (duration == 230) {
 		assetsAnim[7].Reset();
-		bombs[5].x = (SCREEN_WIDTH / 2) - 8;
+		bombs[5].x = App->render->GetCameraCenterX();
 		bombs[5].y = -828; //-326
 		App->audio->PlayFx(bombFx);
 	}
 	if (duration == 240) {
 		assetsAnim[8].Reset();
-		bombs[6].x = (SCREEN_WIDTH / 2) - 8;
+		bombs[6].x = App->render->GetCameraCenterX();
 		bombs[6].y = -888; //-356
 		App->audio->PlayFx(bombFx);
 	}
 	if (duration == 250) {
 		assetsAnim[9].Reset();
-		bombs[7].x = (SCREEN_WIDTH / 2) - 8;
+		bombs[7].x = App->render->GetCameraCenterX();
 		bombs[7].y = -948; //-386
 		App->audio->PlayFx(bombFx);
 	}

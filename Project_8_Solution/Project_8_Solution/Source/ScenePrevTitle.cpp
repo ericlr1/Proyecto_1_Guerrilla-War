@@ -28,7 +28,7 @@ bool ScenePrevTitle::Start() {
 	logoAnim.PushBack({ 0, 240, 208, 160 });
 	logoAnim.loop = false;
 
-	logo.x = (SCREEN_WIDTH / 2);
+	logo.x = (App->render->GetCameraCenterX());
 	logo.y = 20;
 
 	boatAnim.FullReset();
@@ -39,7 +39,7 @@ bool ScenePrevTitle::Start() {
 	boatAnim.loop = true;
 	boatAnim.speed = 0.1f;
 
-	boat.x = App->render->GetCameraCenterX();
+	boat.x = App->render->GetCameraCenterX()+95;
 	boat.y = (SCREEN_HEIGHT / 2) + 64;
 
 	duration = 0;
@@ -101,7 +101,7 @@ Update_Status ScenePrevTitle::PostUpdate() {
 	
 	
 
-	App->render->Blit(bgTexture, App->render->GetCameraCenterX()/2, SCREEN_HEIGHT - 1904, NULL);
+	App->render->Blit(bgTexture, App->render->GetCameraCenterX()-100, SCREEN_HEIGHT - 1904, NULL);
 
 	
 	SDL_Rect rect = logoAnim.GetCurrentFrame();
@@ -110,19 +110,20 @@ Update_Status ScenePrevTitle::PostUpdate() {
 	rect = boatAnim.GetCurrentFrame();
 	App->render->Blit(introAssets, boat.x, boat.y, &rect);
 
-	App->render->Blit(photoTexture, 0, 0, NULL);
+	App->render->Blit(photoTexture,40,0 , NULL);
 
 
 	return Update_Status::UPDATE_CONTINUE;
 }
 
 bool ScenePrevTitle::CleanUp() {
+	App->textures->Unload(photoTexture);
+	photoTexture = nullptr;
 	App->textures->Unload(bgTexture);
 	bgTexture = nullptr;
 	App->textures->Unload(introAssets);
 	introAssets = nullptr;
-	App->textures->Unload(photoTexture);
-	photoTexture = nullptr;
+	
 
 	return true;
 }
