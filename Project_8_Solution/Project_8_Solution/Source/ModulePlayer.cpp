@@ -688,7 +688,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 	//Coins
-	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_Y] == Key_State::KEY_DOWN)
 	{
 		if (coins == 3)
 		{
