@@ -688,7 +688,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 	//Coins
-	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_Y] == Key_State::KEY_DOWN)
 	{
 		if (coins == 3)
 		{
@@ -733,10 +733,23 @@ Update_Status ModulePlayer::Update()
 
 	}
 
-	//Auto kill
+	//Auto win
 	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
 	{
 		
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+		App->player->Disable();
+		App->enemies->Disable();
+		App->destruibles->Disable();
+		App->collisions->Disable();
+		destroyed = true;
+	}
+
+	//Auto kill
+	if (App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_DOWN)
+	{
+
+		lives = 0;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
 		App->player->Disable();
 		App->enemies->Disable();
