@@ -886,7 +886,7 @@ Update_Status ModulePlayer::Update()
 					t1 = t2;
 				}
 
-				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || button_press) {
 					lives = 3;
 					continueCooldown = 9;
 				}
@@ -1627,7 +1627,7 @@ Update_Status ModulePlayer::Update()
 			}
 		
 	}
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE || button_press)
 	{
 		if (ammo_raligun > 0)
 		{

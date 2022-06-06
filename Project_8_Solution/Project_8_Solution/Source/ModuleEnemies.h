@@ -14,6 +14,7 @@ enum class Enemy_Type
 	HOSTAGE,
 	TRIPLESHOT,
 	GRENADER,
+	USSLES,
 };
 
 struct EnemySpawnpoint
