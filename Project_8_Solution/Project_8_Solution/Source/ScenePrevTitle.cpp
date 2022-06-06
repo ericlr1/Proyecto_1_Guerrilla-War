@@ -29,7 +29,7 @@ bool ScenePrevTitle::Start() {
 	logoAnim.PushBack({ 0, 240, 208, 160 });
 	logoAnim.loop = false;
 
-	logo.x = (App->render->GetCameraCenterX());
+	logo.x = (App->render->GetCameraCenterX()+50);
 	logo.y = 20;
 
 	boatAnim.FullReset();
@@ -40,7 +40,7 @@ bool ScenePrevTitle::Start() {
 	boatAnim.loop = true;
 	boatAnim.speed = 0.1f;
 
-	boat.x = App->render->GetCameraCenterX()+95;
+	boat.x = App->render->GetCameraCenterX()+150;
 	boat.y = (SCREEN_HEIGHT / 2) + 64;
 
 	duration = 0;
@@ -99,11 +99,9 @@ Update_Status ScenePrevTitle::Update() {
 // Update: draw background
 Update_Status ScenePrevTitle::PostUpdate() {
 	// Draw everything --------------------------------------
+	App->render->Blit(bgTexture, App->render->GetCameraCenterX() - 100, SCREEN_HEIGHT - 1904, NULL);
 	
 	
-
-	App->render->Blit(bgTexture, App->render->GetCameraCenterX()-100, SCREEN_HEIGHT - 1904, NULL);
-
 	
 	SDL_Rect rect = logoAnim.GetCurrentFrame();
 	App->render->Blit(introAssets, logo.x, logo.y, &rect);
@@ -111,7 +109,7 @@ Update_Status ScenePrevTitle::PostUpdate() {
 	rect = boatAnim.GetCurrentFrame();
 	App->render->Blit(introAssets, boat.x, boat.y, &rect);
 
-	App->render->Blit(photoTexture,40,0 , NULL);
+	App->render->Blit(photoTexture, 190, 0, NULL);
 
 
 	return Update_Status::UPDATE_CONTINUE;

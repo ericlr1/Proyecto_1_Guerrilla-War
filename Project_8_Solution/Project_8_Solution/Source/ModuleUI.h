@@ -32,6 +32,8 @@ public:
 
 	SDL_Texture* iconoRailgun = nullptr;
 
+	SDL_Texture* limites = nullptr;
+
 	int num;
 
 };

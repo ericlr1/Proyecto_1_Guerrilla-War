@@ -528,6 +528,7 @@ bool ModulePlayer::Start()
 	weaponTexture = App->textures->Load("Assets/Sprites/weapon.png");
 	App->UI->uiTexture = App->textures->Load("Assets/Sprites/granadaUI.png"); //Granada UI
 	App->UI->iconoRailgun = App->textures->Load("Assets/Sprites/pistolaUI.png"); //Raligun
+	App->UI->limites = App->textures->Load("Assets/Sprites/limites.png");
 	
 	// Initiate player audios here
 	shotFx = App->audio->LoadFx("Assets/Fx/142.wav"); // shot sfx
@@ -1780,7 +1781,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 			App->render->Blit(App->UI->iconoVida,  App->render->GetCameraCenterX() - 100  + (9 * i), App->render->GetCameraCenterY() + 120, NULL, 1.0, false);
 		}
-
+		App->render->Blit(App->UI->limites, App->render->GetCameraCenterX()-450, App->render->GetCameraCenterY()-200, NULL, 1.0, false);
 	}
 
 	// Draw UI (score) --------------------------------------
@@ -1801,23 +1802,19 @@ Update_Status ModulePlayer::PostUpdate()
 	
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
-	App->fonts->BlitText((SCREEN_WIDTH / 2)-70 , (SCREEN_HEIGHT / 2)-130, scoreFont, scoreText);
+	App->fonts->BlitText((SCREEN_WIDTH / 2)+93 , (SCREEN_HEIGHT / 2)-115, scoreFont, scoreText);
 
-	App->fonts->BlitText(SCREEN_WIDTH / 2, (SCREEN_HEIGHT / 2)-150, scoreFont, "HI");
-	App->fonts->BlitText((SCREEN_WIDTH / 2)+30, (SCREEN_HEIGHT / 2)-150, scoreFont, "30000");
-	App->fonts->BlitText(SCREEN_WIDTH / 2-70, SCREEN_HEIGHT / 2-140, scoreFont, "1..UP");
+	App->fonts->BlitText((SCREEN_WIDTH / 2) + 110, (SCREEN_HEIGHT / 2) - 140, scoreFont, "HI");
+	App->fonts->BlitText((SCREEN_WIDTH / 2) + 150, (SCREEN_HEIGHT / 2 - 140), scoreFont, "30000");
+	App->fonts->BlitText((SCREEN_WIDTH / 2) + 70, (SCREEN_HEIGHT / 2) - 125, scoreFont, "1..UP");
 
-	App->fonts->BlitText(62, 70  , scoreFont, grenadeNum);
+	App->fonts->BlitText(220, 87  , scoreFont, grenadeNum);
 
 	if (ammo_raligun > 0)
 	{
-		App->render->Blit(App->UI->iconoRailgun, App->render->GetCameraCenterX() - 100 , App->render->GetCameraCenterY() - 84, NULL, 1.0, true);
-		App->fonts->BlitText(SCREEN_WIDTH / 2 - 118, SCREEN_HEIGHT / 2-80 ,scoreFont, railgunBullets);
+		App->render->Blit(App->UI->iconoRailgun, App->render->GetCameraCenterX() - 100 , App->render->GetCameraCenterY() - 82, NULL, 1.0, true);
+		App->fonts->BlitText((SCREEN_WIDTH / 2)+58 , (SCREEN_HEIGHT / 2)-47 ,scoreFont, railgunBullets);
 	}
-
-	
-
-
 
 	if (App->collisions->debug == true)
 	{

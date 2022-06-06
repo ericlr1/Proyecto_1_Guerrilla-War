@@ -25,7 +25,7 @@ typedef unsigned int uint;
 
 #define SCREEN_SIZE 3
 #define WIN_FULLSCREEN 0
-#define WIN_FULLSCREEN_DESKTOP 0
+#define WIN_FULLSCREEN_DESKTOP 1
 #define WIN_BORDERLESS 0
 #define WIN_RESIZABLE 1
 #define VSYNC 1
@@ -35,7 +35,7 @@ typedef unsigned int uint;
 #define INVINCIBLE_DURATION 175
 
 // Scenes
-#define SCENE_DURATION 330
+#define SCENE_DURATION 300
 
 #define DEGTORAD 0.0174532925199432957f
 #define RADTODEG 57.295779513082320876f

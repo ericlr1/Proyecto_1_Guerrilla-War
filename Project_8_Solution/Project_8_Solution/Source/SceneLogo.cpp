@@ -55,7 +55,7 @@ Update_Status SceneLogo::Update()
 Update_Status SceneLogo::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 50, 0, NULL);
+	App->render->Blit(bgTexture, 150, 0, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
