@@ -243,14 +243,14 @@ bool ModuleParticles::Start()
 	enemyBullet.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBullet.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBullet.speed.y = 5;
-	enemyBullet.lifetime = 40;
+	enemyBullet.lifetime = 20;
 	enemyBullet.anim.speed = 0.3f;
 
 	//Enemy bullet up
 	enemyBulletU.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBulletU.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBulletU.speed.y = -5;
-	enemyBulletU.lifetime = 40;
+	enemyBulletU.lifetime = 20;
 	enemyBulletU.anim.speed = 0.3f;
 	
 	//Enemy bullet up-right
@@ -258,14 +258,14 @@ bool ModuleParticles::Start()
 	enemyBulletUR.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBulletUR.speed.y = -3;
 	enemyBulletUR.speed.x = 3;
-	enemyBulletUR.lifetime = 40;
+	enemyBulletUR.lifetime = 20;
 	enemyBulletUR.anim.speed = 0.3f;
 
 	//Enemy bullet right
 	enemyBulletR.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBulletR.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBulletR.speed.x = 5;
-	enemyBulletR.lifetime = 40;
+	enemyBulletR.lifetime = 20;
 	enemyBulletR.anim.speed = 0.3f;
 	
 	//Enemy bullet	down-right
@@ -273,7 +273,7 @@ bool ModuleParticles::Start()
 	enemyBulletDR.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBulletDR.speed.x = 3;
 	enemyBulletDR.speed.y = 3;
-	enemyBulletDR.lifetime = 40;
+	enemyBulletDR.lifetime = 20;
 	enemyBulletDR.anim.speed = 0.3f;	
 
 	//Enemy bullet	down-left
@@ -281,14 +281,14 @@ bool ModuleParticles::Start()
 	enemyBulletDL.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBulletDL.speed.x = -3;
 	enemyBulletDL.speed.y = 3;
-	enemyBulletDL.lifetime = 40;
+	enemyBulletDL.lifetime = 20;
 	enemyBulletDL.anim.speed = 0.3f;
 
 	//Enemy bullet left
 	enemyBulletL.anim.PushBack({ 198, 66, 7, 14 });
 	enemyBulletL.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBulletL.speed.x = -5;
-	enemyBulletL.lifetime = 40;
+	enemyBulletL.lifetime = 20;
 	enemyBulletL.anim.speed = 0.3f;
 
 	//Enemy bullet up-left
@@ -296,7 +296,7 @@ bool ModuleParticles::Start()
 	enemyBulletUL.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBulletUL.speed.x = -3;
 	enemyBulletUL.speed.y = 3;
-	enemyBulletUL.lifetime = 40;
+	enemyBulletUL.lifetime = 20;
 	enemyBulletUL.anim.speed = 0.3f;
 
 	//Enemy bullet Down-left custom (triple shot)
@@ -304,7 +304,7 @@ bool ModuleParticles::Start()
 	enemyBulletDLcustom.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBulletDLcustom.speed.x = -2;
 	enemyBulletDLcustom.speed.y = 5;
-	enemyBulletDLcustom.lifetime = 40;
+	enemyBulletDLcustom.lifetime = 20;
 	enemyBulletDLcustom.anim.speed = 0.3f;
 
 	//Enemy bullet Down-right custom (triple shot)
@@ -312,7 +312,7 @@ bool ModuleParticles::Start()
 	enemyBulletDRcustom.anim.PushBack({ 215, 66, 7, 14 });
 	enemyBulletDRcustom.speed.x = 2;
 	enemyBulletDRcustom.speed.y = 5;
-	enemyBulletDRcustom.lifetime = 40;
+	enemyBulletDRcustom.lifetime = 20;
 	enemyBulletDRcustom.anim.speed = 0.3f;
 
 	//Grenade animation - player
