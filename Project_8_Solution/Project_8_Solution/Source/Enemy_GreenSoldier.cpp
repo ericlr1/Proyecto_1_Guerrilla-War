@@ -77,15 +77,25 @@ void Enemy_GreenSoldier::Shoot()
 	{
 
 
-		if (angleDegrees >= 70 && angleDegrees <= 110)
+		if (angleDegrees >= 1 && angleDegrees <= 60)
+		{
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->AddParticle(App->particles->enemyBulletDR, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+		}
+		if (angleDegrees >= 61 && angleDegrees <= 130)
 		{
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->AddParticle(App->particles->enemyBullet, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
 		}
-		if (angleDegrees >= 110 && angleDegrees <= 150)
+		if (angleDegrees >= 131 && angleDegrees <=179 )
 		{
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->AddParticle(App->particles->enemyBulletDL, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+		}
+		if (angleDegrees <= 0 && angleDegrees >= -179)
+		{
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->AddParticle(App->particles->enemyBulletU, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
 		}
 	}
 	attackTimer = 0;
