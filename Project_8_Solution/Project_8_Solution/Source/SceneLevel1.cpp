@@ -555,6 +555,7 @@ bool SceneLevel1::CleanUp()
 	App->enemies->Disable();
 	App->destruibles->Disable();
 	App->collisions->Disable();
+	App->audio->Disable();
 
 	return true;
 }
