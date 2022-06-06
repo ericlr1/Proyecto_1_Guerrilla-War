@@ -739,7 +739,7 @@ Update_Status ModulePlayer::Update()
 	{
 	
 		destroyed = true;
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 30);
 	}
 
 	//Auto kill
