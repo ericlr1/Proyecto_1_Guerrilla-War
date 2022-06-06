@@ -36,6 +36,15 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
+	App->player->Enable();
+	App->enemies->Enable();
+	App->destruibles->Enable();
+	App->collisions->Enable();
+	App->audio->Enable();
+	App->fonts->Enable();
+	App->particles->Enable();
+	App->textures->Enable();
+
 	bgTexture = App->textures->Load("Assets/Sprites/background.png");
 	destructibles = App->textures->Load("Assets/Sprites/Destruibles.png");
 	App->audio->PlayMusic("Assets/Fx/106.ogg", 1.0f); // bgm Farm
@@ -319,13 +328,7 @@ bool SceneLevel1::Start()
 	App->player->ammo_raligun = 0;
 
 	// TODO 2: Enable (and properly disable) the player module
-	App->player->Enable();
-	App->enemies->Enable();
-	App->destruibles->Enable();
-	App->collisions->Enable();
-	App->audio->Enable();
-	App->fonts->Enable();
-	App->particles->Enable();
+	
 
 	//Collider de victoria 
 	App->collisions->AddCollider({682, 124, 62, 5}, Collider::Type::WIN);
@@ -607,14 +610,10 @@ bool SceneLevel1::CleanUp()
 	App->enemies->Disable();
 	App->destruibles->Disable();
 	App->collisions->Disable();
-	App->audio->Disable();
 	App->fonts->Disable();
 	App->particles->Disable();
-	App->player->CleanUp();
-	App->textures->Unload(bgTexture);
-	App->textures->Unload(destructibles);
-	bgTexture = nullptr;
-	destructibles = nullptr;
+	App->textures->Disable();
+
 
 
 	return true;

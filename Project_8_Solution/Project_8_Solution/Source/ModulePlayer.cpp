@@ -736,18 +736,7 @@ Update_Status ModulePlayer::Update()
 	//Auto win
 	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
 	{
-<<<<<<< HEAD
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
-		
-=======
-		
-		
-		App->player->Disable();
-		App->enemies->Disable();
-		App->destruibles->Disable();
-		App->collisions->Disable();
-		App->player->CleanUp();
->>>>>>> 8e8a14e5160a16a4edbb627b1b6dbb63fa8dda39
+	
 		destroyed = true;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
 	}

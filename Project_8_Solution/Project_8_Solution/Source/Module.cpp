@@ -56,6 +56,6 @@ void Module::Disable()
 	if (isEnabled)
 	{
 		isEnabled = false;
-		CleanUp();
+ 		CleanUp();
 	}
 }
