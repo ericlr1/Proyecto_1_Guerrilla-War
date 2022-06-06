@@ -2304,3 +2304,15 @@ void ModulePlayer::throwGrenade() {
 	}
 
 }
+
+bool ModulePlayer::CleanUp() {
+	//App->fonts->Disable();
+	App->textures->Unload(texture);
+	App->textures->Unload(weaponTexture);
+	App->audio->UnloadFx(shotFx);
+	App->audio->UnloadFx(playerDeadFx);
+	App->audio->UnloadFx(heavyRifleFx);
+	App->audio->UnloadFx(throwGrenadeFx);
+	App->fonts->UnLoad(scoreFont);
+	return true;
+}

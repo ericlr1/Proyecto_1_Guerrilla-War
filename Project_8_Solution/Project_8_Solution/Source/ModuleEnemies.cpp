@@ -68,11 +68,14 @@ Update_Status ModuleEnemies::PostUpdate()
 bool ModuleEnemies::CleanUp()
 {
 	LOG("Freeing all enemies");
+	App->audio->UnloadFx(enemyDestroyedFx);
 
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if(enemies[i] != nullptr)
 		{
+			App->audio->UnloadFx(enemies[i]->enemyDeadFx);
+			App->audio->UnloadFx(enemies[i]->enemyShotFx);
 			delete enemies[i];
 			enemies[i] = nullptr;
 		}
