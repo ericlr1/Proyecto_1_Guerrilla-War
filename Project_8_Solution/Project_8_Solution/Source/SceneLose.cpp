@@ -40,7 +40,7 @@ bool SceneLose::Start()
 
 	spritesAnimacion = App->textures->Load("Assets/Sprites/animacion_isla.png");
 	winAnimation.PushBack({0, 0, SCREEN_WIDTH, SCREEN_HEIGHT });
-	winAnimation.PushBack({224, 0, SCREEN_WIDTH-1, SCREEN_HEIGHT });
+	//winAnimation.PushBack({224, 0, SCREEN_WIDTH-1, SCREEN_HEIGHT });
 	winAnimation.speed = 0.01f;
 	winAnimation.loop = true;
 	
