@@ -54,6 +54,15 @@ bool ScenePrevTitle::Start() {
 
 Update_Status ScenePrevTitle::Update() {
 	duration++;
+	
+	bool button_press = false;
+	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
+	{
+		if (App->input->controllers[0].buttons[i] == KEY_DOWN)
+		{
+			button_press = true; break;
+		}
+	}
 
 	switch (scenePart) {
 	case 0:
@@ -66,7 +75,7 @@ Update_Status ScenePrevTitle::Update() {
 		break;
 	case 1:
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN ||
-			duration >= SCENE_DURATION) {
+			duration >= SCENE_DURATION || button_press) {
 			App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 		}
 		App->render->camera.y -= 4 * SCREEN_SIZE;
