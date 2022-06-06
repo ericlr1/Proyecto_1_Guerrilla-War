@@ -13,25 +13,55 @@ If you want more information about the game, check the following link: https://g
 **_Unzip the release folder and execute the .exe file_**
 
 ## Game Controls
-     * SPACE ➲ Start Game
+     	SPACE ➲ Start Game
      
 ### Player 1 (Keyboard)
-     * W ➲ Move player up
-     * S ➲ Move player down
-     * A ➲ Move player left
-     * D ➲ Move player right
-     * W + D ➲ ↗
-     * W + A ➲ ↖
-     * S + D ➲ ↘
-     * S + A ➲ ↙
-     * Space ➲ Shoot
-     * K ➲ Kill the player
-     * L ➲ Auto win
-     * F1 ➲ Show colliders
-     
+    	W ➲ Move player up
+	S ➲ Move player down
+	A ➲ Move player left
+	D ➲ Move player right
+	W + D ➲ ↗
+	W + A ➲ ↖
+	S + D ➲ ↘
+	S + A ➲ ↙
+ 	Space ➲ Shoot
+ 	Left Alt. ➲ Throw a grenade
+ 	C ➲ Insert Coins
+ 	Esc ➲ Exit the game
+
+### Cheats    
+	U ➲ Add Raligun Ammo
+	F ➲ Free Cam Mode
+		-Arrow Keys ➲ Move the camera
+	K ➲ Auto win
+	J ➲ Auto kill
+	L ➲ Reset game
+	F5➲ Add one live
+	F6➲ Take out one live
+	F2 ➲ God Mode
+	-T ➲ Display spawning menu
+ 		-F8 ➲ Spawn Tackler Soilder
+ 		-F9 ➲ Spawn Green Soilder
+ 		-F10 ➲ Spawn TripleShot Soilder
+ 		-F11 ➲ Spawn Red Soilder
+ 		-G ➲ Spawn Granader Soilder
+ 		-H ➲ Spawn Hostage
+ 		-B ➲ Spawn Horizontal Baricade
+ 		-N ➲ Spawn Vertical Barricade
+ 		-M ➲ Spawn Spikes Barricade
+
+
 ### Player 1 (Gamepad)
-     * Place holder
+	Left Joystick ➲ Move the player
+	RB ➲ Rotate right
+	LB ➲ Rotate left
+	Button A ➲ Throw a grenade
+	Button B ➲ Shoot
+	Button Y ➲ Insert Coins
+	Button X ➲ God Mode
+	Start Button ➲ Debug Mode
      
+
 ## Changelist
 ### 0.1 Version (27/03/2022)
 * First map
@@ -74,6 +104,20 @@ If you want more information about the game, check the following link: https://g
 * Final retouches
 * **Bug-Fixing**
      * Fix bugs (Spawn, Death )
+###1.0 Version (06/05/2022)
+Gamepad controlls
+* Fullscreen mode
+* Module destruibles
+* Added Triple shoot enemy
+* Added Red enemy
+* Added Grenader enemy
+* Added intro video
+* Implement Enemy death animation
+* Added IA (Radar)
+* Implemented definitive Music and FX
+* Final retouches
+* **Bug-Fixing**
+      * Fix bugs (Respawn, animations player, fullscreen)
     
 
 ## Credits
