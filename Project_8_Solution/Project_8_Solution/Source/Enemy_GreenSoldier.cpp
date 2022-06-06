@@ -51,18 +51,16 @@ Enemy_GreenSoldier::Enemy_GreenSoldier(int x, int y) : Enemy(x, y)
 	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
 	GreenSloiderbackAnim.PushBack({ 133, 446, 32, 64 });
 	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
-	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
 	GreenSloiderbackAnim.PushBack({ 133, 446, 32, 64 });
 	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
 	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
-
 	GreenSloiderbackAnim.loop = true;
 	GreenSloiderbackAnim.speed = 0.15f;
 	GreenSloiderbackAnim.pingpong = false;
 
 	//GreenSloiderbackAnim.PushBack();
 
-
+	attackTimer = 33;
 
 	//collider = App->collisions->AddCollider({100, 0, 30, 55}, Collider::Type::ENEMY, (Module*)App->enemies);
 
