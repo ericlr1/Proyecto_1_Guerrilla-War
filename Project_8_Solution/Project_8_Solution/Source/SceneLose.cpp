@@ -10,6 +10,7 @@
 #include "SceneLevel1.h" 
 #include "ModuleFonts.h"
 #include "ModulePlayer.h"
+#include "ModuleUI.h"
 
 
 SceneLose::SceneLose(bool startEnabled) : Module(startEnabled)
@@ -35,6 +36,7 @@ bool SceneLose::Start()
 
 	bgTexture = App->textures->Load("Assets/Sprites/loseScreen.png");
 	win1 = App->textures->Load("Assets/Sprites/win1.png");
+	App->UI->limites = App->textures->Load("Assets/Sprites/limites.png");
 
 	spritesAnimacion = App->textures->Load("Assets/Sprites/animacion_isla.png");
 	winAnimation.PushBack({0, 0, SCREEN_WIDTH, SCREEN_HEIGHT });
@@ -58,7 +60,7 @@ Update_Status SceneLose::Update()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || button_press)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 50);
 
 
 	}
@@ -74,14 +76,14 @@ Update_Status SceneLose::PostUpdate()
 	// Draw everything --------------------------------------
 	
 	SDL_Rect animacion;
-	animacion.x = 0;
+	animacion.x = 50;
 	animacion.y = 0;
 	animacion.w = SCREEN_WIDTH;
 	animacion.h = SCREEN_HEIGHT;
 
 
 	SDL_Rect fondo;
-	fondo.x = 0;
+	fondo.x = 50;
 	fondo.y = 0;
 	fondo.w = SCREEN_WIDTH;
 	fondo.h = SCREEN_HEIGHT;
@@ -93,6 +95,7 @@ Update_Status SceneLose::PostUpdate()
 	if (App->player->lives > 0)
 	{
 		App->audio->PlayMusic("Assets/Fx/127.ogg");
+		App->render->Blit(App->UI->limites, App->render->GetCameraCenterX() - 450, App->render->GetCameraCenterY() - 200, NULL, 1.0, false);
 		App->render->Blit(win1, 0, 0, &fondo);
 		App->render->Blit(spritesAnimacion, 0, 0, &(winAnimation.GetCurrentFrame())); // Win animation
 	}
@@ -102,6 +105,8 @@ Update_Status SceneLose::PostUpdate()
 		App->render->Blit(bgTexture, 0, 0, &fondo);
 		//App->fonts->BlitText(80, 100, LoseFont, "GAME.OVER");
 	}
+
+	
 	
 	return Update_Status::UPDATE_CONTINUE;
 }
