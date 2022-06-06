@@ -893,10 +893,7 @@ Update_Status ModulePlayer::Update()
 
 				if (continueCooldown == 0)
 				{
-					App->player->Disable();
-					App->enemies->Disable();
-					App->destruibles->Disable();
-					App->collisions->Disable();
+					App->player->CleanUp();
 					App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 0);
 				
 				}
