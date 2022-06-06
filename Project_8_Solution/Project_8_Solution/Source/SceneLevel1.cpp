@@ -275,6 +275,9 @@ bool SceneLevel1::Start()
 	App->collisions->Enable();
 	App->particles->Enable();
 
+	//Collider de victoria 
+	App->collisions->AddCollider({682, 124, 62, 5}, Collider::Type::WIN);
+
 	//Colliders pared izquierda
 	App->collisions->AddCollider({ 0, 3411, 48, 89 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 0, 3386, 80, 25 }, Collider::Type::WALL);
