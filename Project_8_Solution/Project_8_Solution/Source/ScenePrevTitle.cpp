@@ -70,8 +70,8 @@ Update_Status ScenePrevTitle::Update() {
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN ||
 			duration >= SCENE_DURATION / 2) {
 			scenePart = 1;
-			App->render->camera.x = App->render->GetCameraCenterX();
-			App->render->camera.y = 0;
+			/*App->render->camera.x = App->render->GetCameraCenterX();
+			App->render->camera.y = 0;*/
 		}
 		break;
 	case 1:
