@@ -393,6 +393,7 @@ bool ModuleParticles::Start()
 bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
+	App->audio->UnloadFx(grenadeExplosionFx);
 
 	// Delete all remaining active particles on application exit 
 	for(uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)

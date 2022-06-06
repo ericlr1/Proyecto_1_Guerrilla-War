@@ -2207,8 +2207,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WIN)
 	{
-		App->sceneLevel_1->CleanUp();
+		
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
+		App->sceneLevel_1->CleanUp();
 	}
 }
 
@@ -2302,4 +2303,16 @@ void ModulePlayer::throwGrenade() {
 		break;
 	}
 
+}
+
+bool ModulePlayer::CleanUp() {
+	//App->fonts->Disable();
+	App->textures->Unload(texture);
+	App->textures->Unload(weaponTexture);
+	App->audio->UnloadFx(shotFx);
+	App->audio->UnloadFx(playerDeadFx);
+	App->audio->UnloadFx(heavyRifleFx);
+	App->audio->UnloadFx(throwGrenadeFx);
+	App->fonts->UnLoad(scoreFont);
+	return true;
 }
