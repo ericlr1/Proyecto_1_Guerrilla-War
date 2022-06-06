@@ -83,116 +83,116 @@ bool SceneLevel1::Start()
 
 	//GRENADER [X]
 
-	//App->enemies->AddEnemy(Enemy_Type::GRENADER, 170, 2970);
-	//App->enemies->AddEnemy(Enemy_Type::GRENADER, 235, 2970);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 170, 2970);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 235, 2970);
 
-	//App->enemies->AddEnemy(Enemy_Type::GRENADER, 270, 2440);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 270, 2440);
 
-	//App->enemies->AddEnemy(Enemy_Type::GRENADER, 430, 2150);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 430, 2150);
 
-	//App->enemies->AddEnemy(Enemy_Type::GRENADER, 400, 1470);
-	//App->enemies->AddEnemy(Enemy_Type::GRENADER, 450, 1470);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 400, 1470);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 450, 1470);
 
-	//App->enemies->AddEnemy(Enemy_Type::GRENADER, 485, 1110);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 485, 1110);
 
-	//App->enemies->AddEnemy(Enemy_Type::GRENADER, 695, 960);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 695, 960);
 
 	//USSLES [X]
 
 	////Bloc 1
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 240, 2970);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 225, 2970);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 210, 2970);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 240, 2970);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 225, 2970);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 210, 2970);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 240, 3000);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 225, 3000);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 210, 3000);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 240, 3000);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 225, 3000);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 210, 3000);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 240, 3020);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 225, 3020);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 210, 3020);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 240, 3020);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 225, 3020);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 210, 3020);
 
 	////Bloc 2
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 445, 2230);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 460, 2230);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 475, 2230);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 445, 2230);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 460, 2230);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 475, 2230);
 
-	////Bloc 3
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 425, 1290);
+	//Bloc 3
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 425, 1290);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 310, 1400);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 335, 1400);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 310, 1400);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 335, 1400);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 510, 1400);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 535, 1400);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 510, 1400);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER2, 535, 1400);
 
 	////SHOOTER []
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 155, 2875);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 245, 2875);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 155, 2875);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 245, 2875);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 210, 2680);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 240, 2680);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 210, 2680);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 240, 2680);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 210, 2720);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 240, 2720);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 210, 2720);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 240, 2720);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 245, 2590);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 175, 2590);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 245, 2590);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 175, 2590);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 150, 2440);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 150, 2440);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 320, 2425);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 355, 2445);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 395, 2465);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 430, 2490);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 320, 2425);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 355, 2445);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 395, 2465);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 430, 2490);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 300, 2445);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 335, 2465);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 375, 2485);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 410, 2510);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 300, 2445);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 335, 2465);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 375, 2485);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 410, 2510);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 470, 2110);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 410, 2035);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 470, 2110);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 410, 2035);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 382, 1860);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 412, 1860);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 442, 1860);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 472, 1860);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 502, 1860);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 382, 1860);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 412, 1860);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 442, 1860);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 472, 1860);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 502, 1860);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 375, 1540);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 474, 1540);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 425, 1515);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 375, 1540);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 474, 1540);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 425, 1515);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 425, 1200);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 425, 1200);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 410, 1195);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 450, 1195);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 410, 1195);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 450, 1195);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 520, 1110);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 555, 1110);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 590, 1110);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 520, 1110);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 555, 1110);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 590, 1110);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 535, 1200);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 570, 1200);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 535, 1200);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 570, 1200);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 680, 1110);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 715, 1110);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 750, 1110);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 680, 1110);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 715, 1110);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 750, 1110);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 730, 980);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 660, 980);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 630, 1000);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 600, 1020);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 730, 980);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 660, 980);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 630, 1000);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 600, 1020);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 625, 920);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 725, 920);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 625, 920);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 725, 920);
 
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 615, 400);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 650, 400);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 695, 435);
-	//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 740, 400);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 615, 400);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 650, 400);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 695, 435);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 740, 400);
 
 	
 
