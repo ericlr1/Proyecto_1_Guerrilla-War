@@ -163,11 +163,11 @@ bool ModuleAudio::PlayFx(uint index, int repeat)
 {
 	bool ret = false;
 	
-	/*if(soundFx[index] != nullptr)
+	if(soundFx[index] != nullptr)
 	{
 		Mix_PlayChannel(-1, soundFx[index], repeat);
 		ret = true;
-	}*/
+	}
 
 	return ret;
 }
