@@ -29,7 +29,7 @@ bool ScenePrevTitle::Start() {
 	logoAnim.PushBack({ 0, 240, 208, 160 });
 	logoAnim.loop = false;
 
-	logo.x = (App->render->GetCameraCenterX()+50);
+	logo.x = (App->render->GetCameraCenterX()+18);
 	logo.y = 20;
 
 	boatAnim.FullReset();
@@ -40,7 +40,7 @@ bool ScenePrevTitle::Start() {
 	boatAnim.loop = true;
 	boatAnim.speed = 0.1f;
 
-	boat.x = App->render->GetCameraCenterX()+150;
+	boat.x = App->render->GetCameraCenterX()+100;
 	boat.y = (SCREEN_HEIGHT / 2) + 64;
 
 	duration = 0;

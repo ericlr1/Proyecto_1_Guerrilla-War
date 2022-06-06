@@ -106,6 +106,9 @@ bool SceneLevel1::Start()
 
 	App->enemies->AddEnemy(Enemy_Type::GRENADER, 695, 960);
 
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 740, 225);
+	App->enemies->AddEnemy(Enemy_Type::GRENADER, 600, 225);
+
 	//USSLES [X]
 
 	////Bloc 1
@@ -202,6 +205,16 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 650, 400);
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 695, 435);
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 740, 400);
+
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 602, 185);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 640, 185);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 670, 182);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 740, 185);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 770, 185);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 800, 185);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 770, 210);
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 640, 210);
+
 
 	
 
