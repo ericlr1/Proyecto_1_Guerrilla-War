@@ -14,23 +14,59 @@
 Enemy_GreenSoldier::Enemy_GreenSoldier(int x, int y) : Enemy(x, y)
 {
 
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 416, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 416, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.PushBack({ 448, 0, 32, 64 });
-	idleAnim.loop = true;
-	idleAnim.speed = 0.15f;
-	idleAnim.pingpong = false;
+	GreenSloideridleAnim.PushBack({ 448, 0, 32, 64 });
+	GreenSloideridleAnim.PushBack({ 448, 0, 32, 64 });
+	GreenSloideridleAnim.PushBack({ 416, 0, 32, 64 });
+	GreenSloideridleAnim.PushBack({ 448, 0, 32, 64 });
+	GreenSloideridleAnim.PushBack({ 416, 0, 32, 64 });
+	GreenSloideridleAnim.PushBack({ 448, 0, 32, 64 });
+	GreenSloideridleAnim.PushBack({ 448, 0, 32, 64 });
+	GreenSloideridleAnim.loop = true;
+	GreenSloideridleAnim.speed = 0.15f;
+	GreenSloideridleAnim.pingpong = false;
 
+	GreenSloiderrightAnim.PushBack({ 225, 384, 32, 64});
+	GreenSloiderrightAnim.PushBack({ 225, 384, 32, 64});
+	GreenSloiderrightAnim.PushBack({ 225, 448, 32, 64});
+	GreenSloiderrightAnim.PushBack({ 225, 384, 32, 64 });
+	GreenSloiderrightAnim.PushBack({ 225, 448, 32, 64 });
+	GreenSloiderrightAnim.PushBack({ 225, 384, 32, 64 });
+	GreenSloiderrightAnim.PushBack({ 225, 384, 32, 64 });
+	GreenSloiderrightAnim.loop = true;
+	GreenSloiderrightAnim.speed = 0.15f;
+	GreenSloiderrightAnim.pingpong = false;
+	
+	GreenSloiderleftAnim.PushBack({ 285, 384, 32, 64});
+	GreenSloiderleftAnim.PushBack({ 285, 384, 32, 64});
+	GreenSloiderleftAnim.PushBack({ 285, 448, 32, 64});
+	GreenSloiderleftAnim.PushBack({ 285, 384, 32, 64 });
+	GreenSloiderleftAnim.PushBack({ 285, 448, 32, 64 });
+	GreenSloiderleftAnim.PushBack({ 285, 384, 32, 64 });
+	GreenSloiderleftAnim.PushBack({ 285, 384, 32, 64 });
+	GreenSloiderleftAnim.loop = true;
+	GreenSloiderleftAnim.speed = 0.15f;
+	GreenSloiderleftAnim.pingpong = false;
+
+	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
+	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
+	GreenSloiderbackAnim.PushBack({ 133, 446, 32, 64 });
+	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
+	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
+	GreenSloiderbackAnim.PushBack({ 133, 446, 32, 64 });
+	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
+	GreenSloiderbackAnim.PushBack({ 133, 384, 32, 64 });
+
+	GreenSloiderbackAnim.loop = true;
+	GreenSloiderbackAnim.speed = 0.15f;
+	GreenSloiderbackAnim.pingpong = false;
+
+	//GreenSloiderbackAnim.PushBack();
 
 
 
 	//collider = App->collisions->AddCollider({100, 0, 30, 55}, Collider::Type::ENEMY, (Module*)App->enemies);
 
-	path.PushBack({ 0.0f, 0.0f }, 150, &idleAnim);
+	path.PushBack({ 0.0f, 0.0f }, 150);
 
 	collider = App->collisions->AddCollider({100, 0, 30, 60}, Collider::Type::ENEMY, (Module*)App->enemies);
 }
@@ -41,7 +77,7 @@ void Enemy_GreenSoldier::Update()
 	{
 		path.Update();
 		position = spawnPos + path.GetRelativePosition();
-		currentAnim = path.GetCurrentAnimation();
+		
 
 		Shoot();
 	}
@@ -79,21 +115,25 @@ void Enemy_GreenSoldier::Shoot()
 
 		if (angleDegrees >= 1 && angleDegrees <= 60)
 		{
+			currentAnim = &GreenSloiderrightAnim;
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->AddParticle(App->particles->enemyBulletDR, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
 		}
 		if (angleDegrees >= 61 && angleDegrees <= 130)
 		{
+			currentAnim = &GreenSloideridleAnim;
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->AddParticle(App->particles->enemyBullet, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
 		}
 		if (angleDegrees >= 131 && angleDegrees <=179 )
 		{
+			currentAnim = &GreenSloiderleftAnim;
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->AddParticle(App->particles->enemyBulletDL, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
 		}
 		if (angleDegrees <= 0 && angleDegrees >= -179)
 		{
+			currentAnim = &GreenSloiderbackAnim;
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->AddParticle(App->particles->enemyBulletU, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
 		}

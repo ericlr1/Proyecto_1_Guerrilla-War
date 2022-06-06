@@ -14,22 +14,22 @@
 Enemy_RedSoldier::Enemy_RedSoldier(int x, int y) : Enemy(x, y)
 {
 
-	idleAnim.PushBack({ 512, 0, 32, 64 });
-	idleAnim.PushBack({ 512, 0, 32, 64 });
-	idleAnim.PushBack({ 512, 0, 32, 64 });
-	idleAnim.PushBack({ 512, 0, 32, 64 });
-	idleAnim.PushBack({ 512, 0, 32, 64 });
-	idleAnim.PushBack({ 480, 0, 32, 64 });
-	idleAnim.loop = true;
-	idleAnim.speed = 0.15f;
-	idleAnim.pingpong = false;
+	RedSloideridleAnim.PushBack({ 512, 0, 32, 64 });
+	RedSloideridleAnim.PushBack({ 512, 0, 32, 64 });
+	RedSloideridleAnim.PushBack({ 512, 0, 32, 64 });
+	RedSloideridleAnim.PushBack({ 512, 0, 32, 64 });
+	RedSloideridleAnim.PushBack({ 512, 0, 32, 64 });
+	RedSloideridleAnim.PushBack({ 480, 0, 32, 64 });
+	RedSloideridleAnim.loop = true;
+	RedSloideridleAnim.speed = 0.15f;
+	RedSloideridleAnim.pingpong = false;
 
 
 
 
 	//collider = App->collisions->AddCollider({100, 0, 30, 55}, Collider::Type::ENEMY, (Module*)App->enemies);
 
-	path.PushBack({ 0.0f, 0.0f }, 150, &idleAnim);
+	path.PushBack({ 0.0f, 0.0f }, 150);
 
 	collider = App->collisions->AddCollider({ 100, 0, 30, 60 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
@@ -40,7 +40,6 @@ void Enemy_RedSoldier::Update()
 	{
 		path.Update();
 		position = spawnPos + path.GetRelativePosition();
-		currentAnim = path.GetCurrentAnimation();
 
 		Shoot();
 	}
@@ -75,15 +74,29 @@ void Enemy_RedSoldier::Shoot()
 	if (+App->player->position.y - this->position.y < 300)
 	{
 
-		if (angleDegrees >= 70 && angleDegrees <= 110)
+		if (angleDegrees >= 1 && angleDegrees <= 60)
 		{
+			currentAnim = &RedSloiderrightAnim;
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->AddParticle(App->particles->enemyBulletDR, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+		}
+		if (angleDegrees >= 61 && angleDegrees <= 130)
+		{
+			currentAnim = &RedSloideridleAnim;
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->AddParticle(App->particles->enemyBullet, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
 		}
-		if (angleDegrees >= 110 && angleDegrees <= 150)
+		if (angleDegrees >= 131 && angleDegrees <= 179)
 		{
+			currentAnim = &RedSloiderleftAnim;
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->AddParticle(App->particles->enemyBulletDL, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
+		}
+		if (angleDegrees <= 0 && angleDegrees >= -179)
+		{
+			currentAnim = &RedSloiderbackAnim;
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->AddParticle(App->particles->enemyBulletU, position.x + 10, position.y + 35, Collider::Type::ENEMY_SHOT);
 		}
 	}
 	attackTimer = 0;

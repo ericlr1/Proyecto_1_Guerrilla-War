@@ -738,10 +738,10 @@ Update_Status ModulePlayer::Update()
 	{
 		
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
-		App->player->Disable();
+		/*App->player->Disable();
 		App->enemies->Disable();
 		App->destruibles->Disable();
-		App->collisions->Disable();
+		App->collisions->Disable();*/
 		destroyed = true;
 	}
 
@@ -1843,8 +1843,8 @@ Update_Status ModulePlayer::PostUpdate()
 			App->fonts->BlitText(10, 210, scoreFont, "F9.GREEN.SOILDER");	
 			App->fonts->BlitText(10, 220, scoreFont, "H.HOSTAGE");
 			App->fonts->BlitText(10, 230, scoreFont, "G.GRENADER");
-			App->fonts->BlitText(10, 240, scoreFont, "B.HORIZONAL BARICADE");
-			App->fonts->BlitText(10, 250, scoreFont, "N.ROTATED BARICADE");
+			App->fonts->BlitText(10, 240, scoreFont, "B.REGULAR.BARICADE");
+			App->fonts->BlitText(10, 250, scoreFont, "N.ROTATED.BARICADE");
 			App->fonts->BlitText(10, 260, scoreFont, "M.SPIKES");
 		}
 

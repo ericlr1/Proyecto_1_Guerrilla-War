@@ -35,7 +35,10 @@ private:
 	Path path;
 
 	// Enemy animations
-	Animation idleAnim;
+	Animation GreenSloideridleAnim;
+	Animation GreenSloiderleftAnim;
+	Animation GreenSloiderrightAnim;
+	Animation GreenSloiderbackAnim;
 	Animation death;
 };
 

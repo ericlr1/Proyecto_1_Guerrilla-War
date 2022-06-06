@@ -40,7 +40,7 @@ Enemy_Grenades::Enemy_Grenades(int x, int y) : Enemy(x, y)
 
 	//collider = App->collisions->AddCollider({100, 0, 30, 55}, Collider::Type::ENEMY, (Module*)App->enemies);
 
-	path.PushBack({ 0.0f, 0.0f }, 150, &idleAnim);
+	path.PushBack({ 0.0f, 0.0f }, 150);
 
 	collider = App->collisions->AddCollider({ 100, 0, 30, 60 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
@@ -51,7 +51,6 @@ void Enemy_Grenades::Update()
 	{
 		path.Update();
 		position = spawnPos + path.GetRelativePosition();
-		currentAnim = path.GetCurrentAnimation();
 
 		Shoot();
 	}
@@ -85,25 +84,37 @@ void Enemy_Grenades::Shoot()
 
 	if (+App->player->position.y - this->position.y < 300)
 	{
-		if (angleDegrees >= 70 && angleDegrees <= 110)
+		if (angleDegrees >= 1 && angleDegrees <= 60)
 		{
+			currentAnim = &idleAnim;
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->enemygrenade.speed.x = 1;
+			App->particles->enemygrenade.speed.y = 1;
+
+			App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
+		}
+		if (angleDegrees >= 61 && angleDegrees <= 130)
+		{
+			currentAnim = &idleAnim;
+			App->audio->PlayFx(App->player->shotFx);
 			App->particles->enemygrenade.speed.x = 0;
 			App->particles->enemygrenade.speed.y = 1;
-			App->audio->PlayFx(App->player->throwGrenadeFx);
 			App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
 		}
-		if (angleDegrees >= 110 && angleDegrees <= 150)
+		if (angleDegrees >= 131 && angleDegrees <= 179)
 		{
-			App->particles->grenade.speed.x = -1;
-			App->particles->grenade.speed.y = 1;
-			App->audio->PlayFx(App->player->throwGrenadeFx);
+			currentAnim = &idleAnim;
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->enemygrenade.speed.x = -1;
+			App->particles->enemygrenade.speed.y = 1;
 			App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
 		}
-		if (angleDegrees >=0 && angleDegrees <= 70)
+		if (angleDegrees <= 0 && angleDegrees >= -179)
 		{
-			App->particles->grenade.speed.x = 1;
-			App->particles->grenade.speed.y = 1;
-			App->audio->PlayFx(App->player->throwGrenadeFx);
+			currentAnim = &idleAnim;
+			App->audio->PlayFx(App->player->shotFx);
+			App->particles->enemygrenade.speed.x = 0;
+			App->particles->enemygrenade.speed.y = -1;
 			App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
 		}
 	}
