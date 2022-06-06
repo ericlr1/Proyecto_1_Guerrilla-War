@@ -1843,8 +1843,8 @@ Update_Status ModulePlayer::PostUpdate()
 			App->fonts->BlitText(10, 210, scoreFont, "F9.GREEN.SOILDER");	
 			App->fonts->BlitText(10, 220, scoreFont, "H.HOSTAGE");
 			App->fonts->BlitText(10, 230, scoreFont, "G.GRENADER");
-			App->fonts->BlitText(10, 240, scoreFont, "B.HORIZONAL BARICADE");
-			App->fonts->BlitText(10, 250, scoreFont, "N.ROTATED BARICADE");
+			App->fonts->BlitText(10, 240, scoreFont, "B.REGULAR.BARICADE");
+			App->fonts->BlitText(10, 250, scoreFont, "N.ROTATED.BARICADE");
 			App->fonts->BlitText(10, 260, scoreFont, "M.SPIKES");
 		}
 
