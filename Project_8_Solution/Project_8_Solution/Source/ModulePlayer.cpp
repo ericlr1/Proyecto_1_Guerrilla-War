@@ -311,19 +311,19 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	widleleftdown.speed = 0.2f;
 	widleleftdown.pingpong = false;
 	//Fire
-	wfireleftdown.PushBack({ 338, 120, 42, 45 });
+	wfireleftdown.PushBack({ 338, 132 , 41, 44 });
 	wfireleftdown.loop = false;
 	wfireleftdown.speed = 0.2f;
 	wfireleftdown.pingpong = false;
 	
 	// -LEFT-	[x]
 	//Idle
-	widleleft.PushBack({ 406, 12, 33, 35 });
+	widleleft.PushBack({ 403, 12, 36, 34 });
 	widleleft.loop = false;
 	widleleft.speed = 0.2f;
 	widleleft.pingpong = false;
 	//Fire
-	wfireleft.PushBack({ 192, 32, 32, 32 });
+	wfireleft.PushBack({ 398, 135, 54, 32 });
 	wfireleft.loop = false;
 	wfireleft.speed = 0.2f;
 	wfireleft.pingpong = false;
@@ -688,7 +688,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 	//Coins
-	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_Y] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
 	{
 		if (coins == 3)
 		{
