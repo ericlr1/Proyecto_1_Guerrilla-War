@@ -43,6 +43,7 @@ Enemy_Grenades::Enemy_Grenades(int x, int y) : Enemy(x, y)
 	path.PushBack({ 0.0f, 0.0f }, 150);
 
 	collider = App->collisions->AddCollider({ 100, 0, 30, 60 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	currentAnim = &idleAnim;
 }
 
 void Enemy_Grenades::Update()

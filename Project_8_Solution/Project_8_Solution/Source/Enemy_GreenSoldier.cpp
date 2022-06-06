@@ -67,6 +67,7 @@ Enemy_GreenSoldier::Enemy_GreenSoldier(int x, int y) : Enemy(x, y)
 	path.PushBack({ 0.0f, 0.0f }, 150);
 
 	collider = App->collisions->AddCollider({100, 0, 30, 60}, Collider::Type::ENEMY, (Module*)App->enemies);
+	currentAnim = &GreenSloideridleAnim;
 }
 
 void Enemy_GreenSoldier::Update()

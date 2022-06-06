@@ -611,7 +611,7 @@ bool SceneLevel1::CleanUp()
 	App->audio->Disable();
 	App->fonts->Disable();
 	App->particles->Disable();
-
+	App->player->CleanUp();
 	App->textures->Unload(bgTexture);
 	App->textures->Unload(destructibles);
 	bgTexture = nullptr;
