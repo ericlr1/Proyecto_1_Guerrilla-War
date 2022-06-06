@@ -64,6 +64,7 @@ Enemy_RedSoldier::Enemy_RedSoldier(int x, int y) : Enemy(x, y)
 	path.PushBack({ 0.0f, 0.0f }, 150);
 
 	collider = App->collisions->AddCollider({ 100, 0, 30, 60 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	currentAnim = &RedSloideridleAnim;
 }
 
 void Enemy_RedSoldier::Update()
@@ -72,7 +73,7 @@ void Enemy_RedSoldier::Update()
 	{
 		path.Update();
 		position = spawnPos + path.GetRelativePosition();
-
+		
 		Shoot();
 	}
 	Enemy::Update();
