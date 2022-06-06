@@ -648,10 +648,10 @@ Update_Status ModulePlayer::Update()
 {
 	float fx = 0, fy = 0;
 
-	//fx += reduce_val(App->input->controllers[0].j1_x, 10000, 2);
-	//fy += reduce_val(App->input->controllers[0].j1_y, 10000, 2);
-	//fx += reduce_val(App->input->controllers[0].j2_x, 10000, 2);
-	//fy += reduce_val(App->input->controllers[0].j2_y, 10000, 2);
+	fx += reduce_val(SDL_IsGameController(0), App->input->controllers[0].j1_x, 10000, 2);
+	fy += reduce_val(SDL_IsGameController(0), App->input->controllers[0].j1_y, 10000, 2);
+	fx += reduce_val(SDL_IsGameController(0), App->input->controllers[0].j2_x, 10000, 2);
+	fy += reduce_val(SDL_IsGameController(0), App->input->controllers[0].j2_y, 10000, 2);
 
 	// GAMEPAD: Triggers Count as axis, have specific values
 	if (App->input->controllers[0].LT > SDL_MAX_SINT16 / 2) {
