@@ -736,12 +736,8 @@ Update_Status ModulePlayer::Update()
 	//Auto win
 	if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_DOWN)
 	{
-		
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
-		App->player->Disable();
-		App->enemies->Disable();
-		App->destruibles->Disable();
-		App->collisions->Disable();
+		
 		destroyed = true;
 	}
 
@@ -751,10 +747,6 @@ Update_Status ModulePlayer::Update()
 
 		lives = 0;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
-		App->player->Disable();
-		App->enemies->Disable();
-		App->destruibles->Disable();
-		App->collisions->Disable();
 		destroyed = true;
 	}
 
@@ -763,10 +755,6 @@ Update_Status ModulePlayer::Update()
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 100);
 		destroyed = true;
-		App->player->Disable();
-		App->enemies->Disable();
-		App->destruibles->Disable();
-		App->collisions->Disable();
 	}
 
 	//Granada
@@ -2222,10 +2210,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
-		App->player->Disable();
-		App->enemies->Disable();
-		App->destruibles->Disable();
-		App->collisions->Disable();
 		destroyed = true;
 	}
 }

@@ -35,10 +35,15 @@ void Destruible_Barricada_Vertical::Draw()
 
 void Destruible_Barricada_Vertical::OnCollision(Collider* collider)
 {
-	if (collider->type != Collider::Type::EXPLOSION)
+	if (collider->type == Collider::Type::EXPLOSION)
+	{
+		
+	}
+	else
 	{
 		return;
 	}
+	
 
 	if (collider == last_collider)
 	{
@@ -46,11 +51,12 @@ void Destruible_Barricada_Vertical::OnCollision(Collider* collider)
 	}
 
 	//Aplicar canvio de spritesheet + contador para destruido
-	if (collider->type == Collider::Type::EXPLOSION && texture != tocado)
+	if (collider->type == Collider::Type::EXPLOSION && texture != tocado  )
 	{
 		texture = tocado;
 
 	}
+	
 	else if (collider->type == Collider::Type::EXPLOSION && texture == tocado)
 	{
 		Destroy();

@@ -7,7 +7,7 @@
 
 ModuleFadeToBlack::ModuleFadeToBlack(bool startEnabled) : Module(startEnabled)
 {
-	screenRect = {0, 0, SCREEN_WIDTH * SCREEN_SIZE, SCREEN_HEIGHT * SCREEN_SIZE};
+	screenRect = {0,0, 2000, 2000};
 }
 
 ModuleFadeToBlack::~ModuleFadeToBlack()

@@ -114,11 +114,10 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WATER] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::TRENCH] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::HOSTAGE] = true;
-	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::DESTRUIBLE] = true;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RALIGUN_SHOOT] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::EXPLOSION] = false;
-	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::DESTRUIBLE] = true;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::DESTRUIBLE] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RESET_ANIM_TRENCH] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::RESET_ANIM_WATER] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WIN] = false;

@@ -315,8 +315,7 @@ bool SceneLevel1::Start()
 	App->destruibles->AddDestruible(Destruible_Type::WALL, 680, 1371);
 
 	//Setting de la camera
-	App->render->camera.x = 300;
-	App->render->camera.y = 3200;
+	
 	App->player->ammo_raligun = 0;
 
 	// TODO 2: Enable (and properly disable) the player module

@@ -46,6 +46,7 @@ void Module::Enable()
 	{
 		isEnabled = true;
 		Start();
+
 	}
 }
 

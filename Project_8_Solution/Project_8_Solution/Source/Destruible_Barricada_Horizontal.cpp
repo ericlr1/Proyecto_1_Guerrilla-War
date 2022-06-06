@@ -35,10 +35,15 @@ void Destruible_Barricada_Horizontal::Draw()
 
 void Destruible_Barricada_Horizontal::OnCollision(Collider* collider)
 {
-	if (collider->type != Collider::Type::EXPLOSION)
+	if (collider->type == Collider::Type::EXPLOSION)
+	{
+
+	}
+	else
 	{
 		return;
 	}
+
 
 	if (collider == last_collider)
 	{ 
