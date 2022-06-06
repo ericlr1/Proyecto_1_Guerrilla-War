@@ -100,26 +100,13 @@ void Enemy_Grenades::Shoot()
 			App->particles->enemygrenade.speed.x = 0;
 			App->particles->enemygrenade.speed.y = 1;
 			App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
-		}
-
-		if (angleDegrees >= 61 && angleDegrees <= 130)
-
+		}		
+		if (angleDegrees >=131 && angleDegrees <= 179)
 		{
 			currentAnim = &idleAnim;
 			App->audio->PlayFx(App->player->shotFx);
 			App->particles->enemygrenade.speed.x = -1;
 			App->particles->enemygrenade.speed.y = 1;
-			App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
-		}
-
-		
-
-		if (angleDegrees >=131 && angleDegrees <= 179)
-		{
-			currentAnim = &idleAnim;
-			App->audio->PlayFx(App->player->shotFx);
-			App->particles->enemygrenade.speed.x = 0;
-			App->particles->enemygrenade.speed.y = -1;
 			App->particles->AddParticle(App->particles->enemygrenade, position.x + 10, position.y + 35, Collider::Type::NONE);
 		}
 	}
