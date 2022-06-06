@@ -893,10 +893,7 @@ Update_Status ModulePlayer::Update()
 
 				if (continueCooldown == 0)
 				{
-					App->player->Disable();
-					App->enemies->Disable();
-					App->destruibles->Disable();
-					App->collisions->Disable();
+					App->player->CleanUp();
 					App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 0);
 				
 				}
@@ -2210,7 +2207,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 	if (c1->type == Collider::Type::BODY && c2->type == Collider::Type::WIN)
 	{
-		App->player->CleanUp();
+		App->sceneLevel_1->CleanUp();
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
 	}
 }
