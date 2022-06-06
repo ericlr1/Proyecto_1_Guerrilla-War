@@ -281,6 +281,29 @@ bool SceneLevel1::Start()
 	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 750, 862);
 	App->destruibles->AddDestruible(Destruible_Type::ESPINAS, 778, 862);
 
+	//Wall
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 212, 1694);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 264, 1694);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 316, 1694);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 368, 1694);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 420, 1694);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 472, 1694);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 524, 1694);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 576, 1694);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 628, 1694);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 680, 1694);
+	
+	
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 212, 1371);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 264, 1371);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 316, 1371);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 368, 1371);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 420, 1371);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 472, 1371);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 524, 1371);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 576, 1371);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 628, 1371);
+	App->destruibles->AddDestruible(Destruible_Type::WALL, 680, 1371);
 
 
 	//Destruibles Espinas

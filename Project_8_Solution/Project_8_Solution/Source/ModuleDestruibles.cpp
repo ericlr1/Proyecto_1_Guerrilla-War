@@ -11,6 +11,7 @@
 #include "Destruible_Barricada_Vertical.h"
 #include "Destruible_Barricada_Horizontal.h"
 #include "Espinas.h"
+#include "Destruible_Wall.h"
 
 #define SPAWN_MARGIN 50
 
@@ -148,6 +149,9 @@ void ModuleDestruibles::SpawnDestruible(const DestruibleSpawnpoint& info)
 					break;
 				case Destruible_Type::ESPINAS:
 					destruibles[i] = new Destruible_Espinas(info.x, info.y);
+					break;
+				case Destruible_Type::WALL:
+					destruibles[i] = new Destruible_Wall(info.x, info.y);
 					break;
 			}
 			break;

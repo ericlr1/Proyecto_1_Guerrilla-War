@@ -37,8 +37,8 @@ Application::Application()
 
 	modules[5] =	sceneIntro =	new SceneIntro(false);
 	modules[6] =	sceneLevel_1 =	new SceneLevel1(false);
-	modules[8] =	collisions =	new ModuleCollisions(true);//Gameplay scene starts disabled
-	modules[7] =	destruibles =	new ModuleDestruibles(true);
+	modules[7] =	collisions =	new ModuleCollisions(true);//Gameplay scene starts disabled
+	modules[8] =	destruibles =	new ModuleDestruibles(true);
 	modules[9] =	sceneLose =		new SceneLose(false);
 	modules[10] =	sceneLogo =		new SceneLogo(true);
 	modules[11] =	scenePrevTitle =new ScenePrevTitle(false);

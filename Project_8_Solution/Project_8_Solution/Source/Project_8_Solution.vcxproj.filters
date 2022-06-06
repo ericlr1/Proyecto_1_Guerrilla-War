@@ -143,6 +143,10 @@
     <ClInclude Include="Espinas.h">
       <Filter>Source Files\Entities\Destruibles</Filter>
     </ClInclude>
+    <ClInclude Include="ScenePrevTitle.h" />
+    <ClInclude Include="Destruible_Wall.h">
+      <Filter>Source Files\Entities\Destruibles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -251,6 +255,12 @@
       <Filter>Source Files\Entities\Destruibles</Filter>
     </ClCompile>
     <ClCompile Include="Destruible_Espinas.cpp">
+      <Filter>Source Files\Entities\Destruibles</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenePrevTitle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Destruible_Wall.cpp">
       <Filter>Source Files\Entities\Destruibles</Filter>
     </ClCompile>
   </ItemGroup>

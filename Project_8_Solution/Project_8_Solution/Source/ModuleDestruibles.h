@@ -10,6 +10,7 @@ enum class Destruible_Type
 	BARRICADA_H,
 	BARRICADA_V,
 	ESPINAS,
+	WALL,
 };
 
 struct DestruibleSpawnpoint
