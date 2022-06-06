@@ -738,10 +738,10 @@ Update_Status ModulePlayer::Update()
 	{
 		
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
-		/*App->player->Disable();
+		App->player->Disable();
 		App->enemies->Disable();
 		App->destruibles->Disable();
-		App->collisions->Disable();*/
+		App->collisions->Disable();
 		destroyed = true;
 	}
 
@@ -1800,13 +1800,13 @@ Update_Status ModulePlayer::PostUpdate()
 	
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
-	App->fonts->BlitText(SCREEN_WIDTH / 2 , SCREEN_HEIGHT / 2, scoreFont, scoreText);
+	App->fonts->BlitText((SCREEN_WIDTH / 2)-70 , (SCREEN_HEIGHT / 2)-130, scoreFont, scoreText);
 
-	App->fonts->BlitText(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2-150, scoreFont, "HI");
-	App->fonts->BlitText(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, scoreFont, "30000");
-	App->fonts->BlitText(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, scoreFont, "1..UP");
+	App->fonts->BlitText(SCREEN_WIDTH / 2, (SCREEN_HEIGHT / 2)-150, scoreFont, "HI");
+	App->fonts->BlitText((SCREEN_WIDTH / 2)+30, (SCREEN_HEIGHT / 2)-150, scoreFont, "30000");
+	App->fonts->BlitText(SCREEN_WIDTH / 2-70, SCREEN_HEIGHT / 2-140, scoreFont, "1..UP");
 
-	App->fonts->BlitText(13, 70, scoreFont, grenadeNum);
+	App->fonts->BlitText(62, 70  , scoreFont, grenadeNum);
 
 	if (ammo_raligun > 0)
 	{
@@ -1843,8 +1843,8 @@ Update_Status ModulePlayer::PostUpdate()
 			App->fonts->BlitText(10, 210, scoreFont, "F9.GREEN.SOILDER");	
 			App->fonts->BlitText(10, 220, scoreFont, "H.HOSTAGE");
 			App->fonts->BlitText(10, 230, scoreFont, "G.GRENADER");
-			App->fonts->BlitText(10, 240, scoreFont, "B.REGULAR.BARICADE");
-			App->fonts->BlitText(10, 250, scoreFont, "N.ROTATED.BARICADE");
+			App->fonts->BlitText(10, 240, scoreFont, "B.HORIZONAL BARICADE");
+			App->fonts->BlitText(10, 250, scoreFont, "N.ROTATED BARICADE");
 			App->fonts->BlitText(10, 260, scoreFont, "M.SPIKES");
 		}
 
